@@ -17,24 +17,15 @@ export default defineConfig({
 				items: [
 					{
 						text: "linear-algebra",
-						items: [
-							{ text: "Introduction", link: "/luna-generic/index" },
-							{ text: "Section B Item B", link: "..." },
-						],
+						link: "/linear-algebra/index",
 					},
 					{
 						text: "luna-generic",
-						items: [
-							{ text: "Section A Item A", link: "..." },
-							{ text: "Section B Item B", link: "..." },
-						],
+						link: "/luna-generic/index",
 					},
 					{
 						text: "luna-poly",
-						items: [
-							{ text: "Section A Item A", link: "..." },
-							{ text: "Section B Item B", link: "..." },
-						],
+						link: "/luna-poly/index",
 					},
 				],
 			},
@@ -42,10 +33,29 @@ export default defineConfig({
 
 		sidebar: [
 			{
-				text: "Examples",
+				text: "Documentation",
 				items: [
-					{ text: "calculus-numerical", link: "/api/calculus-numerical" },
-					{ text: "Runtime API Examples", link: "/api-examples" },
+					{
+						text: "linear-algebra",
+						items: [
+							{ text: "Introduction", link: "/linear-algebra/index" },
+							{ text: "API reference", link: "/linear-algebra/api" },
+						],
+					},
+					{
+						text: "luna-generic",
+						items: [
+							{ text: "Introduction", link: "/luna-generic/index" },
+							{ text: "API reference", link: "/luna-generic/api" },
+						],
+					},
+					{
+						text: "luna-poly",
+						items: [
+							{ text: "Introduction", link: "/luna-poly/index" },
+							{ text: "API reference", link: "/luna-poly/api" },
+						],
+					},
 				],
 			},
 		],

@@ -5,6 +5,6 @@ prev: false
 
 next:
   text: 'API reference'
-  link: '/luna-generic/api'
+  link: '/packname/api'
 ---
-# Luna-Flow/luna-generic
+# Luna-Flow/packname

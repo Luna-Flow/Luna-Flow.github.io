@@ -5,6 +5,6 @@ prev: false
 
 next:
   text: 'API reference'
-  link: '/luna-generic/api'
+  link: '/linear-algebra/api'
 ---
-# Luna-Flow/luna-generic
+# Luna-Flow/linear-algebra
