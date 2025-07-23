@@ -6,6 +6,9 @@ hero:
   name: "Luna Flow"
   text: "A MoonBit\nScientific Computing Ecosystem."
   tagline: Collection of tools and libraries for scientific computing and data analysis.
+  image:
+    src: logo.svg
+    alt: Luna Flow
   actions:
     - theme: brand
       text: Markdown Examples
@@ -13,7 +16,9 @@ hero:
     - theme: alt
       text: API Examples
       link: /api-examples
-
+    - theme: alt
+      text: GitHub
+      link: https://github.com/Luna-Flow
 features:
   - title: luna-generic
     details: General abstractions and structures for Luna Flow.
