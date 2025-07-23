@@ -7,7 +7,7 @@ hero:
   text: "A MoonBit\nScientific Computing Ecosystem."
   tagline: Collection of tools and libraries for scientific computing and data analysis.
   image:
-    src: logo.svg
+    src: /logo.svg
     alt: Luna Flow
   actions:
     - theme: brand

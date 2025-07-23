@@ -2,9 +2,11 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-	srcDir: "./.vitepress/public",
-
+	srcDir: "./pages",
 	title: "Luna Flow",
+	vite: {
+		publicDir: "../.vitepress/public",
+	},
 	description: "A MoonBitScientific Computing Ecosystem.",
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
