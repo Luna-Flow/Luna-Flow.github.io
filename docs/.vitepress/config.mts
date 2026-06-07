@@ -33,27 +33,34 @@ export default defineConfig({
     root: {
       label: 'English',
       lang: 'en-US',
+      link: '/',
       themeConfig: {
         nav: [{ text: 'Home', link: '/' }],
-        sidebar: siteData.sidebars.root,
+        sidebar: {
+          '/': siteData.sidebars.root,
+        },
       },
     },
-    '/zh_CN/': {
+    zh_CN: {
       label: '简体中文',
       lang: 'zh-CN',
       link: '/zh_CN/',
       themeConfig: {
         nav: [{ text: '首页', link: '/zh_CN/' }],
-        sidebar: siteData.sidebars.zh_CN,
+        sidebar: {
+          '/': siteData.sidebars.zh_CN,
+        },
       },
     },
-    '/ja_JP/': {
+    ja_JP: {
       label: '日本語',
       lang: 'ja-JP',
       link: '/ja_JP/',
       themeConfig: {
         nav: [{ text: 'ホーム', link: '/ja_JP/' }],
-        sidebar: siteData.sidebars.ja_JP,
+        sidebar: {
+          '/': siteData.sidebars.ja_JP,
+        },
       },
     },
   },

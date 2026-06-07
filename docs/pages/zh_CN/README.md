@@ -1,20 +1,78 @@
-# Luna Flow 文档
+---
+layout: home
 
-这里聚合了 Luna-Flow 各仓库的标准化文档。
+hero:
+  name: "Luna Flow"
+  text: "MoonBit 可组合数学计算生态"
+  tagline: "围绕代数抽象、数值可靠性和生态互操作性构建现代科学计算基础。"
+  image:
+    src: "/logo.svg"
+    alt: "Luna Flow Logo"
+  actions:
+    - theme: brand
+      text: "浏览文档"
+      link: "/zh_CN/docs/"
+    - theme: alt
+      text: "GitHub"
+      link: "https://github.com/Luna-Flow"
 
-- [Luna-Flow/arithmetic](/zh_CN/arithmetic/index)
-- [Luna-Flow/calculus-numerical](/zh_CN/calculus-numerical/index)
-- [Luna-Flow/calculus-symbolic](/zh_CN/calculus-symbolic/index)
-- [Luna-Flow/computable-real](/zh_CN/computable-real/index)
-- [Luna-Flow/floating](/zh_CN/floating/index)
-- [Luna-Flow/linear-algebra](/zh_CN/linear-algebra/index)
-- [Luna-Flow/linear-program](/zh_CN/linear-program/index)
-- [Luna-Flow/luna-complex](/zh_CN/luna-complex/index)
-- [Luna-Flow/luna-generic](/zh_CN/luna-generic/index)
-- [Luna-Flow/luna-poly](/zh_CN/luna-poly/index)
-- [Luna-Flow/luna-utils](/zh_CN/luna-utils/index)
-- [Luna-Flow/luna_thread](/zh_CN/luna_thread/index)
-- [Luna-Flow/mooncake_impact_factor](/zh_CN/mooncake_impact_factor/index)
-- [Luna-Flow/quaternion](/zh_CN/quaternion/index)
-- [Luna-Flow/QED](/zh_CN/QED/index)
-- [Luna-Flow/stella](/zh_CN/stella/index)
+features:
+  - title: "共享抽象"
+    details: "围绕可复用的代数与算术 traits 构建，而不是堆叠彼此割裂的数值 API。"
+  - title: "可组合生态"
+    details: "把 16 个 Luna-Flow 仓库接入同一个可互操作的数学计算生态。"
+  - title: "多重语义"
+    details: "同时支持浮点、任意精度、多项式、矩阵以及未来的符号世界，而不抹平它们的差异。"
+---
+
+## 愿景
+
+LunaFlow 希望把 MoonBit 推向一个能够承载严肃数学软件的语言平台：从轻量数值工具，到严格科学计算、符号处理，以及未来更偏证明导向的系统。
+我们认为，一个数学生态不应该只是互不相干 API 的堆叠，而应该围绕精确抽象来组织：
+
+* 诸如幺半群、环、域、整环等代数结构；
+* 诸如平方根、指数、对数、三角函数等算术能力；
+* 诸如复数、向量、矩阵、多项式等泛型构造；
+* 多种数值语义，包括机器浮点、任意精度、十进制算术和误差感知计算。
+
+有了这样的结构，同一个算法就可以在不同数学世界中复用。
+
+## 使命
+
+LunaFlow 的使命，是为 MoonBit 提供一层基础性的数学互操作基础设施。
+
+1. 构建可复用的代数与算术 traits。
+2. 提供泛型数学数据结构。
+3. 支持多种数值后端。
+4. 允许外部 MoonBit 数学库通过轻量适配器接入生态。
+5. 让更高级的数学计算变得更可靠、更模块化、更易使用。
+
+LunaFlow 不是一个封闭框架。现有库不应该为了加入生态而被迫完全重写。只要一个库能够暴露所需的数学能力，LunaFlow 就应该能把它接入更高层抽象，例如复数、线性代数以及未来的符号计算。
+
+## 设计哲学
+
+**先抽象，后实现。** 数学软件应从清晰的结构与定律出发。实现细节当然重要，但不应泄漏到生态的每一层。
+
+**小 trait，强组合。** LunaFlow 不定义一个臃肿的大一统数值接口，而是把代数结构与分析能力拆开。这让抽象更灵活，也避免把所有类型硬塞进不合适的模型。
+
+**语义必须显式。** 浮点数、任意精度值、十进制值和区间式值都可能支持算术，但它们的数学含义并不相同。LunaFlow 的目标是保留这些差异，而不是用一个模糊接口把它们抹平。
+
+**互操作优先于孤岛。** MoonBit 的数学生态应该允许独立库协同工作。LunaFlow 提供的就是那套公共语言，让不同包能够进入同一个计算世界。
+
+**一个算法，多种数学世界。** 一个设计良好的泛型算法，应该能够跨不同数值表示复用。LunaFlow 通过 trait 抽象和分层包设计，使这件事真正可行。
+
+## 长期目标
+
+LunaFlow 的长期目标，是成为 MoonBit 高级数学计算的基础设施。
+
+* 泛型代数计算；
+* 面向多种标量类型的线性代数；
+* 任意精度与误差感知数值计算；
+* 基于泛型底层域的复数计算；
+* 多项式与符号计算；
+* 可计算实数与更严格的数值模型；
+* 建立在统一数学核心之上的科学计算应用。
+
+LunaFlow 仍在演进，但方向已经很清晰：把 MoonBit 的抽象能力真正转化为一个数学计算生态。
+
+我们要构建的不只是一些数学包，而是一套面向未来科学计算的可组合基础。

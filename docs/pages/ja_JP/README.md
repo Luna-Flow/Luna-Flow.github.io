@@ -1,20 +1,78 @@
-# Luna Flow ドキュメント
+---
+layout: home
 
-このサイトは Luna-Flow 各リポジトリの標準化ドキュメントを集約します。
+hero:
+  name: "Luna Flow"
+  text: "MoonBit 向け可組合せ数学エコシステム"
+  tagline: "代数抽象、数値的信頼性、そしてエコシステム相互運用性を中核にした現代的な科学計算基盤です。"
+  image:
+    src: "/logo.svg"
+    alt: "Luna Flow Logo"
+  actions:
+    - theme: brand
+      text: "ドキュメントを見る"
+      link: "/ja_JP/docs/"
+    - theme: alt
+      text: "GitHub"
+      link: "https://github.com/Luna-Flow"
 
-- [Luna-Flow/arithmetic](/ja_JP/arithmetic/index)
-- [Luna-Flow/calculus-numerical](/ja_JP/calculus-numerical/index)
-- [Luna-Flow/calculus-symbolic](/ja_JP/calculus-symbolic/index)
-- [Luna-Flow/computable-real](/ja_JP/computable-real/index)
-- [Luna-Flow/floating](/ja_JP/floating/index)
-- [Luna-Flow/linear-algebra](/ja_JP/linear-algebra/index)
-- [Luna-Flow/linear-program](/ja_JP/linear-program/index)
-- [Luna-Flow/luna-complex](/ja_JP/luna-complex/index)
-- [Luna-Flow/luna-generic](/ja_JP/luna-generic/index)
-- [Luna-Flow/luna-poly](/ja_JP/luna-poly/index)
-- [Luna-Flow/luna-utils](/ja_JP/luna-utils/index)
-- [Luna-Flow/luna_thread](/ja_JP/luna_thread/index)
-- [Luna-Flow/mooncake_impact_factor](/ja_JP/mooncake_impact_factor/index)
-- [Luna-Flow/quaternion](/ja_JP/quaternion/index)
-- [Luna-Flow/QED](/ja_JP/QED/index)
-- [Luna-Flow/stella](/ja_JP/stella/index)
+features:
+  - title: "共有抽象"
+    details: "孤立した数値 API ではなく、再利用可能な代数・算術 traits を中心に構築します。"
+  - title: "可組合せエコシステム"
+    details: "16 個の Luna-Flow リポジトリを 1 つの相互運用可能な数学エコシステムへ接続します。"
+  - title: "複数の意味論"
+    details: "浮動小数点、任意精度、多項式、行列、そして将来の記号的世界を、その差異を消さずに支えます。"
+---
+
+## ビジョン
+
+LunaFlow は、MoonBit を本格的な数学ソフトウェアを支えられる言語へ育てることを目指しています。軽量な数値ユーティリティから、厳密な科学計算、記号操作、そして将来的な証明志向システムまでを視野に入れています。
+私たちは、数学エコシステムは無関係な API の寄せ集めであってはならず、正確な抽象を中心に構成されるべきだと考えています。
+
+* モノイド、環、体、整域などの代数構造；
+* 平方根、指数、対数、三角関数などの算術能力；
+* 複素数、ベクトル、行列、多項式などの汎用構成；
+* 機械浮動小数点、任意精度、十進演算、誤差認識計算を含む複数の数値意味論。
+
+このアーキテクチャがあれば、1 つのアルゴリズムを異なる数学的世界で再利用できます。
+
+## ミッション
+
+LunaFlow の使命は、MoonBit のための基礎的な数学相互運用レイヤーを提供することです。
+
+1. 再利用可能な代数・算術 traits を構築すること。
+2. 汎用的な数学データ構造を提供すること。
+3. 複数の数値バックエンドを支えること。
+4. 外部の MoonBit 数学ライブラリが軽量アダプタでエコシステムに参加できるようにすること。
+5. 高度な数学計算を、より信頼でき、モジュール化され、扱いやすいものにすること。
+
+LunaFlow は閉じたフレームワークとして設計されていません。既存ライブラリは、参加するためにゼロから書き直す必要はありません。必要な数学能力を公開できるなら、LunaFlow はそれを複素数、線形代数、将来の記号計算といった高レベル抽象へ統合できるべきです。
+
+## 設計哲学
+
+**実装より先に抽象。** 数学ソフトウェアは、明確な構造と法則から始まるべきです。実装詳細は重要ですが、エコシステムの全層に漏れ出すべきではありません。
+
+**小さな trait と強い合成。** LunaFlow は巨大な数値インターフェースを定義する代わりに、代数構造と解析能力を分離します。これにより抽象が柔軟になり、あらゆる型を不適切なモデルへ押し込むことを避けられます。
+
+**意味論は明示的でなければならない。** 浮動小数点、任意精度値、十進値、区間的な値は、すべて算術を持ち得ますが意味は同じではありません。LunaFlow は、その差を曖昧な単一インターフェースで隠すのではなく、保ったまま扱います。
+
+**孤立より相互運用。** MoonBit の数学エコシステムは、独立したライブラリ同士が協調できるべきです。LunaFlow は、そのための共通言語を提供します。
+
+**1 つのアルゴリズム、多くの数学的世界。** よく設計された汎用アルゴリズムは、異なる数値表現をまたいで再利用できるべきです。LunaFlow は trait ベースの抽象と慎重な層構造によってそれを可能にします。
+
+## 長期目標
+
+LunaFlow の長期目標は、MoonBit における高度な数学計算の基盤になることです。
+
+* 汎用代数計算；
+* 複数のスカラー型にまたがる線形代数；
+* 任意精度および誤差認識型の数値計算；
+* 汎用基礎体上の複素数計算；
+* 多項式および記号計算；
+* 計算可能実数や、より厳密な数値モデル；
+* 共通数学コアの上に構築される科学計算アプリケーション。
+
+LunaFlow はまだ進化の途中ですが、方向は明確です。MoonBit の抽象能力を、本物の数学エコシステムへ育てることです。
+
+私たちが作ろうとしているのは単なる数学パッケージ群ではなく、将来の科学計算に向けた可組合せの基盤です。

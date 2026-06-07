@@ -45,7 +45,7 @@ inspect(ball.contains(as_bin).to_string(), content="true")
 
 - 🇺🇸 [README.md](./README.md)
 - 🇨🇳 [README.md](./README.md)
-- 🇯🇵 [README.md](/ja_JP/floating/README.md)
+- 🇯🇵 [README.md](./README.md)
 
 包文档入口：
 

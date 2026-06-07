@@ -72,7 +72,7 @@ let row0 = m.row_view(0).to_array()
 多言語 README:
 
 - 🇺🇸 [README.md](./README.md)
-- 🇨🇳 [README.md](/zh_CN/linear-algebra/README.md)
+- 🇨🇳 [README.md](./README.md)
 - 🇯🇵 [README.md](./README.md)
 
 ## バージョン履歴

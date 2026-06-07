@@ -73,7 +73,7 @@ let row0 = m.row_view(0).to_array()
 
 - 🇺🇸 [README.md](./README.md)
 - 🇨🇳 [README.md](./README.md)
-- 🇯🇵 [README.md](/ja_JP/linear-algebra/README.md)
+- 🇯🇵 [README.md](./README.md)
 
 ## 版本历史
 

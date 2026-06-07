@@ -44,7 +44,7 @@ inspect(ball.contains(as_bin).to_string(), content="true")
 多言語 README:
 
 - 🇺🇸 [README.md](./README.md)
-- 🇨🇳 [README.md](/zh_CN/floating/README.md)
+- 🇨🇳 [README.md](./README.md)
 - 🇯🇵 [README.md](./README.md)
 
 パッケージ文書:
