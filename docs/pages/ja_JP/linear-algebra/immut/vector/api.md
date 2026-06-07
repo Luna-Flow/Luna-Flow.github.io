@@ -248,4 +248,3 @@ struct Vector[T] {
       - `other`: `Vector[T]` - 右操作ベクトル（結果行列の列数を決定）。
     - **戻り値**
       `Matrix[T]` - 外積行列。
-\n

@@ -21,4 +21,3 @@
 
 - API リファレンス: [quaternion](./quaternion/api.md)
 - API リファレンス: [double_conv](./double_conv/api.md)
-\n

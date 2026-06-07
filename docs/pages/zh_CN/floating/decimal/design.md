@@ -22,4 +22,3 @@
 
 - `bin_float -> decimal`：精确保留当前有限二进制表示
 - `decimal -> bin_float`：对非 dyadic 值可能产生近似
-\n

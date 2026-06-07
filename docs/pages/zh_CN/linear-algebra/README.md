@@ -142,4 +142,3 @@ moon test --enable-coverage
 如果工作流提示版本重复，说明包管理器中已经存在该版本，需要先 bump 新版本。
 
 贡献说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
-\n

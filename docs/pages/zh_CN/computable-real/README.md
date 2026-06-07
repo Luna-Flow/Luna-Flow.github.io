@@ -23,4 +23,3 @@
 ## 文档入口
 
 - API 参考: [current_state](./current_state/api.md)
-\n

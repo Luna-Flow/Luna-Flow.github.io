@@ -21,4 +21,3 @@
 
 - API リファレンス: [array_utils](./array_utils/api.md)
 - API リファレンス: [comparison](./comparison/api.md)
-\n

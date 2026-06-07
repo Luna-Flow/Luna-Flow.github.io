@@ -22,4 +22,3 @@ inspect(raw.exponent2().to_string(), content="2")
 let x = @bin_float.BinFloat::make(7N, -2, 32)
 let short = x.with_precision(4, @def.RoundingMode::ToNearestEven)
 ```
-\n

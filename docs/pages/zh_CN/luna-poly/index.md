@@ -27,4 +27,3 @@
 - API 参考: [sparse_poly](./sparse_poly/api.md)
 - API 参考: [exp_vec](./exp_vec/api.md)
 - API 参考: [algebra](./algebra/api.md)
-\n

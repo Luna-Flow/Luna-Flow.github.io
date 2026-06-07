@@ -30,4 +30,3 @@
 ## 10 進解析補助
 
 - `split_decimal_string`
-\n

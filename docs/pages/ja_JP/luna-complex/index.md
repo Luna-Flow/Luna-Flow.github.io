@@ -21,4 +21,3 @@
 
 - API リファレンス: [core](./core/api.md)
 - API リファレンス: [double_ext](./double_ext/api.md)
-\n

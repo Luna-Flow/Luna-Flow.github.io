@@ -75,4 +75,3 @@ moon test --enable-coverage
 4. 触发 `publish-package` workflow。
 
 贡献说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
-\n

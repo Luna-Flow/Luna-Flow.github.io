@@ -12,4 +12,3 @@ Use the Typst note as the narrative overview before diving into elaboration deta
 
 - 内部ヘルパーではなく、文書化された入口を優先する。
 - ランタイム・数値・証明状態の前提を下流コードに明示する。
-\n

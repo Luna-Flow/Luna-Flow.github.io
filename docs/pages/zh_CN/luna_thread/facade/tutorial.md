@@ -12,4 +12,3 @@ Begin with `luna_thread/luna_thread.mbt` and the package tests to understand the
 
 - 优先使用已文档化的入口，而不是内部辅助函数。
 - 下游代码里显式记录运行时、数值或证明状态前提。
-\n

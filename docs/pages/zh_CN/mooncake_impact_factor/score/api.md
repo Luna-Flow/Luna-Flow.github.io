@@ -114,4 +114,3 @@
 ### `GET /api/packages/<owner>/<packageName>/analysis`
 
 返回单个包的 `{ "detail": ..., "dependents": [...] }` 分析结果。
-\n

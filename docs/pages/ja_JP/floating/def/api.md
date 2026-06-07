@@ -29,4 +29,3 @@ trait Floating {
 - 精度
 - 精度変更
 - 正規化
-\n

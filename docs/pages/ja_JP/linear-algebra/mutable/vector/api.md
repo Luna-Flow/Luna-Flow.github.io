@@ -130,4 +130,3 @@ pub struct Vector[T](Array[T])
   - **`fn[T : Mul] tensor_product(self : Vector[T], other : Vector[T]) -> Matrix[T]`**
     - **説明**
         2 つのベクトルのテンソル積（外積）を計算します。
-\n

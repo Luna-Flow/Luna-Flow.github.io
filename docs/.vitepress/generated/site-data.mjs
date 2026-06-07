@@ -1,49 +1,972 @@
 export default {
-  "nav": [
-    {
-      "text": "Home",
-      "link": "/"
-    },
-    {
-      "text": "简体中文",
-      "link": "/zh_CN/index"
-    },
-    {
-      "text": "English",
-      "link": "/en_US/index"
-    },
-    {
-      "text": "日本語",
-      "link": "/ja_JP/index"
-    }
-  ],
-  "sidebar": {
-    "/zh_CN/": [
+  "sidebars": {
+    "root": [
       {
         "text": "Luna-Flow/arithmetic",
         "items": [
           {
             "text": "Overview",
+            "link": "/arithmetic/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/arithmetic/doc-standard"
+          },
+          {
+            "text": "Core",
+            "items": [
+              {
+                "text": "API",
+                "link": "/arithmetic/core/api"
+              },
+              {
+                "text": "Design",
+                "link": "/arithmetic/core/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/arithmetic/core/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/calculus-numerical",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/calculus-numerical/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/calculus-numerical/doc-standard"
+          },
+          {
+            "text": "Basic",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-numerical/basic/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-numerical/basic/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-numerical/basic/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Deriv",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-numerical/deriv/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-numerical/deriv/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-numerical/deriv/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Diff",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-numerical/diff/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-numerical/diff/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-numerical/diff/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Integration",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-numerical/integration/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-numerical/integration/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-numerical/integration/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Internal",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-numerical/internal/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-numerical/internal/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-numerical/internal/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/calculus-symbolic",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/calculus-symbolic/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/calculus-symbolic/doc-standard"
+          },
+          {
+            "text": "Expr",
+            "items": [
+              {
+                "text": "API",
+                "link": "/calculus-symbolic/expr/api"
+              },
+              {
+                "text": "Design",
+                "link": "/calculus-symbolic/expr/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/calculus-symbolic/expr/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/computable-real",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/computable-real/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/computable-real/doc-standard"
+          },
+          {
+            "text": "Current State",
+            "items": [
+              {
+                "text": "API",
+                "link": "/computable-real/current_state/api"
+              },
+              {
+                "text": "Design",
+                "link": "/computable-real/current_state/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/computable-real/current_state/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/floating",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/floating/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/floating/doc-standard"
+          },
+          {
+            "text": "Ball Float",
+            "items": [
+              {
+                "text": "API",
+                "link": "/floating/ball_float/api"
+              },
+              {
+                "text": "Design",
+                "link": "/floating/ball_float/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/floating/ball_float/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Bin Float",
+            "items": [
+              {
+                "text": "API",
+                "link": "/floating/bin_float/api"
+              },
+              {
+                "text": "Design",
+                "link": "/floating/bin_float/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/floating/bin_float/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Decimal",
+            "items": [
+              {
+                "text": "API",
+                "link": "/floating/decimal/api"
+              },
+              {
+                "text": "Design",
+                "link": "/floating/decimal/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/floating/decimal/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Def",
+            "items": [
+              {
+                "text": "API",
+                "link": "/floating/def/api"
+              },
+              {
+                "text": "Design",
+                "link": "/floating/def/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/floating/def/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Internal",
+            "items": [
+              {
+                "text": "API",
+                "link": "/floating/internal/api"
+              },
+              {
+                "text": "Design",
+                "link": "/floating/internal/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/floating/internal/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/linear-algebra",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/linear-algebra/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/linear-algebra/doc-standard"
+          },
+          {
+            "text": "Immut/Matrix",
+            "items": [
+              {
+                "text": "API",
+                "link": "/linear-algebra/immut/matrix/api"
+              },
+              {
+                "text": "Design",
+                "link": "/linear-algebra/immut/matrix/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/linear-algebra/immut/matrix/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Immut/Vector",
+            "items": [
+              {
+                "text": "API",
+                "link": "/linear-algebra/immut/vector/api"
+              },
+              {
+                "text": "Design",
+                "link": "/linear-algebra/immut/vector/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/linear-algebra/immut/vector/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Mutable/Matrix",
+            "items": [
+              {
+                "text": "API",
+                "link": "/linear-algebra/mutable/matrix/api"
+              },
+              {
+                "text": "Design",
+                "link": "/linear-algebra/mutable/matrix/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/linear-algebra/mutable/matrix/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Mutable/Vector",
+            "items": [
+              {
+                "text": "API",
+                "link": "/linear-algebra/mutable/vector/api"
+              },
+              {
+                "text": "Design",
+                "link": "/linear-algebra/mutable/vector/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/linear-algebra/mutable/vector/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/linear-program",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/linear-program/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/linear-program/doc-standard"
+          },
+          {
+            "text": "Core",
+            "items": [
+              {
+                "text": "API",
+                "link": "/linear-program/core/api"
+              },
+              {
+                "text": "Design",
+                "link": "/linear-program/core/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/linear-program/core/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/luna-complex",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/luna-complex/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/luna-complex/doc-standard"
+          },
+          {
+            "text": "Core",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-complex/core/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-complex/core/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-complex/core/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Double Ext",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-complex/double_ext/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-complex/double_ext/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-complex/double_ext/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/luna-generic",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/luna-generic/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/luna-generic/doc-standard"
+          },
+          {
+            "text": "Core",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-generic/core/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-generic/core/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-generic/core/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/luna-poly",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/luna-poly/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/luna-poly/doc-standard"
+          },
+          {
+            "text": "Algebra",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-poly/algebra/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-poly/algebra/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-poly/algebra/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Dense Multi",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-poly/dense_multi/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-poly/dense_multi/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-poly/dense_multi/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Dense Poly",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-poly/dense_poly/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-poly/dense_poly/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-poly/dense_poly/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Exp Vec",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-poly/exp_vec/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-poly/exp_vec/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-poly/exp_vec/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Sparse Poly",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-poly/sparse_poly/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-poly/sparse_poly/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-poly/sparse_poly/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/luna-utils",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/luna-utils/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/luna-utils/doc-standard"
+          },
+          {
+            "text": "Array Utils",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-utils/array_utils/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-utils/array_utils/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-utils/array_utils/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Comparison",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna-utils/comparison/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna-utils/comparison/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna-utils/comparison/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/luna_thread",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/luna_thread/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/luna_thread/doc-standard"
+          },
+          {
+            "text": "Backend",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna_thread/backend/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna_thread/backend/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna_thread/backend/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Facade",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna_thread/facade/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna_thread/facade/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna_thread/facade/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Spec",
+            "items": [
+              {
+                "text": "API",
+                "link": "/luna_thread/spec/api"
+              },
+              {
+                "text": "Design",
+                "link": "/luna_thread/spec/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/luna_thread/spec/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/mooncake_impact_factor",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/mooncake_impact_factor/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/mooncake_impact_factor/doc-standard"
+          },
+          {
+            "text": "Cli",
+            "items": [
+              {
+                "text": "API",
+                "link": "/mooncake_impact_factor/cli/api"
+              },
+              {
+                "text": "Design",
+                "link": "/mooncake_impact_factor/cli/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/mooncake_impact_factor/cli/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Score",
+            "items": [
+              {
+                "text": "API",
+                "link": "/mooncake_impact_factor/score/api"
+              },
+              {
+                "text": "Design",
+                "link": "/mooncake_impact_factor/score/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/mooncake_impact_factor/score/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Static Search",
+            "items": [
+              {
+                "text": "API",
+                "link": "/mooncake_impact_factor/static_search/api"
+              },
+              {
+                "text": "Design",
+                "link": "/mooncake_impact_factor/static_search/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/mooncake_impact_factor/static_search/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/quaternion",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/quaternion/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/quaternion/doc-standard"
+          },
+          {
+            "text": "Double Conv",
+            "items": [
+              {
+                "text": "API",
+                "link": "/quaternion/double_conv/api"
+              },
+              {
+                "text": "Design",
+                "link": "/quaternion/double_conv/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/quaternion/double_conv/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Quaternion",
+            "items": [
+              {
+                "text": "API",
+                "link": "/quaternion/quaternion/api"
+              },
+              {
+                "text": "Design",
+                "link": "/quaternion/quaternion/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/quaternion/quaternion/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/QED",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/QED/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/QED/doc-standard"
+          },
+          {
+            "text": "Kernel",
+            "items": [
+              {
+                "text": "API",
+                "link": "/QED/kernel/api"
+              },
+              {
+                "text": "Design",
+                "link": "/QED/kernel/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/QED/kernel/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Parser",
+            "items": [
+              {
+                "text": "API",
+                "link": "/QED/parser/api"
+              },
+              {
+                "text": "Design",
+                "link": "/QED/parser/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/QED/parser/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Prover",
+            "items": [
+              {
+                "text": "API",
+                "link": "/QED/prover/api"
+              },
+              {
+                "text": "Design",
+                "link": "/QED/prover/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/QED/prover/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Spec",
+            "items": [
+              {
+                "text": "API",
+                "link": "/QED/spec/api"
+              },
+              {
+                "text": "Design",
+                "link": "/QED/spec/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/QED/spec/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Tactics",
+            "items": [
+              {
+                "text": "API",
+                "link": "/QED/tactics/api"
+              },
+              {
+                "text": "Design",
+                "link": "/QED/tactics/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/QED/tactics/tutorial"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Luna-Flow/stella",
+        "items": [
+          {
+            "text": "Overview",
+            "link": "/stella/index"
+          },
+          {
+            "text": "Doc Standard",
+            "link": "/stella/doc-standard"
+          },
+          {
+            "text": "Elab",
+            "items": [
+              {
+                "text": "API",
+                "link": "/stella/elab/api"
+              },
+              {
+                "text": "Design",
+                "link": "/stella/elab/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/stella/elab/tutorial"
+              }
+            ]
+          },
+          {
+            "text": "Theory",
+            "items": [
+              {
+                "text": "API",
+                "link": "/stella/theory/api"
+              },
+              {
+                "text": "Design",
+                "link": "/stella/theory/design"
+              },
+              {
+                "text": "Tutorial",
+                "link": "/stella/theory/tutorial"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "zh_CN": [
+      {
+        "text": "Luna-Flow/arithmetic",
+        "items": [
+          {
+            "text": "概览",
             "link": "/zh_CN/arithmetic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/arithmetic/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/arithmetic/core/api.md"
+                "text": "API",
+                "link": "/zh_CN/arithmetic/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/arithmetic/core/design.md"
+                "text": "Design",
+                "link": "/zh_CN/arithmetic/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/arithmetic/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/arithmetic/core/tutorial"
               }
             ]
           }
@@ -53,95 +976,95 @@ export default {
         "text": "Luna-Flow/calculus-numerical",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/calculus-numerical/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/calculus-numerical/doc-standard"
           },
           {
-            "text": "basic",
+            "text": "Basic",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-numerical/basic/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-numerical/basic/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-numerical/basic/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-numerical/basic/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-numerical/basic/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-numerical/basic/tutorial"
               }
             ]
           },
           {
-            "text": "deriv",
+            "text": "Deriv",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-numerical/deriv/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-numerical/deriv/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-numerical/deriv/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-numerical/deriv/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-numerical/deriv/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-numerical/deriv/tutorial"
               }
             ]
           },
           {
-            "text": "diff",
+            "text": "Diff",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-numerical/diff/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-numerical/diff/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-numerical/diff/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-numerical/diff/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-numerical/diff/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-numerical/diff/tutorial"
               }
             ]
           },
           {
-            "text": "integration",
+            "text": "Integration",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-numerical/integration/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-numerical/integration/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-numerical/integration/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-numerical/integration/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-numerical/integration/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-numerical/integration/tutorial"
               }
             ]
           },
           {
-            "text": "internal",
+            "text": "Internal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-numerical/internal/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-numerical/internal/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-numerical/internal/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-numerical/internal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-numerical/internal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-numerical/internal/tutorial"
               }
             ]
           }
@@ -151,27 +1074,27 @@ export default {
         "text": "Luna-Flow/calculus-symbolic",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/calculus-symbolic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/calculus-symbolic/doc-standard"
           },
           {
-            "text": "expr",
+            "text": "Expr",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/calculus-symbolic/expr/api.md"
+                "text": "API",
+                "link": "/zh_CN/calculus-symbolic/expr/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/calculus-symbolic/expr/design.md"
+                "text": "Design",
+                "link": "/zh_CN/calculus-symbolic/expr/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/calculus-symbolic/expr/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/calculus-symbolic/expr/tutorial"
               }
             ]
           }
@@ -181,27 +1104,27 @@ export default {
         "text": "Luna-Flow/computable-real",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/computable-real/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/computable-real/doc-standard"
           },
           {
-            "text": "current state",
+            "text": "Current State",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/computable-real/current_state/api.md"
+                "text": "API",
+                "link": "/zh_CN/computable-real/current_state/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/computable-real/current_state/design.md"
+                "text": "Design",
+                "link": "/zh_CN/computable-real/current_state/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/computable-real/current_state/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/computable-real/current_state/tutorial"
               }
             ]
           }
@@ -211,95 +1134,95 @@ export default {
         "text": "Luna-Flow/floating",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/floating/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/floating/doc-standard"
           },
           {
-            "text": "ball float",
+            "text": "Ball Float",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/floating/ball_float/api.md"
+                "text": "API",
+                "link": "/zh_CN/floating/ball_float/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/floating/ball_float/design.md"
+                "text": "Design",
+                "link": "/zh_CN/floating/ball_float/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/floating/ball_float/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/floating/ball_float/tutorial"
               }
             ]
           },
           {
-            "text": "bin float",
+            "text": "Bin Float",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/floating/bin_float/api.md"
+                "text": "API",
+                "link": "/zh_CN/floating/bin_float/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/floating/bin_float/design.md"
+                "text": "Design",
+                "link": "/zh_CN/floating/bin_float/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/floating/bin_float/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/floating/bin_float/tutorial"
               }
             ]
           },
           {
-            "text": "decimal",
+            "text": "Decimal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/floating/decimal/api.md"
+                "text": "API",
+                "link": "/zh_CN/floating/decimal/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/floating/decimal/design.md"
+                "text": "Design",
+                "link": "/zh_CN/floating/decimal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/floating/decimal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/floating/decimal/tutorial"
               }
             ]
           },
           {
-            "text": "def",
+            "text": "Def",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/floating/def/api.md"
+                "text": "API",
+                "link": "/zh_CN/floating/def/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/floating/def/design.md"
+                "text": "Design",
+                "link": "/zh_CN/floating/def/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/floating/def/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/floating/def/tutorial"
               }
             ]
           },
           {
-            "text": "internal",
+            "text": "Internal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/floating/internal/api.md"
+                "text": "API",
+                "link": "/zh_CN/floating/internal/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/floating/internal/design.md"
+                "text": "Design",
+                "link": "/zh_CN/floating/internal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/floating/internal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/floating/internal/tutorial"
               }
             ]
           }
@@ -309,78 +1232,78 @@ export default {
         "text": "Luna-Flow/linear-algebra",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/linear-algebra/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/linear-algebra/doc-standard"
           },
           {
-            "text": "immut/matrix",
+            "text": "Immut/Matrix",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/linear-algebra/immut/matrix/api.md"
+                "text": "API",
+                "link": "/zh_CN/linear-algebra/immut/matrix/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/linear-algebra/immut/matrix/design.md"
+                "text": "Design",
+                "link": "/zh_CN/linear-algebra/immut/matrix/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/linear-algebra/immut/matrix/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/linear-algebra/immut/matrix/tutorial"
               }
             ]
           },
           {
-            "text": "immut/vector",
+            "text": "Immut/Vector",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/linear-algebra/immut/vector/api.md"
+                "text": "API",
+                "link": "/zh_CN/linear-algebra/immut/vector/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/linear-algebra/immut/vector/design.md"
+                "text": "Design",
+                "link": "/zh_CN/linear-algebra/immut/vector/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/linear-algebra/immut/vector/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/linear-algebra/immut/vector/tutorial"
               }
             ]
           },
           {
-            "text": "mutable/matrix",
+            "text": "Mutable/Matrix",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/linear-algebra/mutable/matrix/api.md"
+                "text": "API",
+                "link": "/zh_CN/linear-algebra/mutable/matrix/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/linear-algebra/mutable/matrix/design.md"
+                "text": "Design",
+                "link": "/zh_CN/linear-algebra/mutable/matrix/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/linear-algebra/mutable/matrix/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/linear-algebra/mutable/matrix/tutorial"
               }
             ]
           },
           {
-            "text": "mutable/vector",
+            "text": "Mutable/Vector",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/linear-algebra/mutable/vector/api.md"
+                "text": "API",
+                "link": "/zh_CN/linear-algebra/mutable/vector/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/linear-algebra/mutable/vector/design.md"
+                "text": "Design",
+                "link": "/zh_CN/linear-algebra/mutable/vector/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/linear-algebra/mutable/vector/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/linear-algebra/mutable/vector/tutorial"
               }
             ]
           }
@@ -390,27 +1313,27 @@ export default {
         "text": "Luna-Flow/linear-program",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/linear-program/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/linear-program/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/linear-program/core/api.md"
+                "text": "API",
+                "link": "/zh_CN/linear-program/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/linear-program/core/design.md"
+                "text": "Design",
+                "link": "/zh_CN/linear-program/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/linear-program/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/linear-program/core/tutorial"
               }
             ]
           }
@@ -420,44 +1343,44 @@ export default {
         "text": "Luna-Flow/luna-complex",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/luna-complex/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/luna-complex/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-complex/core/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-complex/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-complex/core/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-complex/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-complex/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-complex/core/tutorial"
               }
             ]
           },
           {
-            "text": "double ext",
+            "text": "Double Ext",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-complex/double_ext/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-complex/double_ext/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-complex/double_ext/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-complex/double_ext/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-complex/double_ext/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-complex/double_ext/tutorial"
               }
             ]
           }
@@ -467,27 +1390,27 @@ export default {
         "text": "Luna-Flow/luna-generic",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/luna-generic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/luna-generic/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-generic/core/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-generic/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-generic/core/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-generic/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-generic/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-generic/core/tutorial"
               }
             ]
           }
@@ -497,95 +1420,95 @@ export default {
         "text": "Luna-Flow/luna-poly",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/luna-poly/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/luna-poly/doc-standard"
           },
           {
-            "text": "algebra",
+            "text": "Algebra",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-poly/algebra/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-poly/algebra/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-poly/algebra/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-poly/algebra/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-poly/algebra/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-poly/algebra/tutorial"
               }
             ]
           },
           {
-            "text": "dense multi",
+            "text": "Dense Multi",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-poly/dense_multi/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-poly/dense_multi/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-poly/dense_multi/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-poly/dense_multi/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-poly/dense_multi/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-poly/dense_multi/tutorial"
               }
             ]
           },
           {
-            "text": "dense poly",
+            "text": "Dense Poly",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-poly/dense_poly/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-poly/dense_poly/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-poly/dense_poly/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-poly/dense_poly/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-poly/dense_poly/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-poly/dense_poly/tutorial"
               }
             ]
           },
           {
-            "text": "exp vec",
+            "text": "Exp Vec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-poly/exp_vec/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-poly/exp_vec/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-poly/exp_vec/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-poly/exp_vec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-poly/exp_vec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-poly/exp_vec/tutorial"
               }
             ]
           },
           {
-            "text": "sparse poly",
+            "text": "Sparse Poly",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-poly/sparse_poly/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-poly/sparse_poly/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-poly/sparse_poly/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-poly/sparse_poly/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-poly/sparse_poly/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-poly/sparse_poly/tutorial"
               }
             ]
           }
@@ -595,44 +1518,44 @@ export default {
         "text": "Luna-Flow/luna-utils",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/luna-utils/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/luna-utils/doc-standard"
           },
           {
-            "text": "array utils",
+            "text": "Array Utils",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-utils/array_utils/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-utils/array_utils/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-utils/array_utils/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-utils/array_utils/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-utils/array_utils/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-utils/array_utils/tutorial"
               }
             ]
           },
           {
-            "text": "comparison",
+            "text": "Comparison",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna-utils/comparison/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna-utils/comparison/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna-utils/comparison/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna-utils/comparison/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna-utils/comparison/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna-utils/comparison/tutorial"
               }
             ]
           }
@@ -642,61 +1565,61 @@ export default {
         "text": "Luna-Flow/luna_thread",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/luna_thread/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/luna_thread/doc-standard"
           },
           {
-            "text": "backend",
+            "text": "Backend",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna_thread/backend/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna_thread/backend/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna_thread/backend/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna_thread/backend/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna_thread/backend/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna_thread/backend/tutorial"
               }
             ]
           },
           {
-            "text": "facade",
+            "text": "Facade",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna_thread/facade/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna_thread/facade/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna_thread/facade/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna_thread/facade/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna_thread/facade/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna_thread/facade/tutorial"
               }
             ]
           },
           {
-            "text": "spec",
+            "text": "Spec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/luna_thread/spec/api.md"
+                "text": "API",
+                "link": "/zh_CN/luna_thread/spec/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/luna_thread/spec/design.md"
+                "text": "Design",
+                "link": "/zh_CN/luna_thread/spec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/luna_thread/spec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/luna_thread/spec/tutorial"
               }
             ]
           }
@@ -706,61 +1629,61 @@ export default {
         "text": "Luna-Flow/mooncake_impact_factor",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/mooncake_impact_factor/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/mooncake_impact_factor/doc-standard"
           },
           {
-            "text": "cli",
+            "text": "Cli",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/mooncake_impact_factor/cli/api.md"
+                "text": "API",
+                "link": "/zh_CN/mooncake_impact_factor/cli/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/mooncake_impact_factor/cli/design.md"
+                "text": "Design",
+                "link": "/zh_CN/mooncake_impact_factor/cli/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/mooncake_impact_factor/cli/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/mooncake_impact_factor/cli/tutorial"
               }
             ]
           },
           {
-            "text": "score",
+            "text": "Score",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/mooncake_impact_factor/score/api.md"
+                "text": "API",
+                "link": "/zh_CN/mooncake_impact_factor/score/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/mooncake_impact_factor/score/design.md"
+                "text": "Design",
+                "link": "/zh_CN/mooncake_impact_factor/score/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/mooncake_impact_factor/score/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/mooncake_impact_factor/score/tutorial"
               }
             ]
           },
           {
-            "text": "static search",
+            "text": "Static Search",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/mooncake_impact_factor/static_search/api.md"
+                "text": "API",
+                "link": "/zh_CN/mooncake_impact_factor/static_search/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/mooncake_impact_factor/static_search/design.md"
+                "text": "Design",
+                "link": "/zh_CN/mooncake_impact_factor/static_search/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/mooncake_impact_factor/static_search/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/mooncake_impact_factor/static_search/tutorial"
               }
             ]
           }
@@ -770,44 +1693,44 @@ export default {
         "text": "Luna-Flow/quaternion",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/quaternion/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/quaternion/doc-standard"
           },
           {
-            "text": "double conv",
+            "text": "Double Conv",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/quaternion/double_conv/api.md"
+                "text": "API",
+                "link": "/zh_CN/quaternion/double_conv/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/quaternion/double_conv/design.md"
+                "text": "Design",
+                "link": "/zh_CN/quaternion/double_conv/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/quaternion/double_conv/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/quaternion/double_conv/tutorial"
               }
             ]
           },
           {
-            "text": "quaternion",
+            "text": "Quaternion",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/quaternion/quaternion/api.md"
+                "text": "API",
+                "link": "/zh_CN/quaternion/quaternion/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/quaternion/quaternion/design.md"
+                "text": "Design",
+                "link": "/zh_CN/quaternion/quaternion/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/quaternion/quaternion/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/quaternion/quaternion/tutorial"
               }
             ]
           }
@@ -817,95 +1740,95 @@ export default {
         "text": "Luna-Flow/QED",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/QED/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/QED/doc-standard"
           },
           {
-            "text": "kernel",
+            "text": "Kernel",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/QED/kernel/api.md"
+                "text": "API",
+                "link": "/zh_CN/QED/kernel/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/QED/kernel/design.md"
+                "text": "Design",
+                "link": "/zh_CN/QED/kernel/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/QED/kernel/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/QED/kernel/tutorial"
               }
             ]
           },
           {
-            "text": "parser",
+            "text": "Parser",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/QED/parser/api.md"
+                "text": "API",
+                "link": "/zh_CN/QED/parser/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/QED/parser/design.md"
+                "text": "Design",
+                "link": "/zh_CN/QED/parser/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/QED/parser/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/QED/parser/tutorial"
               }
             ]
           },
           {
-            "text": "prover",
+            "text": "Prover",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/QED/prover/api.md"
+                "text": "API",
+                "link": "/zh_CN/QED/prover/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/QED/prover/design.md"
+                "text": "Design",
+                "link": "/zh_CN/QED/prover/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/QED/prover/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/QED/prover/tutorial"
               }
             ]
           },
           {
-            "text": "spec",
+            "text": "Spec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/QED/spec/api.md"
+                "text": "API",
+                "link": "/zh_CN/QED/spec/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/QED/spec/design.md"
+                "text": "Design",
+                "link": "/zh_CN/QED/spec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/QED/spec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/QED/spec/tutorial"
               }
             ]
           },
           {
-            "text": "tactics",
+            "text": "Tactics",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/QED/tactics/api.md"
+                "text": "API",
+                "link": "/zh_CN/QED/tactics/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/QED/tactics/design.md"
+                "text": "Design",
+                "link": "/zh_CN/QED/tactics/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/QED/tactics/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/QED/tactics/tutorial"
               }
             ]
           }
@@ -915,2799 +1838,76 @@ export default {
         "text": "Luna-Flow/stella",
         "items": [
           {
-            "text": "Overview",
+            "text": "概览",
             "link": "/zh_CN/stella/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文档规范",
             "link": "/zh_CN/stella/doc-standard"
           },
           {
-            "text": "elab",
+            "text": "Elab",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/stella/elab/api.md"
+                "text": "API",
+                "link": "/zh_CN/stella/elab/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/stella/elab/design.md"
+                "text": "Design",
+                "link": "/zh_CN/stella/elab/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/stella/elab/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/stella/elab/tutorial"
               }
             ]
           },
           {
-            "text": "theory",
+            "text": "Theory",
             "items": [
               {
-                "text": "api.md",
-                "link": "/zh_CN/stella/theory/api.md"
+                "text": "API",
+                "link": "/zh_CN/stella/theory/api"
               },
               {
-                "text": "design.md",
-                "link": "/zh_CN/stella/theory/design.md"
+                "text": "Design",
+                "link": "/zh_CN/stella/theory/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/zh_CN/stella/theory/tutorial.md"
+                "text": "Tutorial",
+                "link": "/zh_CN/stella/theory/tutorial"
               }
             ]
           }
         ]
       }
     ],
-    "/zh_CN/arithmetic/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/arithmetic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/arithmetic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/arithmetic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/arithmetic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/arithmetic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/calculus-numerical/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/calculus-numerical/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/calculus-numerical/doc-standard"
-      },
-      {
-        "text": "basic",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-numerical/basic/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-numerical/basic/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-numerical/basic/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "deriv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-numerical/deriv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-numerical/deriv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-numerical/deriv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "diff",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-numerical/diff/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-numerical/diff/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-numerical/diff/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "integration",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-numerical/integration/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-numerical/integration/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-numerical/integration/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-numerical/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-numerical/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-numerical/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/calculus-symbolic/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/calculus-symbolic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/calculus-symbolic/doc-standard"
-      },
-      {
-        "text": "expr",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/calculus-symbolic/expr/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/calculus-symbolic/expr/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/calculus-symbolic/expr/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/computable-real/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/computable-real/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/computable-real/doc-standard"
-      },
-      {
-        "text": "current state",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/computable-real/current_state/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/computable-real/current_state/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/computable-real/current_state/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/floating/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/floating/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/floating/doc-standard"
-      },
-      {
-        "text": "ball float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/floating/ball_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/floating/ball_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/floating/ball_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "bin float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/floating/bin_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/floating/bin_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/floating/bin_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "decimal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/floating/decimal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/floating/decimal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/floating/decimal/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "def",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/floating/def/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/floating/def/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/floating/def/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/floating/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/floating/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/floating/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/linear-algebra/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/linear-algebra/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/linear-algebra/doc-standard"
-      },
-      {
-        "text": "immut/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/linear-algebra/immut/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/linear-algebra/immut/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/linear-algebra/immut/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "immut/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/linear-algebra/immut/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/linear-algebra/immut/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/linear-algebra/immut/vector/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/linear-algebra/mutable/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/linear-algebra/mutable/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/linear-algebra/mutable/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/linear-algebra/mutable/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/linear-algebra/mutable/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/linear-algebra/mutable/vector/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/linear-program/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/linear-program/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/linear-program/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/linear-program/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/linear-program/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/linear-program/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/luna-complex/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/luna-complex/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/luna-complex/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-complex/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-complex/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-complex/core/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "double ext",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-complex/double_ext/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-complex/double_ext/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-complex/double_ext/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/luna-generic/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/luna-generic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/luna-generic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-generic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-generic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-generic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/luna-poly/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/luna-poly/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/luna-poly/doc-standard"
-      },
-      {
-        "text": "algebra",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-poly/algebra/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-poly/algebra/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-poly/algebra/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense multi",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-poly/dense_multi/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-poly/dense_multi/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-poly/dense_multi/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-poly/dense_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-poly/dense_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-poly/dense_poly/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "exp vec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-poly/exp_vec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-poly/exp_vec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-poly/exp_vec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "sparse poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-poly/sparse_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-poly/sparse_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-poly/sparse_poly/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/luna-utils/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/luna-utils/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/luna-utils/doc-standard"
-      },
-      {
-        "text": "array utils",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-utils/array_utils/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-utils/array_utils/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-utils/array_utils/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "comparison",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna-utils/comparison/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna-utils/comparison/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna-utils/comparison/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/luna_thread/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/luna_thread/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/luna_thread/doc-standard"
-      },
-      {
-        "text": "backend",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna_thread/backend/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna_thread/backend/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna_thread/backend/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "facade",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna_thread/facade/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna_thread/facade/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna_thread/facade/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/luna_thread/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/luna_thread/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/luna_thread/spec/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/mooncake_impact_factor/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/mooncake_impact_factor/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/mooncake_impact_factor/doc-standard"
-      },
-      {
-        "text": "cli",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/mooncake_impact_factor/cli/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/mooncake_impact_factor/cli/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/mooncake_impact_factor/cli/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "score",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/mooncake_impact_factor/score/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/mooncake_impact_factor/score/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/mooncake_impact_factor/score/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "static search",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/mooncake_impact_factor/static_search/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/mooncake_impact_factor/static_search/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/mooncake_impact_factor/static_search/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/quaternion/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/quaternion/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/quaternion/doc-standard"
-      },
-      {
-        "text": "double conv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/quaternion/double_conv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/quaternion/double_conv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/quaternion/double_conv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "quaternion",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/quaternion/quaternion/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/quaternion/quaternion/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/quaternion/quaternion/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/QED/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/QED/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/QED/doc-standard"
-      },
-      {
-        "text": "kernel",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/QED/kernel/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/QED/kernel/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/QED/kernel/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "parser",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/QED/parser/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/QED/parser/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/QED/parser/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "prover",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/QED/prover/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/QED/prover/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/QED/prover/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/QED/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/QED/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/QED/spec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "tactics",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/QED/tactics/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/QED/tactics/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/QED/tactics/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/zh_CN/stella/": [
-      {
-        "text": "Overview",
-        "link": "/zh_CN/stella/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/zh_CN/stella/doc-standard"
-      },
-      {
-        "text": "elab",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/stella/elab/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/stella/elab/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/stella/elab/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "theory",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/zh_CN/stella/theory/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/zh_CN/stella/theory/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/zh_CN/stella/theory/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/": [
+    "ja_JP": [
       {
         "text": "Luna-Flow/arithmetic",
         "items": [
           {
-            "text": "Overview",
-            "link": "/en_US/arithmetic/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/arithmetic/doc-standard"
-          },
-          {
-            "text": "core",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/arithmetic/core/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/arithmetic/core/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/arithmetic/core/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/calculus-numerical",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/calculus-numerical/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/calculus-numerical/doc-standard"
-          },
-          {
-            "text": "basic",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-numerical/basic/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-numerical/basic/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-numerical/basic/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "deriv",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-numerical/deriv/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-numerical/deriv/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-numerical/deriv/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "diff",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-numerical/diff/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-numerical/diff/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-numerical/diff/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "integration",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-numerical/integration/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-numerical/integration/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-numerical/integration/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "internal",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-numerical/internal/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-numerical/internal/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-numerical/internal/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/calculus-symbolic",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/calculus-symbolic/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/calculus-symbolic/doc-standard"
-          },
-          {
-            "text": "expr",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/calculus-symbolic/expr/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/calculus-symbolic/expr/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/calculus-symbolic/expr/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/computable-real",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/computable-real/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/computable-real/doc-standard"
-          },
-          {
-            "text": "current state",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/computable-real/current_state/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/computable-real/current_state/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/computable-real/current_state/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/floating",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/floating/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/floating/doc-standard"
-          },
-          {
-            "text": "ball float",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/floating/ball_float/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/floating/ball_float/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/floating/ball_float/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "bin float",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/floating/bin_float/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/floating/bin_float/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/floating/bin_float/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "decimal",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/floating/decimal/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/floating/decimal/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/floating/decimal/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "def",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/floating/def/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/floating/def/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/floating/def/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "internal",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/floating/internal/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/floating/internal/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/floating/internal/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/linear-algebra",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/linear-algebra/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/linear-algebra/doc-standard"
-          },
-          {
-            "text": "immut/matrix",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/linear-algebra/immut/matrix/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/linear-algebra/immut/matrix/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/linear-algebra/immut/matrix/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "immut/vector",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/linear-algebra/immut/vector/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/linear-algebra/immut/vector/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/linear-algebra/immut/vector/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "mutable/matrix",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/linear-algebra/mutable/matrix/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/linear-algebra/mutable/matrix/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/linear-algebra/mutable/matrix/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "mutable/vector",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/linear-algebra/mutable/vector/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/linear-algebra/mutable/vector/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/linear-algebra/mutable/vector/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/linear-program",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/linear-program/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/linear-program/doc-standard"
-          },
-          {
-            "text": "core",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/linear-program/core/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/linear-program/core/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/linear-program/core/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/luna-complex",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/luna-complex/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/luna-complex/doc-standard"
-          },
-          {
-            "text": "core",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-complex/core/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-complex/core/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-complex/core/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "double ext",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-complex/double_ext/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-complex/double_ext/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-complex/double_ext/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/luna-generic",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/luna-generic/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/luna-generic/doc-standard"
-          },
-          {
-            "text": "core",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-generic/core/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-generic/core/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-generic/core/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/luna-poly",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/luna-poly/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/luna-poly/doc-standard"
-          },
-          {
-            "text": "algebra",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-poly/algebra/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-poly/algebra/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-poly/algebra/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "dense multi",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-poly/dense_multi/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-poly/dense_multi/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-poly/dense_multi/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "dense poly",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-poly/dense_poly/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-poly/dense_poly/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-poly/dense_poly/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "exp vec",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-poly/exp_vec/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-poly/exp_vec/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-poly/exp_vec/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "sparse poly",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-poly/sparse_poly/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-poly/sparse_poly/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-poly/sparse_poly/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/luna-utils",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/luna-utils/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/luna-utils/doc-standard"
-          },
-          {
-            "text": "array utils",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-utils/array_utils/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-utils/array_utils/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-utils/array_utils/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "comparison",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna-utils/comparison/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna-utils/comparison/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna-utils/comparison/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/luna_thread",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/luna_thread/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/luna_thread/doc-standard"
-          },
-          {
-            "text": "backend",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna_thread/backend/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna_thread/backend/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna_thread/backend/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "facade",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna_thread/facade/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna_thread/facade/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna_thread/facade/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "spec",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/luna_thread/spec/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/luna_thread/spec/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/luna_thread/spec/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/mooncake_impact_factor",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/mooncake_impact_factor/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/mooncake_impact_factor/doc-standard"
-          },
-          {
-            "text": "cli",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/mooncake_impact_factor/cli/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/mooncake_impact_factor/cli/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/mooncake_impact_factor/cli/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "score",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/mooncake_impact_factor/score/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/mooncake_impact_factor/score/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/mooncake_impact_factor/score/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "static search",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/mooncake_impact_factor/static_search/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/mooncake_impact_factor/static_search/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/mooncake_impact_factor/static_search/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/quaternion",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/quaternion/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/quaternion/doc-standard"
-          },
-          {
-            "text": "double conv",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/quaternion/double_conv/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/quaternion/double_conv/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/quaternion/double_conv/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "quaternion",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/quaternion/quaternion/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/quaternion/quaternion/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/quaternion/quaternion/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/QED",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/QED/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/QED/doc-standard"
-          },
-          {
-            "text": "kernel",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/QED/kernel/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/QED/kernel/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/QED/kernel/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "parser",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/QED/parser/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/QED/parser/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/QED/parser/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "prover",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/QED/prover/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/QED/prover/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/QED/prover/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "spec",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/QED/spec/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/QED/spec/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/QED/spec/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "tactics",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/QED/tactics/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/QED/tactics/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/QED/tactics/tutorial.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Luna-Flow/stella",
-        "items": [
-          {
-            "text": "Overview",
-            "link": "/en_US/stella/index"
-          },
-          {
-            "text": "Doc Standard",
-            "link": "/en_US/stella/doc-standard"
-          },
-          {
-            "text": "elab",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/stella/elab/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/stella/elab/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/stella/elab/tutorial.md"
-              }
-            ]
-          },
-          {
-            "text": "theory",
-            "items": [
-              {
-                "text": "api.md",
-                "link": "/en_US/stella/theory/api.md"
-              },
-              {
-                "text": "design.md",
-                "link": "/en_US/stella/theory/design.md"
-              },
-              {
-                "text": "tutorial.md",
-                "link": "/en_US/stella/theory/tutorial.md"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "/en_US/arithmetic/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/arithmetic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/arithmetic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/arithmetic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/arithmetic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/arithmetic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/calculus-numerical/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/calculus-numerical/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/calculus-numerical/doc-standard"
-      },
-      {
-        "text": "basic",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-numerical/basic/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-numerical/basic/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-numerical/basic/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "deriv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-numerical/deriv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-numerical/deriv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-numerical/deriv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "diff",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-numerical/diff/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-numerical/diff/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-numerical/diff/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "integration",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-numerical/integration/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-numerical/integration/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-numerical/integration/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-numerical/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-numerical/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-numerical/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/calculus-symbolic/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/calculus-symbolic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/calculus-symbolic/doc-standard"
-      },
-      {
-        "text": "expr",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/calculus-symbolic/expr/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/calculus-symbolic/expr/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/calculus-symbolic/expr/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/computable-real/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/computable-real/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/computable-real/doc-standard"
-      },
-      {
-        "text": "current state",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/computable-real/current_state/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/computable-real/current_state/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/computable-real/current_state/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/floating/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/floating/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/floating/doc-standard"
-      },
-      {
-        "text": "ball float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/floating/ball_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/floating/ball_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/floating/ball_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "bin float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/floating/bin_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/floating/bin_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/floating/bin_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "decimal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/floating/decimal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/floating/decimal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/floating/decimal/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "def",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/floating/def/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/floating/def/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/floating/def/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/floating/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/floating/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/floating/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/linear-algebra/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/linear-algebra/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/linear-algebra/doc-standard"
-      },
-      {
-        "text": "immut/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/linear-algebra/immut/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/linear-algebra/immut/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/linear-algebra/immut/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "immut/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/linear-algebra/immut/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/linear-algebra/immut/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/linear-algebra/immut/vector/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/linear-algebra/mutable/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/linear-algebra/mutable/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/linear-algebra/mutable/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/linear-algebra/mutable/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/linear-algebra/mutable/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/linear-algebra/mutable/vector/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/linear-program/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/linear-program/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/linear-program/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/linear-program/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/linear-program/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/linear-program/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/luna-complex/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/luna-complex/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/luna-complex/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-complex/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-complex/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-complex/core/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "double ext",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-complex/double_ext/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-complex/double_ext/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-complex/double_ext/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/luna-generic/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/luna-generic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/luna-generic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-generic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-generic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-generic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/luna-poly/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/luna-poly/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/luna-poly/doc-standard"
-      },
-      {
-        "text": "algebra",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-poly/algebra/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-poly/algebra/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-poly/algebra/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense multi",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-poly/dense_multi/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-poly/dense_multi/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-poly/dense_multi/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-poly/dense_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-poly/dense_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-poly/dense_poly/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "exp vec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-poly/exp_vec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-poly/exp_vec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-poly/exp_vec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "sparse poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-poly/sparse_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-poly/sparse_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-poly/sparse_poly/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/luna-utils/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/luna-utils/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/luna-utils/doc-standard"
-      },
-      {
-        "text": "array utils",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-utils/array_utils/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-utils/array_utils/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-utils/array_utils/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "comparison",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna-utils/comparison/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna-utils/comparison/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna-utils/comparison/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/luna_thread/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/luna_thread/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/luna_thread/doc-standard"
-      },
-      {
-        "text": "backend",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna_thread/backend/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna_thread/backend/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna_thread/backend/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "facade",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna_thread/facade/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna_thread/facade/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna_thread/facade/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/luna_thread/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/luna_thread/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/luna_thread/spec/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/mooncake_impact_factor/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/mooncake_impact_factor/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/mooncake_impact_factor/doc-standard"
-      },
-      {
-        "text": "cli",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/mooncake_impact_factor/cli/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/mooncake_impact_factor/cli/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/mooncake_impact_factor/cli/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "score",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/mooncake_impact_factor/score/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/mooncake_impact_factor/score/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/mooncake_impact_factor/score/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "static search",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/mooncake_impact_factor/static_search/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/mooncake_impact_factor/static_search/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/mooncake_impact_factor/static_search/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/quaternion/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/quaternion/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/quaternion/doc-standard"
-      },
-      {
-        "text": "double conv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/quaternion/double_conv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/quaternion/double_conv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/quaternion/double_conv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "quaternion",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/quaternion/quaternion/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/quaternion/quaternion/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/quaternion/quaternion/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/QED/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/QED/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/QED/doc-standard"
-      },
-      {
-        "text": "kernel",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/QED/kernel/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/QED/kernel/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/QED/kernel/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "parser",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/QED/parser/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/QED/parser/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/QED/parser/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "prover",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/QED/prover/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/QED/prover/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/QED/prover/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/QED/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/QED/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/QED/spec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "tactics",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/QED/tactics/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/QED/tactics/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/QED/tactics/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/en_US/stella/": [
-      {
-        "text": "Overview",
-        "link": "/en_US/stella/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/en_US/stella/doc-standard"
-      },
-      {
-        "text": "elab",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/stella/elab/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/stella/elab/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/stella/elab/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "theory",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/en_US/stella/theory/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/en_US/stella/theory/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/en_US/stella/theory/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/": [
-      {
-        "text": "Luna-Flow/arithmetic",
-        "items": [
-          {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/arithmetic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/arithmetic/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/arithmetic/core/api.md"
+                "text": "API",
+                "link": "/ja_JP/arithmetic/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/arithmetic/core/design.md"
+                "text": "Design",
+                "link": "/ja_JP/arithmetic/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/arithmetic/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/arithmetic/core/tutorial"
               }
             ]
           }
@@ -3717,95 +1917,95 @@ export default {
         "text": "Luna-Flow/calculus-numerical",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/calculus-numerical/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/calculus-numerical/doc-standard"
           },
           {
-            "text": "basic",
+            "text": "Basic",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-numerical/basic/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-numerical/basic/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-numerical/basic/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-numerical/basic/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-numerical/basic/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-numerical/basic/tutorial"
               }
             ]
           },
           {
-            "text": "deriv",
+            "text": "Deriv",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-numerical/deriv/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-numerical/deriv/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-numerical/deriv/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-numerical/deriv/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-numerical/deriv/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-numerical/deriv/tutorial"
               }
             ]
           },
           {
-            "text": "diff",
+            "text": "Diff",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-numerical/diff/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-numerical/diff/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-numerical/diff/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-numerical/diff/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-numerical/diff/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-numerical/diff/tutorial"
               }
             ]
           },
           {
-            "text": "integration",
+            "text": "Integration",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-numerical/integration/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-numerical/integration/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-numerical/integration/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-numerical/integration/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-numerical/integration/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-numerical/integration/tutorial"
               }
             ]
           },
           {
-            "text": "internal",
+            "text": "Internal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-numerical/internal/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-numerical/internal/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-numerical/internal/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-numerical/internal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-numerical/internal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-numerical/internal/tutorial"
               }
             ]
           }
@@ -3815,27 +2015,27 @@ export default {
         "text": "Luna-Flow/calculus-symbolic",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/calculus-symbolic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/calculus-symbolic/doc-standard"
           },
           {
-            "text": "expr",
+            "text": "Expr",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/calculus-symbolic/expr/api.md"
+                "text": "API",
+                "link": "/ja_JP/calculus-symbolic/expr/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/calculus-symbolic/expr/design.md"
+                "text": "Design",
+                "link": "/ja_JP/calculus-symbolic/expr/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/calculus-symbolic/expr/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/calculus-symbolic/expr/tutorial"
               }
             ]
           }
@@ -3845,27 +2045,27 @@ export default {
         "text": "Luna-Flow/computable-real",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/computable-real/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/computable-real/doc-standard"
           },
           {
-            "text": "current state",
+            "text": "Current State",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/computable-real/current_state/api.md"
+                "text": "API",
+                "link": "/ja_JP/computable-real/current_state/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/computable-real/current_state/design.md"
+                "text": "Design",
+                "link": "/ja_JP/computable-real/current_state/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/computable-real/current_state/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/computable-real/current_state/tutorial"
               }
             ]
           }
@@ -3875,95 +2075,95 @@ export default {
         "text": "Luna-Flow/floating",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/floating/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/floating/doc-standard"
           },
           {
-            "text": "ball float",
+            "text": "Ball Float",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/floating/ball_float/api.md"
+                "text": "API",
+                "link": "/ja_JP/floating/ball_float/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/floating/ball_float/design.md"
+                "text": "Design",
+                "link": "/ja_JP/floating/ball_float/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/floating/ball_float/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/floating/ball_float/tutorial"
               }
             ]
           },
           {
-            "text": "bin float",
+            "text": "Bin Float",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/floating/bin_float/api.md"
+                "text": "API",
+                "link": "/ja_JP/floating/bin_float/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/floating/bin_float/design.md"
+                "text": "Design",
+                "link": "/ja_JP/floating/bin_float/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/floating/bin_float/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/floating/bin_float/tutorial"
               }
             ]
           },
           {
-            "text": "decimal",
+            "text": "Decimal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/floating/decimal/api.md"
+                "text": "API",
+                "link": "/ja_JP/floating/decimal/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/floating/decimal/design.md"
+                "text": "Design",
+                "link": "/ja_JP/floating/decimal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/floating/decimal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/floating/decimal/tutorial"
               }
             ]
           },
           {
-            "text": "def",
+            "text": "Def",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/floating/def/api.md"
+                "text": "API",
+                "link": "/ja_JP/floating/def/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/floating/def/design.md"
+                "text": "Design",
+                "link": "/ja_JP/floating/def/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/floating/def/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/floating/def/tutorial"
               }
             ]
           },
           {
-            "text": "internal",
+            "text": "Internal",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/floating/internal/api.md"
+                "text": "API",
+                "link": "/ja_JP/floating/internal/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/floating/internal/design.md"
+                "text": "Design",
+                "link": "/ja_JP/floating/internal/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/floating/internal/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/floating/internal/tutorial"
               }
             ]
           }
@@ -3973,78 +2173,78 @@ export default {
         "text": "Luna-Flow/linear-algebra",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/linear-algebra/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/linear-algebra/doc-standard"
           },
           {
-            "text": "immut/matrix",
+            "text": "Immut/Matrix",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/linear-algebra/immut/matrix/api.md"
+                "text": "API",
+                "link": "/ja_JP/linear-algebra/immut/matrix/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/linear-algebra/immut/matrix/design.md"
+                "text": "Design",
+                "link": "/ja_JP/linear-algebra/immut/matrix/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/linear-algebra/immut/matrix/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/linear-algebra/immut/matrix/tutorial"
               }
             ]
           },
           {
-            "text": "immut/vector",
+            "text": "Immut/Vector",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/linear-algebra/immut/vector/api.md"
+                "text": "API",
+                "link": "/ja_JP/linear-algebra/immut/vector/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/linear-algebra/immut/vector/design.md"
+                "text": "Design",
+                "link": "/ja_JP/linear-algebra/immut/vector/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/linear-algebra/immut/vector/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/linear-algebra/immut/vector/tutorial"
               }
             ]
           },
           {
-            "text": "mutable/matrix",
+            "text": "Mutable/Matrix",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/linear-algebra/mutable/matrix/api.md"
+                "text": "API",
+                "link": "/ja_JP/linear-algebra/mutable/matrix/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/linear-algebra/mutable/matrix/design.md"
+                "text": "Design",
+                "link": "/ja_JP/linear-algebra/mutable/matrix/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/linear-algebra/mutable/matrix/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/linear-algebra/mutable/matrix/tutorial"
               }
             ]
           },
           {
-            "text": "mutable/vector",
+            "text": "Mutable/Vector",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/linear-algebra/mutable/vector/api.md"
+                "text": "API",
+                "link": "/ja_JP/linear-algebra/mutable/vector/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/linear-algebra/mutable/vector/design.md"
+                "text": "Design",
+                "link": "/ja_JP/linear-algebra/mutable/vector/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/linear-algebra/mutable/vector/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/linear-algebra/mutable/vector/tutorial"
               }
             ]
           }
@@ -4054,27 +2254,27 @@ export default {
         "text": "Luna-Flow/linear-program",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/linear-program/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/linear-program/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/linear-program/core/api.md"
+                "text": "API",
+                "link": "/ja_JP/linear-program/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/linear-program/core/design.md"
+                "text": "Design",
+                "link": "/ja_JP/linear-program/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/linear-program/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/linear-program/core/tutorial"
               }
             ]
           }
@@ -4084,44 +2284,44 @@ export default {
         "text": "Luna-Flow/luna-complex",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/luna-complex/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/luna-complex/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-complex/core/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-complex/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-complex/core/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-complex/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-complex/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-complex/core/tutorial"
               }
             ]
           },
           {
-            "text": "double ext",
+            "text": "Double Ext",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-complex/double_ext/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-complex/double_ext/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-complex/double_ext/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-complex/double_ext/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-complex/double_ext/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-complex/double_ext/tutorial"
               }
             ]
           }
@@ -4131,27 +2331,27 @@ export default {
         "text": "Luna-Flow/luna-generic",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/luna-generic/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/luna-generic/doc-standard"
           },
           {
-            "text": "core",
+            "text": "Core",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-generic/core/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-generic/core/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-generic/core/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-generic/core/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-generic/core/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-generic/core/tutorial"
               }
             ]
           }
@@ -4161,95 +2361,95 @@ export default {
         "text": "Luna-Flow/luna-poly",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/luna-poly/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/luna-poly/doc-standard"
           },
           {
-            "text": "algebra",
+            "text": "Algebra",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-poly/algebra/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-poly/algebra/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-poly/algebra/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-poly/algebra/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-poly/algebra/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-poly/algebra/tutorial"
               }
             ]
           },
           {
-            "text": "dense multi",
+            "text": "Dense Multi",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-poly/dense_multi/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-poly/dense_multi/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-poly/dense_multi/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-poly/dense_multi/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-poly/dense_multi/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-poly/dense_multi/tutorial"
               }
             ]
           },
           {
-            "text": "dense poly",
+            "text": "Dense Poly",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-poly/dense_poly/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-poly/dense_poly/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-poly/dense_poly/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-poly/dense_poly/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-poly/dense_poly/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-poly/dense_poly/tutorial"
               }
             ]
           },
           {
-            "text": "exp vec",
+            "text": "Exp Vec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-poly/exp_vec/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-poly/exp_vec/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-poly/exp_vec/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-poly/exp_vec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-poly/exp_vec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-poly/exp_vec/tutorial"
               }
             ]
           },
           {
-            "text": "sparse poly",
+            "text": "Sparse Poly",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-poly/sparse_poly/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-poly/sparse_poly/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-poly/sparse_poly/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-poly/sparse_poly/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-poly/sparse_poly/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-poly/sparse_poly/tutorial"
               }
             ]
           }
@@ -4259,44 +2459,44 @@ export default {
         "text": "Luna-Flow/luna-utils",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/luna-utils/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/luna-utils/doc-standard"
           },
           {
-            "text": "array utils",
+            "text": "Array Utils",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-utils/array_utils/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-utils/array_utils/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-utils/array_utils/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-utils/array_utils/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-utils/array_utils/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-utils/array_utils/tutorial"
               }
             ]
           },
           {
-            "text": "comparison",
+            "text": "Comparison",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna-utils/comparison/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna-utils/comparison/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna-utils/comparison/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna-utils/comparison/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna-utils/comparison/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna-utils/comparison/tutorial"
               }
             ]
           }
@@ -4306,61 +2506,61 @@ export default {
         "text": "Luna-Flow/luna_thread",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/luna_thread/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/luna_thread/doc-standard"
           },
           {
-            "text": "backend",
+            "text": "Backend",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna_thread/backend/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna_thread/backend/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna_thread/backend/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna_thread/backend/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna_thread/backend/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna_thread/backend/tutorial"
               }
             ]
           },
           {
-            "text": "facade",
+            "text": "Facade",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna_thread/facade/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna_thread/facade/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna_thread/facade/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna_thread/facade/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna_thread/facade/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna_thread/facade/tutorial"
               }
             ]
           },
           {
-            "text": "spec",
+            "text": "Spec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/luna_thread/spec/api.md"
+                "text": "API",
+                "link": "/ja_JP/luna_thread/spec/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/luna_thread/spec/design.md"
+                "text": "Design",
+                "link": "/ja_JP/luna_thread/spec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/luna_thread/spec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/luna_thread/spec/tutorial"
               }
             ]
           }
@@ -4370,61 +2570,61 @@ export default {
         "text": "Luna-Flow/mooncake_impact_factor",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/mooncake_impact_factor/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/mooncake_impact_factor/doc-standard"
           },
           {
-            "text": "cli",
+            "text": "Cli",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/mooncake_impact_factor/cli/api.md"
+                "text": "API",
+                "link": "/ja_JP/mooncake_impact_factor/cli/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/mooncake_impact_factor/cli/design.md"
+                "text": "Design",
+                "link": "/ja_JP/mooncake_impact_factor/cli/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/mooncake_impact_factor/cli/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/mooncake_impact_factor/cli/tutorial"
               }
             ]
           },
           {
-            "text": "score",
+            "text": "Score",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/mooncake_impact_factor/score/api.md"
+                "text": "API",
+                "link": "/ja_JP/mooncake_impact_factor/score/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/mooncake_impact_factor/score/design.md"
+                "text": "Design",
+                "link": "/ja_JP/mooncake_impact_factor/score/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/mooncake_impact_factor/score/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/mooncake_impact_factor/score/tutorial"
               }
             ]
           },
           {
-            "text": "static search",
+            "text": "Static Search",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/mooncake_impact_factor/static_search/api.md"
+                "text": "API",
+                "link": "/ja_JP/mooncake_impact_factor/static_search/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/mooncake_impact_factor/static_search/design.md"
+                "text": "Design",
+                "link": "/ja_JP/mooncake_impact_factor/static_search/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/mooncake_impact_factor/static_search/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/mooncake_impact_factor/static_search/tutorial"
               }
             ]
           }
@@ -4434,44 +2634,44 @@ export default {
         "text": "Luna-Flow/quaternion",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/quaternion/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/quaternion/doc-standard"
           },
           {
-            "text": "double conv",
+            "text": "Double Conv",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/quaternion/double_conv/api.md"
+                "text": "API",
+                "link": "/ja_JP/quaternion/double_conv/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/quaternion/double_conv/design.md"
+                "text": "Design",
+                "link": "/ja_JP/quaternion/double_conv/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/quaternion/double_conv/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/quaternion/double_conv/tutorial"
               }
             ]
           },
           {
-            "text": "quaternion",
+            "text": "Quaternion",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/quaternion/quaternion/api.md"
+                "text": "API",
+                "link": "/ja_JP/quaternion/quaternion/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/quaternion/quaternion/design.md"
+                "text": "Design",
+                "link": "/ja_JP/quaternion/quaternion/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/quaternion/quaternion/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/quaternion/quaternion/tutorial"
               }
             ]
           }
@@ -4481,95 +2681,95 @@ export default {
         "text": "Luna-Flow/QED",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/QED/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/QED/doc-standard"
           },
           {
-            "text": "kernel",
+            "text": "Kernel",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/QED/kernel/api.md"
+                "text": "API",
+                "link": "/ja_JP/QED/kernel/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/QED/kernel/design.md"
+                "text": "Design",
+                "link": "/ja_JP/QED/kernel/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/QED/kernel/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/QED/kernel/tutorial"
               }
             ]
           },
           {
-            "text": "parser",
+            "text": "Parser",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/QED/parser/api.md"
+                "text": "API",
+                "link": "/ja_JP/QED/parser/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/QED/parser/design.md"
+                "text": "Design",
+                "link": "/ja_JP/QED/parser/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/QED/parser/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/QED/parser/tutorial"
               }
             ]
           },
           {
-            "text": "prover",
+            "text": "Prover",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/QED/prover/api.md"
+                "text": "API",
+                "link": "/ja_JP/QED/prover/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/QED/prover/design.md"
+                "text": "Design",
+                "link": "/ja_JP/QED/prover/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/QED/prover/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/QED/prover/tutorial"
               }
             ]
           },
           {
-            "text": "spec",
+            "text": "Spec",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/QED/spec/api.md"
+                "text": "API",
+                "link": "/ja_JP/QED/spec/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/QED/spec/design.md"
+                "text": "Design",
+                "link": "/ja_JP/QED/spec/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/QED/spec/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/QED/spec/tutorial"
               }
             ]
           },
           {
-            "text": "tactics",
+            "text": "Tactics",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/QED/tactics/api.md"
+                "text": "API",
+                "link": "/ja_JP/QED/tactics/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/QED/tactics/design.md"
+                "text": "Design",
+                "link": "/ja_JP/QED/tactics/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/QED/tactics/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/QED/tactics/tutorial"
               }
             ]
           }
@@ -4579,937 +2779,46 @@ export default {
         "text": "Luna-Flow/stella",
         "items": [
           {
-            "text": "Overview",
+            "text": "概要",
             "link": "/ja_JP/stella/index"
           },
           {
-            "text": "Doc Standard",
+            "text": "文書規約",
             "link": "/ja_JP/stella/doc-standard"
           },
           {
-            "text": "elab",
+            "text": "Elab",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/stella/elab/api.md"
+                "text": "API",
+                "link": "/ja_JP/stella/elab/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/stella/elab/design.md"
+                "text": "Design",
+                "link": "/ja_JP/stella/elab/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/stella/elab/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/stella/elab/tutorial"
               }
             ]
           },
           {
-            "text": "theory",
+            "text": "Theory",
             "items": [
               {
-                "text": "api.md",
-                "link": "/ja_JP/stella/theory/api.md"
+                "text": "API",
+                "link": "/ja_JP/stella/theory/api"
               },
               {
-                "text": "design.md",
-                "link": "/ja_JP/stella/theory/design.md"
+                "text": "Design",
+                "link": "/ja_JP/stella/theory/design"
               },
               {
-                "text": "tutorial.md",
-                "link": "/ja_JP/stella/theory/tutorial.md"
+                "text": "Tutorial",
+                "link": "/ja_JP/stella/theory/tutorial"
               }
             ]
-          }
-        ]
-      }
-    ],
-    "/ja_JP/arithmetic/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/arithmetic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/arithmetic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/arithmetic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/arithmetic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/arithmetic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/calculus-numerical/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/calculus-numerical/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/calculus-numerical/doc-standard"
-      },
-      {
-        "text": "basic",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-numerical/basic/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-numerical/basic/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-numerical/basic/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "deriv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-numerical/deriv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-numerical/deriv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-numerical/deriv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "diff",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-numerical/diff/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-numerical/diff/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-numerical/diff/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "integration",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-numerical/integration/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-numerical/integration/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-numerical/integration/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-numerical/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-numerical/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-numerical/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/calculus-symbolic/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/calculus-symbolic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/calculus-symbolic/doc-standard"
-      },
-      {
-        "text": "expr",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/calculus-symbolic/expr/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/calculus-symbolic/expr/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/calculus-symbolic/expr/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/computable-real/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/computable-real/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/computable-real/doc-standard"
-      },
-      {
-        "text": "current state",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/computable-real/current_state/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/computable-real/current_state/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/computable-real/current_state/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/floating/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/floating/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/floating/doc-standard"
-      },
-      {
-        "text": "ball float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/floating/ball_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/floating/ball_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/floating/ball_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "bin float",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/floating/bin_float/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/floating/bin_float/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/floating/bin_float/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "decimal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/floating/decimal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/floating/decimal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/floating/decimal/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "def",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/floating/def/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/floating/def/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/floating/def/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "internal",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/floating/internal/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/floating/internal/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/floating/internal/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/linear-algebra/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/linear-algebra/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/linear-algebra/doc-standard"
-      },
-      {
-        "text": "immut/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/linear-algebra/immut/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/linear-algebra/immut/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/linear-algebra/immut/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "immut/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/linear-algebra/immut/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/linear-algebra/immut/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/linear-algebra/immut/vector/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/matrix",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/linear-algebra/mutable/matrix/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/linear-algebra/mutable/matrix/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/linear-algebra/mutable/matrix/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "mutable/vector",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/linear-algebra/mutable/vector/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/linear-algebra/mutable/vector/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/linear-algebra/mutable/vector/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/linear-program/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/linear-program/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/linear-program/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/linear-program/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/linear-program/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/linear-program/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/luna-complex/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/luna-complex/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/luna-complex/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-complex/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-complex/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-complex/core/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "double ext",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-complex/double_ext/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-complex/double_ext/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-complex/double_ext/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/luna-generic/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/luna-generic/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/luna-generic/doc-standard"
-      },
-      {
-        "text": "core",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-generic/core/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-generic/core/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-generic/core/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/luna-poly/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/luna-poly/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/luna-poly/doc-standard"
-      },
-      {
-        "text": "algebra",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-poly/algebra/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-poly/algebra/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-poly/algebra/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense multi",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-poly/dense_multi/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-poly/dense_multi/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-poly/dense_multi/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "dense poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-poly/dense_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-poly/dense_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-poly/dense_poly/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "exp vec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-poly/exp_vec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-poly/exp_vec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-poly/exp_vec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "sparse poly",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-poly/sparse_poly/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-poly/sparse_poly/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-poly/sparse_poly/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/luna-utils/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/luna-utils/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/luna-utils/doc-standard"
-      },
-      {
-        "text": "array utils",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-utils/array_utils/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-utils/array_utils/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-utils/array_utils/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "comparison",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna-utils/comparison/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna-utils/comparison/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna-utils/comparison/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/luna_thread/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/luna_thread/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/luna_thread/doc-standard"
-      },
-      {
-        "text": "backend",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna_thread/backend/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna_thread/backend/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna_thread/backend/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "facade",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna_thread/facade/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna_thread/facade/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna_thread/facade/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/luna_thread/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/luna_thread/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/luna_thread/spec/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/mooncake_impact_factor/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/mooncake_impact_factor/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/mooncake_impact_factor/doc-standard"
-      },
-      {
-        "text": "cli",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/mooncake_impact_factor/cli/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/mooncake_impact_factor/cli/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/mooncake_impact_factor/cli/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "score",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/mooncake_impact_factor/score/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/mooncake_impact_factor/score/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/mooncake_impact_factor/score/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "static search",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/mooncake_impact_factor/static_search/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/mooncake_impact_factor/static_search/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/mooncake_impact_factor/static_search/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/quaternion/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/quaternion/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/quaternion/doc-standard"
-      },
-      {
-        "text": "double conv",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/quaternion/double_conv/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/quaternion/double_conv/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/quaternion/double_conv/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "quaternion",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/quaternion/quaternion/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/quaternion/quaternion/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/quaternion/quaternion/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/QED/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/QED/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/QED/doc-standard"
-      },
-      {
-        "text": "kernel",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/QED/kernel/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/QED/kernel/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/QED/kernel/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "parser",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/QED/parser/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/QED/parser/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/QED/parser/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "prover",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/QED/prover/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/QED/prover/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/QED/prover/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "spec",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/QED/spec/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/QED/spec/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/QED/spec/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "tactics",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/QED/tactics/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/QED/tactics/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/QED/tactics/tutorial.md"
-          }
-        ]
-      }
-    ],
-    "/ja_JP/stella/": [
-      {
-        "text": "Overview",
-        "link": "/ja_JP/stella/index"
-      },
-      {
-        "text": "Doc Standard",
-        "link": "/ja_JP/stella/doc-standard"
-      },
-      {
-        "text": "elab",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/stella/elab/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/stella/elab/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/stella/elab/tutorial.md"
-          }
-        ]
-      },
-      {
-        "text": "theory",
-        "items": [
-          {
-            "text": "api.md",
-            "link": "/ja_JP/stella/theory/api.md"
-          },
-          {
-            "text": "design.md",
-            "link": "/ja_JP/stella/theory/design.md"
-          },
-          {
-            "text": "tutorial.md",
-            "link": "/ja_JP/stella/theory/tutorial.md"
           }
         ]
       }
@@ -5517,7 +2826,7 @@ export default {
   },
   "repos": [
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "arithmetic",
       "title": "Luna-Flow/arithmetic",
       "files": [
@@ -5527,7 +2836,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "calculus-numerical",
       "title": "Luna-Flow/calculus-numerical",
       "files": [
@@ -5549,7 +2858,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "calculus-symbolic",
       "title": "Luna-Flow/calculus-symbolic",
       "files": [
@@ -5559,7 +2868,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "computable-real",
       "title": "Luna-Flow/computable-real",
       "files": [
@@ -5569,7 +2878,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "floating",
       "title": "Luna-Flow/floating",
       "files": [
@@ -5591,7 +2900,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "linear-algebra",
       "title": "Luna-Flow/linear-algebra",
       "files": [
@@ -5610,7 +2919,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "linear-program",
       "title": "Luna-Flow/linear-program",
       "files": [
@@ -5620,7 +2929,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "luna-complex",
       "title": "Luna-Flow/luna-complex",
       "files": [
@@ -5633,7 +2942,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "luna-generic",
       "title": "Luna-Flow/luna-generic",
       "files": [
@@ -5643,7 +2952,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "luna-poly",
       "title": "Luna-Flow/luna-poly",
       "files": [
@@ -5665,7 +2974,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "luna-utils",
       "title": "Luna-Flow/luna-utils",
       "files": [
@@ -5678,7 +2987,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "luna_thread",
       "title": "Luna-Flow/luna_thread",
       "files": [
@@ -5694,7 +3003,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "mooncake_impact_factor",
       "title": "Luna-Flow/mooncake_impact_factor",
       "files": [
@@ -5710,7 +3019,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "quaternion",
       "title": "Luna-Flow/quaternion",
       "files": [
@@ -5723,7 +3032,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "QED",
       "title": "Luna-Flow/QED",
       "files": [
@@ -5745,7 +3054,7 @@ export default {
       ]
     },
     {
-      "locale": "zh_CN",
+      "locale": "root",
       "repo": "stella",
       "title": "Luna-Flow/stella",
       "files": [
@@ -5758,7 +3067,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "arithmetic",
       "title": "Luna-Flow/arithmetic",
       "files": [
@@ -5768,7 +3077,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "calculus-numerical",
       "title": "Luna-Flow/calculus-numerical",
       "files": [
@@ -5790,7 +3099,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "calculus-symbolic",
       "title": "Luna-Flow/calculus-symbolic",
       "files": [
@@ -5800,7 +3109,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "computable-real",
       "title": "Luna-Flow/computable-real",
       "files": [
@@ -5810,7 +3119,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "floating",
       "title": "Luna-Flow/floating",
       "files": [
@@ -5832,7 +3141,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "linear-algebra",
       "title": "Luna-Flow/linear-algebra",
       "files": [
@@ -5851,7 +3160,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "linear-program",
       "title": "Luna-Flow/linear-program",
       "files": [
@@ -5861,7 +3170,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "luna-complex",
       "title": "Luna-Flow/luna-complex",
       "files": [
@@ -5874,7 +3183,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "luna-generic",
       "title": "Luna-Flow/luna-generic",
       "files": [
@@ -5884,7 +3193,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "luna-poly",
       "title": "Luna-Flow/luna-poly",
       "files": [
@@ -5906,7 +3215,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "luna-utils",
       "title": "Luna-Flow/luna-utils",
       "files": [
@@ -5919,7 +3228,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "luna_thread",
       "title": "Luna-Flow/luna_thread",
       "files": [
@@ -5935,7 +3244,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "mooncake_impact_factor",
       "title": "Luna-Flow/mooncake_impact_factor",
       "files": [
@@ -5951,7 +3260,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "quaternion",
       "title": "Luna-Flow/quaternion",
       "files": [
@@ -5964,7 +3273,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "QED",
       "title": "Luna-Flow/QED",
       "files": [
@@ -5986,7 +3295,7 @@ export default {
       ]
     },
     {
-      "locale": "en_US",
+      "locale": "zh_CN",
       "repo": "stella",
       "title": "Luna-Flow/stella",
       "files": [

@@ -43,4 +43,3 @@
 | `@integration` |   `dbl_adap_gen_quad`   |       二重適応型の一般的積分法（ほとんどの特異点に対応）       |   難しい   |
 | `@integration` |   `adap_wgt_quad_cpv`   |       無限区間積分に対する適応型手法、振動関数に適用可能       |   難しい   |
 | `@integration` | `adap_wgt_quad_fourier` | 無限区間積分に対する適応型手法、特定の振動特性を持つ関数に対応 |   難しい   |
-\n

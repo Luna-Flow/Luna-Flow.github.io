@@ -130,4 +130,3 @@ pub struct Vector[T](Array[T])
   - **`fn[T : Mul] tensor_product(self : Vector[T], other : Vector[T]) -> Matrix[T]`**
     - **描述**
         计算两个向量的张量积（外积）。
-\n

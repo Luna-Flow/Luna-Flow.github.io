@@ -157,4 +157,3 @@ just dev
 - 下载量可能来自在线 mooncakes 响应、`data/download_cache.json` 或本地覆盖文件。
 - 当 `sort=relevance` 且存在任意全文条件时，搜索结果会优先按 SQLite `bm25` 相关性排序。
 - 图形化高级检索和原生 `expr` 输入都会编译到同一套共享查询 AST。
-\n

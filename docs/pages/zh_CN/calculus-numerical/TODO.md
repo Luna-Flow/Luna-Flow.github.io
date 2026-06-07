@@ -47,4 +47,3 @@
 | `@integration` |   `dbl_adap_gen_quad`   |    双重自适应的通用积分法，用于处理大多数类型的奇异点。     |   困难   |
 | `@integration` |   `adap_wgt_quad_cpv`   |      自适应方法，适用于无限区间的积分，适合振荡函数。       |   困难   |
 | `@integration` | `adap_wgt_quad_fourier` | 自适应积分法，适用于无限区间，处理具有特定振荡性质的函数。  |   困难   |
-\n

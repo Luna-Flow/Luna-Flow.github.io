@@ -27,4 +27,3 @@
 - API リファレンス: [sparse_poly](./sparse_poly/api.md)
 - API リファレンス: [exp_vec](./exp_vec/api.md)
 - API リファレンス: [algebra](./algebra/api.md)
-\n

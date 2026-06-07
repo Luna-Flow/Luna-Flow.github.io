@@ -157,4 +157,3 @@ Developers are encouraged to use MoonBit LSP’s AI-generated code comments to i
 - All code submissions must undergo **code review**.
 - Code reviews should focus on code quality, style, performance, and security.
 - Reviewers should provide constructive feedback to improve the code.
-\n

@@ -30,4 +30,3 @@ let short = x.with_precision(4, @def.RoundingMode::ToNearestEven)
 ## 特殊值与比较
 
 `compare` 只适用于有序值；如果可能出现 `NaN`，先看 `classify()`。
-\n

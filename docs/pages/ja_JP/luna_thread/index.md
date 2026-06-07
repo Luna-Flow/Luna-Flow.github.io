@@ -23,4 +23,3 @@
 - API リファレンス: [facade](./facade/api.md)
 - API リファレンス: [backend](./backend/api.md)
 - API リファレンス: [spec](./spec/api.md)
-\n

@@ -23,4 +23,3 @@
 - `normalized`
 
 这样 `bin_float`、`decimal`、`ball_float` 即使内部表示不同，也能共享同一套语义命名。
-\n

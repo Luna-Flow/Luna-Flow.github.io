@@ -86,4 +86,3 @@ UI behavior, validate the affected command paths as well.
 4. Run `moon fmt`, `moon check src/score --target all`, `moon check src/cli --target js`, `moon check src/static_search --target js`, `moon test src/score --target all`, `moon test src/static_search --target js`, `python3 -m unittest scripts/build_index_test.py`, `npm run typecheck`, `npm run build`, `npm run build:static-data`, `npm run build:static`, and `npm test`.
 5. Trigger `publish-package` manually after validation.
 6. If mooncakes reports a duplicate version, publish a new bumped version instead.
-\n

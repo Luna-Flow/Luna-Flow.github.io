@@ -77,4 +77,3 @@
 
 - 对共享代数行为来说，仓库中的 consistency tests 仍然把 `@immut.Matrix` 作为语义参考点。
 - mutable 包会额外暴露视图和原地更新等执行导向 API，不应把这些能力反向投射到 `immut` 上。
-\n

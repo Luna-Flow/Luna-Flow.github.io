@@ -12,4 +12,3 @@ The root package owns generic `Complex[T]` structure, algebraic operations, and 
 
 - モジュール境界、主要アルゴリズム、可観測意味論が変わったら更新する。
 - 未完成なモジュールなら、その事実を明記し、未来の API を捏造しない。
-\n

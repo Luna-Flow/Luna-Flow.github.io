@@ -75,4 +75,3 @@ moon test --enable-coverage
 4. `publish-package` workflow を起動する。
 
 コントリビューション案内は [CONTRIBUTING.md](./CONTRIBUTING.md) を参照してください。
-\n

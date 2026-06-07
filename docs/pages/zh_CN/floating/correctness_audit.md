@@ -57,4 +57,3 @@
 | `center` / `radius` / `precision` / `classify` / `sign` / `normalized` / `with_precision` | 暴露存储包络、有限分类、按包络定义的符号，以及保持包含关系的规范化/重调精度。 | `src/ball_float/ball_float.mbt` | `def predicates classify finite nan and enclosing zero consistently`；`ball_float sign and overlap relations remain enclosure based`；exact-widen 回归。 | Verified |
 | `contains` / `overlaps` / `separated_from` / `definitely_lt` / `definitely_gt` / `maybe_overlap` | 关系 API 基于区间语义，而不是标量全序。 | `src/ball_float/ball_float.mbt` | `ball_float overlap detects separated balls`；`ball_float sign and overlap relations remain enclosure based`；exact containment 测试。 | Verified |
 | `add` / `sub` / `mul` / `div` | 算术返回的球会包住真实结果，并把输出舍入位移也并入半径；除法拒绝分母球包含零。 | `src/ball_float/ball_float.mbt` | `ball_float multiplication keeps exact scalar result inside zero-radius inputs`；`ball_float division keeps exact scalar result inside zero-radius inputs`；零分母分支代码审阅。 | Verified with approximation boundary |
-\n

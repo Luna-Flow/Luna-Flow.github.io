@@ -101,4 +101,3 @@ checked 挙動メモ:
 - `@arithmetic.PowNatChecked`
 - `@arithmetic.PowIntChecked`
 - `Eq`、`Add`、`Sub`、`Mul`、`Div`、`Neg`、`Show`
-\n

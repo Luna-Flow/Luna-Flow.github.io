@@ -27,4 +27,3 @@
 - API 参考: [tactics](./tactics/api.md)
 - API 参考: [prover](./prover/api.md)
 - API 参考: [spec](./spec/api.md)
-\n

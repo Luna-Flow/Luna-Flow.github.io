@@ -23,4 +23,3 @@ let x = d.to_bin_float(precision=24)
 let back = @decimal.Decimal::from_bin_float(x, precision=10)
 inspect(back.to_string(), content="0.09999999404")
 ```
-\n

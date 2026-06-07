@@ -109,4 +109,3 @@ trait design, and test coverage are especially valuable.
 - All code submissions should undergo review.
 - Reviews should focus first on numeric correctness, semantic clarity, and missing tests, then on style and cleanup.
 - Changes that alter rounding, normalization, conversion, or enclosure behavior should include or update tests in `src/consistency`.
-\n

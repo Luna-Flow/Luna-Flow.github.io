@@ -12,4 +12,3 @@ The design work for computable-real must start by fixing semantic scope, approxi
 
 - 只要模块边界、核心算法或可观察语义变化，就更新本页。
 - 如果模块仍然不完整，也要明确写出，不要伪造未来 API。
-\n

@@ -101,4 +101,3 @@ checked 行为说明：
 - `@arithmetic.PowNatChecked`
 - `@arithmetic.PowIntChecked`
 - `Eq`、`Add`、`Sub`、`Mul`、`Div`、`Neg`、`Show`
-\n

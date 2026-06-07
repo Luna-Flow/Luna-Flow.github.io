@@ -27,4 +27,3 @@ inspect(back.to_string(), content="0.09999999404")
 ```
 
 这说明当前实现下，`0.1` 这样的非 dyadic 十进制在二进制里只能近似表示。
-\n

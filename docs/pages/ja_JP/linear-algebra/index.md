@@ -142,4 +142,3 @@ publish workflow を起動する前に:
 workflow が重複バージョンを報告した場合、そのバージョンは既に登録されています。先に新しいバージョンへ bump してください。
 
 コントリビューション案内は [CONTRIBUTING.md](./CONTRIBUTING.md) を参照してください。
-\n

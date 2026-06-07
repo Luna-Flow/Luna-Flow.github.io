@@ -90,4 +90,3 @@
 
 - 这一轮不会从 `Decimal` 暴露常量 trait 或超越函数 trait。
 - 与 `Luna-Flow/arithmetic` 的集成面是 checked arithmetic traits。
-\n

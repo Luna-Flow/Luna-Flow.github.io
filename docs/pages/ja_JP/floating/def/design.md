@@ -21,4 +21,3 @@
 - `RoundingMode`
 - `precision`
 - `normalized`
-\n

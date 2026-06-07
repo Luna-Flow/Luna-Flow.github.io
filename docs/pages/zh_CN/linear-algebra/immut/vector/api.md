@@ -248,4 +248,3 @@ struct Vector[T] {
       - `other`: `Vector[T]` - 右操作向量（决定结果矩阵的列数）。
     - **返回值**
       `Matrix[T]` - 外积矩阵。
-\n

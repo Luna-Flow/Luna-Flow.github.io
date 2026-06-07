@@ -12,4 +12,3 @@ There is no runnable user tutorial yet because the repository is still empty. Us
 
 - 内部ヘルパーではなく、文書化された入口を優先する。
 - ランタイム・数値・証明状態の前提を下流コードに明示する。
-\n

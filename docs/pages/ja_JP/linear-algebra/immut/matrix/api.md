@@ -77,4 +77,3 @@
 
 - 共有される代数的振る舞いについては、リポジトリ内の consistency tests で `@immut.Matrix` が意味論上の基準点として扱われます。
 - mutable パッケージは view や in-place 更新など、実行寄りの追加 API を意図的に公開しており、それらを `immut` に逆投影しないでください。
-\n

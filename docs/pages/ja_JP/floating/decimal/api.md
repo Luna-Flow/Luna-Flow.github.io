@@ -90,4 +90,3 @@
 
 - このパスでは `Decimal` に定数 trait や超越関数 trait を公開しません。
 - `Luna-Flow/arithmetic` との統合面は checked arithmetic trait です。
-\n

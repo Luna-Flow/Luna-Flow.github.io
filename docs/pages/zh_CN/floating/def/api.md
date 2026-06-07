@@ -35,4 +35,3 @@ trait Floating {
 - `@bin_float.BinFloat`
 - `@decimal.Decimal`
 - `@ball_float.BallFloat`
-\n
