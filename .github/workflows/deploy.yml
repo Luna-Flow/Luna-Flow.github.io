@@ -36,7 +36,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p ../workspace
-          node -e "const fs=require('fs'); const cfg=JSON.parse(fs.readFileSync('docs/repo-docs.config.json','utf8')); for (const repo of cfg.repos.filter((r) => r.enabled)) console.log(`${repo.repo}\t${repo.branch || 'main'}`);" | while IFS=$'\t' read -r repo branch; do
+          node -e "const fs=require('fs'); const cfg=JSON.parse(fs.readFileSync('docs/repo-docs.config.json','utf8')); for (const repo of cfg.repos.filter((r) => r.enabled)) console.log(repo.repo + '\t' + (repo.branch || 'main'));" | while IFS=$'\t' read -r repo branch; do
             archive="../workspace/${repo}.tar.gz"
             extract_dir=$(mktemp -d)
             gh api "repos/Luna-Flow/$repo/tarball/$branch" > "$archive"
