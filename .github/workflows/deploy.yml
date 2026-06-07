@@ -32,10 +32,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Checkout Luna-Flow docs sources
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p ../workspace
           node -e "const fs=require('fs'); const cfg=JSON.parse(fs.readFileSync('docs/repo-docs.config.json','utf8')); for (const repo of cfg.repos.filter((r) => r.enabled)) console.log(repo.repo);" | while read repo; do
-            git clone --depth 1 --branch main "https://github.com/Luna-Flow/$repo.git" "../workspace/$repo"
+            archive="../workspace/${repo}.tar.gz"
+            extract_dir=$(mktemp -d)
+            gh api "repos/Luna-Flow/$repo/tarball/main" > "$archive"
+            tar -xzf "$archive" -C "$extract_dir"
+            mv "$extract_dir"/* "../workspace/$repo"
+            rm -rf "$extract_dir" "$archive"
           done
       - name: Install dependencies
         run: npm ci
