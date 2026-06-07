@@ -1,0 +1,196 @@
+{
+  "repos": [
+    {
+      "repo": "arithmetic",
+      "title": "Luna-Flow/arithmetic",
+      "order": 1,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "calculus-numerical",
+      "title": "Luna-Flow/calculus-numerical",
+      "order": 2,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "calculus-symbolic",
+      "title": "Luna-Flow/calculus-symbolic",
+      "order": 3,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "computable-real",
+      "title": "Luna-Flow/computable-real",
+      "order": 4,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "project"
+    },
+    {
+      "repo": "floating",
+      "title": "Luna-Flow/floating",
+      "order": 5,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "linear-algebra",
+      "title": "Luna-Flow/linear-algebra",
+      "order": 6,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "linear-program",
+      "title": "Luna-Flow/linear-program",
+      "order": 7,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "luna-complex",
+      "title": "Luna-Flow/luna-complex",
+      "order": 8,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "luna-generic",
+      "title": "Luna-Flow/luna-generic",
+      "order": 9,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "luna-poly",
+      "title": "Luna-Flow/luna-poly",
+      "order": 10,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "luna-utils",
+      "title": "Luna-Flow/luna-utils",
+      "order": 11,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "luna_thread",
+      "title": "Luna-Flow/luna_thread",
+      "order": 12,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "project"
+    },
+    {
+      "repo": "mooncake_impact_factor",
+      "title": "Luna-Flow/mooncake_impact_factor",
+      "order": 13,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "quaternion",
+      "title": "Luna-Flow/quaternion",
+      "order": 14,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "library"
+    },
+    {
+      "repo": "QED",
+      "title": "Luna-Flow/QED",
+      "order": 15,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "project"
+    },
+    {
+      "repo": "stella",
+      "title": "Luna-Flow/stella",
+      "order": 16,
+      "enabled": true,
+      "locales": [
+        "en_US",
+        "zh_CN",
+        "ja_JP"
+      ],
+      "type": "project"
+    }
+  ]
+}
