@@ -653,9 +653,17 @@ function repositoryNames() {
   return [...new Set((config.categories ?? []).flatMap((category) => category.repos))];
 }
 
-function hasDocumentation(repoName) {
+function documentationStatus(repoName) {
   const docRoot = path.join(workspaceRoot, repoName, 'doc');
-  return locales.some((locale) => fs.existsSync(path.join(docRoot, locale.source)));
+  const localeDirs = locales.map((locale) => path.join(docRoot, locale.source));
+  if (!localeDirs.some((localeDir) => fs.existsSync(localeDir))) return 'none';
+
+  const complete = localeDirs.every((localeDir) =>
+    fs.existsSync(path.join(localeDir, 'README.md'))
+    && fs.existsSync(path.join(localeDir, 'doc_standard.md'))
+    && collectModuleFiles(localeDir).length > 0
+  );
+  return complete ? 'complete' : 'incomplete';
 }
 
 rmrf(generatedRoot);
@@ -663,8 +671,13 @@ mkdirp(generatedRoot);
 mkdirp(generatedDataDir);
 
 const enabledRepos = repositoryNames()
-  .filter((repo) => hasDocumentation(repo))
-  .map((repo) => ({ repo, title: repo }))
+  .flatMap((repo) => {
+    const status = documentationStatus(repo);
+    if (status === 'incomplete') {
+      console.warn(`Skipping ${repo}: incomplete en_US, zh_CN, or ja_JP documentation package.`);
+    }
+    return status === 'complete' ? [{ repo, title: repo }] : [];
+  })
   .sort((left, right) => left.repo.localeCompare(right.repo));
 const siteData = { sidebars: {}, repos: [] };
 

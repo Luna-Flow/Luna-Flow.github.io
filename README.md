@@ -8,13 +8,13 @@ The deployment workflow discovers repositories from the GitHub organization on e
 
 The discovery result controls which repositories may be downloaded. The category configuration does not control discovery and must never be used as an allowlist. This separation prevents a private repository visible to the build token from entering the generated site.
 
-Repositories without a `doc` directory are downloaded but omitted from the site. Once any supported locale directory exists, the repository must provide the standard files for all three locales:
+Repositories without a `doc` directory are downloaded but omitted from the site. To be included, a repository must provide the standard files and at least one package document for all three locales:
 
 - `doc/en_US/README.md` and `doc/en_US/doc_standard.md`
 - `doc/zh_CN/README.md` and `doc/zh_CN/doc_standard.md`
 - `doc/ja_JP/README.md` and `doc/ja_JP/doc_standard.md`
 
-An incomplete multilingual document set fails the build instead of publishing a partial repository.
+An incomplete multilingual document set emits a warning and is skipped. It must not prevent complete repositories from being published.
 
 ## Directory categories
 
