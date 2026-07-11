@@ -1,25 +1,27 @@
 # `@mutable.Matrix`
 
-This page documents the current `0.2.11` repository behavior.
+API baseline for `@mutable.Matrix` in the current `0.4.7` repository state.
+Square-root-dependent APIs use `Luna-Flow/arithmetic.Sqrt`; `Tolerance`
+remains defined by `mutable`.
 
 ## Overview
 
-- `@mutable.Matrix` is mutation-oriented.
+- `@mutable.Matrix` is the repository's execution-oriented matrix type.
 - `set`, `swap_rows`, `swap_cols`, `map_inplace`, row/column view updates, and transpose updates modify the underlying matrix in place.
 - Public storage is a flat row-major `Array[T]` across backends. Backend-specific files differ in execution tuning, not in the public matrix model.
 - Public access is strict about bounds. `get`, `set`, `m[row][col]`, `row_view`, `col_view`, extraction helpers, iterators, and transpose-view access reject out-of-range indices consistently, including zero-row and zero-column edge shapes.
-- `swap_rows(i, i)` and `swap_cols(i, i)` are no-op operations. Out-of-range row or column indices panic explicitly instead of relying on accidental storage access.
+- `swap_rows(i, i)` and `swap_cols(i, i)` leave the matrix unchanged. Out-of-range row or column indices abort explicitly instead of relying on accidental storage access.
 
 ## Core Matrix API
 
 - `Matrix::make(row, col, f)`
-  Builds a matrix from a generator function. Negative dimensions panic.
+  Builds a matrix from a generator function. Negative dimensions abort.
 - `Matrix::new(row, col, elem)`
-  Builds a matrix filled with `elem`. Negative dimensions panic.
+  Builds a matrix filled with `elem`. Negative dimensions abort.
 - `Matrix::from_2d_array(arr)`
-  Creates a matrix from a rectangular 2D array. Ragged input panics.
+  Creates a matrix from a rectangular 2D array. Ragged input aborts.
 - `Matrix::from_array(row, col, data)`
-  Uses a flat row-major array as matrix storage. Negative dimensions or wrong element count panic.
+  Uses a flat row-major array as matrix storage. Negative dimensions or wrong element count abort.
 - `row()` / `col()`
   Return the stored shape.
 - `get(row, col)` / `set(row, col, elem)`
@@ -63,31 +65,42 @@ This page documents the current `0.2.11` repository behavior.
 - `scale(cst)`, `add_constant(cst)`, unary `-`
   Element-wise scalar transforms.
 - `identity(size)`
-  Identity matrix constructor. Negative `size` panics.
+  Identity matrix constructor. Negative `size` aborts.
 - `pow(power)`
-  Square-matrix exponentiation for non-negative integer powers.
+  Checked square-matrix exponentiation for non-negative integer powers.
 - `matrix_power(n)`
-  Public wrapper around `pow(n)`.
+  Checked public wrapper around `pow(n)`.
 - `trace()`
-  Sum of diagonal entries. Requires a square matrix.
+  Checked sum of diagonal entries. Requires a square matrix and returns `Result[..., LinearAlgebraError]`.
 - `determinant()`
-  Determinant of a square matrix.
+  Checked determinant of a square matrix.
 - `inverse()`, `is_invertible()`
-  Inversion helpers for square matrices.
+  Checked inversion helpers for square matrices. Singular inverse returns `Err`.
+- `mul_vec(vector)`
+  Checked matrix-vector multiplication. Shape mismatch returns `Err`.
+- `mean()`, `variance()`, `std_dev()`, `max_element()`, `min_element()`
+  Checked aggregate helpers. Empty matrices return `Err`.
+- `unchecked_trace()`, `unchecked_determinant()`, `unchecked_inverse()`, `unchecked_is_invertible()`, `unchecked_pow()`, `unchecked_matrix_power()`, `unchecked_mul_vec()`, `unchecked_mean()`, `unchecked_variance()`, `unchecked_std_dev()`, `unchecked_max_element()`, `unchecked_min_element()`
+  Preserve the old aborting or `Option`-returning behavior.
 - `rank()`
   Rank computed through the current repository algorithm.
 - `reduce_row_elimination()`
   In-place-style row reduction on the mutable matrix value.
 - `cholesky_decomposition()`
   Cholesky factorization for supported numeric inputs.
-- `eigen()`, `power_method()`, `eigen_2x2()`
-  Current eigen-related APIs for supported numeric cases.
+- `eigen()`, `power_method()`
+  Public eigen-related APIs for supported numeric cases. The specialized
+  2x2 helper used by the implementation is not part of the public package
+  interface.
 - `is_square()`, `null()`, `is_symmetric()`, `is_positive_definite()`
   Structural and numeric predicates.
-- `mean()`, `variance()`, `std_dev()`, `frobenius_norm()`, `max_element()`, `min_element()`
-  Aggregate numeric helpers.
+- `frobenius_norm()`
+  Non-checked aggregate numeric helper for supported element types.
 
-## Notes On Correctness
+## Guidance
 
 - Backends are expected to expose the same public semantics. The repository currently keeps separate kernel files for `native`, `js`, `wasm`, and `wasm-gc`, so tests and documentation should be read as backend-invariant unless a note says otherwise.
 - For code shared across `immut` and `mutable`, rely on the common algebraic surface and not on identical mutation semantics.
+- `backends/default.DenseMatrix` is a wrapper around this concrete
+  implementation. If you want the trait-oriented default backend entry point,
+  see [the `backends/default` API](/linear-algebra/backends/default/api).

@@ -19,5 +19,5 @@
 
 ## 文档入口
 
-- API 参考: [quaternion](./quaternion/api.md)
-- API 参考: [double_conv](./double_conv/api.md)
+- API 参考: [quaternion](/zh_CN/quaternion/quaternion/api)
+- API 参考: [double_conv](/zh_CN/quaternion/double_conv/api)

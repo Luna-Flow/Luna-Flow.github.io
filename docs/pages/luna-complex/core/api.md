@@ -1,6 +1,6 @@
 # core API
 
-core is part of Luna-Flow/luna-complex. This page should describe the public types, constructors, functions, traits, and observable semantics that are implemented in the current branch.
+The root package `Luna-Flow/luna-complex` exposes the generic complex-number core.
 
 ## Scope
 
@@ -10,6 +10,7 @@ core is part of Luna-Flow/luna-complex. This page should describe the public typ
 
 ## Public Contract
 
-- Describe only exported behavior that exists today.
-- Call out backend or subtype differences when they are observable.
-- Keep naming, argument ordering, and error semantics aligned with sibling modules when possible.
+- `Complex[T]` is a mutable struct with public `re` and `im` fields.
+- Constructors and mutators are `Complex::new`, `set`, `set_re`, and `set_im`.
+- The root package implements generic algebraic operations and Luna Flow traits when the scalar type supplies the matching capability: `Add`, `Sub`, `Neg`, `Mul`, `Div`, `Zero`, `One`, `Conjugate`, `Inverse`, `AddMonoid`, `AddGroup`, `MulMonoid`, `MulGroup`, `Semiring`, `Ring`, and `Field`.
+- The root package does not expose analytic functions such as `sin`, `log`, or `sqrt`; use `Luna-Flow/luna-complex/float_backend` for the floating analytic layer.

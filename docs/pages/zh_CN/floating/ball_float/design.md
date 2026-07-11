@@ -4,11 +4,11 @@
 
 ## 表示
 
-- `center_ : BinFloat`
-- `radius_ : BinFloat`
+- 非空区间保存外向舍入后的 `lo_ : BinFloat` 与 `hi_ : BinFloat`
+- 空区间保存独立的 Empty 状态
 - `precision_ : Int`
 
-语义是：
+有界非空值仍可通过以下形式观察：
 
 `[center - radius, center + radius]`
 
@@ -34,8 +34,8 @@
 这里的算术遵循包络语义：
 
 - 加法和减法通过相加半径来扩张结果
-- 乘法使用基于中心绝对值与误差项的半径传播公式
-- 除法拒绝分母包络包含零的情况
+- 乘法使用端点组合并向外舍入
+- 除数仅包含零时返回 Empty；跨零除法返回安全集合包络
 - 结果中心在回落到目标精度时，如果发生量化位移，该位移也会并入半径
 
 ## 为什么没有总序
@@ -47,3 +47,9 @@
 - 可证明的小于/大于
 
 而不是普通实数意义下的总序比较。
+
+## IEEE 1788
+
+`BallFloat` 作为 bare interval 支持 Empty、Entire、交集、凸包、集合关系和 overlap classification。`decorated_ball_float` 提供 decorations 与 NaI。
+
+ITF1788 测试按阶段启用；当前严格门槛覆盖 sets 与 relations，numeric、elementary 和 reverse 阶段尚未声明完整支持。

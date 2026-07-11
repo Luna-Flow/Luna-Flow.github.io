@@ -1,29 +1,25 @@
-# Luna-Flow/luna-poly
+# Luna-Flow/luna-poly 0.2.0
 
-本文档跟踪当前分支状态。
+本库由一个共享能力层和两种执行模型组成：
 
-## 仓库定位
+- `core` 提供共享类型、能力 trait 和函数式操作记录。
+- `immut` 提供持久化值语义，更新返回新值。
+- `mutable` 提供 setter 与命名清晰的 `_inplace` 原地操作。
 
-包含稠密/稀疏多项式表示与乘法后端的库。
+具体实现位于镜像子包：`immut/dense`、`immut/term`、`immut/sparse`、
+`immut/context`，以及 `mutable/dense`、`mutable/term`、`mutable/sparse`、
+`mutable/context`。顶层 `immut` 和 `mutable` 是 facade 包，会重新导出
+`core` 能力和对应实现。
 
-## 文档布局
+两个 facade 包都提供单变量稠密多项式、排序项数组多元多项式、有序映射稀疏多项式及指数向量。它们共享规范形态和自然数幂语义。泛型算法可以依赖 `UnivariatePolynomial`、`MultivariatePolynomial`、`ContextualPolynomial`、`MutablePolynomial` 或 `Type::ops()`，而不必关心底层存储。
 
-- `README.md` 记录仓库叙事与版本基线。
-- `doc_standard.md` 记录文档契约。
-- 模块或子系统目录下放 `api.md`、`tutorial.md`、`design.md`。
+`0.2.0` 还新增命名变量层：`Variable`、`VariableContext` 和 `ContextPolynomial`。上下文多项式把变量表绑定到排序项或稀疏存储，同时支持按索引数组求值和按变量赋值求值。当前 API 以根 README 与 `moon info` 生成的包接口为准。
 
-## 模块概览
+## 包文档
 
-- **`dense_poly`**: 主要实现位于 `src/dense_poly.mbt`。
-- **`dense_multi`**: 主要实现位于 `src/dense_multi.mbt`。
-- **`sparse_poly`**: 主要实现位于 `src/sparse_poly.mbt`。
-- **`exp_vec`**: 主要实现位于 `src/exp_vec.mbt`。
-- **`algebra`**: 主要实现位于 `src/algebra.mbt`。
-
-## 文档入口
-
-- API 参考: [dense_poly](./dense_poly/api.md)
-- API 参考: [dense_multi](./dense_multi/api.md)
-- API 参考: [sparse_poly](./sparse_poly/api.md)
-- API 参考: [exp_vec](./exp_vec/api.md)
-- API 参考: [algebra](./algebra/api.md)
+- `immut/api.md`：`DensePolynomial`、`TermPolynomial`、`SparsePolynomial` 和 `ExponentVector` 的值语义 API。
+- `immut/tutorial.md`：不可变稠密、多元和稀疏多项式示例。
+- `immut/design.md`：规范形态和表示不变量。
+- `mutable/api.md`：可变 API，包括 setter 和 `_inplace` 方法。
+- `mutable/tutorial.md`：原地更新和 `immut` 转换示例。
+- `mutable/design.md`：可变性边界，以及与 `immut` 的语义对齐。

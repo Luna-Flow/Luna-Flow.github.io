@@ -19,5 +19,5 @@ MoonBit proof-assistant workbench centered on elaboration and type-theoretic cor
 
 ## Documentation Entry Points
 
-- API Reference: [elab](./elab/api.md)
-- API Reference: [theory](./theory/api.md)
+- API Reference: [elab](/stella/elab/api)
+- API Reference: [theory](/stella/theory/api)

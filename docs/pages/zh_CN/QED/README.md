@@ -22,8 +22,8 @@
 
 ## 文档入口
 
-- API 参考: [kernel](./kernel/api.md)
-- API 参考: [parser](./parser/api.md)
-- API 参考: [tactics](./tactics/api.md)
-- API 参考: [prover](./prover/api.md)
-- API 参考: [spec](./spec/api.md)
+- API 参考: [kernel](/zh_CN/QED/kernel/api)
+- API 参考: [parser](/zh_CN/QED/parser/api)
+- API 参考: [tactics](/zh_CN/QED/tactics/api)
+- API 参考: [prover](/zh_CN/QED/prover/api)
+- API 参考: [spec](/zh_CN/QED/spec/api)

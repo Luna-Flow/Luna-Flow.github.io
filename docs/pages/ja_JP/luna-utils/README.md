@@ -19,5 +19,5 @@
 
 ## ドキュメント入口
 
-- API リファレンス: [array_utils](./array_utils/api.md)
-- API リファレンス: [comparison](./comparison/api.md)
+- API リファレンス: [array_utils](/ja_JP/luna-utils/array_utils/api)
+- API リファレンス: [comparison](/ja_JP/luna-utils/comparison/api)

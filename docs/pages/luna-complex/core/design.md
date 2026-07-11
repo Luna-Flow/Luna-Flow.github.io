@@ -4,11 +4,12 @@ The root package owns generic `Complex[T]` structure, algebraic operations, and 
 
 ## Responsibilities
 
-- Keep the code and docs aligned around `src`.
-- Preserve the real execution model instead of smoothing over important internal differences.
-- Note extension points, invariants, and limitations that maintainers must keep stable.
+- Keep `Complex[T]` generic and independent of floating-point analytic semantics.
+- Preserve the mutable field model because callers may intentionally update `re` or `im` in place.
+- Keep algebraic trait implementations constrained by the smallest scalar capability needed.
+- Leave branch cuts, NaN, infinity, negative zero, and transcendental functions to `float_backend`.
 
 ## Maintenance Notes
 
-- Update this page whenever the module boundary, core algorithm, or observable semantics change.
-- If the module is intentionally incomplete, say so here instead of documenting speculative APIs.
+- Update this page when the root package gains or loses a public trait implementation.
+- Do not document speculative generic analytic APIs in the root package.

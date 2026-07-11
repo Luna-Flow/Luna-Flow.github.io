@@ -1,10 +1,10 @@
 # Luna-Flow/luna-complex
 
-This documentation tracks the current repository baseline for **v0.2.0**.
+This documentation tracks the current repository baseline for **v0.3.0**.
 
 ## Repository Positioning
 
-Generic complex-number core with `Double`-specific analytic extensions.
+Generic complex-number core with a separate floating analytic backend.
 
 ## Documentation Layout
 
@@ -14,10 +14,10 @@ Generic complex-number core with `Double`-specific analytic extensions.
 
 ## Module Overview
 
-- **`core`**: Implemented around `src`.
-- **`double_ext`**: Implemented around `src/double_ext`.
+- **`core`**: Generic `Complex[T]` construction, mutation, and algebraic trait implementations.
+- **`float_backend`**: Backend-local floating traits and the current `Complex[Double]` analytic function surface.
 
 ## Documentation Entry Points
 
-- API Reference: [core](./core/api.md)
-- API Reference: [double_ext](./double_ext/api.md)
+- API Reference: [core](/luna-complex/core/api)
+- API Reference: [float_backend](/luna-complex/float_backend/api)

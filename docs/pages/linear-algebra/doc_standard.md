@@ -1,6 +1,8 @@
 # Documentation Standard
 
-This repository's documentation should describe the **current implementation on the branch**. As of `2026-05-26`, the active documentation baseline is **`0.2.11`**.
+The documentation in this repository describes the **current implementation on
+the branch**. As of `2026-07-11`, the active documentation baseline is
+**`0.4.7`**.
 
 ## Document Types and Organization
 
@@ -11,14 +13,18 @@ This repository's documentation should describe the **current implementation on 
 3. **Design Documentation (design.md)** - Architecture and algorithm descriptions for developers
 4. **Performance Reports** - Reserved for future performance and measurement documentation
 
+`README.md` is the current-baseline document. It should explain the current
+release baseline, entry points, package positioning, and reader guidance.
+`CHANGELOG.md` owns the historical release timeline and older release notes.
+
 ### Documentation Organization Principles
 
 - Organized by package/file, for example:
-  
+
   ```txt
   doc/
     |- en_US
-    |- ja_JP 
+    |- ja_JP
     |- zh_CN
         |- immut
         |   |- matrix
@@ -33,9 +39,19 @@ This repository's documentation should describe the **current implementation on 
         |- ...
   ```
 
-- Further subdivided by `vector`, `matrix` etc. files under each package
+- Further subdivided into `vector`, `matrix`, and similar files under each package
 - Maintain consistency between documentation and code structure
 - Do not document unreleased APIs unless they already exist in the repository implementation
+- Keep the Markdown file set aligned across `en_US`, `zh_CN`, and `ja_JP`
+- Keep the same top-level and second-level section order across languages unless
+  a code-oriented reason makes that impossible
+- Treat the English documentation as the structural source of truth, then localize
+  the same content naturally into Chinese and Japanese
+- Treat `doc/*` as the only hand-written prose source. The `src/doc_*` packages
+  are exposure layers and should contain symlinks back to these files rather
+  than independent Markdown bodies.
+- Keep `README.md` focused on the current baseline and move older release
+  summaries into `CHANGELOG.md`
 
 ## Shared Rules For `mutable` And `immutable`
 
@@ -69,3 +85,15 @@ This repository's documentation should describe the **current implementation on 
 - Clearly separate external semantics from internal implementation strategy
 - Performance details such as caching, reuse, and in-place computation belong in design docs or future performance reports, not in the API semantic contract
 - If a `mutable` API has observable behavior due to a performance-oriented design choice, document that behavior explicitly rather than only describing the internal implementation
+- Do not translate code identifiers, API names, type names, package names, file
+  paths, or version strings
+- Keep API references specification-oriented, tutorials usage-oriented, and
+  design docs responsibility- and tradeoff-oriented
+- Backend wrapper packages should document platform constraints, conversion
+  boundaries, and whether behavior is implemented locally or delegated to an
+  external library kernel
+- Prefer short, direct sentences over rhetorical or release-note-style prose
+- Chinese documentation should read like natural written technical Chinese, not
+  word-for-word English translation
+- Japanese documentation should read like natural technical Japanese, not a
+  literal structural copy of Chinese or English phrasing

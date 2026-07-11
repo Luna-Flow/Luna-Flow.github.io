@@ -22,8 +22,8 @@ Kernel-first theorem prover project with a formal specification and controlled f
 
 ## Documentation Entry Points
 
-- API Reference: [kernel](./kernel/api.md)
-- API Reference: [parser](./parser/api.md)
-- API Reference: [tactics](./tactics/api.md)
-- API Reference: [prover](./prover/api.md)
-- API Reference: [spec](./spec/api.md)
+- API Reference: [kernel](/QED/kernel/api)
+- API Reference: [parser](/QED/parser/api)
+- API Reference: [tactics](/QED/tactics/api)
+- API Reference: [prover](/QED/prover/api)
+- API Reference: [spec](/QED/spec/api)

@@ -18,18 +18,18 @@
 ## ファイル構成
 
 - まず package 境界で整理し、そのうえで機能ごとにファイルを分割すること。
-  このリポジトリでは、ルート package が汎用 `Complex[T]` コアを持ち、`src/double_ext` が `Complex[Double]` の解析・超越関数レイヤーを持つ。
+  このリポジトリでは、ルート package が汎用 `Complex[T]` コアを持ち、`src/float_backend` が浮動小数点バックエンド trait と現在の `Complex[Double]` 解析レイヤーを持つ。
 - 各 package の内部では、コアデータ操作、初等関数、三角関数、双曲関数、テストを分離して管理する。
 - `utils.mbt` のような曖昧な総合ファイルは避けること。
 - 公開 API の追加は意図的に行い、内部補助関数は必要になるまで公開しないこと。
-- `double_ext` から `Complex[T]` にメソッドを追加できる前提で設計しないこと。
-  現在の MoonBit ルールでは、別 package で定義された型に対して子 package からメソッドや trait impl を追加できないため、`double_ext` は自由関数 API を使う。
+- `float_backend` から `Complex[T]` にメソッドを追加できる前提で設計しないこと。
+  現在の MoonBit ルールでは、別 package で定義された型に対して子 package からメソッドや trait impl を追加できないため、`float_backend` は自由関数 API を使う。
 
 ## テスト
 
 - 数値挙動を変更した場合は、対応するテストを必ず追加または更新すること。
 - 回帰ケースと代数的恒等式チェックの両方を含めること。
-- ルート package の汎用代数挙動と、`double_ext` の `Complex[Double]` 数値挙動の両方を維持すること。
+- ルート package の汎用代数挙動と、`float_backend` の浮動小数点解析挙動の両方を維持すること。
 - 提出前に `moon test --enable-coverage` を実行すること。
 - 公開 API が変わった場合は `moon info` で `pkg.generated.mbti` を再生成すること。
 

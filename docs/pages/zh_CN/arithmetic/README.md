@@ -1,6 +1,6 @@
 # Arithmetic 文档
 
-这里是 `arithmetic` `0.2.1` 的简体中文文档入口。
+这里是 `arithmetic` `0.2.2` 的简体中文文档入口。
 
 ## 概览
 
@@ -21,7 +21,9 @@
 
 - 公共 trait 会保持具体的 `Self` 返回类型，不会自动提升到额外的包装结果类型。
 - 除非具体实例另行声明更强保证，定义域合法性默认仍属于调用方契约的一部分。
-- `Float` 与 `Double` 的边界值、特殊值和支路语义继承自 `Kaida-Amethyst/math`。
+- 非 checked 的 `Float` 与 `Double` 边界值、特殊值和支路语义继承自 `Kaida-Amethyst/math`。
+- checked `Float` 与 `Double` 会在文档声明的实值定义域失败上返回结构化错误，例如 checked 平方根遇到负实数输入时返回 `DomainError`。
+- 当前内置 `Float` 与 `Double` checked 操作不会根据 `ArithmeticContext` 执行任意精度或舍入控制；该 context 是为上下文化实现共享的边界数据。
 - 整数族支持会刻意更窄，只实现那些在该类型上仍能保持闭合的能力。
 - `arithmetic` 是能力边界包，不在这一层引入微积分、矩阵、复数、符号代数或特殊函数。
 

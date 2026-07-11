@@ -4,10 +4,10 @@ English documentation entry point for the current **`0.1.2`** baseline.
 
 ## Documentation Map
 
-- [Documentation standard](./doc-standard.md)
-- [Tutorial](./tutorial.md)
-- [Score API](./score/api.md)
-- [Score design](./score/design.md)
+- [Documentation standard](/mooncake_impact_factor/doc-standard)
+- [Tutorial](/mooncake_impact_factor/tutorial)
+- [Score API](/mooncake_impact_factor/score/api)
+- [Score design](/mooncake_impact_factor/score/design)
 
 ## Coverage
 

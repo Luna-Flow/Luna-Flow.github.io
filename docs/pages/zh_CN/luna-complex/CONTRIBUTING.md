@@ -18,19 +18,19 @@
 ## 文件组织
 
 - 先按包边界组织，再按行为拆分文件。
-  当前仓库中，根包负责泛型 `Complex[T]` 核心，`src/double_ext` 负责 `Complex[Double]` 的解析与超越函数层。
+  当前仓库中，根包负责泛型 `Complex[T]` 核心，`src/float_backend` 负责浮点后端 trait 和当前 `Complex[Double]` 的解析层。
 - 在每个包内部，再把核心数据结构、初等函数、三角函数、双曲函数和测试分别放在独立文件中。
 - 避免 `utils.mbt` 这类兜底文件。新增文件名必须能明确说明职责。
 - 公共 API 变更要有意识地控制；内部辅助函数除非确有必要，不应暴露到包接口中。
-- 不要假设 `double_ext` 可以给 `Complex[T]` 追加方法。
-  以当前 MoonBit 规则，子包不能给别的包定义的类型补方法或 trait impl，所以 `double_ext` 采用自由函数形式。
+- 不要假设 `float_backend` 可以给 `Complex[T]` 追加方法。
+  以当前 MoonBit 规则，子包不能给别的包定义的类型补方法或 trait impl，所以 `float_backend` 采用自由函数形式。
 
 ## 测试要求
 
 - 任何数值行为调整都必须同步补测试或改测试。
 - 测试应同时包含回归样例和代数恒等式校验。
 - 同时覆盖两层能力：
-  根包中的泛型代数能力，以及 `double_ext` 中的 `Complex[Double]` 数值能力。
+  根包中的泛型代数能力，以及 `float_backend` 中的浮点解析能力。
 - 提交前运行 `moon test --enable-coverage`。
 - 如果公共 API 有变化，使用 `moon info` 重新生成 `pkg.generated.mbti`。
 

@@ -36,11 +36,12 @@ jobs:
           GH_TOKEN: ${{ secrets.LUNAFLOW_DOCS_TOKEN != '' && secrets.LUNAFLOW_DOCS_TOKEN || github.token }}
         run: |
           mkdir -p ../workspace
-          node -e "const fs=require('fs'); const cfg=JSON.parse(fs.readFileSync('docs/repo-docs.config.json','utf8')); for (const repo of cfg.repos.filter((r) => r.enabled)) console.log(repo.repo + '\t' + (repo.branch || 'main'));" | while IFS=$'\t' read -r repo branch; do
-            echo "Fetching $repo@$branch"
+          node scripts/discover-repos.mjs ../workspace/repositories.json
+          node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('../workspace/repositories.json','utf8')); for (const repo of data.repositories) console.log(repo);" | while read -r repo; do
+            echo "Fetching $repo@main"
             archive="../workspace/${repo}.tar.gz"
             extract_dir=$(mktemp -d)
-            gh api "repos/Luna-Flow/$repo/tarball/$branch" > "$archive"
+            gh api "repos/Luna-Flow/$repo/tarball/main" > "$archive"
             tar -xzf "$archive" -C "$extract_dir"
             mv "$extract_dir"/* "../workspace/$repo"
             rm -rf "$extract_dir" "$archive"
@@ -50,6 +51,7 @@ jobs:
       - name: Prepare aggregated docs
         env:
           LUNAFLOW_REPO_ROOT: ../workspace
+          LUNAFLOW_REPO_MANIFEST: ../workspace/repositories.json
         run: npm run docs:prepare
       - name: Build with VitePress
         run: npx vitepress build docs

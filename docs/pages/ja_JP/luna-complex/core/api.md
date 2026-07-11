@@ -1,6 +1,6 @@
 # core API
 
-core は Luna-Flow/luna-complex の一部です。このページでは、現在のブランチで実装されている公開型、コンストラクタ、関数、trait、および可観測セマンティクスを記述します。
+ルートパッケージ `Luna-Flow/luna-complex` は、汎用複素数コアを公開します。
 
 ## 範囲
 
@@ -10,6 +10,7 @@ core は Luna-Flow/luna-complex の一部です。このページでは、現在
 
 ## 公開契約
 
-- 今日存在する公開挙動だけを記述する。
-- バックエンドや実行経路に可観測差異がある場合は明記する。
-- 可能な限り、兄弟モジュールと命名・引数順・エラー意味論をそろえる。
+- `Complex[T]` は可変構造体で、`re` と `im` フィールドを公開します。
+- 構築と更新の入口は `Complex::new`、`set`、`set_re`、`set_im` です。
+- スカラー型が対応する能力を持つ場合、ルートパッケージは `Add`、`Sub`、`Neg`、`Mul`、`Div`、`Zero`、`One`、`Conjugate`、`Inverse`、`AddMonoid`、`AddGroup`、`MulMonoid`、`MulGroup`、`Semiring`、`Ring`、`Field` を実装します。
+- ルートパッケージは `sin`、`log`、`sqrt` などの解析関数を公開しません。浮動小数点の解析レイヤーには `Luna-Flow/luna-complex/float_backend` を使います。

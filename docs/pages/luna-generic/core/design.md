@@ -1,14 +1,29 @@
 # core Design
 
-Use this page to explain the structural responsibilities and implementation constraints of this module. core in Luna-Flow/luna-generic.
+## Design goal
 
-## Responsibilities
+`luna-generic` gives LunaFlow a shared algebraic vocabulary. Packages such as
+`arithmetic`, `luna-complex`, `linear-algebra`, and `luna-poly` should be able
+to describe their requirements in terms of reusable traits instead of inventing
+their own incompatible capability layers.
 
-- Keep the code and docs aligned around `src`.
-- Preserve the real execution model instead of smoothing over important internal differences.
-- Note extension points, invariants, and limitations that maintainers must keep stable.
+## Main design decisions
 
-## Maintenance Notes
+- The trait graph is layered and intentionally small.
+- Structural traits such as `Ring`, `Field`, `Integral`, and `Nat` are kept
+  separate from operational traits such as `Zero`, `One`, `Inverse`, and
+  `Conjugate`.
+- Embeddings are explicit through `NatHomomorphism` and
+  `IntegralHomomorphism`.
+- `Integral::normalize` is the canonical exact bridge into `BigInt`.
+- Target-side default homomorphism implementations are expected to route
+  through normalized `BigInt` values.
+- Unsigned types stop before additive inverse, so the abstraction stays
+  mathematically honest.
 
-- Update this page whenever the module boundary, core algorithm, or observable semantics change.
-- If the module is intentionally incomplete, say so here instead of documenting speculative APIs.
+## Boundaries
+
+- This package does not define matrices, complex numbers, polynomials, parsing,
+  or numerical algorithms.
+- It does not erase the semantic difference between exact and approximate
+  number systems.

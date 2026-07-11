@@ -1,10 +1,10 @@
 # Arithmetic Documentation
 
-This directory contains the English documentation baseline for `arithmetic` `0.2.1`.
+This directory contains the English documentation baseline for `arithmetic` `0.2.2`.
 
 ## Core Documents
 
-- Package README: [./README.md](./README.md)
+- Package README: [../../README.md](https://github.com/Luna-Flow/arithmetic/blob/main/README.md)
 
 ## Surface Summary
 
@@ -25,7 +25,9 @@ This directory contains the English documentation baseline for `arithmetic` `0.2
 
 - Public traits preserve the concrete `Self` type instead of widening to helper result types.
 - Domain validity remains part of the caller contract unless an instance explicitly documents stronger behavior.
-- Floating-point instances inherit edge-value and branch semantics from `Kaida-Amethyst/math`.
+- Unchecked floating-point instances inherit edge-value and branch semantics from `Kaida-Amethyst/math`.
+- Checked `Float` and `Double` instances may add structured errors for documented real-valued domain failures, such as negative real inputs to checked square root.
+- The built-in `Float` and `Double` checked operations currently do not apply arbitrary precision or rounding control from `ArithmeticContext`.
 - Integer-family support is intentionally narrower and only covers capabilities that remain closed on those types.
 - `arithmetic` is a capability-boundary package and does not define calculus, matrices, complex numbers, symbolic algebra, or special-function layers.
 

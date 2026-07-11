@@ -18,19 +18,19 @@ View this guide in [zh_CN](https://github.com/Luna-Flow/luna-complex/tree/main/d
 ## File Organization
 
 - Organize files by package boundary first, then by behavior.
-  In this repository, the root package owns the generic `Complex[T]` core, while `src/double_ext` owns the `Complex[Double]` analytic layer.
+  In this repository, the root package owns the generic `Complex[T]` core, while `src/float_backend` owns floating backend traits and the current `Complex[Double]` analytic layer.
 - Inside each package, keep core data operations, elementary functions, trigonometric functions, hyperbolic functions, and tests in separate files.
 - Avoid catch-all files such as `utils.mbt`. New files should describe the behavior they own.
 - Keep public API changes deliberate. Internal helpers should remain internal unless the package genuinely needs to expose them.
-- Do not assume the `double_ext` package can add methods to `Complex[T]`.
-  Under current MoonBit rules, subpackages cannot attach methods or trait impls to a type defined in another package, so `double_ext` uses free functions.
+- Do not assume the `float_backend` package can add methods to `Complex[T]`.
+  Under current MoonBit rules, subpackages cannot attach methods or trait impls to a type defined in another package, so `float_backend` uses free functions.
 
 ## Testing
 
 - Add or update tests whenever changing numerical behavior.
 - Prefer a mix of regression examples and algebraic identity checks.
 - Preserve coverage for both layers:
-  generic algebraic behavior in the root package and `Complex[Double]` analytic behavior in `double_ext`.
+  generic algebraic behavior in the root package and floating analytic behavior in `float_backend`.
 - Use `moon test --enable-coverage` before submitting changes.
 - Regenerate `pkg.generated.mbti` with `moon info` whenever the public API changes.
 

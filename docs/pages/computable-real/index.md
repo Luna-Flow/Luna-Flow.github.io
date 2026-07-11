@@ -22,4 +22,4 @@ Reserved repository for future computable-real semantics in LunaFlow.
 
 ## Documentation Entry Points
 
-- API Reference: [current_state](./current_state/api.md)
+- API Reference: [current_state](/computable-real/current_state/api)

@@ -1,14 +1,26 @@
 # core Design
 
-Use this page to explain the structural responsibilities and implementation constraints of this module. core in Luna-Flow/arithmetic.
+## Design goal
 
-## Responsibilities
+`arithmetic` extends LunaFlow from algebraic structure into analytic capability,
+while keeping semantics explicit and backend-specific.
 
-- Keep the code and docs aligned around `src`.
-- Preserve the real execution model instead of smoothing over important internal differences.
-- Note extension points, invariants, and limitations that maintainers must keep stable.
+## Main design decisions
 
-## Maintenance Notes
+- Analytic behavior is split into many small traits instead of one large “real
+  number” interface.
+- Unchecked and checked surfaces coexist so callers can choose between direct
+  backend behavior and explicit contextual validation.
+- The checked layer shares common types such as `ArithmeticContext` and
+  `ArithmeticError`.
+- Enclosure-style relations are separated from scalar comparison to avoid
+  semantic lies.
+- Integer-family instances stay narrow and only expose operations that remain
+  closed on those types.
 
-- Update this page whenever the module boundary, core algorithm, or observable semantics change.
-- If the module is intentionally incomplete, say so here instead of documenting speculative APIs.
+## Boundaries
+
+- This package does not define vectors, matrices, complex numbers, or symbolic
+  objects.
+- It does not hide branch-cut or exceptional-value semantics behind one vague
+  abstraction.

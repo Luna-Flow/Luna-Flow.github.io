@@ -19,5 +19,5 @@ Shared utility helpers for arrays and comparison semantics.
 
 ## Documentation Entry Points
 
-- API Reference: [array_utils](./array_utils/api.md)
-- API Reference: [comparison](./comparison/api.md)
+- API Reference: [array_utils](/luna-utils/array_utils/api)
+- API Reference: [comparison](/luna-utils/comparison/api)

@@ -19,5 +19,5 @@ Quaternion arithmetic and conversion helpers for rotation-oriented workloads.
 
 ## Documentation Entry Points
 
-- API Reference: [quaternion](./quaternion/api.md)
-- API Reference: [double_conv](./double_conv/api.md)
+- API Reference: [quaternion](/quaternion/quaternion/api)
+- API Reference: [double_conv](/quaternion/double_conv/api)

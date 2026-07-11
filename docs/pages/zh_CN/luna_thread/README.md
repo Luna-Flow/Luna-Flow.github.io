@@ -20,6 +20,6 @@
 
 ## 文档入口
 
-- API 参考: [facade](./facade/api.md)
-- API 参考: [backend](./backend/api.md)
-- API 参考: [spec](./spec/api.md)
+- API 参考: [facade](/zh_CN/luna_thread/facade/api)
+- API 参考: [backend](/zh_CN/luna_thread/backend/api)
+- API 参考: [spec](/zh_CN/luna_thread/spec/api)

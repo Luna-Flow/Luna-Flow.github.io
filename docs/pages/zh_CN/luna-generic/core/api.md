@@ -1,15 +1,54 @@
 # core API
 
-core 属于 Luna-Flow/luna-generic。本页描述当前分支已经实现的公开类型、构造器、函数、trait 以及可观察语义。
+## 作用
 
-## 范围
+`luna-generic` 是 LunaFlow 的代数 trait 基础层。它本身不提供数值算法
+或容器，而是给上层包提供共享的能力边界。
 
-- 源码边界：`src`
-- 读者：需要依赖公开契约的使用者、集成方和维护者
-- 状态：active
+## 结构 traits
 
-## 公开契约
+- `AddMonoid`、`MulMonoid`
+- `AddGroup`、`MulGroup`
+- `Semiring`、`Ring`、`Field`
+- `Integral`
+- `Nat`
+- `NatHomomorphism`
+- `IntegralHomomorphism`
+- `Num`
 
-- 只描述今天已经存在的导出行为。
-- 如果后端、子类型或执行路径存在可观察差异，要明确写出。
-- 在可能的情况下，与同类模块保持命名、参数顺序和错误语义一致。
+这些定义在 `src/structure.mbt` 中。
+
+## 操作 traits
+
+- `Zero`
+- `One`
+- `Inverse`
+- `Conjugate`
+
+这些定义在 `src/operation.mbt` 中。
+
+## 内置实例
+
+- 有符号整数：`Int`、`Int16`、`Int64`
+- 无符号整数：`UInt`、`UInt16`、`UInt64`
+- 精确大整数：`BigInt`
+- 浮点实例：`Float`、`Double`
+
+## 语义说明
+
+- `Integral::normalize(Self) -> BigInt` 是把任意整型值规范化到 `BigInt`
+  的标准入口。
+- `Nat` 也通过 trait 继承复用同一条 `normalize(Self) -> BigInt` 路径。
+- `NatHomomorphism::from_nat` 与 `IntegralHomomorphism::from_integral`
+  不再按位宽拆方法，而是对源 trait 做多态嵌入。
+- 默认嵌入路径是先做 `Integral::normalize`，再做目标类型自己的 `BigInt`
+  转换。
+- 无符号整数实例止步于 `Semiring`，不会伪装成带加法逆元的结构。
+- `Float` 与 `Double` 的同态嵌入是近似的，大整数可能发生舍入。
+
+## 源码入口
+
+- `src/structure.mbt`：trait 定义
+- `src/operation.mbt`：基础操作 traits
+- `src/impl_signed.mbt`、`src/impl_unsigned.mbt`、`src/impl_bigint.mbt`、
+  `src/impl_float.mbt`、`src/impl_dbl.mbt`：默认实例

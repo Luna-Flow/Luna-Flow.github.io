@@ -20,6 +20,6 @@ MoonBit parallel FFI specification workspace with runtime backends and spec asse
 
 ## Documentation Entry Points
 
-- API Reference: [facade](./facade/api.md)
-- API Reference: [backend](./backend/api.md)
-- API Reference: [spec](./spec/api.md)
+- API Reference: [facade](/luna_thread/facade/api)
+- API Reference: [backend](/luna_thread/backend/api)
+- API Reference: [spec](/luna_thread/spec/api)

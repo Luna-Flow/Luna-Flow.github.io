@@ -1,144 +1,168 @@
-# LINEAR-ALGEBRA
+# Luna-Flow/linear-algebra
 
-[![img](https://img.shields.io/badge/Maintainer-KCN--judu-violet)](https://github.com/KCN-judu) [![img](https://img.shields.io/badge/Collaborator-CAIMEOX-purple)](https://github.com/CAIMEOX) [![img](https://img.shields.io/badge/License-Apache%202.0-blue)](https://github.com/Luna-Flow/linear-algebra/blob/main/LICENSE) ![img](https://img.shields.io/badge/State-active-success)
+この README は現在のリポジトリ基準である **v0.4.7** に対応しています。
 
-## v0.2.12 - Correctness、Diagnostics、Documentation Alignment
+`mutable` の数値 API は共有の `Luna-Flow/arithmetic.Sqrt` 能力を使い、
+整数埋め込みは `Luna-Flow/luna-generic.IntegralHomomorphism` に従います。
+現行リリースでは `Tolerance` は引き続き `mutable` パッケージに属します。
+実行時に失敗し得る行列操作は、現在は検査付き
+`Result[..., LinearAlgebraError]` API を使います。従来の abort する挙動と
+`Option` 戻り値は、明示的な `unchecked_*` メソッドに残しています。
 
-このドキュメントは、`0.2.11` 以降に入った変更を反映した、公開済み **v0.2.12** の内容を説明します。
+`0.4.7` 基準では、ストレージに依存しない `container` 能力層、汎用の
+ベクトル・行列アルゴリズム、具体的なストレージ表現向けアダプター、そして
+外部型のための algebra 接続レベルを追加しました。
 
-### パッケージの位置づけ
+過去のリリースノートと履歴は [CHANGELOG.md](https://github.com/Luna-Flow/linear-algebra/blob/main/CHANGELOG.md) を参照してください。
 
-- **`immut`**: 不変・値セマンティクス指向の `Matrix`、`Vector`、`MatrixFn` 型。永続データと明示的な copy-on-update セマンティクスに向いています。
-- **`mutable`**: 実行指向の `Matrix` と `Vector` 型。原地更新、`Transpose` ビュー、`RowView` / `ColView` を備え、`js`、`wasm`、`wasm-gc`、`native` 向けの最適化実装を保持します。
-- **共有コア、異なる実行モデル**: コンストラクタと中核的な代数演算は両パッケージ間で揃えつつ、更新・アクセスのセマンティクスは意図的に分けています。
+## レイヤードアーキテクチャ
 
-### v0.2.12 を特徴づけるもの
+> **実験的機能:** `algebra` と `container` の能力層は、接続実験と
+> エコシステムからのフィードバック収集を目的として提供しています。trait 階層、
+> 操作辞書、エラー契約、関数シグネチャの互換性はまだ安定していません。下流ライブラリは、
+> 現時点でこれらのパッケージを安定した公開互換境界として扱わないでください。
+> `immut`、`mutable`、各バックエンドは、これらの能力を実装または適合するという理由だけで
+> 実験的 API になるわけではありません。
 
-- **公開アクセサの厳密境界チェック**: 公開された行列・ビュー・転置ビューのアクセサは、`0xN` や `Nx0` を含めて範囲外インデックスを一貫して拒否するようになりました。
-- **不変アクセスセマンティクスの強化**: `immut.Matrix` のインデックスアクセスと copy-on-update setter は、フラットストレージの別要素へ紛れ込むことなく、真の 2 次元境界を検証するようになりました。
-- **パッケージ間セマンティクス整合の強化**: `immut` / `mutable` 間で共有される操作は、same-index swap の no-op を含め、境界動作に関する意味論がより明示的に揃えられました。
-- **Benchmark 診断拡張**: benchmark スタックは、より豊富な replay/testing support、単一 case 向け whitebox runner、ローカルレポート経路での metadata/diagnostic handling の改善を含むようになりました。
-- **ドキュメント刷新**: README 本文と matrix API リファレンスは、現在の export surface に合わせて書き直され、古い説明や重複記述が整理されました。
-- **正しさ監査台帳の追加**: リポジトリには、検証済み挙動・修正済み問題・今後の構造的 follow-up を記録する correctness checklist が追加されました。
+- **`arithmetic`**: 線形代数向けの操作能力層です。
+  `Luna-Flow/luna-generic` と `Luna-Flow/arithmetic` のスカラー操作 trait を
+  再利用し、必要に応じて操作可否だけを表す trait を補います。
+- **`algebra`**: 数学的構造の能力層です。線形代数が自前で持つ構造 trait だけを
+  定義します。
+- **`container`**: ストレージ非依存の read/build、永続編集、可変編集の操作辞書と、
+  map、変換、転置アルゴリズムです。具象アダプタは `container/adapters` にあります。
+- **`backends/default`**: 参照用の密バックエンド層です。可変の密ラッパー
+  `DenseVector` / `DenseMatrix` と、不変の密ラッパー
+  `ImmutableDenseVector` / `ImmutableDenseMatrix` を公開します。
+- **`backends/openblas`**: `native` 専用の OpenBLAS バックエンドです。
+  `Float` と `Double` に対応するリポジトリ所有の `BlasMatrix[T]` と
+  `BlasVector[T]` ラッパーを公開し、行列乗算には OpenBLAS GEMM を、ベクトルと
+  行列-ベクトル相互作用には対応する BLAS カーネルを使います。バックエンド選択は
+  runtime selector ではなく具体型で表します。
+- **`error`**: 検査付き線形代数 API の共有エラー語彙です。形状、指数、空行列、
+  特異行列、非収束、下位の算術エラーを扱います。
+- **trait 駆動アルゴリズム**: バックエンド非依存コードは、
+  `MatrixShape`、`AdditiveVector`、`VecMulVector`、`TransposeMatrix`、
+  `MatMulMatrix` のような最小限の必要能力に依存するべきです。
 
-### API 指針と性能
+内積やノルムのように、ベクトルや行列をスカラー的な量へ写す能力は、
+バックエンドまたはアルゴリズムの詳細です。中核の構造 trait 層には含めません。
 
-- **コア代数 API**: `make`、`transpose`、`+`、`-`、`*`、`trace`、行列/ベクトル変換などの共有操作は、`immut` と `mutable` の間で意味論を揃える方針です。
-- **ランダムアクセス**: `mutable` で高頻度ランダムアクセスが必要な場合は `.get(i, j)` と `.set(i, j, val)` を優先してください。
-- **構造化ビュー**: `mutable` で特定の行・列を繰り返し扱うなら、`matrix[row]` の便宜構文より `row_view()` / `col_view()` を優先してください。
-- **厳密な境界チェック**: 公開された行列・ビュー・転置ビューのアクセサは、`0xN` や `Nx0` を含めて範囲外インデックスを一貫して拒否します。
-- **MatrixFn の整合性**: `immut.MatrixFn` も具象行列と同じく、負の次元を拒否し、空行列の意味論を共有します。
-- **公開面**: 内部の分解補助関数は依然として実装詳細です。利用者は文書化された公開行列メソッドを使うべきです。
+既定の密実装はあくまで 1 つのバックエンドであり、エコシステムの中心ではありません。
+アルゴリズムは具体的な密行列・密ベクトル型ではなく、最小限の線形代数 trait に
+依存するべきです。
 
-### 主な機能
+このリポジトリは、より上位の数学ライブラリ、幾何ライブラリ、solver 風
+ライブラリのための線形代数基盤として位置付けています。分野固有の solve、
+回帰、最適化ワークフローは、これらの trait、バックエンドラッパー、
+具体的な行列/ベクトル型の上に作る下流パッケージへ置く想定です。
 
-- **可変・不変の両対応**: 値指向ワークロードと実行指向ワークロードに分かれた完全な `Matrix` / `Vector` 群。
-- **高度な演算**: determinant、inverse、rank、Cholesky decomposition、eigen 関連ルーチン、row elimination、transpose view、行列/ベクトル変換を含みます。
-- **共有データモデル + バックエンド最適化カーネル**: `mutable` は Native、Wasm、JS、Wasm GC 向けの最適化実行経路を維持しつつ、コア行列ストレージモデルは統一されています。
-- **Benchmark 基盤**: `bench/`、`src/perf_support`、`src/perf_runner` が、バックエンド比較と診断再現のための完全な steady-state benchmark サブシステムを構成しています。
-- **正しさ優先**: 不変法則、パッケージ間整合性、determinant/rank/inverse の整合、数値挙動の回帰テストを含むカバレッジを備えています。
-- **監査可能な公開契約**: 境界挙動、swap セマンティクス、benchmark fixture、ドキュメントの整合性が、以前より明示的に追跡されるようになりました。
+具体的な `immut` / `mutable` の行列・ベクトル型は、
+`backends/default` が包む実装本体です。`DenseVector` と `DenseMatrix` は
+`@mutable.Vector` と `@mutable.Matrix` を包み、`ImmutableDenseVector` と
+`ImmutableDenseMatrix` は `@immut.Vector` と `@immut.Matrix` を包みます。
+OpenBLAS による native 行列乗算やベクトル BLAS カーネルが必要な場合は、
+[`backends/openblas`](/ja_JP/linear-algebra/backends/openblas/api) を明示的に選びます。これは独立した
+具体バックエンドであり、`@immut.Matrix` 内の runtime backend option ではありません。
 
-### Benchmark 関連パッケージ
+## 読者ガイド
 
-- **`perf`**: `moon bench` 用の benchmark エントリパッケージです。
-- **`perf_support`**: fixture メタデータ、case レジストリ、ランタイムローダー、benchmark 実行補助 API を提供します。
-- **`perf_runner`**: 単一 case の診断、サンプリング、結果再現に使うランナーです。
+- **一般的なアプリケーション開発者**:
+  [mutable](/ja_JP/linear-algebra/mutable/matrix/api) と [immut](/ja_JP/linear-algebra/immut/matrix/api) から
+  読み始めてください。これらは業務ツール、ユーティリティ、数値処理、
+  小さなゲーム、可視化ロジックのようなアプリケーションコード向けの具体 API です。
+- **数学ライブラリ / 汎用アルゴリズム開発者**:
+  次の順番で読むのがおすすめです。
+  [arithmetic](/ja_JP/linear-algebra/arithmetic/api) ->
+  [algebra](/ja_JP/linear-algebra/algebra/integration) ->
+  [container](/ja_JP/linear-algebra/container/integration) ->
+  [backends/default](/ja_JP/linear-algebra/backends/default/api) ->
+  [backends/openblas](/ja_JP/linear-algebra/backends/openblas/api) ->
+  [immut / mutable](/ja_JP/linear-algebra/immut/matrix/api)。
+  まず操作能力、次に構造能力、その次に既定バックエンドのラッパー、さらに任意の
+  OpenBLAS native ラッパー、最後に具体実装へ進みます。より上位のアプリケーションライブラリ、幾何パッケージ、
+  solver 系パッケージをこの上に構築する場合の推奨入口でもあります。
 
-### クイックスタート
+## ドキュメント入口
 
-```moonbit
-let imm = @immut.Matrix::from_2d_array([[1, 2], [3, 4]])
-let imm_updated = imm.set(0, 1, 9)
+- **`immut` 具体 API**:
+  [immut/matrix API](/ja_JP/linear-algebra/immut/matrix/api),
+  [immut/matrix tutorial](/ja_JP/linear-algebra/immut/matrix/tutorial),
+  [immut/vector API](/ja_JP/linear-algebra/immut/vector/api),
+  [immut/vector tutorial](/ja_JP/linear-algebra/immut/vector/tutorial)
+- **`mutable` 具体 API**:
+  [mutable/matrix API](/ja_JP/linear-algebra/mutable/matrix/api),
+  [mutable/matrix tutorial](/ja_JP/linear-algebra/mutable/matrix/tutorial),
+  [mutable/vector API](/ja_JP/linear-algebra/mutable/vector/api),
+  [mutable/vector tutorial](/ja_JP/linear-algebra/mutable/vector/tutorial)
+- **能力層とバックエンド層**:
+  [arithmetic API](/ja_JP/linear-algebra/arithmetic/api),
+  [algebra API](/ja_JP/linear-algebra/algebra/api),
+  [algebra エコシステム接続](/ja_JP/linear-algebra/algebra/integration),
+  [algebra tutorial](/ja_JP/linear-algebra/algebra/tutorial),
+  [container API](/ja_JP/linear-algebra/container/api),
+  [container tutorial](/ja_JP/linear-algebra/container/tutorial),
+  [container エコシステム接続](/ja_JP/linear-algebra/container/integration),
+  [backends/default API](/ja_JP/linear-algebra/backends/default/api),
+  [backends/openblas API](/ja_JP/linear-algebra/backends/openblas/api),
+  [backends/openblas tutorial](/ja_JP/linear-algebra/backends/openblas/tutorial),
+  [error API](/ja_JP/linear-algebra/error/api)
 
-let m = @mutable.Matrix::from_2d_array([[1.0, 2.0], [3.0, 4.0]])
-m.set(0, 1, 9.0)
+## 下流での利用例
 
-let det = m.determinant()
-let maybe_inv = m.inverse()
-let row0 = m.row_view(0).to_array()
+- **[`Luna-Flow/geometry3d`](https://github.com/Luna-Flow/geometry3d)**:
+  `Luna-Flow/linear-algebra` の上に構築された、MoonBit 用のコンパクトな
+  3D 幾何基盤です。その上で core 幾何、camera/view 数学、
+  バックエンド非依存レンダリング、TUI / Canvas / GSAP バックエンドを
+  提供します。
+  [英語ドキュメント](https://github.com/Luna-Flow/geometry3d/blob/main/doc/en_US/README.md)
+  は具体的な下流利用例として読みやすい入口です。
+
+## 抽象層を使うための設定
+
+抽象能力層を使ってバックエンド非依存コードを書きたい場合は、前提になる上流抽象
+パッケージを明示的に追加してください。
+
+```sh
+moon add Luna-Flow/linear-algebra@0.4.7
+moon add Luna-Flow/luna-generic@0.3.3
+moon add Luna-Flow/arithmetic@0.2.2
 ```
 
-### ドキュメント
+推奨される `moon.pkg` の import 例:
 
-完全な API ドキュメントは [mooncakes.io](https://mooncakes.io/docs/Luna-Flow/linear-algebra) で参照できます。
-
-多言語ドキュメント:
-
-- 🇺🇸 **English** (`doc/en_US`)
-- 🇨🇳 **简体中文** (`doc/zh_CN`)
-- 🇯🇵 **日本語** (`doc/ja_JP`)
-
-多言語 README:
-
-- 🇺🇸 [README.md](./README.md)
-- 🇨🇳 [README.md](./README.md)
-- 🇯🇵 [README.md](./README.md)
-
-## バージョン履歴
-
-| バージョン | 日付 | 状態 | 説明 |
-| --- | --- | --- | --- |
-| `0.2.12` | 2026-06-06 | mooncakes 公開済み | 厳密境界契約の統一、意味論上の正しさ修正、benchmark 診断拡張、文書/監査の刷新 |
-| `0.2.11` | 2026-05-27 | 前回リリース基準 | mutable カーネル性能改善、専用 wasm-gc バックエンド、benchmark/レポート拡張、API/文書整合 |
-| `0.2.10` | 2026-05-27 | 前回リリース基準 | 統一フラット mutable ストレージ、行列ビュー、整合性カバレッジ、benchmark 拡張、リリース手順整合 |
-| `0.2.9` | 2026-02-03 | mooncakes 公開済み | 以前の `3328195` リリース状態から公開 |
-| `0.2.8` | 2026-02-03 | 歴史的基準 | 後続作業のアルゴリズム・安定性比較の基準 |
-
-## 現在のリポジトリのハイライト
-
-- **現在のリリース叙述（0.2.12）**:
-  - 公開された matrix、view、transpose accessor は、ゼロ行・ゼロ列 shape を含めて明示的な bounds contract を強制するようになりました。
-  - `immut.Matrix` と `mutable.Matrix` は、値 vs. mutation という実行モデルの違いを保ちつつ、共有される correctness semantics の整合がさらに強化されました。
-  - benchmark スタックは、ローカル benchmark workflow における diagnostic replay/test coverage と metadata handling をより強く備えるようになりました。
-  - リポジトリには tracked correctness checklist が追加され、README と matrix API docs も実際の exported surface に揃えて更新されました。
-
-- **前回リリース叙述（0.2.11）**:
-  - `mutable.Matrix` は `0.2.10` の共有フラットストレージを土台に、バックエンドカーネル最適化と専用 `wasm-gc` 実装を重ねた形で整理されています。
-  - 公開数値 API は `Field` / `Num` / `Tolerance` に揃えられ、不変 determinant のドキュメントも簡素化後の制約へ更新されています。
-  - benchmark スタックは、ランタイム fixture 読み込み、拡張 case メタデータ、詳細な summary 出力、ローカル dashboard、任意の Rust 比較、`perf_runner` による診断再現を含みます。
-  - リリースチェックリスト、benchmark 文書、パッケージ概要、多言語 README は `0.2.11` のリリースストーリーに整合しています。
-
-- **アルゴリズムと安定性（0.2.8）**:
-  - determinant、inverse、rank、eigen 関連機能を支える LU / QR 分解サポートを追加しました。
-  - determinant と rank の挙動を、より安定した消去ベース実装へ寄せました。
-
-- **Native 最適化（0.2.7）**:
-  - Native 行列乗算に転置 + dot-product 戦略を導入し、素朴実装より 2 倍超の高速化を実現しました。
-  - `make`、`new`、`transpose` を最適化し、ホットループ中の高価な整数除算を取り除きました。
-
-- **性能刷新（0.2.4）**:
-  - `mapi`、`each_row_col` などの補助ユーティリティを最適化しました。
-  - ハイブリッド行列乗算とベクトル線形結合の性能を改善しました。
-
-- **その他の修正と改名**:
-  - `map_row()` / `map_col()` -> `map_row_inplace()` / `map_col_inplace()`
-  - `eachij()` -> `each_row_col()`
-  - `0x0` 行列の determinant 挙動を修正しました。
-  - ベクトルと行列の相互変換時のコピー挙動を修正しました。
-
-## 開発
-
-よく使うローカルコマンド:
-
-```bash
-moon fmt
-moon check
-moon test --enable-coverage
-./run_test.sh
+```moonbit nocheck
+import {
+  "Luna-Flow/linear-algebra/algebra",
+  "Luna-Flow/linear-algebra/arithmetic" @la_arithmetic,
+  "Luna-Flow/luna-generic" @lf_alg,
+  "Luna-Flow/arithmetic" @lf_arith,
+}
 ```
 
-`run_test.sh` は `mutable` パッケージを `wasm-gc`、`js`、`native`、`wasm` で実行します。
+`@algebra` は線形代数の構造 trait、`@la_arithmetic` は線形代数向けの操作 trait、
+`@lf_alg` は共有の上流代数抽象、`@lf_arith` は共有の上流算術型を指します。
 
-## リリースチェックリスト
+## リポジトリの位置づけ
 
-publish workflow を起動する前に:
+可変と不変の両方の実行モデルを備えた行列・ベクトル基盤です。
 
-1. `moon.mod` を目標リリースバージョンへ bump する。
-2. `README.md` を更新し、リリースノートとバージョン履歴をパッケージ内容に一致させる。
-3. `moon check` と `./run_test.sh` を実行する。
-4. `publish-package` を起動する。workflow は `moon.mod` に書かれたバージョンをそのまま使う。
+## ドキュメント構成
 
-workflow が重複バージョンを報告した場合、そのバージョンは既に登録されています。先に新しいバージョンへ bump してください。
+- `README.md` はリポジトリの説明と現行基準をまとめます。
+- `doc_standard.md` は文書契約をまとめます。
+- 各モジュールやサブシステム配下には `api.md`、`tutorial.md`、`design.md` を置きます。
+- `doc/*` が手書き本文の事実源です。`src/doc_*` パッケージは MoonBit パッケージ
+  ドキュメント向けに、それらのファイルを symlink で公開します。
 
-コントリビューション案内は [CONTRIBUTING.md](./CONTRIBUTING.md) を参照してください。
+## モジュール概要
+
+- **`immut/matrix`**: 実装は `src/immut`
+- **`immut/vector`**: 実装は `src/immut`
+- **`mutable/matrix`**: 実装は `src/mutable`
+- **`mutable/vector`**: 実装は `src/mutable`
+- **`arithmetic`**: 実装は `src/arithmetic`
+- **`algebra`**: 実装は `src/algebra`
+- **`backends/default`**: 実装は `src/backends/default`
+- **`backends/openblas`**: 実装は `src/backends/openblas`
+- **`error`**: 実装は `src/error`

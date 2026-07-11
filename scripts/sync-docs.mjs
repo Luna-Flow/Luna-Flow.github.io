@@ -10,6 +10,9 @@ const workspaceRoot = process.env.LUNAFLOW_REPO_ROOT
 const configPath = path.join(repoRoot, 'docs', 'repo-docs.config.json');
 const generatedRoot = path.join(repoRoot, 'docs', 'pages');
 const generatedDataDir = path.join(repoRoot, 'docs', '.vitepress', 'generated');
+const manifestPath = process.env.LUNAFLOW_REPO_MANIFEST
+  ? path.resolve(process.env.LUNAFLOW_REPO_MANIFEST)
+  : null;
 
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
@@ -100,22 +103,32 @@ function docsIndexLink(locale) {
   return prefix ? `${prefix}/docs/` : '/docs/';
 }
 
-function localeReadmePath(locale, repo) {
-  return `${localePrefix(locale)}/${repo}/README.md` || `/${repo}/README.md`;
-}
+function rewriteLinks(content, repo, source) {
+  const repositoryRoot = path.join(workspaceRoot, repo);
 
-function rewriteLinks(content, repo) {
-  return content
-    .replace(/\.\.\/\.\.\/README(?:\.md)?/g, './README.md')
-    .replace(/\.\/README(?:\.md)?/g, './README.md')
-    .replace(/\.\.\/\.\.\/CONTRIBUTING(?:\.md)?/g, './CONTRIBUTING.md')
-    .replace(/\.\/doc_standard(?:\.md)?/g, './doc-standard.md')
-    .replace(/\.\.\/zh_CN\/README(?:\.md)?/g, './README.md')
-    .replace(/\.\.\/en_US\/README(?:\.md)?/g, './README.md')
-    .replace(/\.\.\/ja_JP\/README(?:\.md)?/g, './README.md')
-    .replace(/\.\.\/zh_CN\/README(?:\.md)?/g, localeReadmePath(locales[1], repo))
-    .replace(/\.\.\/en_US\/README(?:\.md)?/g, localeReadmePath(locales[0], repo))
-    .replace(/\.\.\/ja_JP\/README(?:\.md)?/g, localeReadmePath(locales[2], repo));
+  return content.replace(/(?<!!)\]\(([^)\s]+)(\s+"[^"]*")?\)/g, (match, target, title = '') => {
+    if (/^(?:[a-z]+:|#|\/)/i.test(target)) return match;
+
+    const suffixIndex = target.search(/[?#]/);
+    const pathname = suffixIndex === -1 ? target : target.slice(0, suffixIndex);
+    const suffix = suffixIndex === -1 ? '' : target.slice(suffixIndex);
+    const resolved = path.resolve(path.dirname(source), pathname);
+    const relativeToRepo = path.relative(repositoryRoot, resolved).split(path.sep).join('/');
+
+    if (relativeToRepo.startsWith('../')) return match;
+
+    const docMatch = relativeToRepo.match(/^doc\/(en_US|zh_CN|ja_JP)\/(.+)$/);
+    if (docMatch) {
+      const locale = locales.find((item) => item.source === docMatch[1]);
+      let docPath = docMatch[2].replace(/\.md$/, '');
+      if (docPath === 'README') docPath = 'index';
+      if (docPath === 'doc_standard') docPath = 'doc-standard';
+      return `](${localePrefix(locale)}/${repo}/${docPath}${suffix}${title})`;
+    }
+
+    const githubTarget = `https://github.com/Luna-Flow/${repo}/blob/main/${relativeToRepo}${suffix}`;
+    return `](${githubTarget}${title})`;
+  });
 }
 
 function writeMarkdownFile(file, content) {
@@ -123,45 +136,11 @@ function writeMarkdownFile(file, content) {
   fs.writeFileSync(file, content.endsWith('\n') ? content : `${content}\n`);
 }
 
-function validateLocaleLinks(targetBase, locale) {
-  if (!locale.outDir) return;
-  const badLinks = [];
-  const allowedPrefixes = [
-    `/${locale.outDir}/`,
-    'https://',
-    'http://',
-    '#',
-    'mailto:',
-  ];
-
-  function walk(current) {
-    for (const entry of listDirSafe(current)) {
-      const abs = path.join(current, entry.name);
-      if (entry.isDirectory()) {
-        walk(abs);
-      } else if (entry.isFile() && entry.name.endsWith('.md')) {
-        const text = fs.readFileSync(abs, 'utf8');
-        const matches = [...text.matchAll(/\]\((\/[^)]+)\)/g)];
-        for (const match of matches) {
-          const link = match[1];
-          if (!allowedPrefixes.some((prefix) => link.startsWith(prefix))) {
-            badLinks.push(`${path.relative(targetBase, abs)} -> ${link}`);
-          }
-        }
-      }
-    }
-  }
-
-  walk(targetBase);
-  if (badLinks.length) {
-    throw new Error(`Found locale-leaking links for ${locale.id}:\n${badLinks.join('\n')}`);
-  }
-}
-
 function copyFileWithFrontmatter(source, dest, title, repo) {
   const raw = rewriteLinks(
     fs.readFileSync(source, 'utf8').replace(/^---[\s\S]*?---\n/, ''),
     repo,
+    source,
   );
   const body = raw.startsWith('# ') ? raw : `# ${title}\n\n${raw}`;
   writeMarkdownFile(dest, body);
@@ -174,14 +153,6 @@ function humanize(input) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function docLabel(fileName) {
-  const stem = fileName.replace(/\.md$/, '');
-  if (stem === 'api') return 'API';
-  if (stem === 'tutorial') return 'Tutorial';
-  if (stem === 'design') return 'Design';
-  return humanize(fileName);
-}
-
 function collectModuleFiles(localeDir) {
   const files = [];
 
@@ -191,11 +162,8 @@ function collectModuleFiles(localeDir) {
       const nextRel = rel ? path.join(rel, entry.name) : entry.name;
       if (entry.isDirectory()) {
         walk(abs, nextRel);
-      } else if (entry.isFile() && entry.name.endsWith('.md')) {
-        if (!rel) continue;
-        if (['api.md', 'tutorial.md', 'design.md'].includes(entry.name)) {
-          files.push(nextRel);
-        }
+      } else if (entry.isFile() && entry.name.endsWith('.md') && rel) {
+        files.push(nextRel);
       }
     }
   }
@@ -212,28 +180,55 @@ function collectExtraRootFiles(localeDir) {
     .sort();
 }
 
-function validateModuleCoverage(repoName, localeSource, files) {
-  const groups = new Map();
-  for (const rel of files) {
-    const dir = path.dirname(rel);
-    const fileName = path.basename(rel);
-    if (!groups.has(dir)) groups.set(dir, new Set());
-    groups.get(dir).add(fileName);
-  }
-
-  for (const [dir, names] of groups.entries()) {
-    for (const required of ['api.md', 'tutorial.md', 'design.md']) {
-      if (!names.has(required)) {
-        throw new Error(`Missing ${required} for ${repoName} ${localeSource} ${dir}`);
-      }
-    }
-  }
-}
-
 function linkFor(locale, repo, relPath) {
   const cleanRel = relPath.replace(/\.md$/, '').split(path.sep).join('/');
   const prefix = localePrefix(locale);
   return `${prefix}/${repo}/${cleanRel}`;
+}
+
+function docTypeLabel(locale, fileName) {
+  const stem = fileName.replace(/\.md$/, '');
+  const fixed = {
+    api: { root: 'API', zh_CN: 'API', ja_JP: 'API' },
+    design: { root: 'Design', zh_CN: '设计', ja_JP: '設計' },
+    tutorial: { root: 'Tutorial', zh_CN: '教程', ja_JP: 'チュートリアル' },
+    integration: { root: 'Integration', zh_CN: '集成', ja_JP: '統合' },
+  };
+  return fixed[stem]?.[locale.id] ?? humanize(stem);
+}
+
+function docTypeOrder(fileName) {
+  const order = ['api.md', 'design.md', 'tutorial.md'];
+  const index = order.indexOf(fileName);
+  return index === -1 ? order.length : index;
+}
+
+function packageTreeItems(locale, repo, entries) {
+  const root = new Map();
+
+  for (const entry of entries) {
+    const packageParts = path.dirname(entry).split(path.sep).filter((part) => part !== '.');
+    let level = root;
+    for (const [index, part] of packageParts.entries()) {
+      if (!level.has(part)) level.set(part, { children: new Map(), link: null });
+      const node = level.get(part);
+      if (index === packageParts.length - 1) node.link = linkFor(locale, repo, entry);
+      level = node.children;
+    }
+  }
+
+  function render(level) {
+    return [...level.entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([name, node]) => {
+        const item = { text: humanize(name) };
+        if (node.link) item.link = node.link;
+        if (node.children.size) item.items = render(node.children);
+        return item;
+      });
+  }
+
+  return render(root);
 }
 
 function buildSidebarItems(locale, repo, files) {
@@ -244,20 +239,21 @@ function buildSidebarItems(locale, repo, files) {
 
   const groups = new Map();
   for (const rel of files) {
-    const parts = rel.split(path.sep);
-    const fileName = parts.pop();
-    const groupKey = parts.join('/');
-    if (!groups.has(groupKey)) groups.set(groupKey, []);
-    groups.get(groupKey).push({
-      text: docLabel(fileName),
-      link: linkFor(locale, repo, rel),
-    });
+    const fileName = path.basename(rel);
+    if (!groups.has(fileName)) groups.set(fileName, []);
+    groups.get(fileName).push(rel);
   }
 
-  for (const [groupKey, entries] of [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+  const orderedGroups = [...groups.entries()].sort(([left], [right]) => {
+    const orderDifference = docTypeOrder(left) - docTypeOrder(right);
+    return orderDifference || left.localeCompare(right);
+  });
+
+  for (const [fileName, entries] of orderedGroups) {
     items.push({
-      text: groupKey ? humanize(groupKey) : locale.docsText,
-      items: entries.sort((a, b) => a.text.localeCompare(b.text)),
+      text: docTypeLabel(locale, fileName),
+      collapsed: fileName !== 'api.md',
+      items: packageTreeItems(locale, repo, entries),
     });
   }
 
@@ -510,13 +506,92 @@ function featureCards(locale, repoCount) {
   ];
 }
 
+function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function localized(value, locale) {
+  return value?.[locale.id] ?? value?.root ?? '';
+}
+
+function categorizedRepos(locale, repos) {
+  const available = new Map(repos.map((repo) => [repo.repo, repo]));
+  const assigned = new Set();
+  const categories = [];
+
+  for (const category of config.categories ?? []) {
+    const categoryRepos = category.repos
+      .filter((name) => available.has(name))
+      .map((name) => available.get(name));
+    for (const repo of categoryRepos) assigned.add(repo.repo);
+    if (categoryRepos.length) {
+      categories.push({
+        id: category.id,
+        title: localized(category.title, locale),
+        description: localized(category.description, locale),
+        repos: categoryRepos,
+      });
+    }
+  }
+
+  const unassigned = repos
+    .filter((repo) => !assigned.has(repo.repo))
+    .sort((left, right) => left.repo.localeCompare(right.repo));
+  if (unassigned.length) {
+    const fallback = {
+      root: ['Other Libraries', 'Newly discovered repositories awaiting a curated category.'],
+      zh_CN: ['其他库', '自动发现、尚待人工归类的新仓库。'],
+      ja_JP: ['その他のライブラリ', '自動検出され、分類を待っている新しいリポジトリ。'],
+    }[locale.id];
+    categories.push({ id: 'other', title: fallback[0], description: fallback[1], repos: unassigned });
+  }
+
+  return categories;
+}
+
 function writeDocsIndex(locale, repos) {
+  const categories = categorizedRepos(locale, repos);
+  const eyebrow = {
+    root: 'LIBRARY DIRECTORY',
+    zh_CN: '库目录',
+    ja_JP: 'ライブラリ一覧',
+  }[locale.id];
   const body = [
-    `# ${locale.docsIndexTitle}`,
+    '---',
+    'layout: page',
+    'aside: false',
+    'sidebar: false',
+    'pageClass: library-directory-page',
+    '---',
     '',
-    locale.docsIndexDescription,
+    '<div class="library-directory">',
+    `  <p class="library-directory__eyebrow">${eyebrow}</p>`,
+    `  <h1>${escapeHtml(locale.docsIndexTitle)}</h1>`,
+    `  <p class="library-directory__intro">${escapeHtml(locale.docsIndexDescription)}</p>`,
     '',
-    ...repos.map((repo) => `- [${repo.title}](${localePrefix(locale)}/${repo.repo}/index)`),
+    '  <div class="library-directory__groups">',
+    ...categories.flatMap((category, index) => [
+      '    <section class="library-group">',
+      '      <header class="library-group__header">',
+      `        <span class="library-group__number">${String(index + 1).padStart(2, '0')}</span>`,
+      '        <div>',
+      `          <h2>${escapeHtml(category.title)}</h2>`,
+      `          <p>${escapeHtml(category.description)}</p>`,
+      '        </div>',
+      '      </header>',
+      '      <div class="library-group__links">',
+      ...category.repos.map((repo) =>
+        `        <a class="library-link" href="${localePrefix(locale)}/${repo.repo}/index"><span>${escapeHtml(repo.repo)}</span><span aria-hidden="true">↗</span></a>`
+      ),
+      '      </div>',
+      '    </section>',
+    ]),
+    '  </div>',
+    '</div>',
     '',
   ].join('\n');
 
@@ -569,11 +644,28 @@ function writeLocaleIndex(locale, repos) {
   writeMarkdownFile(path.join(targetDir, 'README.md'), body);
 }
 
+function repositoryNames() {
+  if (manifestPath) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    return manifest.repositories;
+  }
+
+  return [...new Set((config.categories ?? []).flatMap((category) => category.repos))];
+}
+
+function hasDocumentation(repoName) {
+  const docRoot = path.join(workspaceRoot, repoName, 'doc');
+  return locales.some((locale) => fs.existsSync(path.join(docRoot, locale.source)));
+}
+
 rmrf(generatedRoot);
 mkdirp(generatedRoot);
 mkdirp(generatedDataDir);
 
-const enabledRepos = config.repos.filter((repo) => repo.enabled).sort((a, b) => a.order - b.order);
+const enabledRepos = repositoryNames()
+  .filter((repo) => hasDocumentation(repo))
+  .map((repo) => ({ repo, title: repo }))
+  .sort((left, right) => left.repo.localeCompare(right.repo));
 const siteData = { sidebars: {}, repos: [] };
 
 for (const locale of locales) {
@@ -594,8 +686,6 @@ for (const locale of locales) {
     const files = collectModuleFiles(sourceBase);
     const extraFiles = collectExtraRootFiles(sourceBase);
     if (files.length === 0) throw new Error(`No module docs found for ${repo.repo} ${locale.source}`);
-    validateModuleCoverage(repo.repo, locale.source, files);
-
     const targetBase = path.join(targetLocaleDir, repo.repo);
     copyFileWithFrontmatter(readme, path.join(targetBase, 'index.md'), repo.title, repo.repo);
     copyFileWithFrontmatter(readme, path.join(targetBase, 'README.md'), repo.title, repo.repo);
@@ -629,7 +719,6 @@ for (const locale of locales) {
     siteData.repos.push({ locale: locale.id, repo: repo.repo, title: repo.title, files });
   }
 
-  validateLocaleLinks(targetLocaleDir, locale);
 }
 
 writeMarkdownFile(

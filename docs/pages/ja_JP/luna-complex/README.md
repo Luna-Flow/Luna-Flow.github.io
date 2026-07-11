@@ -1,10 +1,10 @@
 # Luna-Flow/luna-complex
 
-このドキュメントは **v0.2.0** の現在ベースラインを追跡します。
+このドキュメントは **v0.3.0** の現在ベースラインを追跡します。
 
 ## リポジトリの位置付け
 
-汎用複素数コアと `Double` 専用の解析拡張を提供します。
+汎用複素数コアと、独立した浮動小数点解析バックエンドを提供します。
 
 ## ドキュメント構成
 
@@ -14,10 +14,10 @@
 
 ## モジュール概要
 
-- **`core`**: 主な実装は `src` にあります。
-- **`double_ext`**: 主な実装は `src/double_ext` にあります。
+- **`core`**: 汎用 `Complex[T]` の構築、更新、代数 trait 実装。
+- **`float_backend`**: バックエンド内の浮動小数点 trait と、現在の `Complex[Double]` 解析関数面。
 
 ## ドキュメント入口
 
-- API リファレンス: [core](./core/api.md)
-- API リファレンス: [double_ext](./double_ext/api.md)
+- API リファレンス: [core](/ja_JP/luna-complex/core/api)
+- API リファレンス: [float_backend](/ja_JP/luna-complex/float_backend/api)

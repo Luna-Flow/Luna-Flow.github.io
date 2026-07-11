@@ -1,6 +1,6 @@
 # Arithmetic ドキュメント
 
-このディレクトリは `arithmetic` `0.2.1` の日本語ドキュメント入口です。
+このディレクトリは `arithmetic` `0.2.2` の日本語ドキュメント入口です。
 
 ## 概要
 
@@ -21,7 +21,9 @@
 
 - 公開 trait は具体的な `Self` 型を保ち、補助的な結果型へ自動的に拡張しません。
 - 具体インスタンスがより強い保証を明記しない限り、定義域の妥当性は呼び出し側契約の一部です。
-- `Float` と `Double` の特殊値、境界値、分岐の意味論は `Kaida-Amethyst/math` を継承します。
+- unchecked の `Float` と `Double` の特殊値、境界値、分岐の意味論は `Kaida-Amethyst/math` を継承します。
+- checked `Float` と `Double` は、文書化された実数値の定義域失敗では構造化エラーを返します。たとえば checked 平方根に負の実数を渡すと `DomainError` になります。
+- 現在の組み込み `Float` と `Double` の checked 操作は、`ArithmeticContext` による任意精度や丸め制御を適用しません。この context は文脈依存実装のための共有境界データです。
 - 整数族のサポートは意図的に狭く、その型で閉じたまま扱える能力だけを実装します。
 - `arithmetic` は capability-boundary package であり、この層で微積分・行列・複素数・記号代数・特殊関数を再導入しません。
 

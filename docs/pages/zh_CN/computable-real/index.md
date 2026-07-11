@@ -22,4 +22,4 @@
 
 ## 文档入口
 
-- API 参考: [current_state](./current_state/api.md)
+- API 参考: [current_state](/zh_CN/computable-real/current_state/api)

@@ -1,14 +1,22 @@
 # core 设计
 
-本页用于说明这个模块的结构职责和实现约束。 这里聚焦 Luna-Flow/luna-generic 中的 core。
+## 设计目标
 
-## 职责
+`luna-generic` 要给整个 LunaFlow 提供一套共享的代数词汇，让
+`arithmetic`、`luna-complex`、`linear-algebra`、`luna-poly` 等包能够
+复用同一组能力边界。
 
-- 让代码和文档围绕 `src` 保持一致。
-- 如实保留执行模型，不掩盖重要的内部差异。
-- 记录维护者必须稳定保留的扩展点、不变量和限制。
+## 核心设计决策
 
-## 维护说明
+- trait 图保持分层且足够小。
+- `Ring`、`Field`、`Integral`、`Nat` 这类结构 traits 与 `Zero`、`One`、
+  `Inverse`、`Conjugate` 这类操作 traits 分离。
+- 嵌入通过 `NatHomomorphism` 和 `IntegralHomomorphism` 明确表达。
+- `Integral::normalize` 作为到 `BigInt` 的统一精确桥接。
+- 目标侧的默认同态实现统一经由规范化后的 `BigInt`。
+- 无符号类型不提供加法逆元，保证抽象在数学上保持诚实。
 
-- 只要模块边界、核心算法或可观察语义变化，就更新本页。
-- 如果模块仍然不完整，也要明确写出，不要伪造未来 API。
+## 边界
+
+- 本包不定义矩阵、复数、多项式、解析函数或数值算法。
+- 它不会刻意抹平精确数值系统与近似数值系统之间的语义差异。

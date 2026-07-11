@@ -1,6 +1,6 @@
 # Luna-Generic
 
-これは `Luna-Flow/luna-generic` の想定 `v0.3.2` リリース向け日本語ドキュメントです。
+これは `Luna-Flow/luna-generic` の想定 `v0.3.3` リリース向け日本語ドキュメントです。
 
 ## 概要
 
@@ -32,12 +32,13 @@
 - `Integral` は符号付き整数、符号なし整数、および `BigInt` を対象とします
 - 符号なし整数インスタンスは `Semiring` までです
 - `Integral::normalize` は任意の整数値を `BigInt` へ正規化します
-- `Nat::to_integral` は `BigInt` への正確な埋め込みを提供します
+- `Nat` は `Integral::normalize` を通じて `BigInt` への正確な埋め込みを共有します
 
 ## 埋め込み API
 
-- `NatHomomorphism::{from_uint, from_uint16, from_uint64}` は自然数ソース型から対象型への埋め込みを提供します
-- `IntegralHomomorphism::{from_int, from_int16, from_int64, from_bigint}` は整数ソース型から対象型への埋め込みを提供します
+- `NatHomomorphism::from_nat` は任意の `Nat` ソース型からの多相的な対象側埋め込みを提供します
+- `IntegralHomomorphism::from_integral` は任意の `Integral` ソース型からの多相的な対象側埋め込みを提供します
+- 既定の実装経路は `Integral::normalize` の後に対象型ごとの `BigInt` 変換を呼ぶ形です
 - `BigInt` への埋め込みは正確です
 - `Float` と `Double` への埋め込みは近似であり、大きな値は丸められる可能性があります
 

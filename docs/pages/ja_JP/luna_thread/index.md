@@ -20,6 +20,6 @@
 
 ## ドキュメント入口
 
-- API リファレンス: [facade](./facade/api.md)
-- API リファレンス: [backend](./backend/api.md)
-- API リファレンス: [spec](./spec/api.md)
+- API リファレンス: [facade](/ja_JP/luna_thread/facade/api)
+- API リファレンス: [backend](/ja_JP/luna_thread/backend/api)
+- API リファレンス: [spec](/ja_JP/luna_thread/spec/api)

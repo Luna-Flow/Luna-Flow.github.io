@@ -19,5 +19,5 @@
 
 ## 文档入口
 
-- API 参考: [elab](./elab/api.md)
-- API 参考: [theory](./theory/api.md)
+- API 参考: [elab](/zh_CN/stella/elab/api)
+- API 参考: [theory](/zh_CN/stella/theory/api)

@@ -19,5 +19,5 @@
 
 ## 文档入口
 
-- API 参考: [array_utils](./array_utils/api.md)
-- API 参考: [comparison](./comparison/api.md)
+- API 参考: [array_utils](/zh_CN/luna-utils/array_utils/api)
+- API 参考: [comparison](/zh_CN/luna-utils/comparison/api)

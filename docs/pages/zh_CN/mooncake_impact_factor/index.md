@@ -4,10 +4,10 @@
 
 ## 文档目录
 
-- [文档标准](./doc-standard.md)
-- [使用教程](./tutorial.md)
-- [评分 API](./score/api.md)
-- [评分设计](./score/design.md)
+- [文档标准](/zh_CN/mooncake_impact_factor/doc-standard)
+- [使用教程](/zh_CN/mooncake_impact_factor/tutorial)
+- [评分 API](/zh_CN/mooncake_impact_factor/score/api)
+- [评分设计](/zh_CN/mooncake_impact_factor/score/design)
 
 ## 覆盖范围
 

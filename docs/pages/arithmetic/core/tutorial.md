@@ -1,14 +1,41 @@
 # core Tutorial
 
-Start from the capability traits in `src/checked.mbt`, `src/elementary.mbt`, and the numeric instance files.
+## Generic analytic helper
 
-## Suggested Flow
+```moonbit
+fn hypot2[T : Add + Mul + Sqrt](x : T, y : T) -> T {
+  (x * x + y * y).sqrt()
+}
+```
 
-1. Read the repository README and the core API reference.
-2. Start from the constructors or entry points under `src`.
-3. Validate behavior with the existing tests or examples before depending on edge-case semantics.
+This expresses exactly which capability the algorithm needs, without tying it
+to one concrete numeric type.
 
-## Practical Guidance
+## Checked division
 
-- Prefer the documented entry points over internal helpers.
-- Record runtime, numeric, or proof-state assumptions explicitly in downstream code.
+```moonbit
+fn safe_ratio[T : DivChecked](x : T, y : T) -> Result[T, ArithmeticError] {
+  x.div_checked(y, ArithmeticContext::new(32))
+}
+```
+
+Use the checked layer when zero-division, domain validity, or precision
+sensitivity should be surfaced explicitly.
+
+## Checked comparison
+
+```moonbit
+fn ordering_or_error[T : CompareChecked](lhs : T, rhs : T) -> Result[Int, ArithmeticError] {
+  lhs.compare_checked(rhs)
+}
+```
+
+This is the right path when unordered values such as NaN must not be silently
+coerced into a total order.
+
+## Practical guidance
+
+- Use unchecked traits only when direct backend semantics are acceptable.
+- Use checked traits at API boundaries.
+- Keep algebraic structure in `luna-generic`; use `arithmetic` for analytic
+  capabilities.

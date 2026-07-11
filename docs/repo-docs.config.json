@@ -1,212 +1,63 @@
 {
-  "repos": [
+  "exclude": [
+    "Luna-Flow.github.io"
+  ],
+  "categories": [
     {
-      "repo": "arithmetic",
-      "branch": "main",
-      "title": "Luna-Flow/arithmetic",
-      "order": 1,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
+      "id": "foundations",
+      "title": {
+        "root": "Foundations",
+        "zh_CN": "基础抽象",
+        "ja_JP": "基礎抽象"
+      },
+      "description": {
+        "root": "Shared traits, generic structures, and utilities that connect the ecosystem.",
+        "zh_CN": "连接整个生态的共享 trait、泛型结构与基础工具。",
+        "ja_JP": "エコシステムを結ぶ共有 trait、汎用構造、基盤ユーティリティ。"
+      },
+      "repos": ["arithmetic", "luna-generic", "luna-utils"]
     },
     {
-      "repo": "calculus-numerical",
-      "branch": "main",
-      "title": "Luna-Flow/calculus-numerical",
-      "order": 2,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
+      "id": "numbers",
+      "title": {
+        "root": "Numbers & Representations",
+        "zh_CN": "数值与表示",
+        "ja_JP": "数値と表現"
+      },
+      "description": {
+        "root": "Concrete and generic representations for numerical computation.",
+        "zh_CN": "面向数值计算的具体表示与泛型表示。",
+        "ja_JP": "数値計算のための具体的・汎用的な表現。"
+      },
+      "repos": ["floating", "computable-real", "luna-complex", "quaternion", "luna-poly"]
     },
     {
-      "repo": "calculus-symbolic",
-      "branch": "feat",
-      "title": "Luna-Flow/calculus-symbolic",
-      "order": 3,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
+      "id": "analysis",
+      "title": {
+        "root": "Analysis & Optimization",
+        "zh_CN": "分析与优化",
+        "ja_JP": "解析と最適化"
+      },
+      "description": {
+        "root": "Linear, numerical, and symbolic tools for higher-level mathematics.",
+        "zh_CN": "服务高层数学计算的线性、数值与符号工具。",
+        "ja_JP": "高水準の数学計算を支える線形・数値・記号ツール。"
+      },
+      "repos": ["linear-algebra", "linear-program", "calculus-numerical", "calculus-symbolic"]
     },
     {
-      "repo": "computable-real",
-      "branch": "main",
-      "title": "Luna-Flow/computable-real",
-      "order": 4,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "project"
-    },
-    {
-      "repo": "floating",
-      "branch": "main",
-      "title": "Luna-Flow/floating",
-      "order": 5,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "linear-algebra",
-      "branch": "main",
-      "title": "Luna-Flow/linear-algebra",
-      "order": 6,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "linear-program",
-      "branch": "master",
-      "title": "Luna-Flow/linear-program",
-      "order": 7,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "luna-complex",
-      "branch": "main",
-      "title": "Luna-Flow/luna-complex",
-      "order": 8,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "luna-generic",
-      "branch": "main",
-      "title": "Luna-Flow/luna-generic",
-      "order": 9,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "luna-poly",
-      "branch": "k_chore",
-      "title": "Luna-Flow/luna-poly",
-      "order": 10,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "luna-utils",
-      "branch": "feat",
-      "title": "Luna-Flow/luna-utils",
-      "order": 11,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "luna_thread",
-      "branch": "main",
-      "title": "Luna-Flow/luna_thread",
-      "order": 12,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "project"
-    },
-    {
-      "repo": "mooncake_impact_factor",
-      "branch": "main",
-      "title": "Luna-Flow/mooncake_impact_factor",
-      "order": 13,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "quaternion",
-      "branch": "main",
-      "title": "Luna-Flow/quaternion",
-      "order": 14,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "library"
-    },
-    {
-      "repo": "QED",
-      "branch": "main",
-      "title": "Luna-Flow/QED",
-      "order": 15,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "project"
-    },
-    {
-      "repo": "stella",
-      "branch": "chore",
-      "title": "Luna-Flow/stella",
-      "order": 16,
-      "enabled": true,
-      "locales": [
-        "en_US",
-        "zh_CN",
-        "ja_JP"
-      ],
-      "type": "project"
+      "id": "systems",
+      "title": {
+        "root": "Systems & Research",
+        "zh_CN": "系统与研究",
+        "ja_JP": "システムと研究"
+      },
+      "description": {
+        "root": "Experimental systems, proof tooling, and ecosystem-scale projects.",
+        "zh_CN": "实验性系统、证明工具与生态级项目。",
+        "ja_JP": "実験的システム、証明ツール、エコシステム規模のプロジェクト。"
+      },
+      "repos": ["luna_thread", "QED", "stella", "mooncake_impact_factor"]
     }
   ]
 }

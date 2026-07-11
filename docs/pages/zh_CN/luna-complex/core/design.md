@@ -1,14 +1,15 @@
 # core 设计
 
-The root package owns generic `Complex[T]` structure, algebraic operations, and trait-driven constraints.
+根包负责泛型 `Complex[T]` 结构、代数运算和基于 trait 的约束。
 
 ## 职责
 
-- 让代码和文档围绕 `src` 保持一致。
-- 如实保留执行模型，不掩盖重要的内部差异。
-- 记录维护者必须稳定保留的扩展点、不变量和限制。
+- 保持 `Complex[T]` 的泛型性质，不把浮点解析语义放入根包。
+- 保留可变字段模型，因为调用方可能需要原地更新 `re` 或 `im`。
+- 代数 trait 实现只要求实际所需的最小标量能力。
+- 分支切割、NaN、无穷、负零和超越函数留给 `float_backend`。
 
 ## 维护说明
 
-- 只要模块边界、核心算法或可观察语义变化，就更新本页。
-- 如果模块仍然不完整，也要明确写出，不要伪造未来 API。
+- 根包新增或移除公开 trait 实现时，同步更新本文档。
+- 不要在根包文档中描述尚未实现的泛型解析 API。

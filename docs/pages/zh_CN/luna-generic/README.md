@@ -1,6 +1,6 @@
 # Luna-Generic
 
-这是 `Luna-Flow/luna-generic` 预期 `v0.3.2` 发布版本的简体中文文档。
+这是 `Luna-Flow/luna-generic` 预期 `v0.3.3` 发布版本的简体中文文档。
 
 ## 概览
 
@@ -32,12 +32,13 @@
 - `Integral` 覆盖有符号整数、无符号整数以及 `BigInt`
 - 无符号整数实例只到 `Semiring`
 - `Integral::normalize` 会把任意整数值规范化为 `BigInt`
-- `Nat::to_integral` 提供到 `BigInt` 的精确嵌入
+- `Nat` 通过继承复用 `Integral::normalize`，以精确嵌入到 `BigInt`
 
 ## 嵌入接口
 
-- `NatHomomorphism::{from_uint, from_uint16, from_uint64}` 提供从自然数源类型到目标类型的嵌入
-- `IntegralHomomorphism::{from_int, from_int16, from_int64, from_bigint}` 提供从整数源类型到目标类型的嵌入
+- `NatHomomorphism::from_nat` 提供从任意 `Nat` 源类型到目标类型的多态嵌入
+- `IntegralHomomorphism::from_integral` 提供从任意 `Integral` 源类型到目标类型的多态嵌入
+- 默认实现路径是先走 `Integral::normalize`，再做目标类型自己的 `BigInt` 转换
 - 到 `BigInt` 的嵌入是精确的
 - 到 `Float` 和 `Double` 的嵌入是近似的，大数值可能发生舍入
 

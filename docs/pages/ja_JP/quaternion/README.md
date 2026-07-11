@@ -19,5 +19,5 @@
 
 ## ドキュメント入口
 
-- API リファレンス: [quaternion](./quaternion/api.md)
-- API リファレンス: [double_conv](./double_conv/api.md)
+- API リファレンス: [quaternion](/ja_JP/quaternion/quaternion/api)
+- API リファレンス: [double_conv](/ja_JP/quaternion/double_conv/api)

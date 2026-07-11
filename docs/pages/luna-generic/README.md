@@ -1,6 +1,6 @@
 # Luna-Generic
 
-English documentation for the intended `v0.3.2` release of `Luna-Flow/luna-generic`.
+English documentation for the intended `v0.3.3` release of `Luna-Flow/luna-generic`.
 
 ## Overview
 
@@ -32,12 +32,13 @@ The current release candidate centers on three changes:
 - `Integral` covers signed integers, unsigned integers, and `BigInt`
 - Unsigned integer instances stop at `Semiring`
 - `Integral::normalize` canonicalizes any integral value into `BigInt`
-- `Nat::to_integral` provides an exact embedding into `BigInt`
+- `Nat` reuses `Integral::normalize` for its exact embedding into `BigInt`
 
 ## Embeddings
 
-- `NatHomomorphism::{from_uint, from_uint16, from_uint64}` provides target-side embeddings from natural-number source types
-- `IntegralHomomorphism::{from_int, from_int16, from_int64, from_bigint}` provides target-side embeddings from integral source types
+- `NatHomomorphism::from_nat` provides polymorphic target-side embeddings from any `Nat` source type
+- `IntegralHomomorphism::from_integral` provides polymorphic target-side embeddings from any `Integral` source type
+- The default implementation strategy is `Integral::normalize` followed by target-specific `BigInt` conversion
 - `BigInt` embeddings are exact
 - `Float` and `Double` embeddings are approximate and may round large values
 

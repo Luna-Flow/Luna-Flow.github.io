@@ -1,144 +1,161 @@
-# LINEAR-ALGEBRA
+# Luna-Flow/linear-algebra
 
-[![img](https://img.shields.io/badge/Maintainer-KCN--judu-violet)](https://github.com/KCN-judu) [![img](https://img.shields.io/badge/Collaborator-CAIMEOX-purple)](https://github.com/CAIMEOX) [![img](https://img.shields.io/badge/License-Apache%202.0-blue)](https://github.com/Luna-Flow/linear-algebra/blob/main/LICENSE) ![img](https://img.shields.io/badge/State-active-success)
+这份 README 对应当前仓库的 **v0.4.7** 文档基线。
 
-## v0.2.12 - Correctness、Diagnostics 与 Documentation Alignment
+`mutable` 数值 API 现在使用共享的 `Luna-Flow/arithmetic.Sqrt` 能力；
+整数嵌入遵循 `Luna-Flow/luna-generic.IntegralHomomorphism`。在当前版本中，
+`Tolerance` 仍保留在 `mutable` 包内。凡是可能在运行时失败的矩阵操作，
+现在都使用带检查的 `Result[..., LinearAlgebraError]` API；旧的 abort 行为
+和 `Option` 返回语义则通过显式的 `unchecked_*` 方法保留。
 
-本文档描述已发布 **v0.2.12** 的内容，覆盖 `0.2.11` 之后落地的实现与文档更新。
+`0.4.7` 这一基线新增了与存储无关的 `container` 能力层、通用向量与矩阵
+算法、面向具体存储表示的适配器，以及供外部类型采用的 algebra 集成层级。
 
-### 包定位
+更早的版本说明和仓库历史请参见 [CHANGELOG.md](https://github.com/Luna-Flow/linear-algebra/blob/main/CHANGELOG.md)。
 
-- **`immut`**：不可变、值语义导向的 `Matrix`、`Vector` 与 `MatrixFn` 类型，适合持久化数据和显式 copy-on-update 语义。
-- **`mutable`**：执行导向的 `Matrix` 与 `Vector` 类型，支持原地更新、`Transpose` 视图、`RowView` / `ColView`，并保留 `js`、`wasm`、`wasm-gc`、`native` 的后端优化实现。
-- **共享核心，不同执行模型**：构造器和核心代数操作在两个包之间保持对齐，但修改语义与访问语义是有意区分的。
+## 分层架构
 
-### v0.2.12 的核心变化
+> **实验性功能：** `algebra` 与 `container` 能力层目前用于接入试验和收集生态反馈；
+> 它们的 trait 层级、操作字典、错误契约和函数签名尚未承诺兼容性稳定。下游库暂时不应
+> 把这两个包作为稳定的公开兼容边界。`immut`、`mutable` 和各后端仅仅因为实现或适配
+> 这些能力，并不会因此整体变成实验性 API。
 
-- **公开访问器的严格边界检查**：公开的矩阵、视图与转置视图访问器现在都会一致地拒绝越界索引，包括 `0xN` 和 `Nx0` 等边界形状。
-- **不可变访问语义强化**：`immut.Matrix` 的索引访问与 copy-on-update setter 现在会验证真实的二维边界，而不再允许误落到扁平存储中的其他元素。
-- **跨包语义对齐强化**：`immut` / `mutable` 共享操作在边界行为上更加明确地对齐，包括 same-index swap 的 no-op 语义。
-- **Benchmark 诊断扩展**：benchmark 栈现在包含更丰富的 replay/testing support、单 case whitebox runner，以及本地报告链路中更好的 metadata/diagnostic handling。
-- **文档刷新**：README 和 matrix API 参考文档已按当前真实导出接口重写，清除了陈旧或重复描述。
-- **正确性审计台账**：仓库现在包含一个可跟踪的 correctness checklist，用于记录已验证行为、已修复问题与后续结构性风险。
+- **`arithmetic`**：面向线性代数的操作能力层。它复用
+  `Luna-Flow/luna-generic` 和 `Luna-Flow/arithmetic` 中的标量操作 trait，
+  并在需要时补充只表达“可进行某类操作”的 trait。
+- **`algebra`**：数学结构能力层。它只定义线性代数自己拥有的结构 trait。
+- **`container`**：与存储无关的 read/build、持久编辑和可变编辑操作字典，以及
+  map、转换和转置算法。具体适配器位于 `container/adapters`。
+- **`backends/default`**：参考稠密后端层。它公开可变稠密包装类型
+  `DenseVector` / `DenseMatrix`，以及不可变稠密包装类型
+  `ImmutableDenseVector` / `ImmutableDenseMatrix`。
+- **`backends/openblas`**：仅支持 `native` 的 OpenBLAS 后端。它公开仓库自有的
+  `BlasMatrix[T]` 与 `BlasVector[T]` 包装类型，支持 `Float` 与 `Double`，
+  矩阵乘法使用 OpenBLAS GEMM，向量与矩阵-向量交互则使用对应的 BLAS 核心，
+  后端选择通过具体类型表达，而不是通过运行时 selector 表达。
+- **`error`**：带检查线性代数 API 共用的错误词汇层，覆盖形状、指数、空矩阵、
+  奇异矩阵、非收敛以及底层算术错误。
+- **trait 驱动算法**：后端无关代码应依赖最小必要能力，例如
+  `MatrixShape`、`AdditiveVector`、`VecMulVector`、`TransposeMatrix` 或
+  `MatMulMatrix`。
 
-### API 指导与性能建议
+把向量或矩阵映射为标量范畴的能力，例如内积或范数，属于具体后端或算法细节；
+它们不属于核心结构 trait 层。
 
-- **核心代数 API**：`make`、`transpose`、`+`、`-`、`*`、`trace` 以及矩阵/向量转换等共享操作，目标是在 `immut` 与 `mutable` 之间保持语义对齐。
-- **随机访问**：在 `mutable` 中，如需高性能随机访问，优先使用 `.get(i, j)` 和 `.set(i, j, val)`。
-- **结构化视图**：在 `mutable` 中，如需反复处理某一行或某一列，优先使用 `row_view()` / `col_view()`，而不是依赖 `matrix[row]` 的便捷语法。
-- **严格边界检查**：公开的矩阵、视图与转置视图访问器现在都会一致地拒绝越界索引，包括 `0xN` 和 `Nx0` 等边界形状。
-- **MatrixFn 对齐**：`immut.MatrixFn` 现在与具象矩阵共享非负维度约束和空矩阵语义。
-- **公开接口边界**：内部的分解辅助函数仍然属于实现细节，包使用者应依赖文档化的公开矩阵方法。
+默认稠密实现只是一个后端，不是整个生态的中心。算法应依赖最小的线性代数 trait，
+而不是依赖具体的稠密矩阵或向量类型。
 
-### 主要特性
+这个仓库的定位，是给更上层的数学库、几何库和 solver 风格库提供线性代数基础层。
+领域特定的求解、回归或优化工作流，应放在基于这些 trait、后端包装类型和具体
+矩阵/向量类型构建的下游包中。
 
-- **同时支持可变与不可变**：完整的 `Matrix` 与 `Vector` 体系，分别面向值语义工作负载和执行导向工作负载。
-- **高级操作**：包含 determinant、inverse、rank、Cholesky decomposition、eigen 相关例程、row elimination、transpose view，以及矩阵/向量转换。
-- **共享数据模型 + 后端调优内核**：`mutable` 仍保留 Native、Wasm、JS、Wasm GC 的后端优化执行路径，但核心矩阵存储模型已经统一。
-- **Benchmark 基础设施**：`bench/`、`src/perf_support` 和 `src/perf_runner` 现在共同组成了完整的 steady-state benchmark 子系统，用于后端对比与诊断复现。
-- **正确性优先**：当前覆盖范围包括不可变语义检查、跨包一致性检查、determinant/rank/inverse 对齐，以及数值行为回归测试。
-- **可审计的公开契约**：边界行为、swap 语义、benchmark fixture 与文档一致性，现在都作为仓库正确性叙事的一部分被更明确地跟踪。
+具体的 `immut` / `mutable` 矩阵与向量类型，就是 `backends/default` 包装层所使用的
+底层实现。`DenseVector` 和 `DenseMatrix` 包装 `@mutable.Vector` 与
+`@mutable.Matrix`；`ImmutableDenseVector` 和 `ImmutableDenseMatrix` 包装
+`@immut.Vector` 与 `@immut.Matrix`。
+如果需要 OpenBLAS 支持的 native 矩阵乘法与向量 BLAS 核心，请显式选择
+[`backends/openblas`](/zh_CN/linear-algebra/backends/openblas/api)。它是独立的具体后端，
+不是 `@immut.Matrix` 内部的运行时后端选项。
 
-### Benchmark 相关包
+## 导览指南
 
-- **`perf`**：供 `moon bench` 使用的 benchmark 入口包。
-- **`perf_support`**：公开 fixture 元数据、case 注册表、运行时加载器，以及用于执行 benchmark case 的辅助函数。
-- **`perf_runner`**：用于单 case 诊断、采样与结果复现的运行器。
+- **一般应用开发者**：
+  从 [mutable](/zh_CN/linear-algebra/mutable/matrix/api) 和 [immut](/zh_CN/linear-algebra/immut/matrix/api)
+  开始。它们是面向应用代码的具体 API，适合业务工具、实用程序、数值处理、
+  小型游戏和可视化逻辑等场景。
+- **数学库 / 通用算法开发者**：
+  建议按这个顺序阅读：
+  [arithmetic](/zh_CN/linear-algebra/arithmetic/api) ->
+  [algebra](/zh_CN/linear-algebra/algebra/integration) ->
+  [container](/zh_CN/linear-algebra/container/integration) ->
+  [backends/default](/zh_CN/linear-algebra/backends/default/api) ->
+  [backends/openblas](/zh_CN/linear-algebra/backends/openblas/api) ->
+  [immut / mutable](/zh_CN/linear-algebra/immut/matrix/api)。
+  先看操作能力，再看结构能力，再看默认后端包装层，再看可选的 OpenBLAS native
+  包装层，最后落到具体实现。
+  如果你准备在这个仓库之上构建更高层的应用库、几何包或 solver 风格包，
+  这就是推荐的入口路径。
 
-### 快速开始
+## 文档入口
 
-```moonbit
-let imm = @immut.Matrix::from_2d_array([[1, 2], [3, 4]])
-let imm_updated = imm.set(0, 1, 9)
+- **`immut` 具体 API**：
+  [immut/matrix API](/zh_CN/linear-algebra/immut/matrix/api)、
+  [immut/matrix 教程](/zh_CN/linear-algebra/immut/matrix/tutorial)、
+  [immut/vector API](/zh_CN/linear-algebra/immut/vector/api)、
+  [immut/vector 教程](/zh_CN/linear-algebra/immut/vector/tutorial)
+- **`mutable` 具体 API**：
+  [mutable/matrix API](/zh_CN/linear-algebra/mutable/matrix/api)、
+  [mutable/matrix 教程](/zh_CN/linear-algebra/mutable/matrix/tutorial)、
+  [mutable/vector API](/zh_CN/linear-algebra/mutable/vector/api)、
+  [mutable/vector 教程](/zh_CN/linear-algebra/mutable/vector/tutorial)
+- **能力层与后端层**：
+  [arithmetic API](/zh_CN/linear-algebra/arithmetic/api)、
+  [algebra API](/zh_CN/linear-algebra/algebra/api)、
+  [algebra 生态接入](/zh_CN/linear-algebra/algebra/integration)、
+  [algebra 教程](/zh_CN/linear-algebra/algebra/tutorial)、
+  [container API](/zh_CN/linear-algebra/container/api)、
+  [container 教程](/zh_CN/linear-algebra/container/tutorial)、
+  [container 生态接入](/zh_CN/linear-algebra/container/integration)、
+  [backends/default API](/zh_CN/linear-algebra/backends/default/api)、
+  [backends/openblas API](/zh_CN/linear-algebra/backends/openblas/api)、
+  [backends/openblas 教程](/zh_CN/linear-algebra/backends/openblas/tutorial)、
+  [error API](/zh_CN/linear-algebra/error/api)
 
-let m = @mutable.Matrix::from_2d_array([[1.0, 2.0], [3.0, 4.0]])
-m.set(0, 1, 9.0)
+## 下游使用示例
 
-let det = m.determinant()
-let maybe_inv = m.inverse()
-let row0 = m.row_view(0).to_array()
+- **[`Luna-Flow/geometry3d`](https://github.com/Luna-Flow/geometry3d)**：
+  一个建立在 `Luna-Flow/linear-algebra` 之上的 MoonBit 3D 几何基础库。
+  它在此基础上继续提供核心几何、camera/view 数学、后端无关渲染，以及
+  TUI / Canvas / GSAP 后端。
+  它的
+  [英文文档](https://github.com/Luna-Flow/geometry3d/blob/main/doc/en_US/README.md)
+  可以作为一个具体的下游示例入口。
+
+## 抽象层项目配置
+
+如果你想使用抽象能力层来编写后端无关代码，请显式安装它所依赖的上游抽象包：
+
+```sh
+moon add Luna-Flow/linear-algebra@0.4.7
+moon add Luna-Flow/luna-generic@0.3.3
+moon add Luna-Flow/arithmetic@0.2.2
 ```
 
-### 文档
+推荐的 `moon.pkg` 导入写法：
 
-完整 API 文档可见 [mooncakes.io](https://mooncakes.io/docs/Luna-Flow/linear-algebra)。
-
-我们提供多语言文档：
-
-- 🇺🇸 **English** (`doc/en_US`)
-- 🇨🇳 **简体中文** (`doc/zh_CN`)
-- 🇯🇵 **日本語** (`doc/ja_JP`)
-
-多语言 README：
-
-- 🇺🇸 [README.md](./README.md)
-- 🇨🇳 [README.md](./README.md)
-- 🇯🇵 [README.md](./README.md)
-
-## 版本历史
-
-| 版本 | 日期 | 状态 | 说明 |
-| --- | --- | --- | --- |
-| `0.2.12` | 2026-06-06 | 已发布到 mooncakes | 严格边界契约统一、语义正确性修正、benchmark 诊断扩展，以及文档/审计刷新 |
-| `0.2.11` | 2026-05-27 | 上一发布基线 | mutable 内核性能优化、独立 wasm-gc 后端、benchmark/报告扩展与 API/文档对齐 |
-| `0.2.10` | 2026-05-27 | 上一发布基线 | 统一扁平化 mutable 存储、矩阵视图、一致性覆盖、benchmark 扩展与发布流程对齐 |
-| `0.2.9` | 2026-02-03 | 已发布到 mooncakes | 基于较早的 `3328195` 发布状态发布 |
-| `0.2.8` | 2026-02-03 | 历史基线 | 后续工作的算法与稳定性对比基线 |
-
-## 当前仓库亮点
-
-- **当前版本主叙事（0.2.12）**：
-  - 公开的 matrix、view 与 transpose accessor 现在都会在全库范围内强制执行显式 bounds contract，包括零行和零列边界形状。
-  - `immut.Matrix` 与 `mutable.Matrix` 在共享 correctness semantics 上进一步对齐，同时仍保留值语义与 mutation 语义的执行模型差异。
-  - benchmark 栈现在在本地 benchmark workflow 中具备更强的 diagnostic replay/test coverage 与 metadata handling。
-  - 仓库现在包含可跟踪的 correctness checklist，README 与 matrix API docs 也已经按真实 exported surface 更新。
-
-- **上一版本主叙事（0.2.11）**：
-  - `mutable.Matrix` 在 `0.2.10` 统一扁平存储的基础上，继续获得了多后端核心路径优化和独立 `wasm-gc` 实现。
-  - 公共数值 API 已围绕 `Field` / `Num` / `Tolerance` 对齐，不可变 determinant 的文档也已同步到简化后的约束集合。
-  - benchmark 体系现在包含运行时 fixture 加载、扩展 case 元数据、更丰富 summary 输出、本地 dashboard、可选 Rust 对照，以及通过 `perf_runner` 进行诊断复现的路径。
-  - 发布清单、benchmark 文档、包概览与多语言 README 已统一到 `0.2.11` 的发布叙事。
-
-- **算法与稳定性（0.2.8）**：
-  - 引入了 determinant、inverse、rank、eigen 相关能力所依赖的 LU / QR 分解支持。
-  - 将 determinant 与 rank 的行为推进到更稳定的消元实现方向。
-
-- **Native 优化（0.2.7）**：
-  - 在 Native 后端引入基于转置 + dot-product 的矩阵乘法策略，相比朴素实现可获得超过 2 倍性能提升。
-  - 优化了 `make`、`new`、`transpose`，去除了热点路径中的昂贵整数除法。
-
-- **性能重构（0.2.4）**：
-  - 优化了 `mapi`、`each_row_col` 等次级工具。
-  - 改进了混合矩阵乘法与向量线性组合性能。
-
-- **其他修正与重命名**：
-  - `map_row()` / `map_col()` -> `map_row_inplace()` / `map_col_inplace()`
-  - `eachij()` -> `each_row_col()`
-  - 修正了 `0x0` 矩阵的 determinant 行为。
-  - 修正了向量与矩阵转换时的拷贝行为。
-
-## 开发
-
-常用本地命令：
-
-```bash
-moon fmt
-moon check
-moon test --enable-coverage
-./run_test.sh
+```moonbit nocheck
+import {
+  "Luna-Flow/linear-algebra/algebra",
+  "Luna-Flow/linear-algebra/arithmetic" @la_arithmetic,
+  "Luna-Flow/luna-generic" @lf_alg,
+  "Luna-Flow/arithmetic" @lf_arith,
+}
 ```
 
-`run_test.sh` 会在 `wasm-gc`、`js`、`native`、`wasm` 上跑 `mutable` 包测试。
+使用 `@algebra` 表示线性代数结构 trait，`@la_arithmetic` 表示面向线性代数的
+操作 trait，`@lf_alg` 表示共享的上游代数抽象，`@lf_arith` 表示共享的上游算术
+类型。
 
-## 发布清单
+## 仓库定位
 
-触发发布工作流前：
+同时提供可变与不可变执行模型的矩阵/向量基础设施。
 
-1. 先把 `moon.mod` bump 到目标发布版本。
-2. 更新 `README.md`，确保发布说明与版本历史和包内容一致。
-3. 运行 `moon check` 与 `./run_test.sh`。
-4. 触发 `publish-package`；工作流会直接发布 `moon.mod` 里声明的版本。
+## 文档布局
 
-如果工作流提示版本重复，说明包管理器中已经存在该版本，需要先 bump 新版本。
+- `README.md` 用于说明仓库叙事和当前版本基线。
+- `doc_standard.md` 用于记录文档契约。
+- 各模块或子系统目录下包含 `api.md`、`tutorial.md` 和 `design.md`。
+- `doc/*` 是手写正文事实源；`src/doc_*` 包通过软链接把这些文件暴露给 MoonBit
+  包文档系统。
 
-贡献说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+## 模块概览
+
+- **`immut/matrix`**：实现位于 `src/immut`
+- **`immut/vector`**：实现位于 `src/immut`
+- **`mutable/matrix`**：实现位于 `src/mutable`
+- **`mutable/vector`**：实现位于 `src/mutable`
+- **`arithmetic`**：实现位于 `src/arithmetic`
+- **`algebra`**：实现位于 `src/algebra`
+- **`backends/default`**：实现位于 `src/backends/default`
+- **`backends/openblas`**：实现位于 `src/backends/openblas`
+- **`error`**：实现位于 `src/error`
