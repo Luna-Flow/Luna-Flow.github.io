@@ -137,14 +137,8 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-.library-directory-page .VPDoc {
-  padding-top: 72px;
-}
-
-.library-directory-page .VPDoc .container,
-.library-directory-page .VPDoc .content,
-.library-directory-page .VPDoc .content-container {
-  max-width: 1120px;
+.library-directory-page .VPPage {
+  padding: 72px 32px 96px;
 }
 
 .library-directory {
@@ -152,6 +146,9 @@
   --directory-muted: var(--vp-c-text-2);
   --directory-line: var(--vp-c-divider);
   --directory-accent: var(--vp-c-brand-1);
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
   color: var(--directory-ink);
 }
 
@@ -164,10 +161,10 @@
 }
 
 .library-directory h1 {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
   border: 0;
-  font-size: clamp(42px, 7vw, 76px);
+  font-size: clamp(42px, 5vw, 68px);
   font-weight: 650;
   letter-spacing: -0.045em;
   line-height: 0.98;
@@ -266,8 +263,8 @@
 }
 
 @media (max-width: 767px) {
-  .library-directory-page .VPDoc {
-    padding-top: 44px;
+  .library-directory-page .VPPage {
+    padding: 44px 24px 64px;
   }
 
   .library-directory__intro {
