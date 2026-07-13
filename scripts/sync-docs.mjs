@@ -94,6 +94,18 @@ function listDirSafe(target) {
   return fs.existsSync(target) ? fs.readdirSync(target, { withFileTypes: true }) : [];
 }
 
+function resolveDocumentationTarget(target) {
+  if (!fs.existsSync(target) || !fs.statSync(target).isDirectory()) return target;
+
+  const markdownFiles = listDirSafe(target)
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => entry.name)
+    .sort((left, right) => left.localeCompare(right));
+  const preferred = ['index.md', 'api.md', 'design.md', 'tutorial.md'];
+  const entry = preferred.find((name) => markdownFiles.includes(name)) ?? markdownFiles[0];
+  return entry ? path.join(target, entry) : target;
+}
+
 function localePrefix(locale) {
   return locale.outDir ? `/${locale.outDir}` : '';
 }
@@ -112,7 +124,7 @@ function rewriteLinks(content, repo, source) {
     const suffixIndex = target.search(/[?#]/);
     const pathname = suffixIndex === -1 ? target : target.slice(0, suffixIndex);
     const suffix = suffixIndex === -1 ? '' : target.slice(suffixIndex);
-    const resolved = path.resolve(path.dirname(source), pathname);
+    const resolved = resolveDocumentationTarget(path.resolve(path.dirname(source), pathname));
     const relativeToRepo = path.relative(repositoryRoot, resolved).split(path.sep).join('/');
 
     if (relativeToRepo.startsWith('../')) return match;
