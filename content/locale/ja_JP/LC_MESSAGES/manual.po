@@ -1,0 +1,1047 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Luna-Flow documentation\n"
+"Report-Msgid-Bugs-To: https://github.com/Luna-Flow\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: conf.json:summary
+msgid "A composable mathematical ecosystem for MoonBit."
+msgstr "MoonBit のための組み合わせ可能な数学エコシステム。"
+
+#: conf.json:strings.site.name
+#: manual/index.md:1
+msgid "Luna Flow"
+msgstr "Luna Flow"
+
+#: conf.json:strings.site.description
+msgid "Documentation for the Luna Flow mathematical ecosystem for MoonBit."
+msgstr "MoonBit 向け数学エコシステム Luna Flow のドキュメント。"
+
+#: conf.json:strings.nav.home
+msgid "Home"
+msgstr "ホーム"
+
+#: conf.json:strings.nav.library
+#: conf.json:strings.library.title
+msgid "Library"
+msgstr "ライブラリ"
+
+#: conf.json:strings.nav.about
+msgid "About"
+msgstr "概要"
+
+#: conf.json:strings.nav.contribute
+#: conf.json:strings.landing.cta.contribute
+msgid "Contribute"
+msgstr "貢献"
+
+#: conf.json:strings.nav.github
+msgid "GitHub"
+msgstr "GitHub"
+
+#: conf.json:strings.nav.skip
+msgid "Skip to content"
+msgstr "本文へスキップ"
+
+#: conf.json:strings.nav.menu
+msgid "Menu"
+msgstr "メニュー"
+
+#: conf.json:strings.nav.close
+msgid "Close"
+msgstr "閉じる"
+
+#: conf.json:strings.search.open
+msgid "Search"
+msgstr "検索"
+
+#: conf.json:strings.search.placeholder
+msgid "Search the documentation"
+msgstr "ドキュメントを検索"
+
+#: conf.json:strings.search.empty
+msgid "No results for this query."
+msgstr "該当する結果はありません。"
+
+#: conf.json:strings.search.loading
+msgid "Searching…"
+msgstr "検索中…"
+
+#: conf.json:strings.search.unavailable
+msgid "Search is available on the published site."
+msgstr "検索は公開サイトでのみ利用できます。"
+
+#: conf.json:strings.theme.label
+msgid "Colour theme"
+msgstr "カラーテーマ"
+
+#: conf.json:strings.theme.auto
+msgid "Automatic"
+msgstr "自動"
+
+#: conf.json:strings.theme.light
+msgid "Light"
+msgstr "ライト"
+
+#: conf.json:strings.theme.dark
+msgid "Dark"
+msgstr "ダーク"
+
+#: conf.json:strings.lang.label
+msgid "Language"
+msgstr "言語"
+
+#: conf.json:strings.toc.title
+msgid "On this page"
+msgstr "このページの内容"
+
+#: conf.json:strings.page.edit
+msgid "Edit source"
+msgstr "ソースを編集"
+
+#: conf.json:strings.page.translate
+msgid "Improve the translation"
+msgstr "翻訳を改善"
+
+#: conf.json:strings.page.report
+msgid "Report an issue"
+msgstr "問題を報告"
+
+#: conf.json:strings.page.prev
+msgid "Previous"
+msgstr "前へ"
+
+#: conf.json:strings.page.next
+msgid "Next"
+msgstr "次へ"
+
+#: conf.json:strings.notice.partial
+msgid "This page is {percent} translated. Passages without a translation are shown in English."
+msgstr "このページは {percent} 翻訳済みです。翻訳のない部分は英語で表示されます。"
+
+#: conf.json:strings.notice.none
+msgid "This page has not been translated yet, so it is shown in English."
+msgstr "このページはまだ翻訳されていないため、英語で表示しています。"
+
+#: conf.json:strings.notice.help
+msgid "Help translate it"
+msgstr "翻訳に協力する"
+
+#: conf.json:strings.pdf.kind
+msgid "PDF document"
+msgstr "PDF ドキュメント"
+
+#: conf.json:strings.pdf.open
+msgid "Open in a new tab"
+msgstr "新しいタブで開く"
+
+#: conf.json:strings.pdf.download
+msgid "Download"
+msgstr "ダウンロード"
+
+#: conf.json:strings.pdf.page
+msgid "Page"
+msgstr "ページ"
+
+#: conf.json:strings.pdf.zoomIn
+msgid "Zoom in"
+msgstr "拡大"
+
+#: conf.json:strings.pdf.zoomOut
+msgid "Zoom out"
+msgstr "縮小"
+
+#: conf.json:strings.pdf.fit
+msgid "Fit to width"
+msgstr "幅に合わせる"
+
+#: conf.json:strings.pdf.loading
+msgid "Loading the document…"
+msgstr "ドキュメントを読み込み中…"
+
+#: conf.json:strings.pdf.error
+msgid "The document could not be displayed. Open it in a new tab instead."
+msgstr "ドキュメントを表示できませんでした。新しいタブで開いてください。"
+
+#: conf.json:strings.pdf.expand
+msgid "Show the document"
+msgstr "ドキュメントを表示"
+
+#: conf.json:strings.pdf.collapse
+msgid "Hide the document"
+msgstr "ドキュメントを隠す"
+
+#: conf.json:strings.library.lead
+msgid "Every Luna Flow repository, grouped by what it provides. Each one is documented with the same structure: API, design and tutorial."
+msgstr "Luna Flow のすべてのリポジトリを、提供する内容ごとにまとめています。どのリポジトリも API・設計・チュートリアルという同じ構成でドキュメント化されています。"
+
+#: conf.json:strings.library.translated
+msgid "{percent} translated"
+msgstr "{percent} 翻訳済み"
+
+#: conf.json:strings.library.source
+msgid "Source"
+msgstr "ソース"
+
+#: conf.json:strings.home.library
+msgid "Browse the library"
+msgstr "ライブラリを見る"
+
+#: conf.json:strings.home.about
+#: conf.json:strings.landing.cta.about
+msgid "Read the vision"
+msgstr "ビジョンを読む"
+
+#: conf.json:strings.doctype.api
+msgid "API"
+msgstr "API"
+
+#: conf.json:strings.doctype.design
+msgid "Design"
+msgstr "設計"
+
+#: conf.json:strings.doctype.tutorial
+msgid "Tutorial"
+msgstr "チュートリアル"
+
+#: conf.json:strings.doctype.conformance
+msgid "Conformance"
+msgstr "適合性"
+
+#: conf.json:strings.doctype.performance
+msgid "Performance"
+msgstr "性能"
+
+#: conf.json:strings.doctype.integration
+msgid "Integration"
+msgstr "統合"
+
+#: conf.json:strings.notfound.title
+msgid "Page not found"
+msgstr "ページが見つかりません"
+
+#: conf.json:strings.notfound.body
+msgid "The page may have moved when the documentation was reorganised. Search for it, or start from the library."
+msgstr "ドキュメントの再編成に伴い、ページが移動した可能性があります。検索するか、ライブラリから探してください。"
+
+#: conf.json:strings.footer.text
+msgid "Luna Flow documentation is built from the doc/ directory of each repository."
+msgstr "Luna Flow のドキュメントは、各リポジトリの doc/ ディレクトリから構築されています。"
+
+#: conf.json:strings.category.other.title
+msgid "Other"
+msgstr "その他"
+
+#: conf.json:strings.category.other.description
+msgid "Repositories that have not been placed in a category yet."
+msgstr "まだカテゴリに分類されていないリポジトリ。"
+
+#: conf.json:strings.category.foundations.title
+msgid "Foundations"
+msgstr "基礎抽象"
+
+#: conf.json:strings.category.foundations.description
+msgid "Shared traits, generic structures, and utilities that connect the ecosystem."
+msgstr "エコシステムを結ぶ共有 trait、汎用構造、基盤ユーティリティ。"
+
+#: conf.json:strings.category.numbers.title
+msgid "Numbers & Representations"
+msgstr "数値と表現"
+
+#: conf.json:strings.category.numbers.description
+msgid "Concrete and generic representations for numerical computation."
+msgstr "数値計算のための具体的・汎用的な表現。"
+
+#: conf.json:strings.category.analysis.title
+msgid "Analysis & Optimization"
+msgstr "解析と最適化"
+
+#: conf.json:strings.category.analysis.description
+msgid "Linear, numerical, and symbolic tools for higher-level mathematics."
+msgstr "高水準の数学計算を支える線形・数値・記号ツール。"
+
+#: conf.json:strings.category.systems.title
+msgid "Systems & Research"
+msgstr "システムと研究"
+
+#: conf.json:strings.category.systems.description
+msgid "Experimental systems, proof tooling, and ecosystem-scale projects."
+msgstr "実験的システム、証明ツール、エコシステム規模のプロジェクト。"
+
+#: conf.json:strings.alert.note
+msgid "Note"
+msgstr "注記"
+
+#: conf.json:strings.alert.tip
+msgid "Tip"
+msgstr "ヒント"
+
+#: conf.json:strings.alert.important
+msgid "Important"
+msgstr "重要"
+
+#: conf.json:strings.alert.warning
+msgid "Warning"
+msgstr "警告"
+
+#: conf.json:strings.alert.caution
+msgid "Caution"
+msgstr "注意"
+
+#: conf.json:strings.landing.worlds.label
+msgid "One algorithm"
+msgstr "1 つのアルゴリズム"
+
+#: conf.json:strings.landing.worlds.title
+msgid "Written once, evaluated in every world"
+msgstr "一度書けば、どの世界でも評価できる"
+
+#: conf.json:strings.landing.worlds.body
+msgid "Horner's rule needs only a semiring. The same function evaluates $1 + x^2$ over machine integers, floating point, big integers, complex numbers and matrices. It has no root among the integers, a root $i$ in the complex numbers, and a rotation as a root among matrices."
+msgstr "Horner 法に必要なのは半環だけです。同じ関数が、機械整数、浮動小数点数、多倍長整数、複素数、行列の上で $1 + x^2$ を評価します。この多項式は整数の中には根を持たず、複素数では $i$ を根に持ち、行列では回転を根に持ちます。"
+
+#: conf.json:strings.landing.diagram.label
+msgid "Structure-preserving maps"
+msgstr "構造を保つ写像"
+
+#: conf.json:strings.landing.diagram.title
+msgid "Structure travels with the map"
+msgstr "構造は写像とともに運ばれる"
+
+#: conf.json:strings.landing.diagram.body
+msgid "A homomorphism proven once lifts to polynomials, matrices and products without a new proof. Two paths that must agree, agree: evaluate then map, or map then evaluate."
+msgstr "一度証明した準同型は、新たな証明なしに多項式、行列、直積へ持ち上がります。一致すべき 2 つの経路は、実際に一致します。評価してから写すか、写してから評価するかです。"
+
+#: conf.json:strings.landing.pillars.label
+#: manual/contribute/documentation_standard.md:5
+msgid "Principles"
+msgstr "原則"
+
+#: conf.json:strings.landing.pillar1.title
+msgid "Abstraction before implementation"
+msgstr "実装より先に抽象"
+
+#: conf.json:strings.landing.pillar1.body
+msgid "Begin from structures and laws. Implementation details stay inside the layer that needs them."
+msgstr "構造と法則から始めます。実装の詳細は、それを必要とする層の中にとどめます。"
+
+#: conf.json:strings.landing.pillar2.title
+msgid "Semantics made explicit"
+msgstr "明示された意味論"
+
+#: conf.json:strings.landing.pillar2.body
+msgid "Floating point, arbitrary precision and decimal values all add, but they do not mean the same thing. Luna Flow keeps the difference visible."
+msgstr "浮動小数点、任意精度、十進の値はどれも足し算ができますが、意味は同じではありません。Luna Flow はその違いを見えるままにします。"
+
+#: conf.json:strings.landing.pillar3.title
+msgid "Interoperability over isolation"
+msgstr "孤立より相互運用"
+
+#: conf.json:strings.landing.pillar3.body
+msgid "Independent libraries join through small traits and lightweight adapters, then compose into one computational world."
+msgstr "独立したライブラリが小さな trait と軽量アダプタを通じて参加し、1 つの計算世界へと組み合わさります。"
+
+#: conf.json:strings.landing.library.lead
+msgid "Every repository documents its API, its design and a tutorial in the same structure, in English, Chinese and Japanese."
+msgstr "どのリポジトリも、API・設計・チュートリアルを同じ構成で、英語・中国語・日本語でドキュメント化しています。"
+
+#: conf.json:strings.landing.cta.library
+msgid "Open the documentation"
+msgstr "ドキュメントを開く"
+
+#: conf.json:strings.landing.summary
+msgid "Write the mathematics once. Choose the numbers later."
+msgstr "数学は一度だけ書く。数の体系はあとで選ぶ。"
+
+#: conf.json:strings.landing.summary.lead
+msgid "Algebraic traits describe what an algorithm needs. Number types decide what it means. Luna Flow keeps the two apart, so the choice stays yours."
+msgstr "代数 trait はアルゴリズムに必要なものを記述し、数値型はその意味を決めます。Luna Flow は両者を分けておくので、選択はいつでもあなたの手にあります。"
+
+#: conf.json:strings.landing.precision.label
+msgid "Numerical semantics"
+msgstr "数値の意味論"
+
+#: conf.json:strings.landing.precision.title
+msgid "Same equations. Two number systems."
+msgstr "同じ方程式、二つの数の体系。"
+
+#: conf.json:strings.landing.precision.body
+msgid "One Runge–Kutta integrator runs the Lorenz system twice from the same point, once in Float and once in Double. Rounding alone sends them apart. Luna Flow makes the number system an explicit choice."
+msgstr "同じ Runge–Kutta 積分器で、同じ点から Lorenz 系を二度解きます。一度は Float、一度は Double で。丸めだけで二つの軌道は離れていきます。Luna Flow では、数の体系は明示的な選択です。"
+
+#: manual/about.md:1
+msgid "About Luna Flow"
+msgstr "Luna Flow について"
+
+#: manual/about.md:3
+msgid "Vision"
+msgstr "ビジョン"
+
+#: manual/about.md:5
+msgid "Luna Flow envisions MoonBit as a language capable of supporting serious mathematical software: from lightweight numerical utilities to rigorous scientific computing, symbolic manipulation, and future proof-oriented systems."
+msgstr "Luna Flow は、MoonBit を本格的な数学ソフトウェアを支えられる言語へ育てることを目指しています。軽量な数値ユーティリティから、厳密な科学計算、記号操作、そして将来的な証明志向システムまでを視野に入れています。"
+
+#: manual/about.md:7
+msgid "We believe a mathematical ecosystem should not be built as a pile of unrelated APIs. It should be organized around precise abstractions:"
+msgstr "私たちは、数学エコシステムは無関係な API の寄せ集めであってはならず、正確な抽象を中心に構成されるべきだと考えています。"
+
+#: manual/about.md:9
+msgid "algebraic structures such as monoids, rings, fields, and integral domains;"
+msgstr "モノイド、環、体、整域などの代数構造；"
+
+#: manual/about.md:10
+msgid "arithmetic capabilities such as square root, exponential, logarithmic, and trigonometric functions;"
+msgstr "平方根、指数、対数、三角関数などの算術能力；"
+
+#: manual/about.md:11
+msgid "generic constructions such as complex numbers, vectors, matrices, and polynomials;"
+msgstr "複素数、ベクトル、行列、多項式などの汎用構成；"
+
+#: manual/about.md:12
+msgid "multiple numerical semantics, including machine floating point, arbitrary precision, decimal arithmetic, and error-aware computation."
+msgstr "機械浮動小数点、任意精度、十進演算、誤差認識計算を含む複数の数値意味論。"
+
+#: manual/about.md:14
+msgid "With this architecture, one algorithm can be written once and reused across different mathematical worlds."
+msgstr "このアーキテクチャがあれば、1 つのアルゴリズムを異なる数学的世界で再利用できます。"
+
+#: manual/about.md:16
+msgid "Mission"
+msgstr "ミッション"
+
+#: manual/about.md:18
+msgid "Luna Flow’s mission is to provide a foundational mathematical interoperability layer for MoonBit."
+msgstr "Luna Flow の使命は、MoonBit のための基礎的な数学相互運用レイヤーを提供することです。"
+
+#: manual/about.md:20
+msgid "Building reusable algebraic and arithmetic traits."
+msgstr "再利用可能な代数・算術 traits を構築すること。"
+
+#: manual/about.md:21
+msgid "Providing generic mathematical data structures."
+msgstr "汎用的な数学データ構造を提供すること。"
+
+#: manual/about.md:22
+msgid "Supporting multiple numerical backends."
+msgstr "複数の数値バックエンドを支えること。"
+
+#: manual/about.md:23
+msgid "Allowing external MoonBit math libraries to join the ecosystem through lightweight adapters."
+msgstr "外部の MoonBit 数学ライブラリが軽量アダプタでエコシステムに参加できるようにすること。"
+
+#: manual/about.md:24
+msgid "Making advanced mathematical computation more reliable, modular, and accessible."
+msgstr "高度な数学計算を、より信頼でき、モジュール化され、扱いやすいものにすること。"
+
+#: manual/about.md:26
+msgid "Luna Flow is not designed as a closed framework. Existing libraries should not need to be rewritten from scratch to participate. If a library can expose the required mathematical capabilities, Luna Flow should be able to integrate it into higher-level abstractions such as complex numbers, linear algebra, and future symbolic computation."
+msgstr "Luna Flow は閉じたフレームワークとして設計されていません。既存ライブラリは、参加するためにゼロから書き直す必要はありません。必要な数学能力を公開できるなら、Luna Flow はそれを複素数、線形代数、将来の記号計算といった高レベル抽象へ統合できるべきです。"
+
+#: manual/about.md:28
+msgid "Design philosophy"
+msgstr "設計哲学"
+
+#: manual/about.md:30
+msgid "**Abstraction before implementation.** Mathematical software should begin with clear structures and laws. Implementation details matter, but they should not leak into every layer of the ecosystem."
+msgstr "**実装より先に抽象。** 数学ソフトウェアは、明確な構造と法則から始まるべきです。実装詳細は重要ですが、エコシステムの全層に漏れ出すべきではありません。"
+
+#: manual/about.md:32
+msgid "**Small traits, strong composition.** Instead of defining one oversized numeric interface, Luna Flow separates algebraic structures from analytic capabilities. This keeps abstractions flexible and avoids forcing every type into an unsuitable model."
+msgstr "**小さな trait と強い合成。** Luna Flow は巨大な数値インターフェースを定義する代わりに、代数構造と解析能力を分離します。これにより抽象が柔軟になり、あらゆる型を不適切なモデルへ押し込むことを避けられます。"
+
+#: manual/about.md:34
+msgid "**Semantics must be explicit.** A floating-point number, an arbitrary-precision value, a decimal value, and an interval-like value may all support arithmetic, but they do not mean the same thing. Luna Flow aims to preserve these semantic differences rather than hiding them behind a single vague interface."
+msgstr "**意味論は明示的でなければならない。** 浮動小数点、任意精度値、十進値、区間的な値は、すべて算術を持ち得ますが意味は同じではありません。Luna Flow は、その差を曖昧な単一インターフェースで隠すのではなく、保ったまま扱います。"
+
+#: manual/about.md:36
+msgid "**Interoperability over isolation.** MoonBit’s mathematical ecosystem should allow independent libraries to work together. Luna Flow provides the common language that lets different packages become part of the same computational world."
+msgstr "**孤立より相互運用。** MoonBit の数学エコシステムは、独立したライブラリ同士が協調できるべきです。Luna Flow は、そのための共通言語を提供します。"
+
+#: manual/about.md:38
+msgid "**One algorithm, many mathematical worlds.** A well-designed generic algorithm should be reusable across different numeric representations. Luna Flow makes this possible through trait-based abstraction and carefully layered packages."
+msgstr "**1 つのアルゴリズム、多くの数学的世界。** よく設計された汎用アルゴリズムは、異なる数値表現をまたいで再利用できるべきです。Luna Flow は trait ベースの抽象と慎重な層構造によってそれを可能にします。"
+
+#: manual/about.md:40
+msgid "Long-term goal"
+msgstr "長期目標"
+
+#: manual/about.md:42
+msgid "The long-term goal of Luna Flow is to become a foundation for advanced mathematical computing in MoonBit."
+msgstr "Luna Flow の長期目標は、MoonBit における高度な数学計算の基盤になることです。"
+
+#: manual/about.md:44
+msgid "generic algebraic computation;"
+msgstr "汎用代数計算；"
+
+#: manual/about.md:45
+msgid "linear algebra over multiple scalar types;"
+msgstr "複数のスカラー型にまたがる線形代数；"
+
+#: manual/about.md:46
+msgid "arbitrary-precision and error-aware numerical computing;"
+msgstr "任意精度および誤差認識型の数値計算；"
+
+#: manual/about.md:47
+msgid "complex numbers over generic base fields;"
+msgstr "汎用基礎体上の複素数計算；"
+
+#: manual/about.md:48
+msgid "polynomial and symbolic computation;"
+msgstr "多項式および記号計算；"
+
+#: manual/about.md:49
+msgid "computable real numbers and more rigorous numerical models;"
+msgstr "計算可能実数や、より厳密な数値モデル；"
+
+#: manual/about.md:50
+msgid "scientific computing applications built on top of a shared mathematical core."
+msgstr "共通数学コアの上に構築される科学計算アプリケーション。"
+
+#: manual/about.md:52
+msgid "Luna Flow is still evolving, but its direction is clear: to turn MoonBit’s abstraction capabilities into a real mathematical ecosystem."
+msgstr "Luna Flow はまだ進化の途中ですが、方向は明確です。MoonBit の抽象能力を、本物の数学エコシステムへ育てることです。"
+
+#: manual/about.md:54
+msgid "We are building not just a collection of math packages, but a composable foundation for future scientific computing in MoonBit."
+msgstr "私たちが作ろうとしているのは単なる数学パッケージ群ではなく、将来の科学計算に向けた可組合せの基盤です。"
+
+#: manual/contribute/attachments.md:1
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: manual/contribute/attachments.md:3
+msgid "Proofs, specifications and longer derivations are better typeset than written in Markdown. Luna Flow keeps them as Typst documents in `doc/attachments/`, compiles them to PDF when the site is built, and shows them inside the page in a reader that opens on demand."
+msgstr "証明、仕様、長い導出は、Markdown で書くより組版したほうが適しています。Luna Flow はそれらを Typst ドキュメントとして `doc/attachments/` に置き、サイトのビルド時に PDF へコンパイルし、必要なときに開けるリーダーでページ内に表示します。"
+
+#: manual/contribute/attachments.md:5
+msgid "Where files go"
+msgstr "ファイルの置き場所"
+
+#: manual/contribute/attachments.md:7
+msgid "Everything in `doc/attachments/` is shared by all languages."
+msgstr "`doc/attachments/` 内のものはすべて、全言語で共有されます。"
+
+#: manual/contribute/attachments.md:9
+msgid "File"
+msgstr "ファイル"
+
+#: manual/contribute/attachments.md:9
+msgid "Published as"
+msgstr "公開形式"
+
+#: manual/contribute/attachments.md:12
+msgid "`<name>.pdf`, for a document split over several files"
+msgstr "`<name>.pdf`（複数ファイルに分割された文書の場合）"
+
+#: manual/contribute/attachments.md:13
+msgid "`<name>.<locale>.typ` or `<name>/main.<locale>.typ`"
+msgstr "`<name>.<locale>.typ` または `<name>/main.<locale>.typ`"
+
+#: manual/contribute/attachments.md:13
+msgid "the version of `<name>.pdf` for that locale"
+msgstr "そのロケール用の `<name>.pdf`"
+
+#: manual/contribute/attachments.md:14
+msgid "any other file"
+msgstr "その他のファイル"
+
+#: manual/contribute/attachments.md:14
+msgid "the file itself"
+msgstr "ファイルそのもの"
+
+#: manual/contribute/attachments.md:16
+msgid "Commit the Typst source, not the PDF. Continuous integration compiles every document on each build, so the published PDF always matches its source. A file that is not Typst, such as a figure or a PDF produced by another tool, is published unchanged."
+msgstr "PDF ではなく Typst のソースをコミットしてください。継続的インテグレーションがビルドのたびにすべてのドキュメントをコンパイルするため、公開される PDF は常にソースと一致します。図や他のツールで作成した PDF など、Typst 以外のファイルはそのまま公開されます。"
+
+#: manual/contribute/attachments.md:18
+msgid "Typst documents are compiled with `doc/attachments/` as the project root, so they may import shared templates from it. Builds have the Typst default fonts and the Noto CJK fonts."
+msgstr "Typst ドキュメントは `doc/attachments/` をプロジェクトルートとしてコンパイルされるため、そこから共有テンプレートをインポートできます。ビルド環境には Typst の標準フォントと Noto CJK フォントが用意されています。"
+
+#: manual/contribute/attachments.md:20
+msgid "Names"
+msgstr "名前の付け方"
+
+#: manual/contribute/attachments.md:22
+msgid "Use lowercase names with underscores between words. Images follow the convention of the Blender manual: the name starts with the path of the page that uses it, with `_` between path parts and `-` inside a part, for example `core_api_hom-composition.svg` for a figure on `core/api.md`. A flat directory with such names shows at a glance which page each file belongs to."
+msgstr "名前は小文字とし、単語の間はアンダースコアでつなぎます。画像は Blender マニュアルの規則に従います。名前は画像を使うページのパスで始め、パスの区切りには `_`、各部分の中では `-` を使います。たとえば `core/api.md` の図なら `core_api_hom-composition.svg` です。このような名前を付けたフラットなディレクトリなら、各ファイルがどのページに属するかがひと目でわかります。"
+
+#: manual/contribute/attachments.md:24
+msgid "Embedding a document"
+msgstr "ドキュメントの埋め込み"
+
+#: manual/contribute/attachments.md:26
+msgid "Link to the Typst source. When the link is the only content of its paragraph, the page shows a reader that can be expanded in place:"
+msgstr "Typst のソースにリンクします。リンクが段落内の唯一の内容であれば、ページにはその場で展開できるリーダーが表示されます。"
+
+#: manual/contribute/attachments.md:32
+msgid "Add `#page=12` to open the document at a page. A link inside a sentence stays a link and opens the PDF directly."
+msgstr "`#page=12` を付けると、指定したページでドキュメントを開きます。文中のリンクは通常のリンクのままで、PDF を直接開きます。"
+
+#: manual/contribute/attachments.md:34
+msgid "The reader shows the title from the link text, renders pages on demand, and offers zoom, opening in a new tab and download. On GitHub the same link opens the Typst source, so the page remains usable there."
+msgstr "リーダーはリンクテキストをタイトルとして表示し、ページを必要に応じて描画し、拡大縮小、新しいタブで開く、ダウンロードの機能を備えています。GitHub 上では同じリンクが Typst のソースを開くため、そこでもページは問題なく使えます。"
+
+#: manual/contribute/attachments.md:36
+msgid "When a document has locale variants, every language links to the same name and the site picks the variant of the page's locale, falling back to the version without a locale suffix."
+msgstr "ドキュメントにロケール別の版がある場合も、どの言語からも同じ名前にリンクします。サイトはページのロケールに合った版を選び、なければロケール接尾辞のない版にフォールバックします。"
+
+#: manual/contribute/attachments.md:38
+msgid "Images"
+msgstr "画像"
+
+#: manual/contribute/attachments.md:40
+msgid "Embed images with Markdown image syntax and a description:"
+msgstr "Markdown の画像構文で、説明を付けて画像を埋め込みます。"
+
+#: manual/contribute/attachments.md:46
+msgid "Prefer SVG for diagrams and PNG for screenshots. Give every image alternative text; it is translated with the page."
+msgstr "図には SVG、スクリーンショットには PNG を使うことを推奨します。すべての画像に代替テキストを付けてください。代替テキストはページと一緒に翻訳されます。"
+
+#: manual/contribute/documentation_standard.md:1
+msgid "Documentation standard"
+msgstr "ドキュメント規約"
+
+#: manual/contribute/documentation_standard.md:3
+msgid "This standard applies to every Luna Flow repository. It fixes where documentation lives, how it is divided into pages, and which source is authoritative. A repository may add rules of its own in `doc/manual/conventions.md`, but it may not relax these."
+msgstr "この規約はすべての Luna Flow リポジトリに適用されます。ドキュメントの置き場所、ページの分け方、どのソースを正とするかを定めます。リポジトリは `doc/manual/conventions.md` に独自の規則を追加できますが、この規約を緩めることはできません。"
+
+#: manual/contribute/documentation_standard.md:7
+msgid "**Describe what exists.** Pages document the implementation on the current branch: public names, behaviour, and the design decisions behind them. Plans belong in issues, not in the manual."
+msgstr "**存在するものを記述する。** ページは現在のブランチにある実装、つまり公開名、振る舞い、その背後にある設計上の判断を記述します。計画は issue に書き、マニュアルには書きません。"
+
+#: manual/contribute/documentation_standard.md:9
+msgid "**English is the source.** Pages are written once, in English. Translations are made from that text through [gettext catalogs](translation.md) and are never edited as copies of a page."
+msgstr "**英語がソースである。** ページは英語で一度だけ書きます。翻訳はその文章から [gettext 翻訳カタログ](translation.md) を通じて作られ、ページのコピーとして編集されることはありません。"
+
+#: manual/contribute/documentation_standard.md:11
+msgid "**The interface file is the authority.** For MoonBit packages, `pkg.generated.mbti` defines the public surface. A name that is not in the interface file is not documented as public."
+msgstr "**インターフェースファイルが正である。** MoonBit パッケージでは、`pkg.generated.mbti` が公開されるインターフェースを定めます。インターフェースファイルにない名前は、公開されたものとして記述しません。"
+
+#: manual/contribute/documentation_standard.md:13
+msgid "**One page, one purpose.** A page is an API reference, a design note, a tutorial or a guide. It does not mix them."
+msgstr "**1 ページに 1 つの目的。** ページは API リファレンス、設計ノート、チュートリアル、ガイドのいずれかであり、それらを混在させません。"
+
+#: manual/contribute/documentation_standard.md:15
+msgid "Repository layout"
+msgstr "リポジトリの構成"
+
+#: manual/contribute/documentation_standard.md:34
+msgid "Nothing else belongs in `doc/`. The retired layout with one directory per language (`doc/en_US`, `doc/zh_CN`, ...) is rejected by `lunadoc check`."
+msgstr "`doc/` にはこれ以外のものを置きません。言語ごとにディレクトリを分ける旧来の構成（`doc/en_US`、`doc/zh_CN` など）は `lunadoc check` で拒否されます。"
+
+#: manual/contribute/documentation_standard.md:46
+msgid "`title` is the repository name as shown in the library. `summary` is one sentence that appears in the library directory; it is translated like any page text. `locales` lists the translations the repository maintains."
+msgstr "`title` はライブラリに表示されるリポジトリ名です。`summary` はライブラリの一覧に表示される 1 文の概要で、ページ本文と同様に翻訳されます。`locales` にはリポジトリが維持する翻訳を列挙します。"
+
+#: manual/contribute/documentation_standard.md:48
+msgid "Chapters and packages"
+msgstr "章とパッケージ"
+
+#: manual/contribute/documentation_standard.md:50
+msgid "The manual is divided by what a reader is looking for, not by where the code lives. Each document type is a chapter, and each documented MoonBit package has one page in every chapter:"
+msgstr "マニュアルはコードの場所ではなく、読者が何を探しているかによって分けられます。ドキュメントの種類ごとに 1 つの章があり、ドキュメント化された MoonBit パッケージはどの章にも 1 ページずつ持ちます。"
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Chapter"
+msgstr "章"
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Answers"
+msgstr "答える問い"
+
+#: manual/contribute/documentation_standard.md:52
+msgid "A package page contains"
+msgstr "パッケージページの内容"
+
+#: manual/contribute/documentation_standard.md:54
+msgid "What can I call?"
+msgstr "何を呼び出せるか？"
+
+#: manual/contribute/documentation_standard.md:54
+msgid "Every public type, trait and function, grouped by purpose, with signatures and semantics."
+msgstr "すべての公開型、trait、関数を用途別にまとめ、シグネチャと意味を示します。"
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Why is it like this?"
+msgstr "なぜこうなっているのか？"
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Goals, constraints, the decisions taken and the alternatives rejected."
+msgstr "目標、制約、下した判断、退けた代替案。"
+
+#: manual/contribute/documentation_standard.md:56
+msgid "How do I use it?"
+msgstr "どう使うのか？"
+
+#: manual/contribute/documentation_standard.md:56
+msgid "A task worked from start to finish with small examples that compile."
+msgstr "始めから終わりまで通して行う 1 つの作業と、コンパイルできる小さな例。"
+
+#: manual/contribute/documentation_standard.md:58
+msgid "The page is named after the package path relative to the source root: the package at `src/core` is documented in `api/core.md`, `design/core.md` and `tutorial/core.md`; a package at `src/backend/dense` in `api/backend/dense.md` and so on. Every documented package has a page in all three chapters."
+msgstr "ページ名はソースルートからのパッケージパスに従います。`src/core` のパッケージは `api/core.md`、`design/core.md`、`tutorial/core.md` に、`src/backend/dense` のパッケージは `api/backend/dense.md` などに記述します。ドキュメント化されたパッケージは、3 つの章すべてにページを持ちます。"
+
+#: manual/contribute/documentation_standard.md:60
+msgid "A repository may add the chapters `conformance/` (what a standard or specification requires and how a package meets it), `performance/` (measurements and their method) and `integration/` (how other packages use one). A chapter may have an `index.md` that introduces it. Other chapters need a rule in `conventions.md`."
+msgstr "リポジトリは `conformance/`（標準や仕様が何を要求し、パッケージがそれをどう満たすか）、`performance/`（測定結果とその方法）、`integration/`（他のパッケージがどう利用するか）の章を追加できます。章には、その章を紹介する `index.md` を置けます。それ以外の章を設けるには、`conventions.md` に規則が必要です。"
+
+#: manual/contribute/documentation_standard.md:62
+msgid "Guides"
+msgstr "ガイド"
+
+#: manual/contribute/documentation_standard.md:64
+msgid "Pages directly under `manual/` are guides that span packages: `getting_started.md`, `architecture.md`, `verification.md` and similar. Use lowercase file names with underscores between words."
+msgstr "`manual/` 直下のページは、パッケージをまたぐガイドです（`getting_started.md`、`architecture.md`、`verification.md` など）。ファイル名は小文字とし、単語の間はアンダースコアでつなぎます。"
+
+#: manual/contribute/documentation_standard.md:66
+msgid "Page structure"
+msgstr "ページの構成"
+
+#: manual/contribute/documentation_standard.md:68
+msgid "A page starts with exactly one level-one heading. It is the page title."
+msgstr "ページはちょうど 1 つのレベル 1 見出しで始めます。これがページのタイトルです。"
+
+#: manual/contribute/documentation_standard.md:69
+msgid "Headings use sentence case: \"Design decisions\", not \"Design Decisions\"."
+msgstr "見出しは文頭だけを大文字にします。「Design Decisions」ではなく「Design decisions」と書きます。"
+
+#: manual/contribute/documentation_standard.md:70
+msgid "Do not skip heading levels."
+msgstr "見出しのレベルを飛ばさないでください。"
+
+#: manual/contribute/documentation_standard.md:71
+msgid "An API page lists each item under a heading named after it, in code: ``## `Hom::then` ``. The first sentence after the heading states what the item does."
+msgstr "API ページでは、各項目をその名前をコードとして書いた見出しの下に記述します（``## `Hom::then` ``）。見出しの直後の 1 文で、その項目が何をするかを述べます。"
+
+#: manual/contribute/documentation_standard.md:72
+msgid "A design page ends with its boundaries: what the package deliberately does not do."
+msgstr "設計ページは、その境界、つまりパッケージが意図的に行わないことで締めくくります。"
+
+#: manual/contribute/documentation_standard.md:73
+msgid "A tutorial states its goal in the first paragraph and ends with where to go next."
+msgstr "チュートリアルは最初の段落で目標を述べ、最後に次に読むべきところを示します。"
+
+#: manual/contribute/documentation_standard.md:75
+msgid "Front matter is optional. When present it may set `title` (when the navigation label should differ from the heading) and `description` (one sentence for search results). Both are translated."
+msgstr "フロントマターは任意です。ある場合は `title`（ナビゲーションのラベルを見出しと変えたいとき）と `description`（検索結果用の 1 文）を設定できます。どちらも翻訳されます。"
+
+#: manual/contribute/documentation_standard.md:77
+msgid "Links"
+msgstr "リンク"
+
+#: manual/contribute/documentation_standard.md:79
+msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
+msgstr "他のページへは、Markdown ファイルへの相対パスでリンクします（`[design](../design/core.md)`、`[overview](../index.md)`）。サイトがそれを各言語の正しいルートに変換します。他のリポジトリへは、`https://luna-flow.github.io/en/luna-generic/` のようなサイトの絶対 URL でリンクします。ソースコードへは、`../../src/hom.mbt` のように `doc/` の外へ出る相対パスでリンクします。サイトがそれを GitHub へのリンクに変換します。"
+
+#: manual/contribute/documentation_standard.md:81
+msgid "Checks"
+msgstr "チェック"
+
+#: manual/contribute/documentation_standard.md:83
+msgid "`lunadoc check` fails when:"
+msgstr "`lunadoc check` は次の場合に失敗します。"
+
+#: manual/contribute/documentation_standard.md:85
+msgid "`conf.json` or `manual/index.md` is missing;"
+msgstr "`conf.json` または `manual/index.md` がない。"
+
+#: manual/contribute/documentation_standard.md:86
+msgid "the retired per-language layout is present;"
+msgstr "廃止された言語別ディレクトリの構成が残っている。"
+
+#: manual/contribute/documentation_standard.md:87
+msgid "the catalogs do not match the English source;"
+msgstr "翻訳カタログが英語のソースと一致しない。"
+
+#: manual/contribute/documentation_standard.md:88
+msgid "a relative link points to a file that does not exist, or leaves the repository;"
+msgstr "相対リンクが存在しないファイルを指している、またはリポジトリの外を指している。"
+
+#: manual/contribute/documentation_standard.md:89
+msgid "a Typst attachment does not compile (with `--compile`)."
+msgstr "Typst の添付ファイルがコンパイルできない（`--compile` 指定時）。"
+
+#: manual/contribute/documentation_standard.md:91
+msgid "It warns about fuzzy translations and a missing summary."
+msgstr "fuzzy の翻訳や概要の欠落については警告を出します。"
+
+#: manual/contribute/index.md:1
+msgid "Contributing to the documentation"
+msgstr "ドキュメントへの貢献"
+
+#: manual/contribute/index.md:3
+msgid "Luna Flow documentation lives next to the code it describes. Each repository keeps its manual in `doc/`, written in English, and keeps translations as gettext catalogs beside it. This site collects every repository on each build, so a change merged into `main` appears here without any change to the site itself."
+msgstr "Luna Flow のドキュメントは、それが説明するコードのすぐそばにあります。各リポジトリは英語で書いたマニュアルを `doc/` に置き、その隣に翻訳を gettext 翻訳カタログとして保持します。このサイトはビルドのたびにすべてのリポジトリを集めるため、`main` にマージされた変更は、サイト自体に手を加えなくてもここに反映されます。"
+
+#: manual/contribute/index.md:5
+msgid "The same rules apply to every repository:"
+msgstr "すべてのリポジトリに同じ規則が適用されます。"
+
+#: manual/contribute/index.md:7
+msgid "[Documentation standard](documentation_standard.md): where files go and what each page contains."
+msgstr "[ドキュメント規約](documentation_standard.md)：ファイルの置き場所と各ページの内容。"
+
+#: manual/contribute/index.md:8
+msgid "[Writing and markup](writing.md): headings, code, mathematics, notes and admonitions."
+msgstr "[執筆とマークアップ](writing.md)：見出し、コード、数式、傍注、注意書き。"
+
+#: manual/contribute/index.md:9
+msgid "[Attachments](attachments.md): Typst documents, PDFs and images."
+msgstr "[添付ファイル](attachments.md)：Typst ドキュメント、PDF、画像。"
+
+#: manual/contribute/index.md:10
+msgid "[Translation](translation.md): how the gettext workflow keeps every language in step with English."
+msgstr "[翻訳](translation.md)：gettext のワークフローで各言語を英語と同期させる方法。"
+
+#: manual/contribute/index.md:12
+msgid "Tools"
+msgstr "ツール"
+
+#: manual/contribute/index.md:14
+msgid "All commands come from `lunadoc`, which lives in the site repository. Clone it next to the repository you are working on:"
+msgstr "すべてのコマンドは、サイトリポジトリにある `lunadoc` が提供します。作業中のリポジトリの隣にクローンしてください。"
+
+#: manual/contribute/index.md:21
+msgid "Then, from your repository:"
+msgstr "次に、自分のリポジトリで実行します。"
+
+#: manual/contribute/index.md:29
+msgid "`check` is what continuous integration runs. A pull request that changes `doc/manual` must also contain the updated catalogs produced by `update`."
+msgstr "`check` は継続的インテグレーションで実行されるコマンドです。`doc/manual` を変更するプルリクエストには、`update` で更新した翻訳カタログも含める必要があります。"
+
+#: manual/contribute/index.md:31
+msgid "Previewing the site"
+msgstr "サイトのプレビュー"
+
+#: manual/contribute/index.md:33
+msgid "Run the site with your repository next to it:"
+msgstr "リポジトリをサイトの隣に置いた状態で、サイトを起動します。"
+
+#: manual/contribute/index.md:40
+msgid "Without a repository manifest the build includes every sibling directory that has `doc/conf.json`, so a local preview shows your unpublished changes."
+msgstr "リポジトリのマニフェストがない場合、ビルドには `doc/conf.json` を持つすべての兄弟ディレクトリが含まれるため、ローカルのプレビューで未公開の変更を確認できます。"
+
+#: manual/contribute/translation.md:1
+msgid "Translation"
+msgstr "翻訳"
+
+#: manual/contribute/translation.md:3
+msgid "Luna Flow translates its documentation the way the Blender manual does: English pages are the only source, and every other language is a gettext catalog of translated messages. A page in Chinese or Japanese is generated from the English page and the catalog when the site is built."
+msgstr "Luna Flow は Blender マニュアルと同じ方法でドキュメントを翻訳します。英語のページが唯一のソースであり、ほかの言語はすべて翻訳済みメッセージからなる gettext 翻訳カタログです。中国語や日本語のページは、サイトのビルド時に英語のページとカタログから生成されます。"
+
+#: manual/contribute/translation.md:5
+msgid "This has three consequences:"
+msgstr "これには 3 つの利点があります。"
+
+#: manual/contribute/translation.md:7
+msgid "A language can never fall out of structure with English. Pages, headings, code and links come from one source."
+msgstr "どの言語も、英語と構造がずれることはありません。ページ、見出し、コード、リンクは 1 つのソースから生まれます。"
+
+#: manual/contribute/translation.md:8
+msgid "An untranslated or outdated passage is shown in English instead of disappearing or being wrong. The page says how much of it is translated."
+msgstr "未翻訳または古くなった部分は、消えたり誤ったりせず、英語で表示されます。ページには、どれだけ翻訳されているかが表示されます。"
+
+#: manual/contribute/translation.md:9
+msgid "The site knows the coverage of every page and every repository, and shows it in the library."
+msgstr "サイトはすべてのページとリポジトリの翻訳率を把握し、ライブラリに表示します。"
+
+#: manual/contribute/translation.md:11
+msgid "Messages"
+msgstr "メッセージ"
+
+#: manual/contribute/translation.md:13
+msgid "`lunadoc` splits every page into messages: headings, paragraphs, list items, table cells, and the `title` and `description` front matter keys. Code blocks, display mathematics and raw HTML are never messages; they appear in every language exactly as written in English."
+msgstr "`lunadoc` はすべてのページをメッセージに分割します。見出し、段落、リスト項目、表のセル、そしてフロントマターの `title` キーと `description` キーです。コードブロック、ディスプレイ数式、生の HTML はメッセージにならず、どの言語でも英語で書かれたとおりに表示されます。"
+
+#: manual/contribute/translation.md:15
+msgid "A paragraph that wraps over several lines is one message. Re-wrapping English text does not change its message, so it does not invalidate translations."
+msgstr "複数行にわたる段落は 1 つのメッセージです。英語の文章を折り返し直してもメッセージは変わらないため、翻訳が無効になることはありません。"
+
+#: manual/contribute/translation.md:17
+msgid "The workflow"
+msgstr "ワークフロー"
+
+#: manual/contribute/translation.md:19
+msgid "Edit the English pages in `doc/manual`."
+msgstr "`doc/manual` の英語ページを編集します。"
+
+#: manual/contribute/translation.md:20
+msgid "Run `lunadoc update`. It regenerates `doc/locale/manual.pot` and merges it into every `manual.po`."
+msgstr "`lunadoc update` を実行します。`doc/locale/manual.pot` が再生成され、各 `manual.po` にマージされます。"
+
+#: manual/contribute/translation.md:21
+msgid "Commit the pages and the catalogs together."
+msgstr "ページとカタログを一緒にコミットします。"
+
+#: manual/contribute/translation.md:23
+msgid "`update` behaves like GNU `msgmerge`:"
+msgstr "`update` は GNU `msgmerge` と同じように動作します。"
+
+#: manual/contribute/translation.md:25
+msgid "A message whose English text is unchanged keeps its translation."
+msgstr "英語の文章が変わっていないメッセージは、翻訳がそのまま保たれます。"
+
+#: manual/contribute/translation.md:26
+msgid "A message whose English text changed takes the translation of the most similar old message and is marked `fuzzy`. The previous English text is kept in a `#| msgid` comment so a translator can see what changed."
+msgstr "英語の文章が変わったメッセージには、最も似ている旧メッセージの翻訳が割り当てられ、`fuzzy` の印が付きます。以前の英語の文章は `#| msgid` コメントに残されるので、翻訳者は何が変わったかを確認できます。"
+
+#: manual/contribute/translation.md:27
+msgid "A translation whose message disappeared is kept as an obsolete entry (`#~`) at the end of the catalog, where `update` can recover it later."
+msgstr "メッセージがなくなった翻訳は、廃止エントリ（`#~`）としてカタログの末尾に残され、後で `update` が復元できます。"
+
+#: manual/contribute/translation.md:29
+msgid "Fuzzy translations are not shown on the site. They count as untranslated until a translator reviews them and removes the `fuzzy` flag."
+msgstr "fuzzy の翻訳はサイトに表示されません。翻訳者が確認して `fuzzy` フラグを外すまで、未翻訳として扱われます。"
+
+#: manual/contribute/translation.md:31
+msgid "Translating"
+msgstr "翻訳の手順"
+
+#: manual/contribute/translation.md:33
+msgid "Open `doc/locale/<locale>/LC_MESSAGES/manual.po` in a text editor or a gettext editor such as Poedit, and fill in `msgstr` for each `msgid`:"
+msgstr "`doc/locale/<locale>/LC_MESSAGES/manual.po` をテキストエディタや Poedit などの gettext エディタで開き、各 `msgid` に対応する `msgstr` を記入します。"
+
+#: manual/contribute/translation.md:41
+msgid "When translating:"
+msgstr "翻訳するときは、次の点を守ってください。"
+
+#: manual/contribute/translation.md:43
+msgid "Keep inline code, mathematics and link destinations exactly as in English. Translate link text."
+msgstr "インラインコード、数式、リンク先は英語とまったく同じにします。リンクテキストは翻訳します。"
+
+#: manual/contribute/translation.md:44
+msgid "Keep Markdown markup: emphasis, inline code and links must still be balanced."
+msgstr "Markdown の記法を保ちます。強調、インラインコード、リンクは対応が取れている必要があります。"
+
+#: manual/contribute/translation.md:45
+msgid "Keep a GitHub alert marker such as `[!NOTE]` at the start of the message."
+msgstr "`[!NOTE]` のような GitHub アラートのマーカーは、メッセージの先頭に残します。"
+
+#: manual/contribute/translation.md:46
+msgid "Do not translate identifiers, even in prose."
+msgstr "識別子は、本文中であっても翻訳しません。"
+
+#: manual/contribute/translation.md:47
+msgid "Leave `msgstr` empty rather than guessing. An empty message falls back to English."
+msgstr "推測で埋めるくらいなら、`msgstr` は空のままにします。空のメッセージは英語にフォールバックします。"
+
+#: manual/contribute/translation.md:49
+msgid "Check the result with `lunadoc status --pages` and preview it with the site."
+msgstr "`lunadoc status --pages` で結果を確認し、サイトでプレビューします。"
+
+#: manual/contribute/translation.md:51
+msgid "Locales"
+msgstr "ロケール"
+
+#: manual/contribute/translation.md:53
+msgid "Locale names follow gettext: `zh_CN` for Simplified Chinese and `ja_JP` for Japanese. They appear in `conf.json`, in the catalog paths and in `config/locales.json` of the site, which also gives each locale its URL segment and display name. Adding a language to the site means adding it there; adding it to a repository means listing it in `conf.json` and running `update`."
+msgstr "ロケール名は gettext に従います。簡体字中国語は `zh_CN`、日本語は `ja_JP` です。ロケール名は `conf.json`、カタログのパス、そしてサイトの `config/locales.json` に現れます。サイトの設定ファイルでは、各ロケールの URL セグメントと表示名も定めます。サイトに言語を追加するにはそこに追加し、リポジトリに言語を追加するには `conf.json` に列挙して `update` を実行します。"
+
+#: manual/contribute/writing.md:1
+msgid "Writing and markup"
+msgstr "執筆とマークアップ"
+
+#: manual/contribute/writing.md:3
+msgid "Pages are GitHub-flavoured Markdown. Everything described here also renders on GitHub, so a page read in the repository and the same page on this site say the same thing."
+msgstr "ページは GitHub Flavored Markdown で書きます。ここで説明する内容はすべて GitHub 上でも表示できるため、リポジトリで読むページとこのサイトの同じページは同じ内容になります。"
+
+#: manual/contribute/writing.md:5
+msgid "Code"
+msgstr "コード"
+
+#: manual/contribute/writing.md:7
+msgid "Fence MoonBit code with `moonbit` (or `mbt`). Interface excerpts can use `mbti`."
+msgstr "MoonBit のコードは、`moonbit`（または `mbt`）を指定したコードフェンスで囲みます。インターフェースの抜粋には `mbti` を使えます。"
+
+#: manual/contribute/writing.md:15
+msgid "Keep examples small and make sure they compile. Prefer one complete example over several fragments."
+msgstr "例は小さく保ち、必ずコンパイルできるようにします。断片をいくつも示すより、完全な例を 1 つ示すほうが望ましいです。"
+
+#: manual/contribute/writing.md:17
+msgid "Mathematics"
+msgstr "数式"
+
+#: manual/contribute/writing.md:19
+msgid "Write mathematics in TeX notation: `$f(x + y) = f(x) + f(y)$` inline and a `$$` block for display."
+msgstr "数式は TeX 記法で書きます。インライン数式には `$f(x + y) = f(x) + f(y)$`、ディスプレイ数式には `$$` ブロックを使います。"
+
+#: manual/contribute/writing.md:25
+msgid "Mathematics is not translated. Use words around it for what needs translating."
+msgstr "数式は翻訳されません。翻訳が必要な内容は、数式の前後の文章で表してください。"
+
+#: manual/contribute/writing.md:27
+msgid "Notes in the margin"
+msgstr "傍注"
+
+#: manual/contribute/writing.md:29
+msgid "Footnotes become margin notes on wide screens and stay footnotes on narrow ones. Use them for remarks a reader may skip: a reference, a historical note, a proof sketch.[^margin]"
+msgstr "脚注は幅の広い画面では傍注になり、狭い画面では脚注のままです。参考文献、歴史的な補足、証明の概略など、読み飛ばしてもよい注記に使います。[^margin]"
+
+#: manual/contribute/writing.md:31
+msgid "Like this one. Write the footnote definition right after the paragraph that uses it."
+msgstr "これがその例です。脚注の定義は、それを使う段落の直後に書きます。"
+
+#: manual/contribute/writing.md:33
+msgid "Admonitions"
+msgstr "注意書き"
+
+#: manual/contribute/writing.md:35
+msgid "Use GitHub alerts for the few things a reader must not miss:"
+msgstr "読者が決して見落としてはならない少数の事柄には、GitHub アラートを使います。"
+
+#: manual/contribute/writing.md:37
+msgid "[!NOTE] Fixed-width integers wrap on overflow, so they are not the integers."
+msgstr "[!NOTE] 固定幅整数はオーバーフローすると循環するため、数学でいう整数ではありません。"
+
+#: manual/contribute/writing.md:40
+msgid "The kinds are `NOTE`, `TIP`, `IMPORTANT`, `WARNING` and `CAUTION`. Facts that every reader needs belong in the text itself, not in an alert. An optional aside is a plain block quote."
+msgstr "種類は `NOTE`、`TIP`、`IMPORTANT`、`WARNING`、`CAUTION` です。すべての読者が知るべき事実は、アラートではなく本文に書きます。任意の補足は通常の引用ブロックにします。"
+
+#: manual/contribute/writing.md:42
+msgid "Tables"
+msgstr "表"
+
+#: manual/contribute/writing.md:44
+msgid "Use tables for facts that line up: signatures and meanings, options and defaults. Keep cells short; a cell that needs a paragraph belongs in the text."
+msgstr "表は、シグネチャと意味、オプションとデフォルト値のように、並べて対応させられる事実に使います。セルは短くし、1 段落を要する内容は本文に書きます。"
+
+#: manual/contribute/writing.md:46
+msgid "Style"
+msgstr "文体"
+
+#: manual/contribute/writing.md:48
+msgid "Write in the present tense and the active voice."
+msgstr "現在形と能動態で書きます。"
+
+#: manual/contribute/writing.md:49
+msgid "Use the second person for instructions: \"Run `lunadoc update`.\""
+msgstr "手順の説明には二人称を使います（「`lunadoc update` を実行してください。」）。"
+
+#: manual/contribute/writing.md:50
+msgid "Name a thing the way the code names it, in code: `Hom::postulate`, not \"the postulate function\"."
+msgstr "ものはコードでの名前どおりに、コードとして書きます。「postulate 関数」ではなく `Hom::postulate` と書きます。"
+
+#: manual/contribute/writing.md:51
+msgid "Prefer a sentence to a bullet list when the items depend on each other."
+msgstr "項目同士が依存し合う場合は、箇条書きより文章を使います。"
+
+#: manual/index.md:1
+msgid "Scientific computing for MoonBit."
+msgstr "MoonBit のための科学計算。"
+
+#: manual/index.md:6
+msgid "Scientific computing for MoonBit"
+msgstr "MoonBit のための科学計算"
+
+#: manual/index.md:8
+msgid "Algebraic traits, number types and numerical methods that work together. Write an algorithm once, then run it on integers, floating point, decimals, complex numbers or matrices."
+msgstr "連携して動く代数 trait、数値型、数値計算手法。アルゴリズムを一度書けば、整数、浮動小数点数、十進数、複素数、行列の上で動かせます。"
+
+#~ msgid "Drag to turn the surface · click to replay"
+#~ msgstr "ドラッグで曲面を回転・クリックで再生"
+
+#~ msgid "Drag to turn · click to start again"
+#~ msgstr "ドラッグで回転・クリックでやり直し"

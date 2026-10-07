@@ -1,0 +1,1041 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Luna-Flow documentation\n"
+"Report-Msgid-Bugs-To: https://github.com/Luna-Flow\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: conf.json:summary
+msgid "A composable mathematical ecosystem for MoonBit."
+msgstr ""
+
+#: conf.json:strings.site.name
+#: manual/index.md:1
+msgid "Luna Flow"
+msgstr ""
+
+#: conf.json:strings.site.description
+msgid "Documentation for the Luna Flow mathematical ecosystem for MoonBit."
+msgstr ""
+
+#: conf.json:strings.nav.home
+msgid "Home"
+msgstr ""
+
+#: conf.json:strings.nav.library
+#: conf.json:strings.library.title
+msgid "Library"
+msgstr ""
+
+#: conf.json:strings.nav.about
+msgid "About"
+msgstr ""
+
+#: conf.json:strings.nav.contribute
+#: conf.json:strings.landing.cta.contribute
+msgid "Contribute"
+msgstr ""
+
+#: conf.json:strings.nav.github
+msgid "GitHub"
+msgstr ""
+
+#: conf.json:strings.nav.skip
+msgid "Skip to content"
+msgstr ""
+
+#: conf.json:strings.nav.menu
+msgid "Menu"
+msgstr ""
+
+#: conf.json:strings.nav.close
+msgid "Close"
+msgstr ""
+
+#: conf.json:strings.search.open
+msgid "Search"
+msgstr ""
+
+#: conf.json:strings.search.placeholder
+msgid "Search the documentation"
+msgstr ""
+
+#: conf.json:strings.search.empty
+msgid "No results for this query."
+msgstr ""
+
+#: conf.json:strings.search.loading
+msgid "Searching…"
+msgstr ""
+
+#: conf.json:strings.search.unavailable
+msgid "Search is available on the published site."
+msgstr ""
+
+#: conf.json:strings.theme.label
+msgid "Colour theme"
+msgstr ""
+
+#: conf.json:strings.theme.auto
+msgid "Automatic"
+msgstr ""
+
+#: conf.json:strings.theme.light
+msgid "Light"
+msgstr ""
+
+#: conf.json:strings.theme.dark
+msgid "Dark"
+msgstr ""
+
+#: conf.json:strings.lang.label
+msgid "Language"
+msgstr ""
+
+#: conf.json:strings.toc.title
+msgid "On this page"
+msgstr ""
+
+#: conf.json:strings.page.edit
+msgid "Edit source"
+msgstr ""
+
+#: conf.json:strings.page.translate
+msgid "Improve the translation"
+msgstr ""
+
+#: conf.json:strings.page.report
+msgid "Report an issue"
+msgstr ""
+
+#: conf.json:strings.page.prev
+msgid "Previous"
+msgstr ""
+
+#: conf.json:strings.page.next
+msgid "Next"
+msgstr ""
+
+#: conf.json:strings.notice.partial
+msgid "This page is {percent} translated. Passages without a translation are shown in English."
+msgstr ""
+
+#: conf.json:strings.notice.none
+msgid "This page has not been translated yet, so it is shown in English."
+msgstr ""
+
+#: conf.json:strings.notice.help
+msgid "Help translate it"
+msgstr ""
+
+#: conf.json:strings.pdf.kind
+msgid "PDF document"
+msgstr ""
+
+#: conf.json:strings.pdf.open
+msgid "Open in a new tab"
+msgstr ""
+
+#: conf.json:strings.pdf.download
+msgid "Download"
+msgstr ""
+
+#: conf.json:strings.pdf.page
+msgid "Page"
+msgstr ""
+
+#: conf.json:strings.pdf.zoomIn
+msgid "Zoom in"
+msgstr ""
+
+#: conf.json:strings.pdf.zoomOut
+msgid "Zoom out"
+msgstr ""
+
+#: conf.json:strings.pdf.fit
+msgid "Fit to width"
+msgstr ""
+
+#: conf.json:strings.pdf.loading
+msgid "Loading the document…"
+msgstr ""
+
+#: conf.json:strings.pdf.error
+msgid "The document could not be displayed. Open it in a new tab instead."
+msgstr ""
+
+#: conf.json:strings.pdf.expand
+msgid "Show the document"
+msgstr ""
+
+#: conf.json:strings.pdf.collapse
+msgid "Hide the document"
+msgstr ""
+
+#: conf.json:strings.library.lead
+msgid "Every Luna Flow repository, grouped by what it provides. Each one is documented with the same structure: API, design and tutorial."
+msgstr ""
+
+#: conf.json:strings.library.translated
+msgid "{percent} translated"
+msgstr ""
+
+#: conf.json:strings.library.source
+msgid "Source"
+msgstr ""
+
+#: conf.json:strings.home.library
+msgid "Browse the library"
+msgstr ""
+
+#: conf.json:strings.home.about
+#: conf.json:strings.landing.cta.about
+msgid "Read the vision"
+msgstr ""
+
+#: conf.json:strings.doctype.api
+msgid "API"
+msgstr ""
+
+#: conf.json:strings.doctype.design
+msgid "Design"
+msgstr ""
+
+#: conf.json:strings.doctype.tutorial
+msgid "Tutorial"
+msgstr ""
+
+#: conf.json:strings.doctype.conformance
+msgid "Conformance"
+msgstr ""
+
+#: conf.json:strings.doctype.performance
+msgid "Performance"
+msgstr ""
+
+#: conf.json:strings.doctype.integration
+msgid "Integration"
+msgstr ""
+
+#: conf.json:strings.notfound.title
+msgid "Page not found"
+msgstr ""
+
+#: conf.json:strings.notfound.body
+msgid "The page may have moved when the documentation was reorganised. Search for it, or start from the library."
+msgstr ""
+
+#: conf.json:strings.footer.text
+msgid "Luna Flow documentation is built from the doc/ directory of each repository."
+msgstr ""
+
+#: conf.json:strings.category.other.title
+msgid "Other"
+msgstr ""
+
+#: conf.json:strings.category.other.description
+msgid "Repositories that have not been placed in a category yet."
+msgstr ""
+
+#: conf.json:strings.category.foundations.title
+msgid "Foundations"
+msgstr ""
+
+#: conf.json:strings.category.foundations.description
+msgid "Shared traits, generic structures, and utilities that connect the ecosystem."
+msgstr ""
+
+#: conf.json:strings.category.numbers.title
+msgid "Numbers & Representations"
+msgstr ""
+
+#: conf.json:strings.category.numbers.description
+msgid "Concrete and generic representations for numerical computation."
+msgstr ""
+
+#: conf.json:strings.category.analysis.title
+msgid "Analysis & Optimization"
+msgstr ""
+
+#: conf.json:strings.category.analysis.description
+msgid "Linear, numerical, and symbolic tools for higher-level mathematics."
+msgstr ""
+
+#: conf.json:strings.category.systems.title
+msgid "Systems & Research"
+msgstr ""
+
+#: conf.json:strings.category.systems.description
+msgid "Experimental systems, proof tooling, and ecosystem-scale projects."
+msgstr ""
+
+#: conf.json:strings.alert.note
+msgid "Note"
+msgstr ""
+
+#: conf.json:strings.alert.tip
+msgid "Tip"
+msgstr ""
+
+#: conf.json:strings.alert.important
+msgid "Important"
+msgstr ""
+
+#: conf.json:strings.alert.warning
+msgid "Warning"
+msgstr ""
+
+#: conf.json:strings.alert.caution
+msgid "Caution"
+msgstr ""
+
+#: conf.json:strings.landing.worlds.label
+msgid "One algorithm"
+msgstr ""
+
+#: conf.json:strings.landing.worlds.title
+msgid "Written once, evaluated in every world"
+msgstr ""
+
+#: conf.json:strings.landing.worlds.body
+msgid "Horner's rule needs only a semiring. The same function evaluates $1 + x^2$ over machine integers, floating point, big integers, complex numbers and matrices. It has no root among the integers, a root $i$ in the complex numbers, and a rotation as a root among matrices."
+msgstr ""
+
+#: conf.json:strings.landing.diagram.label
+msgid "Structure-preserving maps"
+msgstr ""
+
+#: conf.json:strings.landing.diagram.title
+msgid "Structure travels with the map"
+msgstr ""
+
+#: conf.json:strings.landing.diagram.body
+msgid "A homomorphism proven once lifts to polynomials, matrices and products without a new proof. Two paths that must agree, agree: evaluate then map, or map then evaluate."
+msgstr ""
+
+#: conf.json:strings.landing.pillars.label
+#: manual/contribute/documentation_standard.md:5
+msgid "Principles"
+msgstr ""
+
+#: conf.json:strings.landing.pillar1.title
+msgid "Abstraction before implementation"
+msgstr ""
+
+#: conf.json:strings.landing.pillar1.body
+msgid "Begin from structures and laws. Implementation details stay inside the layer that needs them."
+msgstr ""
+
+#: conf.json:strings.landing.pillar2.title
+msgid "Semantics made explicit"
+msgstr ""
+
+#: conf.json:strings.landing.pillar2.body
+msgid "Floating point, arbitrary precision and decimal values all add, but they do not mean the same thing. Luna Flow keeps the difference visible."
+msgstr ""
+
+#: conf.json:strings.landing.pillar3.title
+msgid "Interoperability over isolation"
+msgstr ""
+
+#: conf.json:strings.landing.pillar3.body
+msgid "Independent libraries join through small traits and lightweight adapters, then compose into one computational world."
+msgstr ""
+
+#: conf.json:strings.landing.library.lead
+msgid "Every repository documents its API, its design and a tutorial in the same structure, in English, Chinese and Japanese."
+msgstr ""
+
+#: conf.json:strings.landing.cta.library
+msgid "Open the documentation"
+msgstr ""
+
+#: conf.json:strings.landing.summary
+msgid "Write the mathematics once. Choose the numbers later."
+msgstr ""
+
+#: conf.json:strings.landing.summary.lead
+msgid "Algebraic traits describe what an algorithm needs. Number types decide what it means. Luna Flow keeps the two apart, so the choice stays yours."
+msgstr ""
+
+#: conf.json:strings.landing.precision.label
+msgid "Numerical semantics"
+msgstr ""
+
+#: conf.json:strings.landing.precision.title
+msgid "Same equations. Two number systems."
+msgstr ""
+
+#: conf.json:strings.landing.precision.body
+msgid "One Runge–Kutta integrator runs the Lorenz system twice from the same point, once in Float and once in Double. Rounding alone sends them apart. Luna Flow makes the number system an explicit choice."
+msgstr ""
+
+#: manual/about.md:1
+msgid "About Luna Flow"
+msgstr ""
+
+#: manual/about.md:3
+msgid "Vision"
+msgstr ""
+
+#: manual/about.md:5
+msgid "Luna Flow envisions MoonBit as a language capable of supporting serious mathematical software: from lightweight numerical utilities to rigorous scientific computing, symbolic manipulation, and future proof-oriented systems."
+msgstr ""
+
+#: manual/about.md:7
+msgid "We believe a mathematical ecosystem should not be built as a pile of unrelated APIs. It should be organized around precise abstractions:"
+msgstr ""
+
+#: manual/about.md:9
+msgid "algebraic structures such as monoids, rings, fields, and integral domains;"
+msgstr ""
+
+#: manual/about.md:10
+msgid "arithmetic capabilities such as square root, exponential, logarithmic, and trigonometric functions;"
+msgstr ""
+
+#: manual/about.md:11
+msgid "generic constructions such as complex numbers, vectors, matrices, and polynomials;"
+msgstr ""
+
+#: manual/about.md:12
+msgid "multiple numerical semantics, including machine floating point, arbitrary precision, decimal arithmetic, and error-aware computation."
+msgstr ""
+
+#: manual/about.md:14
+msgid "With this architecture, one algorithm can be written once and reused across different mathematical worlds."
+msgstr ""
+
+#: manual/about.md:16
+msgid "Mission"
+msgstr ""
+
+#: manual/about.md:18
+msgid "Luna Flow’s mission is to provide a foundational mathematical interoperability layer for MoonBit."
+msgstr ""
+
+#: manual/about.md:20
+msgid "Building reusable algebraic and arithmetic traits."
+msgstr ""
+
+#: manual/about.md:21
+msgid "Providing generic mathematical data structures."
+msgstr ""
+
+#: manual/about.md:22
+msgid "Supporting multiple numerical backends."
+msgstr ""
+
+#: manual/about.md:23
+msgid "Allowing external MoonBit math libraries to join the ecosystem through lightweight adapters."
+msgstr ""
+
+#: manual/about.md:24
+msgid "Making advanced mathematical computation more reliable, modular, and accessible."
+msgstr ""
+
+#: manual/about.md:26
+msgid "Luna Flow is not designed as a closed framework. Existing libraries should not need to be rewritten from scratch to participate. If a library can expose the required mathematical capabilities, Luna Flow should be able to integrate it into higher-level abstractions such as complex numbers, linear algebra, and future symbolic computation."
+msgstr ""
+
+#: manual/about.md:28
+msgid "Design philosophy"
+msgstr ""
+
+#: manual/about.md:30
+msgid "**Abstraction before implementation.** Mathematical software should begin with clear structures and laws. Implementation details matter, but they should not leak into every layer of the ecosystem."
+msgstr ""
+
+#: manual/about.md:32
+msgid "**Small traits, strong composition.** Instead of defining one oversized numeric interface, Luna Flow separates algebraic structures from analytic capabilities. This keeps abstractions flexible and avoids forcing every type into an unsuitable model."
+msgstr ""
+
+#: manual/about.md:34
+msgid "**Semantics must be explicit.** A floating-point number, an arbitrary-precision value, a decimal value, and an interval-like value may all support arithmetic, but they do not mean the same thing. Luna Flow aims to preserve these semantic differences rather than hiding them behind a single vague interface."
+msgstr ""
+
+#: manual/about.md:36
+msgid "**Interoperability over isolation.** MoonBit’s mathematical ecosystem should allow independent libraries to work together. Luna Flow provides the common language that lets different packages become part of the same computational world."
+msgstr ""
+
+#: manual/about.md:38
+msgid "**One algorithm, many mathematical worlds.** A well-designed generic algorithm should be reusable across different numeric representations. Luna Flow makes this possible through trait-based abstraction and carefully layered packages."
+msgstr ""
+
+#: manual/about.md:40
+msgid "Long-term goal"
+msgstr ""
+
+#: manual/about.md:42
+msgid "The long-term goal of Luna Flow is to become a foundation for advanced mathematical computing in MoonBit."
+msgstr ""
+
+#: manual/about.md:44
+msgid "generic algebraic computation;"
+msgstr ""
+
+#: manual/about.md:45
+msgid "linear algebra over multiple scalar types;"
+msgstr ""
+
+#: manual/about.md:46
+msgid "arbitrary-precision and error-aware numerical computing;"
+msgstr ""
+
+#: manual/about.md:47
+msgid "complex numbers over generic base fields;"
+msgstr ""
+
+#: manual/about.md:48
+msgid "polynomial and symbolic computation;"
+msgstr ""
+
+#: manual/about.md:49
+msgid "computable real numbers and more rigorous numerical models;"
+msgstr ""
+
+#: manual/about.md:50
+msgid "scientific computing applications built on top of a shared mathematical core."
+msgstr ""
+
+#: manual/about.md:52
+msgid "Luna Flow is still evolving, but its direction is clear: to turn MoonBit’s abstraction capabilities into a real mathematical ecosystem."
+msgstr ""
+
+#: manual/about.md:54
+msgid "We are building not just a collection of math packages, but a composable foundation for future scientific computing in MoonBit."
+msgstr ""
+
+#: manual/contribute/attachments.md:1
+msgid "Attachments"
+msgstr ""
+
+#: manual/contribute/attachments.md:3
+msgid "Proofs, specifications and longer derivations are better typeset than written in Markdown. Luna Flow keeps them as Typst documents in `doc/attachments/`, compiles them to PDF when the site is built, and shows them inside the page in a reader that opens on demand."
+msgstr ""
+
+#: manual/contribute/attachments.md:5
+msgid "Where files go"
+msgstr ""
+
+#: manual/contribute/attachments.md:7
+msgid "Everything in `doc/attachments/` is shared by all languages."
+msgstr ""
+
+#: manual/contribute/attachments.md:9
+msgid "File"
+msgstr ""
+
+#: manual/contribute/attachments.md:9
+msgid "Published as"
+msgstr ""
+
+#: manual/contribute/attachments.md:12
+msgid "`<name>.pdf`, for a document split over several files"
+msgstr ""
+
+#: manual/contribute/attachments.md:13
+msgid "`<name>.<locale>.typ` or `<name>/main.<locale>.typ`"
+msgstr ""
+
+#: manual/contribute/attachments.md:13
+msgid "the version of `<name>.pdf` for that locale"
+msgstr ""
+
+#: manual/contribute/attachments.md:14
+msgid "any other file"
+msgstr ""
+
+#: manual/contribute/attachments.md:14
+msgid "the file itself"
+msgstr ""
+
+#: manual/contribute/attachments.md:16
+msgid "Commit the Typst source, not the PDF. Continuous integration compiles every document on each build, so the published PDF always matches its source. A file that is not Typst, such as a figure or a PDF produced by another tool, is published unchanged."
+msgstr ""
+
+#: manual/contribute/attachments.md:18
+msgid "Typst documents are compiled with `doc/attachments/` as the project root, so they may import shared templates from it. Builds have the Typst default fonts and the Noto CJK fonts."
+msgstr ""
+
+#: manual/contribute/attachments.md:20
+msgid "Names"
+msgstr ""
+
+#: manual/contribute/attachments.md:22
+msgid "Use lowercase names with underscores between words. Images follow the convention of the Blender manual: the name starts with the path of the page that uses it, with `_` between path parts and `-` inside a part, for example `core_api_hom-composition.svg` for a figure on `core/api.md`. A flat directory with such names shows at a glance which page each file belongs to."
+msgstr ""
+
+#: manual/contribute/attachments.md:24
+msgid "Embedding a document"
+msgstr ""
+
+#: manual/contribute/attachments.md:26
+msgid "Link to the Typst source. When the link is the only content of its paragraph, the page shows a reader that can be expanded in place:"
+msgstr ""
+
+#: manual/contribute/attachments.md:32
+msgid "Add `#page=12` to open the document at a page. A link inside a sentence stays a link and opens the PDF directly."
+msgstr ""
+
+#: manual/contribute/attachments.md:34
+msgid "The reader shows the title from the link text, renders pages on demand, and offers zoom, opening in a new tab and download. On GitHub the same link opens the Typst source, so the page remains usable there."
+msgstr ""
+
+#: manual/contribute/attachments.md:36
+msgid "When a document has locale variants, every language links to the same name and the site picks the variant of the page's locale, falling back to the version without a locale suffix."
+msgstr ""
+
+#: manual/contribute/attachments.md:38
+msgid "Images"
+msgstr ""
+
+#: manual/contribute/attachments.md:40
+msgid "Embed images with Markdown image syntax and a description:"
+msgstr ""
+
+#: manual/contribute/attachments.md:46
+msgid "Prefer SVG for diagrams and PNG for screenshots. Give every image alternative text; it is translated with the page."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:1
+msgid "Documentation standard"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:3
+msgid "This standard applies to every Luna Flow repository. It fixes where documentation lives, how it is divided into pages, and which source is authoritative. A repository may add rules of its own in `doc/manual/conventions.md`, but it may not relax these."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:7
+msgid "**Describe what exists.** Pages document the implementation on the current branch: public names, behaviour, and the design decisions behind them. Plans belong in issues, not in the manual."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:9
+msgid "**English is the source.** Pages are written once, in English. Translations are made from that text through [gettext catalogs](translation.md) and are never edited as copies of a page."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:11
+msgid "**The interface file is the authority.** For MoonBit packages, `pkg.generated.mbti` defines the public surface. A name that is not in the interface file is not documented as public."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:13
+msgid "**One page, one purpose.** A page is an API reference, a design note, a tutorial or a guide. It does not mix them."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:15
+msgid "Repository layout"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:34
+msgid "Nothing else belongs in `doc/`. The retired layout with one directory per language (`doc/en_US`, `doc/zh_CN`, ...) is rejected by `lunadoc check`."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:46
+msgid "`title` is the repository name as shown in the library. `summary` is one sentence that appears in the library directory; it is translated like any page text. `locales` lists the translations the repository maintains."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:48
+msgid "Chapters and packages"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:50
+msgid "The manual is divided by what a reader is looking for, not by where the code lives. Each document type is a chapter, and each documented MoonBit package has one page in every chapter:"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Chapter"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Answers"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:52
+msgid "A package page contains"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:54
+msgid "What can I call?"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:54
+msgid "Every public type, trait and function, grouped by purpose, with signatures and semantics."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Why is it like this?"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Goals, constraints, the decisions taken and the alternatives rejected."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:56
+msgid "How do I use it?"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:56
+msgid "A task worked from start to finish with small examples that compile."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:58
+msgid "The page is named after the package path relative to the source root: the package at `src/core` is documented in `api/core.md`, `design/core.md` and `tutorial/core.md`; a package at `src/backend/dense` in `api/backend/dense.md` and so on. Every documented package has a page in all three chapters."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:60
+msgid "A repository may add the chapters `conformance/` (what a standard or specification requires and how a package meets it), `performance/` (measurements and their method) and `integration/` (how other packages use one). A chapter may have an `index.md` that introduces it. Other chapters need a rule in `conventions.md`."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:62
+msgid "Guides"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:64
+msgid "Pages directly under `manual/` are guides that span packages: `getting_started.md`, `architecture.md`, `verification.md` and similar. Use lowercase file names with underscores between words."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:66
+msgid "Page structure"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:68
+msgid "A page starts with exactly one level-one heading. It is the page title."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:69
+msgid "Headings use sentence case: \"Design decisions\", not \"Design Decisions\"."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:70
+msgid "Do not skip heading levels."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:71
+msgid "An API page lists each item under a heading named after it, in code: ``## `Hom::then` ``. The first sentence after the heading states what the item does."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:72
+msgid "A design page ends with its boundaries: what the package deliberately does not do."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:73
+msgid "A tutorial states its goal in the first paragraph and ends with where to go next."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:75
+msgid "Front matter is optional. When present it may set `title` (when the navigation label should differ from the heading) and `description` (one sentence for search results). Both are translated."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:77
+msgid "Links"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:79
+msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:81
+msgid "Checks"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:83
+msgid "`lunadoc check` fails when:"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:85
+msgid "`conf.json` or `manual/index.md` is missing;"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:86
+msgid "the retired per-language layout is present;"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:87
+msgid "the catalogs do not match the English source;"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:88
+msgid "a relative link points to a file that does not exist, or leaves the repository;"
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:89
+msgid "a Typst attachment does not compile (with `--compile`)."
+msgstr ""
+
+#: manual/contribute/documentation_standard.md:91
+msgid "It warns about fuzzy translations and a missing summary."
+msgstr ""
+
+#: manual/contribute/index.md:1
+msgid "Contributing to the documentation"
+msgstr ""
+
+#: manual/contribute/index.md:3
+msgid "Luna Flow documentation lives next to the code it describes. Each repository keeps its manual in `doc/`, written in English, and keeps translations as gettext catalogs beside it. This site collects every repository on each build, so a change merged into `main` appears here without any change to the site itself."
+msgstr ""
+
+#: manual/contribute/index.md:5
+msgid "The same rules apply to every repository:"
+msgstr ""
+
+#: manual/contribute/index.md:7
+msgid "[Documentation standard](documentation_standard.md): where files go and what each page contains."
+msgstr ""
+
+#: manual/contribute/index.md:8
+msgid "[Writing and markup](writing.md): headings, code, mathematics, notes and admonitions."
+msgstr ""
+
+#: manual/contribute/index.md:9
+msgid "[Attachments](attachments.md): Typst documents, PDFs and images."
+msgstr ""
+
+#: manual/contribute/index.md:10
+msgid "[Translation](translation.md): how the gettext workflow keeps every language in step with English."
+msgstr ""
+
+#: manual/contribute/index.md:12
+msgid "Tools"
+msgstr ""
+
+#: manual/contribute/index.md:14
+msgid "All commands come from `lunadoc`, which lives in the site repository. Clone it next to the repository you are working on:"
+msgstr ""
+
+#: manual/contribute/index.md:21
+msgid "Then, from your repository:"
+msgstr ""
+
+#: manual/contribute/index.md:29
+msgid "`check` is what continuous integration runs. A pull request that changes `doc/manual` must also contain the updated catalogs produced by `update`."
+msgstr ""
+
+#: manual/contribute/index.md:31
+msgid "Previewing the site"
+msgstr ""
+
+#: manual/contribute/index.md:33
+msgid "Run the site with your repository next to it:"
+msgstr ""
+
+#: manual/contribute/index.md:40
+msgid "Without a repository manifest the build includes every sibling directory that has `doc/conf.json`, so a local preview shows your unpublished changes."
+msgstr ""
+
+#: manual/contribute/translation.md:1
+msgid "Translation"
+msgstr ""
+
+#: manual/contribute/translation.md:3
+msgid "Luna Flow translates its documentation the way the Blender manual does: English pages are the only source, and every other language is a gettext catalog of translated messages. A page in Chinese or Japanese is generated from the English page and the catalog when the site is built."
+msgstr ""
+
+#: manual/contribute/translation.md:5
+msgid "This has three consequences:"
+msgstr ""
+
+#: manual/contribute/translation.md:7
+msgid "A language can never fall out of structure with English. Pages, headings, code and links come from one source."
+msgstr ""
+
+#: manual/contribute/translation.md:8
+msgid "An untranslated or outdated passage is shown in English instead of disappearing or being wrong. The page says how much of it is translated."
+msgstr ""
+
+#: manual/contribute/translation.md:9
+msgid "The site knows the coverage of every page and every repository, and shows it in the library."
+msgstr ""
+
+#: manual/contribute/translation.md:11
+msgid "Messages"
+msgstr ""
+
+#: manual/contribute/translation.md:13
+msgid "`lunadoc` splits every page into messages: headings, paragraphs, list items, table cells, and the `title` and `description` front matter keys. Code blocks, display mathematics and raw HTML are never messages; they appear in every language exactly as written in English."
+msgstr ""
+
+#: manual/contribute/translation.md:15
+msgid "A paragraph that wraps over several lines is one message. Re-wrapping English text does not change its message, so it does not invalidate translations."
+msgstr ""
+
+#: manual/contribute/translation.md:17
+msgid "The workflow"
+msgstr ""
+
+#: manual/contribute/translation.md:19
+msgid "Edit the English pages in `doc/manual`."
+msgstr ""
+
+#: manual/contribute/translation.md:20
+msgid "Run `lunadoc update`. It regenerates `doc/locale/manual.pot` and merges it into every `manual.po`."
+msgstr ""
+
+#: manual/contribute/translation.md:21
+msgid "Commit the pages and the catalogs together."
+msgstr ""
+
+#: manual/contribute/translation.md:23
+msgid "`update` behaves like GNU `msgmerge`:"
+msgstr ""
+
+#: manual/contribute/translation.md:25
+msgid "A message whose English text is unchanged keeps its translation."
+msgstr ""
+
+#: manual/contribute/translation.md:26
+msgid "A message whose English text changed takes the translation of the most similar old message and is marked `fuzzy`. The previous English text is kept in a `#| msgid` comment so a translator can see what changed."
+msgstr ""
+
+#: manual/contribute/translation.md:27
+msgid "A translation whose message disappeared is kept as an obsolete entry (`#~`) at the end of the catalog, where `update` can recover it later."
+msgstr ""
+
+#: manual/contribute/translation.md:29
+msgid "Fuzzy translations are not shown on the site. They count as untranslated until a translator reviews them and removes the `fuzzy` flag."
+msgstr ""
+
+#: manual/contribute/translation.md:31
+msgid "Translating"
+msgstr ""
+
+#: manual/contribute/translation.md:33
+msgid "Open `doc/locale/<locale>/LC_MESSAGES/manual.po` in a text editor or a gettext editor such as Poedit, and fill in `msgstr` for each `msgid`:"
+msgstr ""
+
+#: manual/contribute/translation.md:41
+msgid "When translating:"
+msgstr ""
+
+#: manual/contribute/translation.md:43
+msgid "Keep inline code, mathematics and link destinations exactly as in English. Translate link text."
+msgstr ""
+
+#: manual/contribute/translation.md:44
+msgid "Keep Markdown markup: emphasis, inline code and links must still be balanced."
+msgstr ""
+
+#: manual/contribute/translation.md:45
+msgid "Keep a GitHub alert marker such as `[!NOTE]` at the start of the message."
+msgstr ""
+
+#: manual/contribute/translation.md:46
+msgid "Do not translate identifiers, even in prose."
+msgstr ""
+
+#: manual/contribute/translation.md:47
+msgid "Leave `msgstr` empty rather than guessing. An empty message falls back to English."
+msgstr ""
+
+#: manual/contribute/translation.md:49
+msgid "Check the result with `lunadoc status --pages` and preview it with the site."
+msgstr ""
+
+#: manual/contribute/translation.md:51
+msgid "Locales"
+msgstr ""
+
+#: manual/contribute/translation.md:53
+msgid "Locale names follow gettext: `zh_CN` for Simplified Chinese and `ja_JP` for Japanese. They appear in `conf.json`, in the catalog paths and in `config/locales.json` of the site, which also gives each locale its URL segment and display name. Adding a language to the site means adding it there; adding it to a repository means listing it in `conf.json` and running `update`."
+msgstr ""
+
+#: manual/contribute/writing.md:1
+msgid "Writing and markup"
+msgstr ""
+
+#: manual/contribute/writing.md:3
+msgid "Pages are GitHub-flavoured Markdown. Everything described here also renders on GitHub, so a page read in the repository and the same page on this site say the same thing."
+msgstr ""
+
+#: manual/contribute/writing.md:5
+msgid "Code"
+msgstr ""
+
+#: manual/contribute/writing.md:7
+msgid "Fence MoonBit code with `moonbit` (or `mbt`). Interface excerpts can use `mbti`."
+msgstr ""
+
+#: manual/contribute/writing.md:15
+msgid "Keep examples small and make sure they compile. Prefer one complete example over several fragments."
+msgstr ""
+
+#: manual/contribute/writing.md:17
+msgid "Mathematics"
+msgstr ""
+
+#: manual/contribute/writing.md:19
+msgid "Write mathematics in TeX notation: `$f(x + y) = f(x) + f(y)$` inline and a `$$` block for display."
+msgstr ""
+
+#: manual/contribute/writing.md:25
+msgid "Mathematics is not translated. Use words around it for what needs translating."
+msgstr ""
+
+#: manual/contribute/writing.md:27
+msgid "Notes in the margin"
+msgstr ""
+
+#: manual/contribute/writing.md:29
+msgid "Footnotes become margin notes on wide screens and stay footnotes on narrow ones. Use them for remarks a reader may skip: a reference, a historical note, a proof sketch.[^margin]"
+msgstr ""
+
+#: manual/contribute/writing.md:31
+msgid "Like this one. Write the footnote definition right after the paragraph that uses it."
+msgstr ""
+
+#: manual/contribute/writing.md:33
+msgid "Admonitions"
+msgstr ""
+
+#: manual/contribute/writing.md:35
+msgid "Use GitHub alerts for the few things a reader must not miss:"
+msgstr ""
+
+#: manual/contribute/writing.md:37
+msgid "[!NOTE] Fixed-width integers wrap on overflow, so they are not the integers."
+msgstr ""
+
+#: manual/contribute/writing.md:40
+msgid "The kinds are `NOTE`, `TIP`, `IMPORTANT`, `WARNING` and `CAUTION`. Facts that every reader needs belong in the text itself, not in an alert. An optional aside is a plain block quote."
+msgstr ""
+
+#: manual/contribute/writing.md:42
+msgid "Tables"
+msgstr ""
+
+#: manual/contribute/writing.md:44
+msgid "Use tables for facts that line up: signatures and meanings, options and defaults. Keep cells short; a cell that needs a paragraph belongs in the text."
+msgstr ""
+
+#: manual/contribute/writing.md:46
+msgid "Style"
+msgstr ""
+
+#: manual/contribute/writing.md:48
+msgid "Write in the present tense and the active voice."
+msgstr ""
+
+#: manual/contribute/writing.md:49
+msgid "Use the second person for instructions: \"Run `lunadoc update`.\""
+msgstr ""
+
+#: manual/contribute/writing.md:50
+msgid "Name a thing the way the code names it, in code: `Hom::postulate`, not \"the postulate function\"."
+msgstr ""
+
+#: manual/contribute/writing.md:51
+msgid "Prefer a sentence to a bullet list when the items depend on each other."
+msgstr ""
+
+#: manual/index.md:1
+msgid "Scientific computing for MoonBit."
+msgstr ""
+
+#: manual/index.md:6
+msgid "Scientific computing for MoonBit"
+msgstr ""
+
+#: manual/index.md:8
+msgid "Algebraic traits, number types and numerical methods that work together. Write an algorithm once, then run it on integers, floating point, decimals, complex numbers or matrices."
+msgstr ""

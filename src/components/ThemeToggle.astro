@@ -1,0 +1,49 @@
+---
+import { t } from '../lib/site';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+---
+
+<button
+  class="theme-toggle icon-link"
+  type="button"
+  data-labels={JSON.stringify({ auto: t(lang, 'theme.auto'), light: t(lang, 'theme.light'), dark: t(lang, 'theme.dark') })}
+  aria-label={t(lang, 'theme.label')}
+  title={t(lang, 'theme.label')}
+>
+  <svg class="theme-icon" data-for="auto" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M8 2a6 6 0 0 1 0 12Z" fill="currentColor" /></svg>
+  <svg class="theme-icon" data-for="light" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3 3l1 1M12 12l1 1M3 13l1-1M12 4l1-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+  <svg class="theme-icon" data-for="dark" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M13.5 9.5A5.75 5.75 0 0 1 6.5 2.5a5.75 5.75 0 1 0 7 7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+</button>
+
+<script>
+  const order = ['auto', 'light', 'dark'] as const;
+  type Theme = (typeof order)[number];
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const labels = JSON.parse(button?.dataset.labels ?? '{}');
+  const read = (): Theme => {
+    try {
+      const value = localStorage.getItem('lf-theme');
+      return value === 'light' || value === 'dark' ? value : 'auto';
+    } catch {
+      return 'auto';
+    }
+  };
+  const apply = (theme: Theme) => {
+    if (theme === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = theme;
+    button?.setAttribute('data-theme-state', theme);
+    button?.setAttribute('title', labels[theme]);
+  };
+  apply(read());
+  button?.addEventListener('click', () => {
+    const next = order[(order.indexOf(read()) + 1) % order.length];
+    try {
+      if (next === 'auto') localStorage.removeItem('lf-theme');
+      else localStorage.setItem('lf-theme', next);
+    } catch {}
+    apply(next);
+  });
+</script>

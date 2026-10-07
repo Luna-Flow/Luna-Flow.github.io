@@ -1,0 +1,82 @@
+---
+import { github, locales, localeOf, switchUrl, t } from '../lib/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  lang: string;
+  url: string;
+}
+const { lang, url } = Astro.props;
+const current = localeOf(lang);
+const links = [
+  { key: 'nav.library', href: `/${lang}/library/` },
+  { key: 'nav.about', href: `/${lang}/about/` },
+  { key: 'nav.contribute', href: `/${lang}/contribute/` },
+];
+const isActive = (href: string) => url.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <button class="menu-button" type="button" aria-controls="sidebar" aria-expanded="false" data-label-open={t(lang, 'nav.menu')} data-label-close={t(lang, 'nav.close')}>
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+      <span class="visually-hidden">{t(lang, 'nav.menu')}</span>
+    </button>
+    <a class="wordmark" href={`/${lang}/`}>
+      <img src="/logo.svg" alt="" width="23" height="14" />
+      <span>{t(lang, 'site.name')}</span>
+    </a>
+    <nav class="site-nav" aria-label={t(lang, 'site.name')}>
+      {links.map((link) => <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{t(lang, link.key)}</a>)}
+    </nav>
+    <div class="header-tools">
+      <button class="search-button" type="button" data-search-open>
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="7" cy="7" r="4.75" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="m10.5 10.5 3.25 3.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+        <span class="search-label">{t(lang, 'search.open')}</span>
+        <kbd>/</kbd>
+      </button>
+      <details class="lang-menu">
+        <summary aria-label={t(lang, 'lang.label')}>
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.25" /><path d="M1.75 8h12.5M8 1.75c2 2 2 10.5 0 12.5M8 1.75c-2 2-2 10.5 0 12.5" fill="none" stroke="currentColor" stroke-width="1.25" /></svg>
+          <span>{current.label}</span>
+        </summary>
+        <ul>
+          {
+            locales.map((locale) => (
+              <li>
+                <a href={switchUrl(url, locale)} hreflang={locale.lang} lang={locale.lang} data-locale-link={locale.path} aria-current={locale.path === current.path ? 'true' : undefined}>
+                  {locale.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+      <ThemeToggle lang={lang} />
+      <a class="icon-link" href={github} aria-label={t(lang, 'nav.github')}>
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.72 1.22 1.87.87 2.33.67.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 .2Z" /></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Remember the language a reader picks, and keep the anchor when switching.
+  document.querySelectorAll<HTMLAnchorElement>('[data-locale-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('lf-lang', link.dataset.localeLink ?? '');
+      } catch {}
+      if (location.hash) link.href = link.href.replace(/#.*$/, '') + location.hash;
+    });
+  });
+  const menu = document.querySelector<HTMLButtonElement>('.menu-button');
+  menu?.addEventListener('click', () => {
+    const open = document.body.classList.toggle('nav-open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', (event) => {
+    const details = document.querySelector<HTMLDetailsElement>('.lang-menu');
+    if (details?.open && !details.contains(event.target as Node)) details.open = false;
+  });
+</script>

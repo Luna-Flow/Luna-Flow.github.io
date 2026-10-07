@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { locales, t } from '../lib/site';
+const lang = locales[0].path;
+---
+
+<Base lang={lang} title={t(lang, 'notfound.title')} url="/404/" bodyClass="not-found">
+  <main id="content" class="page-main">
+    <header class="page-header">
+      <h1>{t(lang, 'notfound.title')}</h1>
+      <p class="lead">{t(lang, 'notfound.body')}</p>
+    </header>
+    <ul class="not-found-links">
+      {locales.map((locale) => <li><a href={`/${locale.path}/library/`} lang={locale.lang}>{t(locale.path, 'library.title')} · {locale.label}</a></li>)}
+    </ul>
+  </main>
+  <script is:inline>
+    // Send readers of the localized site to that language's 404 text.
+    const seg = location.pathname.split('/')[1];
+    document.querySelectorAll('.not-found-links a').forEach((a) => {
+      if (a.getAttribute('href').startsWith('/' + seg + '/')) a.parentElement.dataset.current = '';
+    });
+  </script>
+</Base>

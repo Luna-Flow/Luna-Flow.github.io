@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Library from '../../components/Library.astro';
+import { locales, t } from '../../lib/site';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale.path } }));
+}
+const { lang } = Astro.params;
+---
+
+<Base lang={lang} title={t(lang, 'library.title')} url={`/${lang}/library/`} bodyClass="library-page">
+  <main id="content" class="page-main">
+    <header class="page-header">
+      <h1>{t(lang, 'library.title')}</h1>
+      <p class="lead">{t(lang, 'library.lead')}</p>
+    </header>
+    <Library lang={lang} />
+  </main>
+</Base>

@@ -1,0 +1,56 @@
+---
+import { t } from '../../lib/site';
+import { renderInline } from '../../lib/inline';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+// R[x] --h[x]--> S[x]
+//  |ev_a           |ev_h(a)
+//  R  ----h---->   S
+const top = 'M 118 70 L 402 70';
+const bottom = 'M 118 290 L 402 290';
+const left = 'M 70 112 L 70 248';
+const right = 'M 450 112 L 450 248';
+const pathA = 'M 70 70 L 450 70 L 450 290';
+const pathB = 'M 70 70 L 70 290 L 450 290';
+---
+
+<section class="diagram reveal" aria-labelledby="diagram-title">
+  <div class="diagram-figure">
+    <svg viewBox="0 0 520 360" role="img" aria-label="h[x] followed by evaluation at h(a) equals evaluation at a followed by h">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="currentColor" stroke-width="1.4" />
+        </marker>
+      </defs>
+      <g class="diagram-arrows" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)">
+        <path d={top} pathLength="1" style="--i:0" />
+        <path d={right} pathLength="1" style="--i:1" />
+        <path d={left} pathLength="1" style="--i:2" />
+        <path d={bottom} pathLength="1" style="--i:3" />
+      </g>
+      <g class="diagram-nodes">
+        <text x="70" y="78" text-anchor="middle">R[x]</text>
+        <text x="450" y="78" text-anchor="middle">S[x]</text>
+        <text x="70" y="298" text-anchor="middle">R</text>
+        <text x="450" y="298" text-anchor="middle">S</text>
+      </g>
+      <g class="diagram-labels">
+        <text x="260" y="56" text-anchor="middle">h[x]</text>
+        <text x="260" y="318" text-anchor="middle">h</text>
+        <text x="56" y="186" text-anchor="end">ev<tspan dy="5" font-size="13">a</tspan></text>
+        <text x="466" y="186" text-anchor="start">ev<tspan dy="5" font-size="13">h(a)</tspan></text>
+      </g>
+      <circle class="diagram-dot dot-a" r="5" style={`offset-path: path('${pathA}')`} />
+      <circle class="diagram-dot dot-b" r="5" style={`offset-path: path('${pathB}')`} />
+      <circle class="diagram-meet" cx="450" cy="290" r="14" />
+    </svg>
+  </div>
+  <div class="landing-copy">
+    <p class="landing-label">{t(lang, 'landing.diagram.label')}</p>
+    <h2 id="diagram-title">{t(lang, 'landing.diagram.title')}</h2>
+    <p>{t(lang, 'landing.diagram.body')}</p>
+    <p class="diagram-equation" set:html={renderInline('$\\operatorname{ev}_{h(a)} \\circ h[x] \\;=\\; h \\circ \\operatorname{ev}_a$')} />
+  </div>
+</section>

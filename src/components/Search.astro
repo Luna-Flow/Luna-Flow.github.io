@@ -1,0 +1,27 @@
+---
+import { t } from '../lib/site';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const strings = {
+  empty: t(lang, 'search.empty'),
+  loading: t(lang, 'search.loading'),
+  unavailable: t(lang, 'search.unavailable'),
+};
+---
+
+<dialog class="search-dialog" aria-label={t(lang, 'search.open')} data-strings={JSON.stringify(strings)}>
+  <form method="dialog" class="search-form" role="search">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.75" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="m10.5 10.5 3.25 3.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+    <input type="search" name="q" autocomplete="off" spellcheck="false" placeholder={t(lang, 'search.placeholder')} aria-controls="search-results" />
+    <kbd>esc</kbd>
+  </form>
+  <ol id="search-results" class="search-results" role="listbox"></ol>
+  <p class="search-status" aria-live="polite"></p>
+</dialog>
+
+<script>
+  import { initSearch } from '../scripts/search';
+  initSearch();
+</script>

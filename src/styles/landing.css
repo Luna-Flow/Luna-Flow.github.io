@@ -1,0 +1,889 @@
+/*
+ * Landing page. The hero is the one loud place on the site: a night field
+ * (Luna) with the living drawing of x ↦ k·x. Everything below it returns to
+ * paper and ink, and moves only when it enters the view.
+ */
+
+.landing {
+  --night: #0d0c12;
+  --night-2: #16141e;
+  --moon: #f4eee4;
+  --moon-2: rgb(244 238 228 / 0.68);
+  --moon-3: rgb(244 238 228 / 0.42);
+  --glow: #e05cc4;
+}
+
+/* ------------------------------------------------------------ header over hero */
+
+.landing .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.landing:not(.past-hero) .site-header {
+  background: linear-gradient(to bottom, rgb(13 12 18 / 0.7), transparent);
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  color: var(--moon);
+}
+
+.landing:not(.past-hero) .site-header :is(.site-nav a, .header-tools a, .lang-menu summary, .icon-link, .search-button) {
+  color: var(--moon-2);
+}
+
+.landing:not(.past-hero) .site-header :is(.site-nav a:hover, .icon-link:hover, .lang-menu summary:hover) {
+  color: var(--moon);
+  background: rgb(244 238 228 / 0.08);
+}
+
+.landing:not(.past-hero) .search-button {
+  background: rgb(244 238 228 / 0.06);
+  border-color: rgb(244 238 228 / 0.2);
+}
+
+.landing:not(.past-hero) .search-button kbd {
+  color: var(--moon-3);
+  border-color: rgb(244 238 228 / 0.25);
+}
+
+.landing:not(.past-hero) .wordmark {
+  color: var(--moon);
+}
+
+/* ------------------------------------------------------------ hero */
+
+.hero {
+  position: relative;
+  min-height: max(640px, 100svh);
+  overflow: hidden;
+  color: var(--moon);
+  background:
+    radial-gradient(60rem 40rem at 70% 50%, rgb(224 92 196 / 0.10), transparent 70%),
+    radial-gradient(40rem 30rem at 15% 90%, rgb(120 110 255 / 0.08), transparent 70%),
+    var(--night);
+  isolation: isolate;
+}
+
+.hero::after {
+  /* A faint grid: the plane the arches rise from. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(244 238 228 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(244 238 228 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 60% 55%, black 20%, transparent 75%);
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: filter 1400ms ease;
+}
+
+/* Behind the formulas the surface becomes a soft background. */
+.show-formula .hero-canvas {
+  filter: blur(7px) brightness(0.75);
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  max-width: 90rem;
+  min-height: inherit;
+  margin: 0 auto;
+  padding: calc(var(--header) + var(--s8)) var(--s7) var(--s7);
+  pointer-events: none;
+}
+
+.hero-copy {
+  align-self: center;
+  max-width: 34rem;
+  pointer-events: auto;
+}
+
+/* The copy waits for the film: it enters with the flash of the mark. */
+.hero-copy > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.1, 1), transform 900ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.show-copy .hero-copy > * {
+  opacity: 1;
+  transform: none;
+}
+
+.show-copy .hero-copy > :nth-child(2) {
+  transition-delay: 160ms;
+}
+
+.show-copy .hero-copy > :nth-child(3) {
+  transition-delay: 320ms;
+}
+
+.hero-wordmark {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--moon);
+}
+
+.hero-title h1 {
+  margin: var(--s5) 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--moon);
+}
+
+.hero-title p {
+  max-width: 30rem;
+  margin: var(--s4) 0 0;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--moon-2);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s5);
+  margin: var(--s6) 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  font-weight: 500;
+}
+
+.hero-actions a {
+  color: var(--moon);
+  text-decoration: none;
+}
+
+.hero-actions a:not(.hero-primary) {
+  border-bottom: 1px solid var(--moon-3);
+  padding-bottom: 2px;
+}
+
+.hero-actions a:not(.hero-primary):hover {
+  border-color: var(--moon);
+}
+
+.hero-primary {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 var(--s5);
+  border-radius: 999px;
+  background: var(--moon);
+  color: var(--night) !important;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.hero-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 6px rgb(224 92 196 / 0.22), 0 0 40px rgb(224 92 196 / 0.35);
+}
+
+.hero-filters {
+  position: absolute;
+}
+
+.hero.is-interactive {
+  cursor: grab;
+}
+
+.hero.is-interactive:active {
+  cursor: grabbing;
+}
+
+/* ------------------------------------------------------------ the integral through the eras */
+
+.formula {
+  position: absolute;
+  left: var(--stage-x, 70%);
+  top: var(--stage-y, 50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1200ms ease;
+  --ink: var(--moon);
+}
+
+.formula.on {
+  opacity: 1;
+}
+
+.formula-row {
+  position: absolute;
+  left: -40rem;
+  width: 80rem;
+  top: 0;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.18em;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.75vw, 1.75rem);
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgb(13 12 18 / 0.9);
+}
+
+.formula .lim {
+  /* Limits stand against the sign's visible height: the upper one at its
+     top right, the lower one tucked left under its slanted foot. */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(var(--sign-h, 3em) * 0.92);
+  margin-right: 0.35em;
+  vertical-align: middle;
+  font-size: 0.5em;
+  line-height: 1;
+}
+
+.formula .lim > :first-child {
+  margin-left: calc(var(--sign-h, 3em) * 0.02);
+}
+
+.formula .lim > :last-child {
+  margin-left: calc(var(--sign-h, 3em) * -0.26);
+}
+
+.formula-lhs {
+  text-align: right;
+}
+
+.formula-rhs {
+  text-align: left;
+}
+
+.formula-sym {
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.formula-sym canvas {
+  display: block;
+}
+
+.formula sub,
+.formula sup {
+  font-size: 0.55em;
+  line-height: 0;
+}
+
+.formula-row > * {
+}
+
+/* The last formula settles in. */
+.formula.final .formula-row {
+  animation: settle 900ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+@keyframes settle {
+  from {
+    letter-spacing: 0.06em;
+    filter: blur(4px);
+  }
+}
+
+
+
+/* Every formula is set like the last one: Computer Modern, the face Typst
+   uses for mathematics by default, in moonlight. Only the vision carries the
+   brand colour. */
+.formula-row {
+  font-family: KaTeX_Main, serif;
+}
+
+.formula-sym {
+  font-family: KaTeX_Size2, KaTeX_Main, serif;
+}
+
+.formula .katex {
+  font-size: 1em;
+}
+
+.formula .lim {
+  font-size: 0.62em;
+  color: var(--moon-2);
+}
+
+.formula[data-era='vision'] .formula-sym canvas {
+  filter: drop-shadow(0 0 16px rgb(224 92 196 / 0.55));
+}
+
+/* ------------------------------------------------------------ Float and Double */
+
+.landing-main > section.precision {
+  max-width: none;
+  margin: 0;
+  padding: var(--s9) max(var(--s7), calc((100vw - 76rem) / 2 + var(--s7)));
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: var(--s8);
+  align-items: center;
+  background: var(--night);
+  color: var(--moon);
+}
+
+.precision h2 {
+  margin: 0 0 var(--s4);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.precision-copy p:not(.landing-label) {
+  color: var(--moon-2);
+}
+
+.landing-main .precision .landing-label {
+  color: var(--glow);
+}
+
+.precision-stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  cursor: grab;
+}
+
+.precision-stage:active {
+  cursor: grabbing;
+}
+
+.precision-stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.precision-readout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--moon-2);
+  pointer-events: none;
+}
+
+.precision-readout code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--moon);
+}
+
+.readout-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin: 0 0 var(--s2);
+}
+
+.swatch {
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.swatch + code {
+  margin-right: var(--s3);
+}
+
+.swatch-float {
+  background: var(--glow);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+.swatch-double {
+  background: var(--moon);
+}
+
+.readout-values {
+  display: flex;
+  gap: var(--s6);
+  margin: 0 0 var(--s2);
+}
+
+/* Labels and values sit on shared lines, whatever face each label uses. */
+.readout-values > div {
+  display: grid;
+  grid-template-rows: 1.25rem 1.75rem;
+}
+
+.readout-values dt {
+  display: flex;
+  align-items: flex-end;
+  font-size: var(--text-xs);
+  line-height: 1;
+  color: var(--moon-3);
+}
+
+.readout-values dt var {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  line-height: 1;
+}
+
+.readout-values dd {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  line-height: 1;
+  color: var(--moon);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-parted] [data-gap] {
+  color: var(--glow);
+}
+
+/* Summary: the sentence the page has been building up to. */
+
+.landing-main > section.summary {
+  padding-top: var(--s9);
+  padding-bottom: var(--s9);
+  text-align: center;
+}
+
+.summary h2 {
+  max-width: 18ch;
+  margin: 0 auto;
+  font-size: clamp(2.25rem, 5.4vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.summary p {
+  max-width: 36rem;
+  margin: var(--s5) auto 0;
+  color: var(--ink-2);
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* ------------------------------------------------------------ sections */
+
+.landing-main > section:not(.hero) {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: var(--s9) var(--s7);
+}
+
+.landing-main .landing-label {
+  margin: 0 0 var(--s3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+}
+
+.landing-copy h2,
+.landing-library h2 {
+  margin: 0 0 var(--s4);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.landing-copy p,
+.landing-library header p {
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+}
+
+.reveal > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.reveal.in-view > * {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.in-view > *:nth-child(2) {
+  transition-delay: 120ms;
+}
+
+/* One algorithm, many worlds */
+
+.worlds {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: var(--s8);
+  align-items: center;
+}
+
+.worlds-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.worlds-stage > *,
+.worlds-run > * {
+  min-width: 0;
+}
+
+.worlds-stage pre {
+  margin: 0;
+  padding: var(--s5);
+  border-radius: 10px;
+  background: var(--paper-2) !important;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+.worlds-code pre {
+  min-height: 15.5rem;
+}
+
+.worlds-code.typing .line {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  animation: type 420ms steps(28, end) forwards;
+  animation-delay: calc(var(--line) * 140ms);
+}
+
+@keyframes type {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.worlds-run {
+  position: relative;
+  display: grid;
+  gap: var(--s3);
+}
+
+.worlds-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.worlds-types button {
+  height: 30px;
+  padding: 0 var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.worlds-types button[aria-selected='true'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.worlds-result.enter pre {
+  animation: rise 450ms cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.worlds-progress {
+  height: 2px;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.worlds-progress::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.worlds-progress.run::after {
+  animation: progress 3400ms linear forwards;
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Commutative diagram */
+
+.diagram {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+  gap: var(--s8);
+  align-items: center;
+}
+
+.diagram-figure svg {
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  color: var(--ink-2);
+  overflow: visible;
+}
+
+.diagram-arrows path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.diagram.in-view .diagram-arrows path {
+  animation: draw 700ms calc(300ms + var(--i) * 260ms) cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.diagram-nodes text {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-style: italic;
+  fill: var(--ink);
+}
+
+.diagram-labels text {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  fill: var(--ink-2);
+}
+
+.diagram-dot {
+  fill: var(--accent);
+  opacity: 0;
+  offset-rotate: 0deg;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.diagram.in-view .diagram-dot {
+  animation: travel 2600ms 1700ms cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+@keyframes travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  70% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.diagram-meet {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: 450px 290px;
+}
+
+.diagram.in-view .diagram-meet {
+  animation: meet 2600ms 1700ms ease-out infinite;
+}
+
+@keyframes meet {
+  0%,
+  66% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.diagram-equation {
+  margin-top: var(--s5);
+  font-size: 1.125rem;
+  color: var(--ink) !important;
+}
+
+/* Principles */
+
+.pillars ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s7);
+  margin: var(--s4) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pillar;
+}
+
+.pillars li {
+  padding-top: var(--s5);
+  border-top: 1px solid var(--rule-strong);
+  counter-increment: pillar;
+}
+
+.pillars li::before {
+  content: counter(pillar, decimal-leading-zero);
+  display: block;
+  margin-bottom: var(--s4);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.pillars h3 {
+  margin: 0 0 var(--s2);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.pillars p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+/* Library */
+
+.landing-library header {
+  max-width: 38rem;
+  margin-bottom: var(--s7);
+}
+
+.landing-links {
+  display: flex;
+  gap: var(--s5);
+  margin-top: var(--s7);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  font-weight: 500;
+}
+
+.landing-links a {
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* ------------------------------------------------------------ narrow */
+
+@media (max-width: 960px) {
+  .worlds,
+  .diagram {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s6);
+  }
+
+  .diagram-figure {
+    order: 2;
+  }
+
+  .pillars ol {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s5);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-inner {
+    /* The crown takes the top of the screen; the copy starts below it. */
+    padding: calc(var(--header) + 82vw) var(--s4) var(--s6);
+    grid-template-rows: auto auto;
+    gap: var(--s6);
+  }
+
+  .landing-main > section.precision {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--s8) var(--s4);
+  }
+
+  .landing-main > section:not(.hero) {
+    padding: var(--s8) var(--s4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .diagram-arrows path {
+    stroke-dashoffset: 0;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Skipped or already seen: the final state appears without transitions. */
+.no-intro .hero-copy > *,
+.no-intro .hero-canvas,
+.no-intro .formula {
+  transition: none !important;
+}

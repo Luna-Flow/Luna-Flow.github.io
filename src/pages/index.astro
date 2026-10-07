@@ -1,0 +1,37 @@
+---
+import { locales } from '../lib/site';
+const targets = locales.map((locale) => ({ path: locale.path, lang: locale.lang.toLowerCase(), label: locale.label }));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luna Flow</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <script is:inline define:vars={{ targets }}>
+      // Stored choice first, then the browser's languages, then English.
+      let choice = null;
+      try {
+        choice = localStorage.getItem('lf-lang');
+      } catch {}
+      if (!targets.some((target) => target.path === choice)) {
+        choice = null;
+        for (const wanted of navigator.languages || [navigator.language]) {
+          const lower = String(wanted).toLowerCase();
+          const hit = targets.find((target) => lower === target.lang || lower.startsWith(target.lang.split('-')[0] + '-') || lower === target.lang.split('-')[0]);
+          if (hit) {
+            choice = hit.path;
+            break;
+          }
+        }
+      }
+      location.replace('/' + (choice || targets[0].path) + '/' + location.hash);
+    </script>
+    <noscript><meta http-equiv="refresh" content={`0; url=/${targets[0].path}/`} /></noscript>
+  </head>
+  <body>
+    <ul>{targets.map((target) => <li><a href={`/${target.path}/`}>{target.label}</a></li>)}</ul>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+# Reusable documentation check for Luna-Flow repositories.
+#
+# A repository calls it from .github/workflows/docs.yml:
+#
+#   jobs:
+#     docs:
+#       uses: Luna-Flow/Luna-Flow.github.io/.github/workflows/check-docs.yml@main
+#
+# It fails when doc/ breaks the documentation standard, when the gettext
+# catalogs are out of date, when a link is broken, or when a Typst attachment
+# does not compile.
+
+name: Check documentation
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+        with:
+          path: repo
+      - name: Check out lunadoc
+        uses: actions/checkout@v7
+        with:
+          repository: Luna-Flow/Luna-Flow.github.io
+          ref: main
+          path: site
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Install lunadoc
+        run: npm ci --prefix site --workspace tools/lunadoc --include-workspace-root=false
+      - uses: typst-community/setup-typst@v5
+      - name: Install CJK fonts for Typst
+        run: sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+      - name: Translation status
+        run: node site/tools/lunadoc/cli.mjs status repo
+      - name: Check
+        run: node site/tools/lunadoc/cli.mjs check repo --compile

@@ -1,0 +1,33 @@
+---
+import type { NavItem } from '../lib/site';
+interface Props {
+  items: NavItem[];
+  current: string;
+  depth?: number;
+}
+const { items, current, depth = 0 } = Astro.props;
+const contains = (item: NavItem): boolean => item.url === current || (item.items ?? []).some(contains);
+---
+
+<ul class:list={['nav-tree', depth === 0 && 'nav-root']}>
+  {
+    items.map((item) =>
+      item.items ? (
+        <li>
+          <details open={contains(item) || item.chapter}>
+            <summary class:list={[item.code && 'code', item.chapter && 'chapter']}>
+              {item.url ? <a href={item.url} aria-current={item.url === current ? 'page' : undefined}>{item.label}</a> : item.label}
+            </summary>
+            <Astro.self items={item.items} current={current} depth={depth + 1} />
+          </details>
+        </li>
+      ) : (
+        <li>
+          <a href={item.url} class:list={[item.code && 'code']} aria-current={item.url === current ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ),
+    )
+  }
+</ul>

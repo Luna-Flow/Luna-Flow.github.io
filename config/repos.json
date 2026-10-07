@@ -1,0 +1,52 @@
+{
+  "org": "Luna-Flow",
+  "branch": "main",
+  "exclude": [
+    "Luna-Flow.github.io",
+    "template",
+    ".github"
+  ],
+  "categories": [
+    {
+      "id": "foundations",
+      "repos": [
+        "arithmetic",
+        "luna-generic",
+        "luna-utils"
+      ]
+    },
+    {
+      "id": "numbers",
+      "repos": [
+        "floating",
+        "computable-real",
+        "luna-complex",
+        "quaternion",
+        "luna-poly"
+      ]
+    },
+    {
+      "id": "analysis",
+      "repos": [
+        "linear-algebra",
+        "linear-program",
+        "calculus-numerical",
+        "calculus-symbolic",
+        "autodiff"
+      ]
+    },
+    {
+      "id": "systems",
+      "repos": [
+        "luna_thread",
+        "QED",
+        "stella",
+        "mooncake_impact_factor",
+        "type_theory",
+        "geometry3d",
+        "mare_mark",
+        "diff_bench"
+      ]
+    }
+  ]
+}

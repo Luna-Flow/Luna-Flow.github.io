@@ -1,0 +1,1047 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Luna-Flow documentation\n"
+"Report-Msgid-Bugs-To: https://github.com/Luna-Flow\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: conf.json:summary
+msgid "A composable mathematical ecosystem for MoonBit."
+msgstr "面向 MoonBit 的可组合数学生态。"
+
+#: conf.json:strings.site.name
+#: manual/index.md:1
+msgid "Luna Flow"
+msgstr "Luna Flow"
+
+#: conf.json:strings.site.description
+msgid "Documentation for the Luna Flow mathematical ecosystem for MoonBit."
+msgstr "面向 MoonBit 的 Luna Flow 数学生态文档。"
+
+#: conf.json:strings.nav.home
+msgid "Home"
+msgstr "首页"
+
+#: conf.json:strings.nav.library
+#: conf.json:strings.library.title
+msgid "Library"
+msgstr "文档库"
+
+#: conf.json:strings.nav.about
+msgid "About"
+msgstr "关于"
+
+#: conf.json:strings.nav.contribute
+#: conf.json:strings.landing.cta.contribute
+msgid "Contribute"
+msgstr "参与贡献"
+
+#: conf.json:strings.nav.github
+msgid "GitHub"
+msgstr "GitHub"
+
+#: conf.json:strings.nav.skip
+msgid "Skip to content"
+msgstr "跳到正文"
+
+#: conf.json:strings.nav.menu
+msgid "Menu"
+msgstr "菜单"
+
+#: conf.json:strings.nav.close
+msgid "Close"
+msgstr "关闭"
+
+#: conf.json:strings.search.open
+msgid "Search"
+msgstr "搜索"
+
+#: conf.json:strings.search.placeholder
+msgid "Search the documentation"
+msgstr "搜索文档"
+
+#: conf.json:strings.search.empty
+msgid "No results for this query."
+msgstr "没有与此查询匹配的结果。"
+
+#: conf.json:strings.search.loading
+msgid "Searching…"
+msgstr "搜索中……"
+
+#: conf.json:strings.search.unavailable
+msgid "Search is available on the published site."
+msgstr "搜索功能仅在已发布的站点上可用。"
+
+#: conf.json:strings.theme.label
+msgid "Colour theme"
+msgstr "配色主题"
+
+#: conf.json:strings.theme.auto
+msgid "Automatic"
+msgstr "自动"
+
+#: conf.json:strings.theme.light
+msgid "Light"
+msgstr "浅色"
+
+#: conf.json:strings.theme.dark
+msgid "Dark"
+msgstr "深色"
+
+#: conf.json:strings.lang.label
+msgid "Language"
+msgstr "语言"
+
+#: conf.json:strings.toc.title
+msgid "On this page"
+msgstr "本页内容"
+
+#: conf.json:strings.page.edit
+msgid "Edit source"
+msgstr "编辑源文件"
+
+#: conf.json:strings.page.translate
+msgid "Improve the translation"
+msgstr "改进翻译"
+
+#: conf.json:strings.page.report
+msgid "Report an issue"
+msgstr "报告问题"
+
+#: conf.json:strings.page.prev
+msgid "Previous"
+msgstr "上一页"
+
+#: conf.json:strings.page.next
+msgid "Next"
+msgstr "下一页"
+
+#: conf.json:strings.notice.partial
+msgid "This page is {percent} translated. Passages without a translation are shown in English."
+msgstr "本页已翻译 {percent}。尚未翻译的段落以英文显示。"
+
+#: conf.json:strings.notice.none
+msgid "This page has not been translated yet, so it is shown in English."
+msgstr "本页尚未翻译，因此以英文显示。"
+
+#: conf.json:strings.notice.help
+msgid "Help translate it"
+msgstr "帮助翻译本页"
+
+#: conf.json:strings.pdf.kind
+msgid "PDF document"
+msgstr "PDF 文档"
+
+#: conf.json:strings.pdf.open
+msgid "Open in a new tab"
+msgstr "在新标签页中打开"
+
+#: conf.json:strings.pdf.download
+msgid "Download"
+msgstr "下载"
+
+#: conf.json:strings.pdf.page
+msgid "Page"
+msgstr "页"
+
+#: conf.json:strings.pdf.zoomIn
+msgid "Zoom in"
+msgstr "放大"
+
+#: conf.json:strings.pdf.zoomOut
+msgid "Zoom out"
+msgstr "缩小"
+
+#: conf.json:strings.pdf.fit
+msgid "Fit to width"
+msgstr "适应宽度"
+
+#: conf.json:strings.pdf.loading
+msgid "Loading the document…"
+msgstr "正在加载文档……"
+
+#: conf.json:strings.pdf.error
+msgid "The document could not be displayed. Open it in a new tab instead."
+msgstr "无法显示该文档。请改为在新标签页中打开。"
+
+#: conf.json:strings.pdf.expand
+msgid "Show the document"
+msgstr "显示文档"
+
+#: conf.json:strings.pdf.collapse
+msgid "Hide the document"
+msgstr "隐藏文档"
+
+#: conf.json:strings.library.lead
+msgid "Every Luna Flow repository, grouped by what it provides. Each one is documented with the same structure: API, design and tutorial."
+msgstr "Luna Flow 的所有仓库，按其提供的内容分组。每个仓库都以相同的结构编写文档：API、设计与教程。"
+
+#: conf.json:strings.library.translated
+msgid "{percent} translated"
+msgstr "已翻译 {percent}"
+
+#: conf.json:strings.library.source
+msgid "Source"
+msgstr "源代码"
+
+#: conf.json:strings.home.library
+msgid "Browse the library"
+msgstr "浏览文档库"
+
+#: conf.json:strings.home.about
+#: conf.json:strings.landing.cta.about
+msgid "Read the vision"
+msgstr "阅读愿景"
+
+#: conf.json:strings.doctype.api
+msgid "API"
+msgstr "API"
+
+#: conf.json:strings.doctype.design
+msgid "Design"
+msgstr "设计"
+
+#: conf.json:strings.doctype.tutorial
+msgid "Tutorial"
+msgstr "教程"
+
+#: conf.json:strings.doctype.conformance
+msgid "Conformance"
+msgstr "规范符合性"
+
+#: conf.json:strings.doctype.performance
+msgid "Performance"
+msgstr "性能"
+
+#: conf.json:strings.doctype.integration
+msgid "Integration"
+msgstr "集成"
+
+#: conf.json:strings.notfound.title
+msgid "Page not found"
+msgstr "页面未找到"
+
+#: conf.json:strings.notfound.body
+msgid "The page may have moved when the documentation was reorganised. Search for it, or start from the library."
+msgstr "该页面可能在文档重组时被移动了。请搜索它，或从文档库开始浏览。"
+
+#: conf.json:strings.footer.text
+msgid "Luna Flow documentation is built from the doc/ directory of each repository."
+msgstr "Luna Flow 文档由各仓库的 doc/ 目录构建而成。"
+
+#: conf.json:strings.category.other.title
+msgid "Other"
+msgstr "其他"
+
+#: conf.json:strings.category.other.description
+msgid "Repositories that have not been placed in a category yet."
+msgstr "尚未归入任何类别的仓库。"
+
+#: conf.json:strings.category.foundations.title
+msgid "Foundations"
+msgstr "基础抽象"
+
+#: conf.json:strings.category.foundations.description
+msgid "Shared traits, generic structures, and utilities that connect the ecosystem."
+msgstr "连接整个生态的共享 trait、泛型结构与基础工具。"
+
+#: conf.json:strings.category.numbers.title
+msgid "Numbers & Representations"
+msgstr "数值与表示"
+
+#: conf.json:strings.category.numbers.description
+msgid "Concrete and generic representations for numerical computation."
+msgstr "面向数值计算的具体表示与泛型表示。"
+
+#: conf.json:strings.category.analysis.title
+msgid "Analysis & Optimization"
+msgstr "分析与优化"
+
+#: conf.json:strings.category.analysis.description
+msgid "Linear, numerical, and symbolic tools for higher-level mathematics."
+msgstr "服务高层数学计算的线性、数值与符号工具。"
+
+#: conf.json:strings.category.systems.title
+msgid "Systems & Research"
+msgstr "系统与研究"
+
+#: conf.json:strings.category.systems.description
+msgid "Experimental systems, proof tooling, and ecosystem-scale projects."
+msgstr "实验性系统、证明工具与生态级项目。"
+
+#: conf.json:strings.alert.note
+msgid "Note"
+msgstr "注意"
+
+#: conf.json:strings.alert.tip
+msgid "Tip"
+msgstr "提示"
+
+#: conf.json:strings.alert.important
+msgid "Important"
+msgstr "重要"
+
+#: conf.json:strings.alert.warning
+msgid "Warning"
+msgstr "警告"
+
+#: conf.json:strings.alert.caution
+msgid "Caution"
+msgstr "当心"
+
+#: conf.json:strings.landing.worlds.label
+msgid "One algorithm"
+msgstr "一个算法"
+
+#: conf.json:strings.landing.worlds.title
+msgid "Written once, evaluated in every world"
+msgstr "一次编写，在每个世界中求值"
+
+#: conf.json:strings.landing.worlds.body
+msgid "Horner's rule needs only a semiring. The same function evaluates $1 + x^2$ over machine integers, floating point, big integers, complex numbers and matrices. It has no root among the integers, a root $i$ in the complex numbers, and a rotation as a root among matrices."
+msgstr "Horner 法则只需要一个半环。同一个函数可以在机器整数、浮点数、大整数、复数和矩阵上对 $1 + x^2$ 求值。它在整数中没有根，在复数中有根 $i$，在矩阵中则以一个旋转作为根。"
+
+#: conf.json:strings.landing.diagram.label
+msgid "Structure-preserving maps"
+msgstr "保持结构的映射"
+
+#: conf.json:strings.landing.diagram.title
+msgid "Structure travels with the map"
+msgstr "结构随映射而行"
+
+#: conf.json:strings.landing.diagram.body
+msgid "A homomorphism proven once lifts to polynomials, matrices and products without a new proof. Two paths that must agree, agree: evaluate then map, or map then evaluate."
+msgstr "只需证明一次的同态，无需新的证明即可提升到多项式、矩阵和积上。两条必须一致的路径确实一致：先求值再映射，或先映射再求值。"
+
+#: conf.json:strings.landing.pillars.label
+#: manual/contribute/documentation_standard.md:5
+msgid "Principles"
+msgstr "原则"
+
+#: conf.json:strings.landing.pillar1.title
+msgid "Abstraction before implementation"
+msgstr "先抽象，后实现"
+
+#: conf.json:strings.landing.pillar1.body
+msgid "Begin from structures and laws. Implementation details stay inside the layer that needs them."
+msgstr "从结构与定律出发。实现细节只留在需要它们的那一层。"
+
+#: conf.json:strings.landing.pillar2.title
+msgid "Semantics made explicit"
+msgstr "语义显式化"
+
+#: conf.json:strings.landing.pillar2.body
+msgid "Floating point, arbitrary precision and decimal values all add, but they do not mean the same thing. Luna Flow keeps the difference visible."
+msgstr "浮点数、任意精度值和十进制值都能做加法，但它们的含义并不相同。Luna Flow 让这种差异始终清晰可见。"
+
+#: conf.json:strings.landing.pillar3.title
+msgid "Interoperability over isolation"
+msgstr "互操作优先于孤岛"
+
+#: conf.json:strings.landing.pillar3.body
+msgid "Independent libraries join through small traits and lightweight adapters, then compose into one computational world."
+msgstr "独立的库通过小型 trait 和轻量适配器接入，再组合成同一个计算世界。"
+
+#: conf.json:strings.landing.library.lead
+msgid "Every repository documents its API, its design and a tutorial in the same structure, in English, Chinese and Japanese."
+msgstr "每个仓库都以相同的结构，用英文、中文和日文记录其 API、设计和教程。"
+
+#: conf.json:strings.landing.cta.library
+msgid "Open the documentation"
+msgstr "打开文档"
+
+#: conf.json:strings.landing.summary
+msgid "Write the mathematics once. Choose the numbers later."
+msgstr "数学只写一次，数系随后再选。"
+
+#: conf.json:strings.landing.summary.lead
+msgid "Algebraic traits describe what an algorithm needs. Number types decide what it means. Luna Flow keeps the two apart, so the choice stays yours."
+msgstr "代数 trait 描述算法需要什么，数值类型决定它意味着什么。Luna Flow 让两者各司其职，选择权始终在你手里。"
+
+#: conf.json:strings.landing.precision.label
+msgid "Numerical semantics"
+msgstr "数值语义"
+
+#: conf.json:strings.landing.precision.title
+msgid "Same equations. Two number systems."
+msgstr "同一组方程，两种数系。"
+
+#: conf.json:strings.landing.precision.body
+msgid "One Runge–Kutta integrator runs the Lorenz system twice from the same point, once in Float and once in Double. Rounding alone sends them apart. Luna Flow makes the number system an explicit choice."
+msgstr "同一个 Runge–Kutta 积分器，从同一点出发把 Lorenz 系统各算一遍：一次用 Float，一次用 Double。仅仅是舍入，就让两条轨迹分道扬镳。Luna Flow 让数系成为一个显式的选择。"
+
+#: manual/about.md:1
+msgid "About Luna Flow"
+msgstr "关于 Luna Flow"
+
+#: manual/about.md:3
+msgid "Vision"
+msgstr "愿景"
+
+#: manual/about.md:5
+msgid "Luna Flow envisions MoonBit as a language capable of supporting serious mathematical software: from lightweight numerical utilities to rigorous scientific computing, symbolic manipulation, and future proof-oriented systems."
+msgstr "Luna Flow 希望把 MoonBit 推向一个能够承载严肃数学软件的语言平台：从轻量数值工具，到严格科学计算、符号处理，以及未来更偏证明导向的系统。"
+
+#: manual/about.md:7
+msgid "We believe a mathematical ecosystem should not be built as a pile of unrelated APIs. It should be organized around precise abstractions:"
+msgstr "我们认为，一个数学生态不应该只是互不相干 API 的堆叠，而应该围绕精确抽象来组织："
+
+#: manual/about.md:9
+msgid "algebraic structures such as monoids, rings, fields, and integral domains;"
+msgstr "诸如幺半群、环、域、整环等代数结构；"
+
+#: manual/about.md:10
+msgid "arithmetic capabilities such as square root, exponential, logarithmic, and trigonometric functions;"
+msgstr "诸如平方根、指数、对数、三角函数等算术能力；"
+
+#: manual/about.md:11
+msgid "generic constructions such as complex numbers, vectors, matrices, and polynomials;"
+msgstr "诸如复数、向量、矩阵、多项式等泛型构造；"
+
+#: manual/about.md:12
+msgid "multiple numerical semantics, including machine floating point, arbitrary precision, decimal arithmetic, and error-aware computation."
+msgstr "多种数值语义，包括机器浮点、任意精度、十进制算术和误差感知计算。"
+
+#: manual/about.md:14
+msgid "With this architecture, one algorithm can be written once and reused across different mathematical worlds."
+msgstr "有了这样的结构，同一个算法就可以在不同数学世界中复用。"
+
+#: manual/about.md:16
+msgid "Mission"
+msgstr "使命"
+
+#: manual/about.md:18
+msgid "Luna Flow’s mission is to provide a foundational mathematical interoperability layer for MoonBit."
+msgstr "Luna Flow 的使命，是为 MoonBit 提供一层基础性的数学互操作基础设施。"
+
+#: manual/about.md:20
+msgid "Building reusable algebraic and arithmetic traits."
+msgstr "构建可复用的代数与算术 traits。"
+
+#: manual/about.md:21
+msgid "Providing generic mathematical data structures."
+msgstr "提供泛型数学数据结构。"
+
+#: manual/about.md:22
+msgid "Supporting multiple numerical backends."
+msgstr "支持多种数值后端。"
+
+#: manual/about.md:23
+msgid "Allowing external MoonBit math libraries to join the ecosystem through lightweight adapters."
+msgstr "允许外部 MoonBit 数学库通过轻量适配器接入生态。"
+
+#: manual/about.md:24
+msgid "Making advanced mathematical computation more reliable, modular, and accessible."
+msgstr "让更高级的数学计算变得更可靠、更模块化、更易使用。"
+
+#: manual/about.md:26
+msgid "Luna Flow is not designed as a closed framework. Existing libraries should not need to be rewritten from scratch to participate. If a library can expose the required mathematical capabilities, Luna Flow should be able to integrate it into higher-level abstractions such as complex numbers, linear algebra, and future symbolic computation."
+msgstr "Luna Flow 不是一个封闭框架。现有库不应该为了加入生态而被迫完全重写。只要一个库能够暴露所需的数学能力，Luna Flow 就应该能把它接入更高层抽象，例如复数、线性代数以及未来的符号计算。"
+
+#: manual/about.md:28
+msgid "Design philosophy"
+msgstr "设计哲学"
+
+#: manual/about.md:30
+msgid "**Abstraction before implementation.** Mathematical software should begin with clear structures and laws. Implementation details matter, but they should not leak into every layer of the ecosystem."
+msgstr "**先抽象，后实现。** 数学软件应从清晰的结构与定律出发。实现细节当然重要，但不应泄漏到生态的每一层。"
+
+#: manual/about.md:32
+msgid "**Small traits, strong composition.** Instead of defining one oversized numeric interface, Luna Flow separates algebraic structures from analytic capabilities. This keeps abstractions flexible and avoids forcing every type into an unsuitable model."
+msgstr "**小 trait，强组合。** Luna Flow 不定义一个臃肿的大一统数值接口，而是把代数结构与分析能力拆开。这让抽象更灵活，也避免把所有类型硬塞进不合适的模型。"
+
+#: manual/about.md:34
+msgid "**Semantics must be explicit.** A floating-point number, an arbitrary-precision value, a decimal value, and an interval-like value may all support arithmetic, but they do not mean the same thing. Luna Flow aims to preserve these semantic differences rather than hiding them behind a single vague interface."
+msgstr "**语义必须显式。** 浮点数、任意精度值、十进制值和区间式值都可能支持算术，但它们的数学含义并不相同。Luna Flow 的目标是保留这些差异，而不是用一个模糊接口把它们抹平。"
+
+#: manual/about.md:36
+msgid "**Interoperability over isolation.** MoonBit’s mathematical ecosystem should allow independent libraries to work together. Luna Flow provides the common language that lets different packages become part of the same computational world."
+msgstr "**互操作优先于孤岛。** MoonBit 的数学生态应该允许独立库协同工作。Luna Flow 提供的就是那套公共语言，让不同包能够进入同一个计算世界。"
+
+#: manual/about.md:38
+msgid "**One algorithm, many mathematical worlds.** A well-designed generic algorithm should be reusable across different numeric representations. Luna Flow makes this possible through trait-based abstraction and carefully layered packages."
+msgstr "**一个算法，多种数学世界。** 一个设计良好的泛型算法，应该能够跨不同数值表示复用。Luna Flow 通过 trait 抽象和分层包设计，使这件事真正可行。"
+
+#: manual/about.md:40
+msgid "Long-term goal"
+msgstr "长期目标"
+
+#: manual/about.md:42
+msgid "The long-term goal of Luna Flow is to become a foundation for advanced mathematical computing in MoonBit."
+msgstr "Luna Flow 的长期目标，是成为 MoonBit 高级数学计算的基础设施。"
+
+#: manual/about.md:44
+msgid "generic algebraic computation;"
+msgstr "泛型代数计算；"
+
+#: manual/about.md:45
+msgid "linear algebra over multiple scalar types;"
+msgstr "面向多种标量类型的线性代数；"
+
+#: manual/about.md:46
+msgid "arbitrary-precision and error-aware numerical computing;"
+msgstr "任意精度与误差感知数值计算；"
+
+#: manual/about.md:47
+msgid "complex numbers over generic base fields;"
+msgstr "基于泛型底层域的复数计算；"
+
+#: manual/about.md:48
+msgid "polynomial and symbolic computation;"
+msgstr "多项式与符号计算；"
+
+#: manual/about.md:49
+msgid "computable real numbers and more rigorous numerical models;"
+msgstr "可计算实数与更严格的数值模型；"
+
+#: manual/about.md:50
+msgid "scientific computing applications built on top of a shared mathematical core."
+msgstr "建立在统一数学核心之上的科学计算应用。"
+
+#: manual/about.md:52
+msgid "Luna Flow is still evolving, but its direction is clear: to turn MoonBit’s abstraction capabilities into a real mathematical ecosystem."
+msgstr "Luna Flow 仍在演进，但方向已经很清晰：把 MoonBit 的抽象能力真正转化为一个数学计算生态。"
+
+#: manual/about.md:54
+msgid "We are building not just a collection of math packages, but a composable foundation for future scientific computing in MoonBit."
+msgstr "我们要构建的不只是一些数学包，而是一套面向未来科学计算的可组合基础。"
+
+#: manual/contribute/attachments.md:1
+msgid "Attachments"
+msgstr "附件"
+
+#: manual/contribute/attachments.md:3
+msgid "Proofs, specifications and longer derivations are better typeset than written in Markdown. Luna Flow keeps them as Typst documents in `doc/attachments/`, compiles them to PDF when the site is built, and shows them inside the page in a reader that opens on demand."
+msgstr "证明、规范和较长的推导更适合排版，而不是用 Markdown 书写。Luna Flow 将它们作为 Typst 文档保存在 `doc/attachments/` 中，在构建站点时编译为 PDF，并在页面内通过按需打开的阅读器显示。"
+
+#: manual/contribute/attachments.md:5
+msgid "Where files go"
+msgstr "文件放在哪里"
+
+#: manual/contribute/attachments.md:7
+msgid "Everything in `doc/attachments/` is shared by all languages."
+msgstr "`doc/attachments/` 中的所有内容由所有语言共享。"
+
+#: manual/contribute/attachments.md:9
+msgid "File"
+msgstr "文件"
+
+#: manual/contribute/attachments.md:9
+msgid "Published as"
+msgstr "发布为"
+
+#: manual/contribute/attachments.md:12
+msgid "`<name>.pdf`, for a document split over several files"
+msgstr "`<name>.pdf`，用于拆分为多个文件的文档"
+
+#: manual/contribute/attachments.md:13
+msgid "`<name>.<locale>.typ` or `<name>/main.<locale>.typ`"
+msgstr "`<name>.<locale>.typ` 或 `<name>/main.<locale>.typ`"
+
+#: manual/contribute/attachments.md:13
+msgid "the version of `<name>.pdf` for that locale"
+msgstr "该语言环境对应的 `<name>.pdf` 版本"
+
+#: manual/contribute/attachments.md:14
+msgid "any other file"
+msgstr "其他任何文件"
+
+#: manual/contribute/attachments.md:14
+msgid "the file itself"
+msgstr "文件本身"
+
+#: manual/contribute/attachments.md:16
+msgid "Commit the Typst source, not the PDF. Continuous integration compiles every document on each build, so the published PDF always matches its source. A file that is not Typst, such as a figure or a PDF produced by another tool, is published unchanged."
+msgstr "提交 Typst 源文件，而不是 PDF。持续集成会在每次构建时编译所有文档，因此发布的 PDF 始终与其源文件一致。非 Typst 文件（例如插图或由其他工具生成的 PDF）会原样发布。"
+
+#: manual/contribute/attachments.md:18
+msgid "Typst documents are compiled with `doc/attachments/` as the project root, so they may import shared templates from it. Builds have the Typst default fonts and the Noto CJK fonts."
+msgstr "Typst 文档以 `doc/attachments/` 作为项目根目录进行编译，因此可以从中导入共享模板。构建环境提供 Typst 默认字体和 Noto CJK 字体。"
+
+#: manual/contribute/attachments.md:20
+msgid "Names"
+msgstr "命名"
+
+#: manual/contribute/attachments.md:22
+msgid "Use lowercase names with underscores between words. Images follow the convention of the Blender manual: the name starts with the path of the page that uses it, with `_` between path parts and `-` inside a part, for example `core_api_hom-composition.svg` for a figure on `core/api.md`. A flat directory with such names shows at a glance which page each file belongs to."
+msgstr "使用小写名称，单词之间用下划线分隔。图片遵循 Blender 手册的约定：名称以使用该图片的页面路径开头，路径各部分之间用 `_` 连接，各部分内部用 `-` 连接，例如 `core/api.md` 中的插图命名为 `core_api_hom-composition.svg`。采用这种命名的扁平目录，一眼就能看出每个文件属于哪个页面。"
+
+#: manual/contribute/attachments.md:24
+msgid "Embedding a document"
+msgstr "嵌入文档"
+
+#: manual/contribute/attachments.md:26
+msgid "Link to the Typst source. When the link is the only content of its paragraph, the page shows a reader that can be expanded in place:"
+msgstr "链接到 Typst 源文件。当链接是所在段落的唯一内容时，页面会显示一个可原地展开的阅读器："
+
+#: manual/contribute/attachments.md:32
+msgid "Add `#page=12` to open the document at a page. A link inside a sentence stays a link and opens the PDF directly."
+msgstr "添加 `#page=12` 可在指定页打开文档。句子中的链接仍是普通链接，会直接打开 PDF。"
+
+#: manual/contribute/attachments.md:34
+msgid "The reader shows the title from the link text, renders pages on demand, and offers zoom, opening in a new tab and download. On GitHub the same link opens the Typst source, so the page remains usable there."
+msgstr "阅读器以链接文字作为标题，按需渲染页面，并提供缩放、在新标签页中打开和下载功能。在 GitHub 上，同一链接会打开 Typst 源文件，因此页面在那里同样可用。"
+
+#: manual/contribute/attachments.md:36
+msgid "When a document has locale variants, every language links to the same name and the site picks the variant of the page's locale, falling back to the version without a locale suffix."
+msgstr "当文档有多个语言版本时，所有语言都链接到同一名称，站点会选择与页面语言环境对应的版本，若不存在则回退到不带语言后缀的版本。"
+
+#: manual/contribute/attachments.md:38
+msgid "Images"
+msgstr "图片"
+
+#: manual/contribute/attachments.md:40
+msgid "Embed images with Markdown image syntax and a description:"
+msgstr "使用 Markdown 图片语法嵌入图片，并附上描述："
+
+#: manual/contribute/attachments.md:46
+msgid "Prefer SVG for diagrams and PNG for screenshots. Give every image alternative text; it is translated with the page."
+msgstr "图表优先使用 SVG，截图优先使用 PNG。为每张图片提供替代文本；它会随页面一起翻译。"
+
+#: manual/contribute/documentation_standard.md:1
+msgid "Documentation standard"
+msgstr "文档规范"
+
+#: manual/contribute/documentation_standard.md:3
+msgid "This standard applies to every Luna Flow repository. It fixes where documentation lives, how it is divided into pages, and which source is authoritative. A repository may add rules of its own in `doc/manual/conventions.md`, but it may not relax these."
+msgstr "本规范适用于所有 Luna Flow 仓库。它规定文档存放在哪里、如何划分页面，以及以哪个来源为准。仓库可以在 `doc/manual/conventions.md` 中添加自己的规则，但不得放宽这些规则。"
+
+#: manual/contribute/documentation_standard.md:7
+msgid "**Describe what exists.** Pages document the implementation on the current branch: public names, behaviour, and the design decisions behind them. Plans belong in issues, not in the manual."
+msgstr "**描述已有的东西。** 页面记录当前分支上的实现：公开名称、行为以及背后的设计决策。计划应写在 issue 中，而不是手册里。"
+
+#: manual/contribute/documentation_standard.md:9
+msgid "**English is the source.** Pages are written once, in English. Translations are made from that text through [gettext catalogs](translation.md) and are never edited as copies of a page."
+msgstr "**英文是源文本。** 页面只用英文编写一次。译文通过 [gettext 翻译目录](translation.md) 从该文本生成，绝不作为页面副本进行编辑。"
+
+#: manual/contribute/documentation_standard.md:11
+msgid "**The interface file is the authority.** For MoonBit packages, `pkg.generated.mbti` defines the public surface. A name that is not in the interface file is not documented as public."
+msgstr "**接口文件具有权威性。** 对于 MoonBit 包，`pkg.generated.mbti` 定义了公开接口。不在接口文件中的名称不得作为公开内容写入文档。"
+
+#: manual/contribute/documentation_standard.md:13
+msgid "**One page, one purpose.** A page is an API reference, a design note, a tutorial or a guide. It does not mix them."
+msgstr "**一页，一个目的。** 一个页面只能是 API 参考、设计说明、教程或指南之一，不能混合。"
+
+#: manual/contribute/documentation_standard.md:15
+msgid "Repository layout"
+msgstr "仓库布局"
+
+#: manual/contribute/documentation_standard.md:34
+msgid "Nothing else belongs in `doc/`. The retired layout with one directory per language (`doc/en_US`, `doc/zh_CN`, ...) is rejected by `lunadoc check`."
+msgstr "`doc/` 中不应有其他内容。按语言分目录的旧布局（`doc/en_US`、`doc/zh_CN` 等）会被 `lunadoc check` 拒绝。"
+
+#: manual/contribute/documentation_standard.md:46
+msgid "`title` is the repository name as shown in the library. `summary` is one sentence that appears in the library directory; it is translated like any page text. `locales` lists the translations the repository maintains."
+msgstr "`title` 是仓库在文档库中显示的名称。`summary` 是出现在文档库目录中的一句话简介；它与其他页面文本一样会被翻译。`locales` 列出仓库维护的译文语言。"
+
+#: manual/contribute/documentation_standard.md:48
+msgid "Chapters and packages"
+msgstr "章节与包"
+
+#: manual/contribute/documentation_standard.md:50
+msgid "The manual is divided by what a reader is looking for, not by where the code lives. Each document type is a chapter, and each documented MoonBit package has one page in every chapter:"
+msgstr "手册按读者要找什么来划分，而不是按代码所在位置。每种文档类型是一章，每个有文档的 MoonBit 包在每一章中都有一个页面："
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Chapter"
+msgstr "章节"
+
+#: manual/contribute/documentation_standard.md:52
+msgid "Answers"
+msgstr "回答的问题"
+
+#: manual/contribute/documentation_standard.md:52
+msgid "A package page contains"
+msgstr "包页面包含"
+
+#: manual/contribute/documentation_standard.md:54
+msgid "What can I call?"
+msgstr "我能调用什么？"
+
+#: manual/contribute/documentation_standard.md:54
+msgid "Every public type, trait and function, grouped by purpose, with signatures and semantics."
+msgstr "所有公开的类型、trait 和函数，按用途分组，并附签名与语义。"
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Why is it like this?"
+msgstr "为什么是这样？"
+
+#: manual/contribute/documentation_standard.md:55
+msgid "Goals, constraints, the decisions taken and the alternatives rejected."
+msgstr "目标、约束、所做的决策以及被否决的替代方案。"
+
+#: manual/contribute/documentation_standard.md:56
+msgid "How do I use it?"
+msgstr "我该如何使用？"
+
+#: manual/contribute/documentation_standard.md:56
+msgid "A task worked from start to finish with small examples that compile."
+msgstr "一个从头到尾完成的任务，配有可编译的小示例。"
+
+#: manual/contribute/documentation_standard.md:58
+msgid "The page is named after the package path relative to the source root: the package at `src/core` is documented in `api/core.md`, `design/core.md` and `tutorial/core.md`; a package at `src/backend/dense` in `api/backend/dense.md` and so on. Every documented package has a page in all three chapters."
+msgstr "页面按包相对于源代码根目录的路径命名：`src/core` 中的包记录在 `api/core.md`、`design/core.md` 和 `tutorial/core.md` 中；`src/backend/dense` 中的包记录在 `api/backend/dense.md` 等页面中。每个有文档的包在全部三章中都有页面。"
+
+#: manual/contribute/documentation_standard.md:60
+msgid "A repository may add the chapters `conformance/` (what a standard or specification requires and how a package meets it), `performance/` (measurements and their method) and `integration/` (how other packages use one). A chapter may have an `index.md` that introduces it. Other chapters need a rule in `conventions.md`."
+msgstr "仓库可以添加以下章节：`conformance/`（某个标准或规范有哪些要求，以及包如何满足它们）、`performance/`（测量结果及其方法）和 `integration/`（其他包如何使用某个包）。章节可以有一个介绍该章的 `index.md`。其他章节需要在 `conventions.md` 中制定规则。"
+
+#: manual/contribute/documentation_standard.md:62
+msgid "Guides"
+msgstr "指南"
+
+#: manual/contribute/documentation_standard.md:64
+msgid "Pages directly under `manual/` are guides that span packages: `getting_started.md`, `architecture.md`, `verification.md` and similar. Use lowercase file names with underscores between words."
+msgstr "直接位于 `manual/` 下的页面是跨包的指南：`getting_started.md`、`architecture.md`、`verification.md` 等。文件名使用小写，单词之间用下划线分隔。"
+
+#: manual/contribute/documentation_standard.md:66
+msgid "Page structure"
+msgstr "页面结构"
+
+#: manual/contribute/documentation_standard.md:68
+msgid "A page starts with exactly one level-one heading. It is the page title."
+msgstr "页面以恰好一个一级标题开头，它就是页面标题。"
+
+#: manual/contribute/documentation_standard.md:69
+msgid "Headings use sentence case: \"Design decisions\", not \"Design Decisions\"."
+msgstr "标题使用句子式大小写：写作“Design decisions”，而不是“Design Decisions”。"
+
+#: manual/contribute/documentation_standard.md:70
+msgid "Do not skip heading levels."
+msgstr "不要跳过标题级别。"
+
+#: manual/contribute/documentation_standard.md:71
+msgid "An API page lists each item under a heading named after it, in code: ``## `Hom::then` ``. The first sentence after the heading states what the item does."
+msgstr "API 页面将每一项列在以其名称（以代码形式书写）命名的标题下：``## `Hom::then` ``。标题后的第一句说明该项的作用。"
+
+#: manual/contribute/documentation_standard.md:72
+msgid "A design page ends with its boundaries: what the package deliberately does not do."
+msgstr "设计页面以其边界结尾：说明该包有意不做的事情。"
+
+#: manual/contribute/documentation_standard.md:73
+msgid "A tutorial states its goal in the first paragraph and ends with where to go next."
+msgstr "教程在第一段说明其目标，并在结尾指出接下来该去哪里。"
+
+#: manual/contribute/documentation_standard.md:75
+msgid "Front matter is optional. When present it may set `title` (when the navigation label should differ from the heading) and `description` (one sentence for search results). Both are translated."
+msgstr "Front matter 是可选的。如果存在，它可以设置 `title`（当导航标签需要与标题不同时）和 `description`（用于搜索结果的一句话）。两者都会被翻译。"
+
+#: manual/contribute/documentation_standard.md:77
+msgid "Links"
+msgstr "链接"
+
+#: manual/contribute/documentation_standard.md:79
+msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
+msgstr "使用指向 Markdown 文件的相对路径链接到其他页面：`[design](../design/core.md)`、`[overview](../index.md)`。站点会为每种语言将它们转换为正确的路由。使用站点的绝对 URL 链接到其他仓库，例如 `https://luna-flow.github.io/en/luna-generic/`。使用从 `doc/` 向外的相对路径链接到源代码，例如 `../../src/hom.mbt`；站点会将其转换为 GitHub 链接。"
+
+#: manual/contribute/documentation_standard.md:81
+msgid "Checks"
+msgstr "检查"
+
+#: manual/contribute/documentation_standard.md:83
+msgid "`lunadoc check` fails when:"
+msgstr "`lunadoc check` 在以下情况下会失败："
+
+#: manual/contribute/documentation_standard.md:85
+msgid "`conf.json` or `manual/index.md` is missing;"
+msgstr "缺少 `conf.json` 或 `manual/index.md`；"
+
+#: manual/contribute/documentation_standard.md:86
+msgid "the retired per-language layout is present;"
+msgstr "存在已废弃的按语言分目录布局；"
+
+#: manual/contribute/documentation_standard.md:87
+msgid "the catalogs do not match the English source;"
+msgstr "翻译目录与英文源不一致；"
+
+#: manual/contribute/documentation_standard.md:88
+msgid "a relative link points to a file that does not exist, or leaves the repository;"
+msgstr "相对链接指向不存在的文件，或指向仓库之外；"
+
+#: manual/contribute/documentation_standard.md:89
+msgid "a Typst attachment does not compile (with `--compile`)."
+msgstr "Typst 附件无法编译（使用 `--compile` 时）。"
+
+#: manual/contribute/documentation_standard.md:91
+msgid "It warns about fuzzy translations and a missing summary."
+msgstr "它还会对 fuzzy 译文和缺失的摘要发出警告。"
+
+#: manual/contribute/index.md:1
+msgid "Contributing to the documentation"
+msgstr "为文档做贡献"
+
+#: manual/contribute/index.md:3
+msgid "Luna Flow documentation lives next to the code it describes. Each repository keeps its manual in `doc/`, written in English, and keeps translations as gettext catalogs beside it. This site collects every repository on each build, so a change merged into `main` appears here without any change to the site itself."
+msgstr "Luna Flow 的文档与它所描述的代码放在一起。每个仓库都把用英文编写的手册保存在 `doc/` 中，并在旁边以 gettext 翻译目录的形式保存译文。本站在每次构建时收集所有仓库，因此合并到 `main` 的更改无需修改站点本身即可出现在这里。"
+
+#: manual/contribute/index.md:5
+msgid "The same rules apply to every repository:"
+msgstr "同样的规则适用于每个仓库："
+
+#: manual/contribute/index.md:7
+msgid "[Documentation standard](documentation_standard.md): where files go and what each page contains."
+msgstr "[文档规范](documentation_standard.md)：文件放在哪里，以及每个页面包含什么。"
+
+#: manual/contribute/index.md:8
+msgid "[Writing and markup](writing.md): headings, code, mathematics, notes and admonitions."
+msgstr "[写作与标记](writing.md)：标题、代码、数学、旁注与提示框。"
+
+#: manual/contribute/index.md:9
+msgid "[Attachments](attachments.md): Typst documents, PDFs and images."
+msgstr "[附件](attachments.md)：Typst 文档、PDF 与图片。"
+
+#: manual/contribute/index.md:10
+msgid "[Translation](translation.md): how the gettext workflow keeps every language in step with English."
+msgstr "[翻译](translation.md)：gettext 工作流程如何让每种语言与英文保持同步。"
+
+#: manual/contribute/index.md:12
+msgid "Tools"
+msgstr "工具"
+
+#: manual/contribute/index.md:14
+msgid "All commands come from `lunadoc`, which lives in the site repository. Clone it next to the repository you are working on:"
+msgstr "所有命令都来自位于站点仓库中的 `lunadoc`。将站点仓库克隆到你正在工作的仓库旁边："
+
+#: manual/contribute/index.md:21
+msgid "Then, from your repository:"
+msgstr "然后，在你的仓库中运行："
+
+#: manual/contribute/index.md:29
+msgid "`check` is what continuous integration runs. A pull request that changes `doc/manual` must also contain the updated catalogs produced by `update`."
+msgstr "`check` 是持续集成运行的命令。修改了 `doc/manual` 的拉取请求必须同时包含由 `update` 生成的已更新翻译目录。"
+
+#: manual/contribute/index.md:31
+msgid "Previewing the site"
+msgstr "预览站点"
+
+#: manual/contribute/index.md:33
+msgid "Run the site with your repository next to it:"
+msgstr "将你的仓库放在站点旁边，然后运行站点："
+
+#: manual/contribute/index.md:40
+msgid "Without a repository manifest the build includes every sibling directory that has `doc/conf.json`, so a local preview shows your unpublished changes."
+msgstr "没有仓库清单时，构建会包含所有带有 `doc/conf.json` 的同级目录，因此本地预览会显示你尚未发布的更改。"
+
+#: manual/contribute/translation.md:1
+msgid "Translation"
+msgstr "翻译"
+
+#: manual/contribute/translation.md:3
+msgid "Luna Flow translates its documentation the way the Blender manual does: English pages are the only source, and every other language is a gettext catalog of translated messages. A page in Chinese or Japanese is generated from the English page and the catalog when the site is built."
+msgstr "Luna Flow 以 Blender 手册的方式翻译文档：英文页面是唯一的源，其他每种语言都是一个由已翻译消息组成的 gettext 翻译目录。构建站点时，中文或日文页面由英文页面和翻译目录生成。"
+
+#: manual/contribute/translation.md:5
+msgid "This has three consequences:"
+msgstr "这带来了三个结果："
+
+#: manual/contribute/translation.md:7
+msgid "A language can never fall out of structure with English. Pages, headings, code and links come from one source."
+msgstr "任何语言的结构都不会与英文脱节。页面、标题、代码和链接都来自同一个源。"
+
+#: manual/contribute/translation.md:8
+msgid "An untranslated or outdated passage is shown in English instead of disappearing or being wrong. The page says how much of it is translated."
+msgstr "未翻译或过时的段落会以英文显示，而不会消失或出错。页面会说明其中已翻译的比例。"
+
+#: manual/contribute/translation.md:9
+msgid "The site knows the coverage of every page and every repository, and shows it in the library."
+msgstr "站点掌握每个页面和每个仓库的翻译覆盖率，并在文档库中显示。"
+
+#: manual/contribute/translation.md:11
+msgid "Messages"
+msgstr "消息"
+
+#: manual/contribute/translation.md:13
+msgid "`lunadoc` splits every page into messages: headings, paragraphs, list items, table cells, and the `title` and `description` front matter keys. Code blocks, display mathematics and raw HTML are never messages; they appear in every language exactly as written in English."
+msgstr "`lunadoc` 将每个页面拆分为消息：标题、段落、列表项、表格单元格，以及 front matter 中的 `title` 和 `description` 键。代码块、行间公式和原始 HTML 永远不是消息；它们在每种语言中都与英文原文完全相同。"
+
+#: manual/contribute/translation.md:15
+msgid "A paragraph that wraps over several lines is one message. Re-wrapping English text does not change its message, so it does not invalidate translations."
+msgstr "跨越多行的段落是一条消息。重新折行英文文本不会改变其消息，因此不会使译文失效。"
+
+#: manual/contribute/translation.md:17
+msgid "The workflow"
+msgstr "工作流程"
+
+#: manual/contribute/translation.md:19
+msgid "Edit the English pages in `doc/manual`."
+msgstr "在 `doc/manual` 中编辑英文页面。"
+
+#: manual/contribute/translation.md:20
+msgid "Run `lunadoc update`. It regenerates `doc/locale/manual.pot` and merges it into every `manual.po`."
+msgstr "运行 `lunadoc update`。它会重新生成 `doc/locale/manual.pot`，并将其合并到每个 `manual.po` 中。"
+
+#: manual/contribute/translation.md:21
+msgid "Commit the pages and the catalogs together."
+msgstr "将页面和翻译目录一起提交。"
+
+#: manual/contribute/translation.md:23
+msgid "`update` behaves like GNU `msgmerge`:"
+msgstr "`update` 的行为与 GNU `msgmerge` 相同："
+
+#: manual/contribute/translation.md:25
+msgid "A message whose English text is unchanged keeps its translation."
+msgstr "英文文本未改变的消息保留其译文。"
+
+#: manual/contribute/translation.md:26
+msgid "A message whose English text changed takes the translation of the most similar old message and is marked `fuzzy`. The previous English text is kept in a `#| msgid` comment so a translator can see what changed."
+msgstr "英文文本发生变化的消息会采用最相似旧消息的译文，并被标记为 `fuzzy`。之前的英文文本保存在 `#| msgid` 注释中，以便译者查看改动。"
+
+#: manual/contribute/translation.md:27
+msgid "A translation whose message disappeared is kept as an obsolete entry (`#~`) at the end of the catalog, where `update` can recover it later."
+msgstr "消息已消失的译文会作为废弃条目（`#~`）保留在翻译目录末尾，`update` 之后可以从那里恢复它。"
+
+#: manual/contribute/translation.md:29
+msgid "Fuzzy translations are not shown on the site. They count as untranslated until a translator reviews them and removes the `fuzzy` flag."
+msgstr "fuzzy 译文不会在站点上显示。在译者审阅并移除 `fuzzy` 标记之前，它们都算作未翻译。"
+
+#: manual/contribute/translation.md:31
+msgid "Translating"
+msgstr "进行翻译"
+
+#: manual/contribute/translation.md:33
+msgid "Open `doc/locale/<locale>/LC_MESSAGES/manual.po` in a text editor or a gettext editor such as Poedit, and fill in `msgstr` for each `msgid`:"
+msgstr "在文本编辑器或 Poedit 等 gettext 编辑器中打开 `doc/locale/<locale>/LC_MESSAGES/manual.po`，为每个 `msgid` 填写 `msgstr`："
+
+#: manual/contribute/translation.md:41
+msgid "When translating:"
+msgstr "翻译时："
+
+#: manual/contribute/translation.md:43
+msgid "Keep inline code, mathematics and link destinations exactly as in English. Translate link text."
+msgstr "行内代码、数学公式和链接目标必须与英文完全一致。链接文字需要翻译。"
+
+#: manual/contribute/translation.md:44
+msgid "Keep Markdown markup: emphasis, inline code and links must still be balanced."
+msgstr "保留 Markdown 标记：强调、行内代码和链接必须保持配对完整。"
+
+#: manual/contribute/translation.md:45
+msgid "Keep a GitHub alert marker such as `[!NOTE]` at the start of the message."
+msgstr "将 GitHub 提示标记（例如 `[!NOTE]`）保留在消息开头。"
+
+#: manual/contribute/translation.md:46
+msgid "Do not translate identifiers, even in prose."
+msgstr "不要翻译标识符，即使它们出现在正文中。"
+
+#: manual/contribute/translation.md:47
+msgid "Leave `msgstr` empty rather than guessing. An empty message falls back to English."
+msgstr "与其猜测，不如将 `msgstr` 留空。空消息会回退到英文。"
+
+#: manual/contribute/translation.md:49
+msgid "Check the result with `lunadoc status --pages` and preview it with the site."
+msgstr "使用 `lunadoc status --pages` 检查结果，并通过站点预览。"
+
+#: manual/contribute/translation.md:51
+msgid "Locales"
+msgstr "语言环境"
+
+#: manual/contribute/translation.md:53
+msgid "Locale names follow gettext: `zh_CN` for Simplified Chinese and `ja_JP` for Japanese. They appear in `conf.json`, in the catalog paths and in `config/locales.json` of the site, which also gives each locale its URL segment and display name. Adding a language to the site means adding it there; adding it to a repository means listing it in `conf.json` and running `update`."
+msgstr "语言环境名称遵循 gettext：`zh_CN` 表示简体中文，`ja_JP` 表示日语。它们出现在 `conf.json`、翻译目录路径以及站点的 `config/locales.json` 中，后者还为每个语言环境指定 URL 路径段和显示名称。为站点添加一种语言，就是在那里添加它；为仓库添加一种语言，就是在 `conf.json` 中列出它并运行 `update`。"
+
+#: manual/contribute/writing.md:1
+msgid "Writing and markup"
+msgstr "写作与标记"
+
+#: manual/contribute/writing.md:3
+msgid "Pages are GitHub-flavoured Markdown. Everything described here also renders on GitHub, so a page read in the repository and the same page on this site say the same thing."
+msgstr "页面使用 GitHub 风格的 Markdown 编写。这里描述的所有内容在 GitHub 上同样能够渲染，因此在仓库中阅读的页面与本站上的同一页面内容一致。"
+
+#: manual/contribute/writing.md:5
+msgid "Code"
+msgstr "代码"
+
+#: manual/contribute/writing.md:7
+msgid "Fence MoonBit code with `moonbit` (or `mbt`). Interface excerpts can use `mbti`."
+msgstr "用 `moonbit`（或 `mbt`）标记 MoonBit 代码块。接口摘录可以使用 `mbti`。"
+
+#: manual/contribute/writing.md:15
+msgid "Keep examples small and make sure they compile. Prefer one complete example over several fragments."
+msgstr "保持示例简短，并确保它们能够编译。与其给出多个片段，不如给出一个完整示例。"
+
+#: manual/contribute/writing.md:17
+msgid "Mathematics"
+msgstr "数学"
+
+#: manual/contribute/writing.md:19
+msgid "Write mathematics in TeX notation: `$f(x + y) = f(x) + f(y)$` inline and a `$$` block for display."
+msgstr "使用 TeX 记法书写数学：行内用 `$f(x + y) = f(x) + f(y)$`，行间公式用 `$$` 块。"
+
+#: manual/contribute/writing.md:25
+msgid "Mathematics is not translated. Use words around it for what needs translating."
+msgstr "数学公式不会被翻译。需要翻译的内容请写在公式周围的文字中。"
+
+#: manual/contribute/writing.md:27
+msgid "Notes in the margin"
+msgstr "旁注"
+
+#: manual/contribute/writing.md:29
+msgid "Footnotes become margin notes on wide screens and stay footnotes on narrow ones. Use them for remarks a reader may skip: a reference, a historical note, a proof sketch.[^margin]"
+msgstr "脚注在宽屏上显示为旁注，在窄屏上仍为脚注。将它们用于读者可以跳过的备注：参考文献、历史说明、证明概要。[^margin]"
+
+#: manual/contribute/writing.md:31
+msgid "Like this one. Write the footnote definition right after the paragraph that uses it."
+msgstr "就像这一条。将脚注定义写在使用它的段落之后。"
+
+#: manual/contribute/writing.md:33
+msgid "Admonitions"
+msgstr "提示框"
+
+#: manual/contribute/writing.md:35
+msgid "Use GitHub alerts for the few things a reader must not miss:"
+msgstr "对于读者绝不能错过的少数内容，使用 GitHub 提示："
+
+#: manual/contribute/writing.md:37
+msgid "[!NOTE] Fixed-width integers wrap on overflow, so they are not the integers."
+msgstr "[!NOTE] 定宽整数在溢出时会回绕，因此它们并不是数学意义上的整数。"
+
+#: manual/contribute/writing.md:40
+msgid "The kinds are `NOTE`, `TIP`, `IMPORTANT`, `WARNING` and `CAUTION`. Facts that every reader needs belong in the text itself, not in an alert. An optional aside is a plain block quote."
+msgstr "提示的种类有 `NOTE`、`TIP`、`IMPORTANT`、`WARNING` 和 `CAUTION`。每位读者都需要知道的事实应写在正文中，而不是放在提示里。可选的补充说明使用普通引用块。"
+
+#: manual/contribute/writing.md:42
+msgid "Tables"
+msgstr "表格"
+
+#: manual/contribute/writing.md:44
+msgid "Use tables for facts that line up: signatures and meanings, options and defaults. Keep cells short; a cell that needs a paragraph belongs in the text."
+msgstr "对能够对齐排列的事实使用表格：签名与含义、选项与默认值。保持单元格简短；需要一整段文字的单元格应写进正文。"
+
+#: manual/contribute/writing.md:46
+msgid "Style"
+msgstr "风格"
+
+#: manual/contribute/writing.md:48
+msgid "Write in the present tense and the active voice."
+msgstr "使用现在时和主动语态。"
+
+#: manual/contribute/writing.md:49
+msgid "Use the second person for instructions: \"Run `lunadoc update`.\""
+msgstr "对操作说明使用第二人称：“运行 `lunadoc update`。”"
+
+#: manual/contribute/writing.md:50
+msgid "Name a thing the way the code names it, in code: `Hom::postulate`, not \"the postulate function\"."
+msgstr "按代码中的名称称呼事物，并以代码形式书写：写 `Hom::postulate`，而不是“postulate 函数”。"
+
+#: manual/contribute/writing.md:51
+msgid "Prefer a sentence to a bullet list when the items depend on each other."
+msgstr "当各项相互依赖时，用句子代替项目符号列表。"
+
+#: manual/index.md:1
+msgid "Scientific computing for MoonBit."
+msgstr "面向 MoonBit 的科学计算。"
+
+#: manual/index.md:6
+msgid "Scientific computing for MoonBit"
+msgstr "面向 MoonBit 的科学计算"
+
+#: manual/index.md:8
+msgid "Algebraic traits, number types and numerical methods that work together. Write an algorithm once, then run it on integers, floating point, decimals, complex numbers or matrices."
+msgstr "协同工作的代数 trait、数值类型与数值方法。算法只写一次，就能在整数、浮点数、十进制数、复数或矩阵上运行。"
+
+#~ msgid "Drag to turn the surface · click to replay"
+#~ msgstr "拖动旋转曲面 · 点击重播"
+
+#~ msgid "Drag to turn · click to start again"
+#~ msgstr "拖动旋转 · 点击重新开始"

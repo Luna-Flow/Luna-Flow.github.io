@@ -1,45 +1,52 @@
-# Luna Flow Documentation Site
+# Luna-Flow documentation site
 
-This repository builds the multilingual documentation directory for the Luna-Flow organization.
+This repository builds <https://luna-flow.github.io>, the documentation of every Luna-Flow repository, and hosts `lunadoc`, the tool that keeps those docs in shape. The contributor guide that every repository follows is part of the site itself: [content/manual/contribute](content/manual/contribute/index.md).
 
-## Repository discovery
+## How it works
 
-The deployment workflow discovers repositories from the GitHub organization on every build. A repository is eligible when it is public, is not a fork, and is not listed in `docs/repo-docs.config.json` under `exclude`. Archived repositories remain eligible. Every eligible repository is fetched from `main`; branch overrides are intentionally unsupported.
+Each repository keeps its manual in `doc/`: English pages in `doc/manual`, gettext catalogs in `doc/locale`, and Typst or other attachments in `doc/attachments`. On every build:
 
-The discovery result controls which repositories may be downloaded. The category configuration does not control discovery and must never be used as an allowlist. This separation prevents a private repository visible to the build token from entering the generated site.
+1. `tools/discover-repos.mjs` lists the public, non-fork repositories of the organisation (minus `exclude` in `config/repos.json`).
+2. The workflow downloads each repository's `main` branch.
+3. `tools/prepare-site.mjs` renders every page in every locale from the English source and the catalog, rewrites links into site routes, compiles Typst attachments into PDFs, and writes the navigation, coverage and redirect data.
+4. Astro builds the site, `tools/finalize-site.mjs` writes redirects for the routes of the old site, and Pagefind indexes each language separately.
 
-Repositories without a `doc` directory are downloaded but omitted from the site. To be included, a repository must provide the standard files and at least one package document for all three locales:
+The site's own pages (home, about, contribute) use the same layout in `content/`, so the interface strings are translated through `content/locale` like everything else.
 
-- `doc/en_US/README.md` and `doc/en_US/doc_standard.md`
-- `doc/zh_CN/README.md` and `doc/zh_CN/doc_standard.md`
-- `doc/ja_JP/README.md` and `doc/ja_JP/doc_standard.md`
+## Layout
 
-An incomplete multilingual document set emits a warning and is skipped. It must not prevent complete repositories from being published.
+| Path | Contents |
+| --- | --- |
+| `config/locales.json` | Locales: gettext id, URL segment, `lang` and display name |
+| `config/repos.json` | Organisation, branch, excluded repositories, library categories |
+| `content/` | The site's own documentation and interface strings, in the standard layout |
+| `src/` | Astro pages, layouts, components, Markdown plugins and styles |
+| `tools/lunadoc/` | The documentation tool: extraction, `msgmerge`-style updates, rendering, checks, Typst builds, migration |
+| `tools/prepare-site.mjs` | Collects repositories into `.generated/` and `public/attachments/` |
+| `.github/workflows/deploy.yml` | Builds and deploys on push, daily, manually and on `repository_dispatch` (`docs-updated`) |
+| `.github/workflows/check-docs.yml` | Reusable check that every repository calls from its own `docs.yml` |
 
-## Directory categories
+## Development
 
-The `/docs/` page is a curated capability directory. Edit only `categories` in `docs/repo-docs.config.json` to change category names, descriptions, repository grouping, or display order. Repository names are displayed without the `Luna-Flow/` prefix.
+```sh
+npm ci
+npm run dev          # uses every sibling directory with doc/conf.json
+npm run build        # full build including redirects and the search index
+npm run preview
+npm test             # lunadoc unit tests
+```
 
-A discovered repository that has standard documentation but is absent from every category is placed in the localized “Other” category automatically. Therefore adding a repository to the organization does not require an immediate site configuration change.
+A local build needs `typst` on the `PATH` to compile attachments; without it the build still succeeds and reports the attachments it skipped.
 
-## Repository navigation
+To reproduce the deployed set of repositories, generate a manifest and pass it in:
 
-Files below each locale directory are collected automatically. Root files such as `README.md` and `doc_standard.md` remain repository-level pages. Package documents are grouped globally by filename, with the following fixed leading order:
+```sh
+GH_TOKEN=... node tools/discover-repos.mjs ../workspace/repositories.json
+LUNAFLOW_REPO_ROOT=../workspace LUNAFLOW_REPO_MANIFEST=../workspace/repositories.json npm run build
+```
 
-1. `api.md`
-2. `design.md`
-3. `tutorial.md`
-4. any extension type, sorted by filename
+Repositories that have not adopted the `doc/conf.json` layout are skipped with a warning.
 
-Within each document type, the sidebar preserves the repository package directory tree. For example, `backends/default/api.md` appears as `API → Backends → Default`. New document types such as `integration.md` require no generator change.
+## Design
 
-## Repeatable workflow
-
-CI performs these steps on every deployment:
-
-1. Run `node scripts/discover-repos.mjs ../workspace/repositories.json` with `GH_TOKEN`.
-2. Download every discovered repository from `main` into `../workspace`.
-3. Run `LUNAFLOW_REPO_ROOT=../workspace LUNAFLOW_REPO_MANIFEST=../workspace/repositories.json npm run docs:prepare`.
-4. Build VitePress.
-
-For local development, place the categorized Luna-Flow repositories beside this repository and run `npm run docs:dev`. Without `LUNAFLOW_REPO_MANIFEST`, the generator uses the repository names already present in the category configuration; this prevents unrelated local or private directories from entering a development build. To reproduce CI discovery exactly, generate and pass a manifest. Deployment must always provide the discovery manifest.
+Text is set for reading: a serif for Latin prose and for headings, a sans for Chinese and Japanese body text and for the interface, IBM Plex Mono for code. The text column keeps one measure; on wide screens a margin column carries the table of contents and footnotes as margin notes. Grouping comes from space and hairline rules; the only accent is the Luna-Flow magenta, used for the current location, focus and links under the pointer. Tokens are in `src/styles/tokens.css`.

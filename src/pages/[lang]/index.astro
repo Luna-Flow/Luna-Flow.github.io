@@ -1,0 +1,63 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Library from '../../components/Library.astro';
+import Hero from '../../components/landing/Hero.astro';
+import Worlds from '../../components/landing/Worlds.astro';
+import Diagram from '../../components/landing/Diagram.astro';
+import Precision from '../../components/landing/Precision.astro';
+import { locales, t } from '../../lib/site';
+import 'katex/dist/katex.min.css';
+import '../../styles/prose.css';
+import '../../styles/landing.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale.path } }));
+}
+
+const { lang } = Astro.params;
+const entry = await getEntry('docs', lang);
+const { Content } = await render(entry!);
+const pillars = [1, 2, 3];
+---
+
+<Base lang={lang} title={t(lang, 'site.name')} url={`/${lang}/`} bodyClass="landing">
+  <main id="content" class="landing-main">
+    <Hero lang={lang}><div class="hero-title" data-pagefind-body><Content /></div></Hero>
+    <Precision lang={lang} />
+    <Worlds lang={lang} />
+    <Diagram lang={lang} />
+    <section class="pillars reveal" aria-labelledby="pillars-title">
+      <p class="landing-label" id="pillars-title">{t(lang, 'landing.pillars.label')}</p>
+      <ol>
+        {
+          pillars.map((n) => (
+            <li style={`--i:${n}`}>
+              <h3>{t(lang, `landing.pillar${n}.title`)}</h3>
+              <p>{t(lang, `landing.pillar${n}.body`)}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+    <section class="summary reveal" aria-labelledby="summary-title">
+      <h2 id="summary-title">{t(lang, 'landing.summary')}</h2>
+      <p>{t(lang, 'landing.summary.lead')}</p>
+    </section>
+    <section class="landing-library reveal" aria-labelledby="library-title">
+      <header>
+        <p class="landing-label">{t(lang, 'library.title')}</p>
+        <h2 id="library-title">{t(lang, 'landing.cta.library')}</h2>
+        <p>{t(lang, 'landing.library.lead')}</p>
+      </header>
+      <Library lang={lang} level={3} />
+      <p class="landing-links">
+        <a href={`/${lang}/library/`}>{t(lang, 'landing.cta.library')}</a>
+        <a href={`/${lang}/contribute/`}>{t(lang, 'landing.cta.contribute')}</a>
+      </p>
+    </section>
+  </main>
+  <script>
+    import '../../scripts/landing';
+  </script>
+</Base>

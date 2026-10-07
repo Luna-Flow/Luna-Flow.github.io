@@ -1,0 +1,130 @@
+---
+import katex from 'katex';
+import { t } from '../../lib/site';
+import { integrals } from '../../data/integrals';
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const tex = (source: string) => katex.renderToString(source, { throwOnError: false, strict: false });
+// Limits stack against the sign, upper over lower.
+const limits = (lo?: string, hi?: string) =>
+  lo || hi ? `<span class="lim"><span>${hi ? tex(hi) : ''}</span><span>${lo ? tex(lo) : ''}</span></span>` : '';
+const formulas = integrals.map((item) => ({
+  style: item.vision ? 'vision' : 'math',
+  sign: '∫',
+  lhs: item.lhs ? tex(item.lhs) : '',
+  rhs: limits(item.lo, item.hi) + tex(item.body),
+}));
+---
+
+<section class="hero" data-hero>
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-wordmark" aria-hidden="true">Luna Flow</p>
+      <div class="hero-title"><slot /></div>
+      <p class="hero-actions">
+        <a class="hero-primary" href={`/${lang}/library/`}>{t(lang, 'landing.cta.library')}</a>
+        <a href={`/${lang}/about/`}>{t(lang, 'landing.cta.about')}</a>
+      </p>
+    </div>
+  </div>
+  <div class="formula" data-formula aria-hidden="true" data-eras={JSON.stringify(formulas)}>
+    <div class="formula-row">
+      <span class="formula-lhs"></span>
+      <span class="formula-sym"></span>
+      <span class="formula-rhs"></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { startFilm } from '../../scripts/film';
+  import { startFormulas } from '../../scripts/formulas';
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const canvas = hero?.querySelector('canvas');
+  const formula = hero?.querySelector<HTMLElement>('[data-formula]');
+  if (hero && canvas && formula) {
+    // The formula sits where the film's stage is.
+    const place = () => {
+      const w = hero.clientWidth;
+      const h = hero.clientHeight;
+      const narrow = w < 760;
+      hero.style.setProperty('--stage-x', `${narrow ? w / 2 : w * 0.7}px`);
+      hero.style.setProperty('--stage-y', `${narrow ? 56 + w * 0.48 : h * 0.48}px`);
+    };
+    place();
+    new ResizeObserver(place).observe(hero);
+    const formulas = startFormulas(formula);
+    // The film plays once per tab. After that (switching language, coming
+    // back to the page) the hero opens in its final state.
+    const KEY = 'lf-film-played';
+    let played = false;
+    try {
+      played = sessionStorage.getItem(KEY) === '1';
+    } catch {}
+    const remember = () => {
+      try {
+        sessionStorage.setItem(KEY, '1');
+      } catch {}
+    };
+    if (played) hero.classList.add('no-intro');
+    const film = startFilm(
+      canvas,
+      {
+        copy: () => hero.classList.add('show-copy'),
+        symbol: (instant) => {
+          hero.classList.add('show-formula');
+          formulas.begin(instant);
+        },
+        interactive: () => {
+          remember();
+          formulas.enableClicks(hero);
+          stopListening();
+        },
+      },
+      { skip: played },
+    );
+    // While it plays, the first wheel, swipe or paging key skips to the end
+    // instead of scrolling the page away.
+    const skipKeys = new Set([' ', 'ArrowDown', 'PageDown', 'End', 'Enter', 'Escape']);
+    const onWheel = (event: WheelEvent) => {
+      if (!film?.playing) return;
+      event.preventDefault();
+      skipNow();
+    };
+    const onTouch = (event: TouchEvent) => {
+      if (!film?.playing) return;
+      event.preventDefault();
+      skipNow();
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (!film?.playing || !skipKeys.has(event.key)) return;
+      if ((event.target as HTMLElement).closest('input, textarea, [contenteditable], dialog')) return;
+      event.preventDefault();
+      skipNow();
+    };
+    const skipNow = () => {
+      hero.classList.add('no-intro');
+      film?.skip();
+      remember();
+      stopListening();
+    };
+    const stopListening = () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchmove', onTouch);
+      window.removeEventListener('keydown', onKey);
+    };
+    if (!played) {
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchmove', onTouch, { passive: false });
+      window.addEventListener('keydown', onKey);
+    }
+  }
+  // The header sits on the hero only while the page is at the top.
+  const sync = () => document.body.classList.toggle('past-hero', window.scrollY > 24);
+  sync();
+  window.addEventListener('scroll', sync, { passive: true });
+</script>

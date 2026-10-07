@@ -1,9 +1,13 @@
-name: Deploy VitePress site to Pages
+name: Deploy documentation
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Repositories may trigger a rebuild after merging documentation:
+  #   gh api repos/Luna-Flow/Luna-Flow.github.io/dispatches -f event_type=docs-updated
+  repository_dispatch:
+    types: [docs-updated]
   schedule:
     - cron: '0 0 * * *'
 
@@ -14,59 +18,51 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout site repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
+          node-version: 24
           cache: npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Checkout Luna-Flow docs sources
+      - uses: actions/configure-pages@v6
+      - uses: typst-community/setup-typst@v5
+      - name: Install CJK fonts for Typst
+        run: sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+      - name: Fetch documentation sources
         env:
           GH_TOKEN: ${{ secrets.LUNAFLOW_DOCS_TOKEN != '' && secrets.LUNAFLOW_DOCS_TOKEN || github.token }}
         run: |
           mkdir -p ../workspace
-          node scripts/discover-repos.mjs ../workspace/repositories.json
-          node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('../workspace/repositories.json','utf8')); for (const repo of data.repositories) console.log(repo);" | while read -r repo; do
-            echo "Fetching $repo@main"
-            archive="../workspace/${repo}.tar.gz"
-            extract_dir=$(mktemp -d)
-            gh api "repos/Luna-Flow/$repo/tarball/main" > "$archive"
-            tar -xzf "$archive" -C "$extract_dir"
-            mv "$extract_dir"/* "../workspace/$repo"
-            rm -rf "$extract_dir" "$archive"
+          node tools/discover-repos.mjs ../workspace/repositories.json
+          for repo in $(node -p "require('../workspace/repositories.json').repositories.join(' ')"); do
+            branch=$(node -p "require('./config/repos.json').branch")
+            echo "Fetching $repo@$branch"
+            mkdir -p "../workspace/$repo"
+            gh api "repos/Luna-Flow/$repo/tarball/$branch" | tar -xz -C "../workspace/$repo" --strip-components=1 || echo "::warning::could not fetch $repo"
           done
-      - name: Install dependencies
-        run: npm ci
-      - name: Prepare aggregated docs
+      - run: npm ci
+      - name: Check site content
+        run: node tools/lunadoc/cli.mjs check . --doc content
+      - name: Build
         env:
           LUNAFLOW_REPO_ROOT: ../workspace
           LUNAFLOW_REPO_MANIFEST: ../workspace/repositories.json
-        run: npm run docs:prepare
-      - name: Build with VitePress
-        run: npx vitepress build docs
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v5
         with:
-          path: docs/.vitepress/dist
+          path: dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v5

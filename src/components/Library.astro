@@ -1,0 +1,41 @@
+---
+import { percent, site, t } from '../lib/site';
+interface Props {
+  lang: string;
+  level?: 2 | 3;
+}
+const { lang, level = 2 } = Astro.props;
+const Heading = `h${level}`;
+const source = lang === site.locales[0].path;
+---
+
+<div class="library">
+  {
+    site.categories.map((category) => (
+      <section class="library-category" aria-labelledby={`cat-${category.id}`}>
+        <header>
+          <Heading id={`cat-${category.id}`}>{t(lang, `category.${category.id}.title`)}</Heading>
+          <p>{t(lang, `category.${category.id}.description`)}</p>
+        </header>
+        <ul>
+          {category.repos.map((id) => {
+            const repo = site.repos[id];
+            const coverage = repo.coverage[lang] ?? 1;
+            return (
+              <li>
+                <a href={repo.nav[lang]?.[0]?.url ?? `/${lang}/${id}/`}>{repo.title}</a>
+                <p>{repo.summary[lang]}</p>
+                {!source && (
+                  <span class="coverage" title={t(lang, 'library.translated', { percent: percent(coverage, lang) })}>
+                    <span class="coverage-bar" style={`--value:${coverage}`} aria-hidden="true" />
+                    {percent(coverage, lang)}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</div>

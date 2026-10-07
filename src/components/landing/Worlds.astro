@@ -1,0 +1,66 @@
+---
+import { Code } from 'astro:components';
+import { t } from '../../lib/site';
+import { renderInline } from '../../lib/inline';
+import grammar from '../../grammars/moonbit.tmLanguage.json';
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const moonbit = { ...(grammar as any), name: 'moonbit' };
+const themes = { light: 'github-light', dark: 'github-dark-dimmed' } as const;
+
+const source = `/// Horner's rule, written once for every semiring.
+fn[R : Semiring] horner(coefficients : Array[R], x : R) -> R {
+  let mut acc : R = Zero::zero()
+  for i = coefficients.length() - 1; i >= 0; i = i - 1 {
+    acc = acc * x + coefficients[i]
+  }
+  acc
+}`;
+
+// 1 + x² in five worlds: no root among the integers, a root in ℂ and among
+// matrices.
+const worlds = [
+  { type: 'Int', call: 'horner([1, 0, 1], 7)', result: '50' },
+  { type: 'Double', call: 'horner([1.0, 0.0, 1.0], 0.5)', result: '1.25' },
+  { type: 'BigInt', call: 'horner([1N, 0N, 1N], 10000000000N)', result: '100000000000000000001' },
+  { type: 'Complex[Double]', call: 'horner([one, zero, one], i)', result: '0 + 0i' },
+  { type: 'Matrix2[Int]', call: 'horner([id, zero, id], quarter_turn)', result: '[[0, 0], [0, 0]]' },
+];
+---
+
+<section class="worlds reveal" aria-labelledby="worlds-title">
+  <div class="landing-copy">
+    <p class="landing-label">{t(lang, 'landing.worlds.label')}</p>
+    <h2 id="worlds-title">{t(lang, 'landing.worlds.title')}</h2>
+    <p set:html={renderInline(t(lang, 'landing.worlds.body'))} />
+  </div>
+  <div class="worlds-stage" data-worlds>
+    <div class="worlds-code" data-typing>
+      <Code code={source} lang={moonbit} themes={themes} defaultColor={false} />
+    </div>
+    <div class="worlds-run">
+      <ul class="worlds-types" role="tablist">
+        {
+          worlds.map((world, index) => (
+            <li>
+              <button type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} data-world={index}>
+                {world.type}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+      {
+        worlds.map((world, index) => (
+          <div class="worlds-result" data-world-panel={index} hidden={index !== 0}>
+            <Code code={`${world.call}\n// => ${world.result}`} lang={moonbit} themes={themes} defaultColor={false} />
+          </div>
+        ))
+      }
+      <span class="worlds-progress" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

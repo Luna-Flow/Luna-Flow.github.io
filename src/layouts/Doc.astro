@@ -1,0 +1,139 @@
+---
+import '../styles/prose.css';
+import 'katex/dist/katex.min.css';
+import Base from './Base.astro';
+import NavTree from '../components/NavTree.astro';
+import { flatten, percent, site, t, type NavItem } from '../lib/site';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  data: Record<string, any>;
+  headings: Heading[];
+  lang: string;
+}
+
+const { data, headings, lang } = Astro.props;
+const isSite = data.repo === '_site';
+const repo = isSite ? site.site : site.repos[data.repo];
+const nav: NavItem[] = repo?.nav[lang] ?? [];
+const flat = flatten(nav);
+const position = flat.findIndex((item) => item.url === data.url);
+const prev = position > 0 ? flat[position - 1] : null;
+const next = position >= 0 && position < flat.length - 1 ? flat[position + 1] : null;
+const toc = headings.filter((heading) => (heading.depth === 2 || heading.depth === 3) && heading.slug !== 'footnote-label');
+const coverage = data.coverage.total ? data.coverage.translated / data.coverage.total : 1;
+const showNotice = data.locale !== 'en_US' && coverage < 1;
+const crumbs = [
+  ...(isSite ? [] : [{ label: t(lang, 'nav.library'), url: `/${lang}/library/` }, { label: data.repoTitle, url: repo?.nav[lang]?.[0]?.url }]),
+  ...(data.docType ? [{ label: t(lang, `doctype.${data.docType}`) }] : []),
+  ...(data.package && !isSite ? data.package.split('/').map((part: string) => ({ label: part, code: true })) : []),
+];
+const issueUrl = `${data.issueRepo}?${new URLSearchParams({
+  title: `docs: ${data.title}`,
+  body: `Page: ${new URL(data.url, Astro.site)}\nSource: ${data.sourceUrl}\nLanguage: ${data.locale}\n\n`,
+})}`;
+const pdfStrings = Object.fromEntries(
+  ['kind', 'open', 'download', 'page', 'zoomIn', 'zoomOut', 'fit', 'loading', 'error', 'expand', 'collapse'].map((key) => [key, t(lang, `pdf.${key}`)]),
+);
+---
+
+<Base lang={lang} title={data.title} description={data.description} url={data.url} bodyClass="has-sidebar">
+  <div class="doc-layout">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-inner">
+        {
+          !isSite && repo && (
+            <div class="sidebar-repo">
+              <a class="sidebar-repo-title" href={nav[0]?.url}>{repo.title}</a>
+              {repo.summary[lang] && <p>{repo.summary[lang]}</p>}
+            </div>
+          )
+        }
+        <nav aria-label={isSite ? t(lang, 'site.name') : repo?.title}>
+          <NavTree items={nav} current={data.url} />
+        </nav>
+      </div>
+    </aside>
+
+    <main id="content" class="doc-main">
+      <article class:list={['doc', toc.length > 1 && 'has-toc']} data-pagefind-body data-pagefind-meta={`repo:${isSite ? '' : data.repoTitle}`}>
+        {
+          crumbs.length > 0 && (
+            <nav class="breadcrumbs" aria-label="Breadcrumb" data-pagefind-ignore>
+              <ol>
+                {crumbs.map((crumb) => (
+                  <li>{crumb.url ? <a href={crumb.url}>{crumb.label}</a> : <span class:list={[crumb.code && 'code']}>{crumb.label}</span>}</li>
+                ))}
+              </ol>
+            </nav>
+          )
+        }
+        {
+          toc.length > 1 && (
+            <nav class="toc" aria-label={t(lang, 'toc.title')} data-pagefind-ignore>
+              <details open>
+                <summary>{t(lang, 'toc.title')}</summary>
+                <ol>
+                  {toc.map((heading) => (
+                    <li class={`toc-depth-${heading.depth}`}>
+                      <a href={`#${heading.slug}`}>{heading.text}</a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            </nav>
+          )
+        }
+        {
+          showNotice && (
+            <p class="translation-notice" data-pagefind-ignore>
+              {coverage === 0 ? t(lang, 'notice.none') : t(lang, 'notice.partial', { percent: percent(coverage, lang) })}{' '}
+              {data.translationUrl && <a href={`/${lang}/contribute/translation/`}>{t(lang, 'notice.help')}</a>}
+            </p>
+          )
+        }
+        {!data.hasH1 && <h1>{data.title}</h1>}
+        <div class="prose">
+          <slot />
+        </div>
+
+        <footer class="doc-footer" data-pagefind-ignore>
+          {
+            (prev || next) && (
+              <nav class="pager">
+                {prev ? (
+                  <a class="pager-prev" href={prev.url} rel="prev">
+                    <span>{t(lang, 'page.prev')}</span>
+                    {prev.chapterLabel ? `${prev.chapterLabel} · ${prev.label}` : prev.label}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {next && (
+                  <a class="pager-next" href={next.url} rel="next">
+                    <span>{t(lang, 'page.next')}</span>
+                    {next.chapterLabel ? `${next.chapterLabel} · ${next.label}` : next.label}
+                  </a>
+                )}
+              </nav>
+            )
+          }
+          <ul class="page-actions">
+            <li><a href={data.editUrl}>{t(lang, 'page.edit')}</a></li>
+            {data.translationUrl && <li><a href={data.translationUrl}>{t(lang, 'page.translate')}</a></li>}
+            <li><a href={issueUrl}>{t(lang, 'page.report')}</a></li>
+          </ul>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <script type="application/json" id="pdf-strings" set:html={JSON.stringify(pdfStrings)} />
+  <script>
+    import '../scripts/pdf-reader';
+    import '../scripts/doc';
+  </script>
+</Base>

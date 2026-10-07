@@ -1,0 +1,52 @@
+---
+import { t } from '../../lib/site';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+---
+
+<section class="precision" data-precision aria-labelledby="precision-title">
+  <div class="precision-copy">
+    <p class="landing-label">{t(lang, 'landing.precision.label')}</p>
+    <h2 id="precision-title">{t(lang, 'landing.precision.title')}</h2>
+    <p>{t(lang, 'landing.precision.body')}</p>
+  </div>
+  <div class="precision-stage">
+    <canvas aria-hidden="true"></canvas>
+    <figure class="precision-readout" aria-hidden="true">
+      <p class="readout-legend">
+        <span class="swatch swatch-float"></span><code>Float</code>
+        <span class="swatch swatch-double"></span><code>Double</code>
+      </p>
+      <dl class="readout-values">
+        <div><dt><var>t</var></dt><dd data-t>0.00</dd></div>
+        <div><dt>|Δ|</dt><dd data-gap>0</dd></div>
+      </dl>
+    </figure>
+  </div>
+</section>
+
+<script>
+  import { startLorenz } from '../../scripts/lorenz';
+  const section = document.querySelector<HTMLElement>('[data-precision]');
+  const canvas = section?.querySelector('canvas');
+  if (section && canvas) {
+    const tOut = section.querySelector('[data-t]')!;
+    const gapOut = section.querySelector('[data-gap]')!;
+    const SUPER: Record<string, string> = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+    const format = (gap: number) => {
+      if (gap === 0) return '0';
+      if (gap >= 0.01) return gap.toFixed(2);
+      const [mantissa, exponent] = gap.toExponential(1).split('e');
+      return `${mantissa} × 10${[...String(Number(exponent))].map((c) => SUPER[c] ?? c).join('')}`;
+    };
+    let frame = 0;
+    startLorenz(canvas, ({ t, gap, parted }) => {
+      if (frame++ % 4) return;
+      tOut.textContent = t.toFixed(2);
+      gapOut.textContent = format(gap);
+      section.toggleAttribute('data-parted', parted !== null);
+    });
+  }
+</script>
