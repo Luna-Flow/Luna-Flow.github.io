@@ -733,8 +733,8 @@ msgid "Links"
 msgstr "リンク"
 
 #: manual/contribute/documentation_standard.md:79
-msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
-msgstr "他のページへは、Markdown ファイルへの相対パスでリンクします（`[design](../design/core.md)`、`[overview](../index.md)`）。サイトがそれを各言語の正しいルートに変換します。他のリポジトリへは、`https://luna-flow.github.io/en/luna-generic/` のようなサイトの絶対 URL でリンクします。ソースコードへは、`../../src/hom.mbt` のように `doc/` の外へ出る相対パスでリンクします。サイトがそれを GitHub へのリンクに変換します。"
+msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://lunaflow.cn/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
+msgstr "他のページへは、Markdown ファイルへの相対パスでリンクします（`[design](../design/core.md)`、`[overview](../index.md)`）。サイトがそれを各言語の正しいルートに変換します。他のリポジトリへは、`https://lunaflow.cn/en/luna-generic/` のようなサイトの絶対 URL でリンクします。ソースコードへは、`../../src/hom.mbt` のように `doc/` の外へ出る相対パスでリンクします。サイトがそれを GitHub へのリンクに変換します。"
 
 #: manual/contribute/documentation_standard.md:81
 msgid "Checks"

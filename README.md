@@ -1,6 +1,6 @@
 # Luna-Flow documentation site
 
-This repository builds <https://luna-flow.github.io>, the documentation of every Luna-Flow repository, and hosts `lunadoc`, the tool that keeps those docs in shape. The contributor guide that every repository follows is part of the site itself: [content/manual/contribute](content/manual/contribute/index.md).
+This repository builds <https://lunaflow.cn>, the documentation of every Luna-Flow repository, and hosts `lunadoc`, the tool that keeps those docs in shape. The contributor guide that every repository follows is part of the site itself: [content/manual/contribute](content/manual/contribute/index.md).
 
 ## How it works
 

@@ -76,7 +76,7 @@ Front matter is optional. When present it may set `title` (when the navigation l
 
 ## Links
 
-Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link.
+Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://lunaflow.cn/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link.
 
 ## Checks
 

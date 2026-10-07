@@ -733,8 +733,8 @@ msgid "Links"
 msgstr "链接"
 
 #: manual/contribute/documentation_standard.md:79
-msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://luna-flow.github.io/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
-msgstr "使用指向 Markdown 文件的相对路径链接到其他页面：`[design](../design/core.md)`、`[overview](../index.md)`。站点会为每种语言将它们转换为正确的路由。使用站点的绝对 URL 链接到其他仓库，例如 `https://luna-flow.github.io/en/luna-generic/`。使用从 `doc/` 向外的相对路径链接到源代码，例如 `../../src/hom.mbt`；站点会将其转换为 GitHub 链接。"
+msgid "Link to other pages with relative paths to the Markdown file: `[design](../design/core.md)`, `[overview](../index.md)`. The site turns them into the right route for every language. Link to other repositories with absolute site URLs such as `https://lunaflow.cn/en/luna-generic/`. Link to source code with a relative path out of `doc/`, for example `../../src/hom.mbt`; the site turns it into a GitHub link."
+msgstr "使用指向 Markdown 文件的相对路径链接到其他页面：`[design](../design/core.md)`、`[overview](../index.md)`。站点会为每种语言将它们转换为正确的路由。使用站点的绝对 URL 链接到其他仓库，例如 `https://lunaflow.cn/en/luna-generic/`。使用从 `doc/` 向外的相对路径链接到源代码，例如 `../../src/hom.mbt`；站点会将其转换为 GitHub 链接。"
 
 #: manual/contribute/documentation_standard.md:81
 msgid "Checks"

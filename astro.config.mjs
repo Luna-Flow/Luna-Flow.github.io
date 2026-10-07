@@ -10,7 +10,7 @@ import rehypeSidenotes from './src/plugins/rehype-sidenotes.mjs';
 const moonbit = JSON.parse(fs.readFileSync(new URL('./src/grammars/moonbit.tmLanguage.json', import.meta.url), 'utf8'));
 
 export default defineConfig({
-  site: 'https://luna-flow.github.io',
+  site: 'https://lunaflow.cn',
   trailingSlash: 'always',
   build: { format: 'directory' },
   markdown: {
