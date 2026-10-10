@@ -35,6 +35,31 @@ The reader shows the title from the link text, renders pages on demand, and offe
 
 When a document has locale variants, every language links to the same name and the site picks the variant of the page's locale, falling back to the version without a locale suffix.
 
+## Diagrams
+
+Write diagrams that benefit from automatic layout in Graphviz DOT. Save the `.dot` source in `doc/attachments/`; the site renders it to an SVG with the same name during the build. Commit the DOT source, not the generated SVG.
+
+Use the page path, an underscore, and a descriptive name for the file. For a diagram used on `core/api.md`, for example, use `core_api_composition.dot`. Reference the DOT source with Markdown image syntax:
+
+```md
+![Composition of two ring homomorphisms](../attachments/core_api_composition.dot)
+```
+
+Use a non-empty, translated alt description for every image. `lunadoc update` extracts the alt text with the surrounding Markdown paragraph. `lunadoc check` reports an error when it is empty, including for DOT images.
+
+Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:
+
+```dot
+digraph {
+  graph [fontname="sans-serif"]
+  node [fontname="sans-serif"]
+  edge [fontname="sans-serif"]
+  hom -> comp
+}
+```
+
+The renderer makes the SVG background transparent and maps default black text and outlines to the current theme colour. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language.
+
 ## Images
 
 Embed images with Markdown image syntax and a description:

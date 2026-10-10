@@ -8,7 +8,7 @@ Each repository keeps its manual in `doc/`: English pages in `doc/manual`, gette
 
 1. `tools/discover-repos.mjs` lists the public, non-fork repositories of the organisation (minus `exclude` in `config/repos.json`).
 2. The workflow downloads each repository's `main` branch.
-3. `tools/prepare-site.mjs` renders every page in every locale from the English source and the catalog, rewrites links into site routes, compiles Typst attachments into PDFs, and writes the navigation, coverage and redirect data.
+3. `tools/prepare-site.mjs` renders every page in every locale from the English source and the catalog, rewrites links into site routes, compiles Typst attachments into PDFs and Graphviz DOT attachments into SVGs, and writes the navigation, coverage and redirect data.
 4. Astro builds the site, `tools/finalize-site.mjs` writes redirects for the routes of the old site, and Pagefind indexes each language separately.
 
 The site's own pages (home, about, contribute) use the same layout in `content/`, so the interface strings are translated through `content/locale` like everything else.
@@ -36,7 +36,7 @@ npm run preview
 npm test             # lunadoc unit tests
 ```
 
-A local build needs `typst` on the `PATH` to compile attachments; without it the build still succeeds and reports the attachments it skipped.
+A local build needs `typst` and Graphviz on the `PATH` to compile attachments. Install Graphviz with `brew install graphviz` on macOS. Without Typst the build still succeeds and reports the attachments it skipped; Graphviz is required to check or build DOT attachments.
 
 To reproduce the deployed set of repositories, generate a manifest and pass it in:
 
