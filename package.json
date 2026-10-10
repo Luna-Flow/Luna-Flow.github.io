@@ -12,7 +12,7 @@
     "build": "npm run prepare-docs && astro build && node tools/finalize-site.mjs && pagefind --site dist",
     "preview": "astro preview",
     "site:update-po": "node tools/lunadoc/cli.mjs update --site .",
-    "test": "node --test tools/lunadoc/test"
+    "test": "node --test tools/lunadoc/test/*.test.mjs"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^7.3.2",
