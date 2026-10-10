@@ -2,6 +2,7 @@
 // source offsets of the destination text so tools can rewrite them in place.
 
 import { parseMarkdown } from './markdown.mjs';
+import { fromHtml } from 'hast-util-from-html';
 
 function readDestination(source, from) {
   let index = from;
@@ -66,10 +67,41 @@ export function findImages(source) {
     if (node.type === 'image' && node.position) {
       found.push({ alt: node.alt ?? '', url: node.url ?? '', line: node.position.start.line });
     }
+    if (node.type === 'imageReference' && node.position) {
+      const definition = findDefinition(tree, node.identifier);
+      found.push({ alt: node.alt ?? '', url: definition?.url ?? '', line: node.position.start.line });
+    }
+    if (node.type === 'html' && node.position) {
+      const html = fromHtml(node.value ?? '', { fragment: true });
+      const visitHtml = (element) => {
+        if (element.type === 'element' && element.tagName === 'img') {
+          const startLine = node.position.start.line;
+          const relativeLine = element.position?.start.line ?? 1;
+          found.push({
+            alt: element.properties?.alt ?? '',
+            url: element.properties?.src ?? '',
+            line: startLine + relativeLine - 1,
+          });
+        }
+        for (const child of element.children ?? []) visitHtml(child);
+      };
+      visitHtml(html);
+    }
     for (const child of node.children ?? []) walk(child);
   };
   walk(tree);
   return found;
+}
+
+function findDefinition(tree, identifier) {
+  const normalized = identifier.toLowerCase();
+  let match;
+  const visit = (node) => {
+    if (node.type === 'definition' && node.identifier.toLowerCase() === normalized) match = node;
+    for (const child of node.children ?? []) visit(child);
+  };
+  visit(tree);
+  return match;
 }
 
 export function isExternal(url) {

@@ -14,7 +14,7 @@ msgstr "MoonBit のための組み合わせ可能な数学エコシステム。"
 #: conf.json:strings.site.name
 #: manual/index.md:1
 msgid "Luna Flow"
-msgstr "Luna Flow プロジェクト"
+msgstr "Luna Flow"
 
 #: conf.json:strings.site.description
 msgid "Documentation for the Luna Flow mathematical ecosystem for MoonBit."
@@ -40,7 +40,7 @@ msgstr "貢献"
 
 #: conf.json:strings.nav.github
 msgid "GitHub"
-msgstr "GitHub プラットフォーム"
+msgstr "GitHub"
 
 #: conf.json:strings.nav.skip
 msgid "Skip to content"
@@ -197,7 +197,7 @@ msgstr "ビジョンを読む"
 
 #: conf.json:strings.doctype.api
 msgid "API"
-msgstr "アプリケーションプログラミングインターフェース（API）"
+msgstr "API"
 
 #: conf.json:strings.doctype.design
 msgid "Design"

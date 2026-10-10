@@ -1,0 +1,26 @@
+name: Pull request checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - uses: typst-community/setup-typst@v5
+      - name: Install Graphviz
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk graphviz
+      - name: Install dependencies
+        run: npm ci
+      - name: Test lunadoc
+        run: npm test
+      - name: Check site documentation
+        run: node tools/lunadoc/cli.mjs check . --doc content --compile

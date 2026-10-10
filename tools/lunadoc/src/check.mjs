@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readCatalog } from './catalog.mjs';
-import { compileGraphviz, compileTypst, listAttachments, resolveAttachment } from './attachments.mjs';
+import { compileGraphviz, compileTypst, findAttachmentCollisions, listAttachments, resolveAttachment } from './attachments.mjs';
 import { extractTemplate, layout, listPages, readConf, readPage, SOURCE_LOCALE } from './layout.mjs';
 import { findImages, findLinks, isExternal, splitHash } from './links.mjs';
 
@@ -50,11 +50,25 @@ export function check(docDir, { compile = false, repoRoot = path.dirname(docDir)
 
   // Links and attachments.
   const attachments = listAttachments(docDir);
+  for (const collision of findAttachmentCollisions(attachments)) {
+    errors.push(`attachments/${collision.sources.join(' and ')}: output collision at ${collision.output}`);
+  }
+  const hasGraphviz = attachments.some((entry) => entry.kind === 'graphviz');
   const pages = new Set(listPages(docDir));
   for (const page of pages) {
     const source = readPage(docDir, page);
     for (const image of findImages(source)) {
-      if (!image.alt.trim()) errors.push(`manual/${page}:${image.line}: image alt text is empty: ${image.url}`);
+      const visibleAlt = image.alt.replace(/[*_~`]/g, '').trim();
+      if (!visibleAlt) errors.push(`manual/${page}:${image.line}: image alt text is empty: ${image.url}`);
+      if (image.url.endsWith('.dot')) {
+        const attachment = path.resolve(path.dirname(path.join(paths.manual, page)), decodeURIComponent(image.url));
+        const relative = path.relative(paths.attachments, attachment).split(path.sep).join('/');
+        const basename = path.posix.basename(relative).replace(/\.[a-z]{2}_[A-Z]{2}\.dot$/, '.dot');
+        const pagePrefix = `${page.replace(/\.md$/, '').replaceAll('/', '_')}_`;
+        if (!relative.startsWith('..') && !basename.startsWith(pagePrefix)) {
+          errors.push(`manual/${page}:${image.line}: Graphviz attachment name must start with ${pagePrefix}: ${image.url}`);
+        }
+      }
     }
     for (const link of findLinks(source)) {
       if (isExternal(link.url)) continue;
@@ -79,11 +93,12 @@ export function check(docDir, { compile = false, repoRoot = path.dirname(docDir)
     }
   }
 
-  if (compile || attachments.some((entry) => entry.kind === 'graphviz')) {
+  if (compile || hasGraphviz) {
     const scratch = fs.mkdtempSync(path.join(fs.realpathSync(process.env.TMPDIR ?? '/tmp'), 'lunadoc-'));
     for (const item of attachments.filter((entry) => entry.kind === 'graphviz')) {
       const result = compileGraphviz(docDir, item, scratch);
       if (!result.ok) errors.push(`attachments/${item.source} does not compile:\n${result.message}`);
+      else if (result.warnings) warnings.push(`attachments/${item.source}: ${result.warnings}`);
     }
     if (compile) {
       for (const item of attachments.filter((entry) => entry.kind === 'typst')) {

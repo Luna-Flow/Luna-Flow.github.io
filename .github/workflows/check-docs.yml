@@ -39,7 +39,7 @@ jobs:
         run: npm ci --prefix site --workspace tools/lunadoc --include-workspace-root=false
       - uses: typst-community/setup-typst@v5
       - name: Install CJK fonts and Graphviz
-        run: sudo apt-get install -y --no-install-recommends fonts-noto-cjk graphviz
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk graphviz
       - name: Translation status
         run: node site/tools/lunadoc/cli.mjs status repo
       - name: Check

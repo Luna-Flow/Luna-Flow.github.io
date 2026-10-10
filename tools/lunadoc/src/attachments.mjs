@@ -13,7 +13,10 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
+import { fromHtml } from 'hast-util-from-html';
+import { DOMParser, XMLSerializer } from '@xmldom/xmldom';
 import { layout, walkFiles } from './layout.mjs';
 
 const LOCALE_SUFFIX = /\.([a-z]{2}_[A-Z]{2})$/;
@@ -54,6 +57,17 @@ export function listAttachments(docDir) {
   return items;
 }
 
+export function findAttachmentCollisions(items) {
+  const byOutput = new Map();
+  const collisions = [];
+  for (const item of items) {
+    const previous = byOutput.get(item.output);
+    if (previous) collisions.push({ output: item.output, sources: [previous.source, item.source] });
+    else byOutput.set(item.output, item);
+  }
+  return collisions;
+}
+
 // The published path a link inside the manual resolves to, or null when it
 // does not point into attachments. `target` is relative to doc/attachments.
 export function resolveAttachment(items, target, locale) {
@@ -90,36 +104,128 @@ export function compileTypst(docDir, item, outDir, { typst = process.env.TYPST ?
   return { ok: true, output };
 }
 
-export function themeGraphvizSvg(svg) {
-  return svg
-    .replace(/\b(fill|stroke)="(?:black|#000(?:000)?)"/gi, '$1="currentColor"')
-    .replace(/<svg\b([^>]*)>/, (_, attributes) => {
-      const clean = attributes.replace(/\sdata-lunadoc-graphviz="[^"]*"/, '').replace(/\sstyle="[^"]*"/, '');
-      return `<svg${clean} data-lunadoc-graphviz="true" style="color: inherit;">`;
-    })
-    .replace(/<text\b([^>]*)>/g, (_, attributes) =>
-      /\bfill=/.test(attributes) ? `<text${attributes}>` : `<text fill="currentColor"${attributes}>`,
-    );
+const SVG_ELEMENTS = new Set([
+  'svg', 'g', 'title', 'desc', 'ellipse', 'polygon', 'path', 'polyline', 'rect', 'text', 'tspan',
+  'defs', 'linearGradient', 'radialGradient', 'stop', 'clipPath', 'marker', 'a',
+]);
+const SVG_ATTRIBUTES = new Set([
+  'xmlns', 'xmlns:xlink', 'viewBox', 'width', 'height', 'version', 'preserveAspectRatio', 'id', 'class', 'transform',
+  'fill', 'fill-rule', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'stroke-dasharray',
+  'stroke-dashoffset', 'stroke-opacity', 'opacity', 'font-family', 'font-size', 'font-weight', 'font-style', 'text-anchor',
+  'xml:space', 'x', 'y', 'cx', 'cy', 'rx', 'ry', 'r', 'x1', 'y1', 'x2', 'y2', 'd', 'points', 'offset', 'stop-color',
+  'stop-opacity', 'gradientUnits', 'gradientTransform', 'marker-start', 'marker-mid', 'marker-end', 'clip-path', 'clip-rule',
+  'href', 'xlink:href', 'role', 'aria-label', 'focusable',
+]);
+const URL_ATTRIBUTES = new Set(['fill', 'stroke', 'clip-path', 'marker-start', 'marker-mid', 'marker-end']);
+
+function safeSvgHref(value) {
+  return typeof value === 'string' && (/^https?:\/\//i.test(value) || value.startsWith('#'));
 }
 
-export function compileGraphviz(docDir, item, outDir, { dot = process.env.GRAPHVIZ_DOT ?? 'dot' } = {}) {
+function mapSvgTree(root, prefix, { theme = false, accessibleLabel } = {}) {
+  const ids = new Map();
+  const collect = (node) => {
+    if (node.nodeType !== 1) return;
+    const id = node.getAttribute('id');
+    if (id) ids.set(id, `${prefix}${id}`);
+    for (let child = node.firstChild; child; child = child.nextSibling) collect(child);
+  };
+  collect(root);
+  const clean = (node, rootNode = false) => {
+    if (node.nodeType === 3 || node.nodeType === 4) return node.ownerDocument.createTextNode(node.data);
+    if (node.nodeType !== 1 || !SVG_ELEMENTS.has(node.tagName)) return null;
+    const element = node.ownerDocument.createElementNS(node.namespaceURI, node.tagName);
+    for (let i = 0; i < node.attributes.length; i += 1) {
+      const attr = node.attributes.item(i);
+      const name = attr.name;
+      if (!SVG_ATTRIBUTES.has(name) || /^on/i.test(name) || name === 'style' || name === 'src') continue;
+      let value = attr.value;
+      if (name === 'id') value = ids.get(value) ?? `${prefix}${value}`;
+      if (name === 'href' || name === 'xlink:href') {
+        if (!safeSvgHref(value)) continue;
+        if (value.startsWith('#')) value = `#${ids.get(value.slice(1)) ?? `${prefix}${value.slice(1)}`}`;
+      }
+      if (URL_ATTRIBUTES.has(name) && /url\(/i.test(value)) {
+        const urls = [...value.matchAll(/url\(([^)]+)\)/gi)];
+        if (urls.some(([, target]) => !target.trim().replace(/^['"]|['"]$/g, '').startsWith('#'))) continue;
+        value = value.replace(/url\(#([^)]+)\)/g, (_match, id) => `url(#${ids.get(id) ?? `${prefix}${id}`})`);
+      }
+      if (theme && name === 'stroke' && /^(?:black|#000000?)$/i.test(value)) value = 'currentColor';
+      if (theme && name === 'fill' && /^(?:black|#000000?)$/i.test(value) && node.tagName === 'text') value = 'currentColor';
+      element.setAttribute(name, value);
+    }
+    if (theme && node.tagName === 'text' && !element.hasAttribute('fill')) element.setAttribute('fill', 'currentColor');
+    if (rootNode) {
+      if (!element.getAttribute('id')) element.setAttribute('id', `${prefix}root`);
+      if (theme) element.setAttribute('color', 'inherit');
+      if (accessibleLabel !== undefined) {
+        element.setAttribute('role', 'img');
+        element.setAttribute('aria-label', accessibleLabel);
+        element.setAttribute('focusable', 'false');
+        element.setAttribute('class', `${element.getAttribute('class') ?? ''} graphviz-diagram`.trim());
+      }
+      element.setAttribute('data-lunadoc-graphviz', 'true');
+    }
+    for (let child = node.firstChild; child; child = child.nextSibling) {
+      const sanitized = clean(child);
+      if (sanitized) element.appendChild(sanitized);
+    }
+    return element;
+  };
+  return clean(root, true);
+}
+
+export function themeGraphvizSvg(svg, source = '') {
+  const document = new DOMParser().parseFromString(svg, 'image/svg+xml');
+  const root = document.documentElement;
+  if (!root || root.tagName !== 'svg') throw new Error('Graphviz output does not contain an SVG root element');
+  const prefix = `lf-${createHash('sha256').update(source).digest('hex').slice(0, 10)}-`;
+  return new XMLSerializer().serializeToString(mapSvgTree(root, prefix, { theme: true }));
+}
+
+export function sanitizeGraphvizSvg(svg, prefix, accessibleLabel) {
+  const document = new DOMParser().parseFromString(svg, 'image/svg+xml');
+  const root = document.documentElement;
+  if (!root || root.tagName !== 'svg') return null;
+  const output = new XMLSerializer().serializeToString(mapSvgTree(root, prefix, { accessibleLabel }));
+  return fromHtml(output, { fragment: true }).children.find((child) => child.type === 'element' && child.tagName === 'svg') ?? null;
+}
+
+export function compileGraphviz(docDir, item, outDir, {
+  dot = process.env.GRAPHVIZ_DOT ?? 'dot',
+  maxBuffer = 64 * 1024 * 1024,
+  timeout = 30_000,
+} = {}) {
   const root = layout(docDir).attachments;
   const output = path.join(outDir, item.output);
   fs.mkdirSync(path.dirname(output), { recursive: true });
   const result = spawnSync(dot, ['-Tsvg', '-Gbgcolor=transparent', path.join(root, item.source)], {
     encoding: 'utf8',
+    maxBuffer,
+    timeout,
   });
+  if (result.error?.code === 'ETIMEDOUT') return { ok: false, message: `${dot} timed out after ${timeout} ms` };
+  if (result.error?.code === 'ENOBUFS') return { ok: false, message: `${dot} output exceeded the ${maxBuffer}-byte limit` };
   if (result.error) return { ok: false, message: `cannot run ${dot}: ${result.error.message}` };
-  if (result.status !== 0) return { ok: false, message: (result.stderr || result.stdout).trim() };
-  fs.writeFileSync(output, themeGraphvizSvg(result.stdout));
-  return { ok: true, output };
+  if (result.status !== 0) {
+    const details = [result.stderr?.trim(), result.stdout?.trim()].filter(Boolean).join('\n');
+    return { ok: false, message: details || `${dot} exited with status ${result.status}` };
+  }
+  fs.writeFileSync(output, themeGraphvizSvg(result.stdout, item.source));
+  return { ok: true, output, warnings: result.stderr?.trim() || undefined };
 }
 
 // Compiles Typst and Graphviz attachments and copies other files into outDir.
 export function buildAttachments(docDir, outDir, options = {}) {
   const root = layout(docDir).attachments;
   const results = [];
-  for (const item of listAttachments(docDir)) {
+  const items = listAttachments(docDir);
+  const collisions = findAttachmentCollisions(items);
+  if (collisions.length) {
+    const details = collisions.map(({ output, sources }) => `${sources.join(' and ')} both produce ${output}`).join('; ');
+    throw new Error(`attachment output collision: ${details}`);
+  }
+  for (const item of items) {
     if (item.kind === 'typst') {
       results.push({ item, ...compileTypst(docDir, item, outDir, options) });
     } else if (item.kind === 'graphviz') {

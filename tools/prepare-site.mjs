@@ -62,6 +62,7 @@ function discoverRepos() {
 
 const sources = [{ id: SITE, docDir: path.join(root, 'content'), repo: 'Luna-Flow.github.io', docPrefix: 'content' }];
 const warnings = [];
+const graphvizManifest = [];
 for (const name of discoverRepos()) {
   const docDir = path.join(workspace, name, 'doc');
   if (!fs.existsSync(path.join(docDir, 'conf.json')) || !fs.existsSync(path.join(docDir, 'manual', 'index.md'))) {
@@ -204,7 +205,15 @@ for (const source of sources) {
   const pages = listPages(source.docDir);
   const attachments = listAttachments(source.docDir);
   for (const result of buildAttachments(source.docDir, path.join(attachmentsOut, source.id))) {
-    if (!result.ok) warnings.push(`${source.id}: attachment ${result.item.source} failed:\n${result.message}`);
+    if (result.item.kind === 'graphviz' && !result.ok) {
+      throw new Error(`${source.id}: Graphviz attachment ${result.item.source} failed:\n${result.message}`);
+    }
+    if (result.item.kind === 'graphviz' && result.ok) {
+      graphvizManifest.push(`attachments/${source.id}/${result.item.output}`);
+      if (result.warnings) warnings.push(`${source.id}: Graphviz ${result.item.source}: ${result.warnings}`);
+    } else if (!result.ok) {
+      warnings.push(`${source.id}: attachment ${result.item.source} failed:\n${result.message}`);
+    }
   }
   const entry = { id: source.id, title: conf.title, repo: source.repo, summary: {}, coverage: {}, nav: {}, pages: pages.length };
 
@@ -291,5 +300,6 @@ const others = Object.keys(site.repos).filter((repo) => !categorized.has(repo));
 if (others.length) site.categories.push({ id: 'other', repos: others });
 
 fs.writeFileSync(path.join(out, 'site.json'), `${JSON.stringify(site, null, 2)}\n`);
+fs.writeFileSync(path.join(out, 'graphviz-manifest.json'), `${JSON.stringify(graphvizManifest, null, 2)}\n`);
 for (const warning of warnings) console.warn(`warning: ${warning}`);
 console.log(`Prepared ${Object.keys(site.repos).length} repositories, ${Object.keys(site.pages).length} pages.`);
