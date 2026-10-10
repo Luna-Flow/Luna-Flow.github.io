@@ -7,8 +7,8 @@
 #       uses: Luna-Flow/Luna-Flow.github.io/.github/workflows/check-docs.yml@main
 #
 # It fails when doc/ breaks the documentation standard, when the gettext
-# catalogs are out of date, when a link is broken, or when a Typst attachment
-# does not compile.
+# catalogs are out of date, when a link is broken, or when a Typst or Graphviz
+# attachment does not compile.
 
 name: Check documentation
 
@@ -38,8 +38,8 @@ jobs:
       - name: Install lunadoc
         run: npm ci --prefix site --workspace tools/lunadoc --include-workspace-root=false
       - uses: typst-community/setup-typst@v5
-      - name: Install CJK fonts for Typst
-        run: sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+      - name: Install CJK fonts and Graphviz
+        run: sudo apt-get install -y --no-install-recommends fonts-noto-cjk graphviz
       - name: Translation status
         run: node site/tools/lunadoc/cli.mjs status repo
       - name: Check
