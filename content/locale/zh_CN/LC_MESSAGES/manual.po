@@ -609,8 +609,8 @@ msgid "Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:"
 msgstr "为 Graphviz 图、节点和边设置 `sans-serif` 字体："
 
 #: manual/contribute/attachments.md:61
-msgid "The renderer makes the SVG background transparent and maps default black text and outlines to the current theme colour. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
-msgstr "渲染器会将 SVG 背景设为透明，并把默认黑色文字和轮廓映射为当前主题色。只有在图表本身需要翻译时，才使用 `core_api_composition.zh_CN.dot` 这样的语言后缀；站点会选择对应版本并发布匹配的 SVG。不带语言后缀的版本由所有语言共用。"
+msgid "The renderer makes the SVG background transparent and maps default black text, outlines, and arrowheads to the current theme colour. Filled nodes keep their explicit `fillcolor`; set an explicit `fontcolor` when using `style=filled` so the text remains readable in dark mode. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
+msgstr "渲染器会将 SVG 背景设为透明，并把默认黑色文字、轮廓和箭头映射为当前主题色。填充节点会保留显式的 `fillcolor`；使用 `style=filled` 时请设置显式的 `fontcolor`，以便文字在深色模式下保持可读。只有在图表本身需要翻译时，才使用 `core_api_composition.zh_CN.dot` 这样的语言后缀；站点会选择对应版本并发布匹配的 SVG。不带语言后缀的版本由所有语言共用。"
 
 #: manual/contribute/attachments.md:63
 msgid "Images"

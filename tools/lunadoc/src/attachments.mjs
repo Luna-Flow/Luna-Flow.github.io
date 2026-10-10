@@ -135,11 +135,14 @@ function mapSvgTree(root, prefix, { theme = false, accessibleLabel } = {}) {
     if (node.nodeType === 3 || node.nodeType === 4) return node.ownerDocument.createTextNode(node.data);
     if (node.nodeType !== 1 || !SVG_ELEMENTS.has(node.tagName)) return null;
     const element = node.ownerDocument.createElementNS(node.namespaceURI, node.tagName);
+    const style = node.getAttribute('style') ?? '';
+    const styleValue = (name) => style.match(new RegExp(`(?:^|;)\\s*${name}\\s*:\\s*([^;]+)`, 'i'))?.[1]?.trim();
     for (let i = 0; i < node.attributes.length; i += 1) {
       const attr = node.attributes.item(i);
       const name = attr.name;
       if (!SVG_ATTRIBUTES.has(name) || /^on/i.test(name) || name === 'style' || name === 'src') continue;
       let value = attr.value;
+      if (node.tagName === 'stop' && (name === 'stop-color' || name === 'stop-opacity') && !value) value = styleValue(name);
       if (name === 'id') value = ids.get(value) ?? `${prefix}${value}`;
       if (name === 'href' || name === 'xlink:href') {
         if (!safeSvgHref(value)) continue;
@@ -148,11 +151,19 @@ function mapSvgTree(root, prefix, { theme = false, accessibleLabel } = {}) {
       if (URL_ATTRIBUTES.has(name) && /url\(/i.test(value)) {
         const urls = [...value.matchAll(/url\(([^)]+)\)/gi)];
         if (urls.some(([, target]) => !target.trim().replace(/^['"]|['"]$/g, '').startsWith('#'))) continue;
-        value = value.replace(/url\(#([^)]+)\)/g, (_match, id) => `url(#${ids.get(id) ?? `${prefix}${id}`})`);
+        value = value.replace(/url\(\s*#\s*([^\s)]+)\s*\)/g, (_match, id) => `url(#${ids.get(id) ?? `${prefix}${id}`})`);
       }
       if (theme && name === 'stroke' && /^(?:black|#000000?)$/i.test(value)) value = 'currentColor';
-      if (theme && name === 'fill' && /^(?:black|#000000?)$/i.test(value) && node.tagName === 'text') value = 'currentColor';
+      if (theme && name === 'fill' && /^(?:black|#000000?)$/i.test(value) && (node.tagName === 'text' || node.tagName === 'polygon')) value = 'currentColor';
       element.setAttribute(name, value);
+    }
+    if (node.tagName === 'stop') {
+      for (const name of ['stop-color', 'stop-opacity']) {
+        if (!element.hasAttribute(name)) {
+          const value = styleValue(name);
+          if (value) element.setAttribute(name, value);
+        }
+      }
     }
     if (theme && node.tagName === 'text' && !element.hasAttribute('fill')) element.setAttribute('fill', 'currentColor');
     if (rootNode) {
@@ -162,7 +173,7 @@ function mapSvgTree(root, prefix, { theme = false, accessibleLabel } = {}) {
         element.setAttribute('role', 'img');
         element.setAttribute('aria-label', accessibleLabel);
         element.setAttribute('focusable', 'false');
-        element.setAttribute('class', `${element.getAttribute('class') ?? ''} graphviz-diagram`.trim());
+        element.setAttribute('class', 'graphviz-diagram');
       }
       element.setAttribute('data-lunadoc-graphviz', 'true');
     }
@@ -208,7 +219,7 @@ export function compileGraphviz(docDir, item, outDir, {
   if (result.error?.code === 'ENOBUFS') return { ok: false, message: `${dot} output exceeded the ${maxBuffer}-byte limit` };
   if (result.error) return { ok: false, message: `cannot run ${dot}: ${result.error.message}` };
   if (result.status !== 0) {
-    const details = [result.stderr?.trim(), result.stdout?.trim()].filter(Boolean).join('\n');
+    const details = result.stderr?.trim();
     return { ok: false, message: details || `${dot} exited with status ${result.status}` };
   }
   fs.writeFileSync(output, themeGraphvizSvg(result.stdout, item.source));

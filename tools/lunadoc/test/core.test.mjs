@@ -241,6 +241,15 @@ test('Graphviz SVG sanitizer removes active content and unsafe links, keeps safe
   assert.match(text, /stroke=black/);
 });
 
+test('Graphviz gradients retain stop colors and references tolerate whitespace', () => {
+  const clean = sanitizeGraphvizSvg('<svg><defs><linearGradient id="g"><stop offset="0" style="stop-color:yellow;stop-opacity:0.5"/></linearGradient></defs><path fill="url(  #g  )"/></svg>', 'safe-');
+  const serialize = (node) => `${node.tagName ?? ''} ${Object.entries(node.properties ?? {}).map(([key, value]) => `${key}=${value}`).join(' ')} ${node.children?.map(serialize).join(' ') ?? ''}`;
+  const text = serialize(clean);
+  assert.match(text, /stopColor=yellow/);
+  assert.match(text, /stopOpacity=0\.5/);
+  assert.match(text, /fill=url\(#safe-g\)/);
+});
+
 test('explicit Graphviz filled colors survive theme postprocessing', () => {
   const themed = themeGraphvizSvg('<svg><ellipse fill="#f00" stroke="black"/><text fill="white">label</text></svg>', 'color.dot');
   assert.match(themed, /fill="#f00"/);

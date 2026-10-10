@@ -609,7 +609,7 @@ msgid "Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:"
 msgstr ""
 
 #: manual/contribute/attachments.md:61
-msgid "The renderer makes the SVG background transparent and maps default black text and outlines to the current theme colour. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
+msgid "The renderer makes the SVG background transparent and maps default black text, outlines, and arrowheads to the current theme colour. Filled nodes keep their explicit `fillcolor`; set an explicit `fontcolor` when using `style=filled` so the text remains readable in dark mode. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
 msgstr ""
 
 #: manual/contribute/attachments.md:63

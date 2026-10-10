@@ -609,8 +609,8 @@ msgid "Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:"
 msgstr "Graphviz のグラフ、ノード、エッジには `sans-serif` フォントを指定します。"
 
 #: manual/contribute/attachments.md:61
-msgid "The renderer makes the SVG background transparent and maps default black text and outlines to the current theme colour. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
-msgstr "レンダラーは SVG の背景を透明にし、既定の黒い文字と輪郭を現在のテーマ色に合わせます。図自体を翻訳する場合に限り、`core_api_composition.zh_CN.dot` のようなロケール接尾辞を使います。サイトは該当する版を選び、対応する SVG を公開します。接尾辞のない版はすべての言語で共有されます。"
+msgid "The renderer makes the SVG background transparent and maps default black text, outlines, and arrowheads to the current theme colour. Filled nodes keep their explicit `fillcolor`; set an explicit `fontcolor` when using `style=filled` so the text remains readable in dark mode. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
+msgstr "レンダラーは SVG の背景を透明にし、既定の黒い文字、輪郭、矢印を現在のテーマ色に合わせます。塗りつぶしノードでは明示した `fillcolor` が保持されます。`style=filled` を使う場合は、ダークモードでも文字が読みやすくなるよう明示的な `fontcolor` を指定してください。図自体を翻訳する場合に限り、`core_api_composition.zh_CN.dot` のようなロケール接尾辞を使います。サイトは該当する版を選び、対応する SVG を公開します。接尾辞のない版はすべての言語で共有されます。"
 
 #: manual/contribute/attachments.md:63
 msgid "Images"
