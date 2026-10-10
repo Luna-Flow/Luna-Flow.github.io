@@ -57,6 +57,21 @@ export function findLinks(source) {
   return found;
 }
 
+// [{ alt, url, line }] for Markdown images, excluding code and math nodes.
+export function findImages(source) {
+  const tree = parseMarkdown(source);
+  const found = [];
+  const walk = (node) => {
+    if (node.type === 'code' || node.type === 'inlineCode' || node.type === 'math' || node.type === 'inlineMath') return;
+    if (node.type === 'image' && node.position) {
+      found.push({ alt: node.alt ?? '', url: node.url ?? '', line: node.position.start.line });
+    }
+    for (const child of node.children ?? []) walk(child);
+  };
+  walk(tree);
+  return found;
+}
+
 export function isExternal(url) {
   return /^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('//') || url.startsWith('#') || url.startsWith('/');
 }

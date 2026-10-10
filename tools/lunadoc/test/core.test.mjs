@@ -1,5 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {
   alignSegments,
   emptyCatalog,
@@ -11,6 +14,11 @@ import {
   rewriteLinks,
   templateFrom,
   findLinks,
+  findImages,
+  check,
+  update,
+  readCatalog,
+  layout,
 } from '../src/index.mjs';
 
 const page = `---
@@ -117,6 +125,55 @@ test('links are found and rewritten in place, code is ignored', () => {
     rewriteLinks(source, (url) => url.replace('en_US', 'manual')),
     'See [api](../manual/api.md#x) and ![fig](img.png).\n\n`[no](skip.md)`\n\n[ref]: <a b.md>\n',
   );
+});
+
+function makeDoc(markdown) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lunadoc-images-'));
+  const docDir = path.join(root, 'doc');
+  fs.mkdirSync(path.join(docDir, 'manual'), { recursive: true });
+  fs.mkdirSync(path.join(docDir, 'attachments'), { recursive: true });
+  fs.writeFileSync(path.join(docDir, 'conf.json'), JSON.stringify({ summary: 'Fixture', locales: [] }));
+  fs.writeFileSync(path.join(docDir, 'manual', 'index.md'), markdown);
+  fs.writeFileSync(path.join(docDir, 'attachments', 'figure.svg'), '<svg/>');
+  fs.writeFileSync(path.join(docDir, 'attachments', 'diagram.dot'), 'digraph {}');
+  update(docDir);
+  return { root, docDir };
+}
+
+test('lunadoc check requires non-empty alt text for images, including DOT targets', (t) => {
+  const valid = makeDoc('![A figure](../attachments/figure.svg)\n');
+  t.after(() => fs.rmSync(valid.root, { recursive: true, force: true }));
+  assert.deepEqual(check(valid.docDir, { repoRoot: valid.root }).errors, []);
+
+  const emptySvg = makeDoc('![](../attachments/figure.svg)\n');
+  t.after(() => fs.rmSync(emptySvg.root, { recursive: true, force: true }));
+  assert.ok(check(emptySvg.docDir, { repoRoot: emptySvg.root }).errors.includes(
+    'manual/index.md:1: image alt text is empty: ../attachments/figure.svg',
+  ));
+
+  const emptyDot = makeDoc('![](../attachments/diagram.dot)\n');
+  t.after(() => fs.rmSync(emptyDot.root, { recursive: true, force: true }));
+  assert.ok(check(emptyDot.docDir, { repoRoot: emptyDot.root }).errors.includes(
+    'manual/index.md:1: image alt text is empty: ../attachments/diagram.dot',
+  ));
+
+  const code = makeDoc('```md\n![](../attachments/diagram.dot)\n```\n');
+  t.after(() => fs.rmSync(code.root, { recursive: true, force: true }));
+  assert.deepEqual(check(code.docDir, { repoRoot: code.root }).errors, []);
+});
+
+test('lunadoc update extracts image alt text for translation', (t) => {
+  const fixture = makeDoc('![A diagram](../attachments/diagram.dot)\n');
+  t.after(() => fs.rmSync(fixture.root, { recursive: true, force: true }));
+  const catalog = readCatalog(layout(fixture.docDir).pot);
+  assert.ok(catalog.entries.has('![A diagram](../attachments/diagram.dot)'));
+  const translated = renderTranslated('![A diagram](../attachments/diagram.dot)\n', () => '![示意图](../attachments/diagram.dot)');
+  assert.equal(translated.markdown, '![示意图](../attachments/diagram.dot)\n');
+});
+
+test('findImages excludes code examples and reports image source positions', () => {
+  const source = '![Figure](figure.svg)\n\n```md\n![](diagram.dot)\n```\n';
+  assert.deepEqual(findImages(source), [{ alt: 'Figure', url: 'figure.svg', line: 1 }]);
 });
 
 import { pageName } from '../src/index.mjs';

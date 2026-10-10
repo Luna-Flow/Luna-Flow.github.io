@@ -5,7 +5,7 @@ import path from 'node:path';
 import { readCatalog } from './catalog.mjs';
 import { compileTypst, listAttachments, resolveAttachment } from './attachments.mjs';
 import { extractTemplate, layout, listPages, readConf, readPage, SOURCE_LOCALE } from './layout.mjs';
-import { findLinks, isExternal, splitHash } from './links.mjs';
+import { findImages, findLinks, isExternal, splitHash } from './links.mjs';
 
 const LEGACY_LOCALE_DIR = /^[a-z]{2}_[A-Z]{2}$/;
 
@@ -53,6 +53,9 @@ export function check(docDir, { compile = false, repoRoot = path.dirname(docDir)
   const pages = new Set(listPages(docDir));
   for (const page of pages) {
     const source = readPage(docDir, page);
+    for (const image of findImages(source)) {
+      if (!image.alt.trim()) errors.push(`manual/${page}:${image.line}: image alt text is empty: ${image.url}`);
+    }
     for (const link of findLinks(source)) {
       if (isExternal(link.url)) continue;
       const [target] = splitHash(link.url);
