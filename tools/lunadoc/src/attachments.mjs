@@ -4,10 +4,12 @@
 //   <name>.<locale>.typ      compiled to <name>.<locale>.pdf (locale variant)
 //   <name>/main.typ          multi-file Typst project, compiled to <name>.pdf
 //   <name>/main.<locale>.typ locale variant of a project
+//   <name>.dot               compiled to <name>.svg
+//   <name>.<locale>.dot      compiled to <name>.<locale>.svg (locale variant)
 //   anything else            copied as is (images, data, prebuilt files)
 //
-// Pages link to the Typst source (or to the PDF path); the site resolves the
-// link to the compiled PDF and picks the variant of the page's locale.
+// Pages link to the Typst or DOT source (or to the compiled output); the site
+// resolves the link to the generated PDF or SVG and picks the page's locale.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -33,6 +35,13 @@ export function listAttachments(docDir) {
       continue;
     }
     if ([...projects].some((name) => file.startsWith(`${name}/`))) continue;
+    if (file.endsWith('.dot')) {
+      const stem = file.slice(0, -4);
+      const locale = stem.match(LOCALE_SUFFIX)?.[1] ?? null;
+      const name = locale ? stem.slice(0, -locale.length - 1) : stem;
+      items.push({ kind: 'graphviz', source: file, name, locale, output: `${stem}.svg` });
+      continue;
+    }
     if (file.endsWith('.typ')) {
       const stem = file.slice(0, -4);
       const locale = stem.match(LOCALE_SUFFIX)?.[1] ?? null;
@@ -48,6 +57,16 @@ export function listAttachments(docDir) {
 // The published path a link inside the manual resolves to, or null when it
 // does not point into attachments. `target` is relative to doc/attachments.
 export function resolveAttachment(items, target, locale) {
+  if (target.endsWith('.dot')) {
+    const stem = target.slice(0, -4);
+    const wanted = stem.match(LOCALE_SUFFIX)?.[1] ?? locale;
+    const name = stem.replace(LOCALE_SUFFIX, '');
+    const graphviz = items.filter((item) => item.kind === 'graphviz' && item.name === name);
+    if (graphviz.length) {
+      const pick = graphviz.find((item) => item.locale === wanted) ?? graphviz.find((item) => item.locale === null) ?? graphviz[0];
+      return { ...pick, svg: true };
+    }
+  }
   const clean = target.replace(/\/main(\.[a-z]{2}_[A-Z]{2})?\.typ$/, '').replace(/\.(typ|pdf)$/, '');
   const typst = items.filter((item) => item.kind === 'typst' && item.name === clean.replace(LOCALE_SUFFIX, ''));
   if (typst.length) {
@@ -71,13 +90,40 @@ export function compileTypst(docDir, item, outDir, { typst = process.env.TYPST ?
   return { ok: true, output };
 }
 
-// Compiles every Typst attachment and copies the other files into outDir.
+export function themeGraphvizSvg(svg) {
+  return svg
+    .replace(/\b(fill|stroke)="(?:black|#000(?:000)?)"/gi, '$1="currentColor"')
+    .replace(/<svg\b([^>]*)>/, (_, attributes) => {
+      const clean = attributes.replace(/\sdata-lunadoc-graphviz="[^"]*"/, '').replace(/\sstyle="[^"]*"/, '');
+      return `<svg${clean} data-lunadoc-graphviz="true" style="color: inherit;">`;
+    })
+    .replace(/<text\b([^>]*)>/g, (_, attributes) =>
+      /\bfill=/.test(attributes) ? `<text${attributes}>` : `<text fill="currentColor"${attributes}>`,
+    );
+}
+
+export function compileGraphviz(docDir, item, outDir, { dot = process.env.GRAPHVIZ_DOT ?? 'dot' } = {}) {
+  const root = layout(docDir).attachments;
+  const output = path.join(outDir, item.output);
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  const result = spawnSync(dot, ['-Tsvg', '-Gbgcolor=transparent', path.join(root, item.source)], {
+    encoding: 'utf8',
+  });
+  if (result.error) return { ok: false, message: `cannot run ${dot}: ${result.error.message}` };
+  if (result.status !== 0) return { ok: false, message: (result.stderr || result.stdout).trim() };
+  fs.writeFileSync(output, themeGraphvizSvg(result.stdout));
+  return { ok: true, output };
+}
+
+// Compiles Typst and Graphviz attachments and copies other files into outDir.
 export function buildAttachments(docDir, outDir, options = {}) {
   const root = layout(docDir).attachments;
   const results = [];
   for (const item of listAttachments(docDir)) {
     if (item.kind === 'typst') {
       results.push({ item, ...compileTypst(docDir, item, outDir, options) });
+    } else if (item.kind === 'graphviz') {
+      results.push({ item, ...compileGraphviz(docDir, item, outDir, options) });
     } else {
       const output = path.join(outDir, item.output);
       fs.mkdirSync(path.dirname(output), { recursive: true });

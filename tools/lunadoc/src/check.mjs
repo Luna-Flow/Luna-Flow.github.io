@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readCatalog } from './catalog.mjs';
-import { compileTypst, listAttachments, resolveAttachment } from './attachments.mjs';
+import { compileGraphviz, compileTypst, listAttachments, resolveAttachment } from './attachments.mjs';
 import { extractTemplate, layout, listPages, readConf, readPage, SOURCE_LOCALE } from './layout.mjs';
 import { findImages, findLinks, isExternal, splitHash } from './links.mjs';
 
@@ -79,11 +79,17 @@ export function check(docDir, { compile = false, repoRoot = path.dirname(docDir)
     }
   }
 
-  if (compile) {
+  if (compile || attachments.some((entry) => entry.kind === 'graphviz')) {
     const scratch = fs.mkdtempSync(path.join(fs.realpathSync(process.env.TMPDIR ?? '/tmp'), 'lunadoc-'));
-    for (const item of attachments.filter((entry) => entry.kind === 'typst')) {
-      const result = compileTypst(docDir, item, scratch);
+    for (const item of attachments.filter((entry) => entry.kind === 'graphviz')) {
+      const result = compileGraphviz(docDir, item, scratch);
       if (!result.ok) errors.push(`attachments/${item.source} does not compile:\n${result.message}`);
+    }
+    if (compile) {
+      for (const item of attachments.filter((entry) => entry.kind === 'typst')) {
+        const result = compileTypst(docDir, item, scratch);
+        if (!result.ok) errors.push(`attachments/${item.source} does not compile:\n${result.message}`);
+      }
     }
     fs.rmSync(scratch, { recursive: true, force: true });
   }

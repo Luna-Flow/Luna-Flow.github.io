@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import {
   alignSegments,
   emptyCatalog,
@@ -19,7 +20,13 @@ import {
   update,
   readCatalog,
   layout,
+  listAttachments,
+  resolveAttachment,
+  buildAttachments,
+  compileGraphviz,
+  themeGraphvizSvg,
 } from '../src/index.mjs';
+import rehypeGraphvizInline from '../../../src/plugins/rehype-graphviz-inline.mjs';
 
 const page = `---
 title: Generic algebra
@@ -135,7 +142,7 @@ function makeDoc(markdown) {
   fs.writeFileSync(path.join(docDir, 'conf.json'), JSON.stringify({ summary: 'Fixture', locales: [] }));
   fs.writeFileSync(path.join(docDir, 'manual', 'index.md'), markdown);
   fs.writeFileSync(path.join(docDir, 'attachments', 'figure.svg'), '<svg/>');
-  fs.writeFileSync(path.join(docDir, 'attachments', 'diagram.dot'), 'digraph {}');
+  fs.writeFileSync(path.join(docDir, 'attachments', 'diagram.dot'), 'digraph { a -> b }');
   update(docDir);
   return { root, docDir };
 }
@@ -174,6 +181,86 @@ test('lunadoc update extracts image alt text for translation', (t) => {
 test('findImages excludes code examples and reports image source positions', () => {
   const source = '![Figure](figure.svg)\n\n```md\n![](diagram.dot)\n```\n';
   assert.deepEqual(findImages(source), [{ alt: 'Figure', url: 'figure.svg', line: 1 }]);
+});
+
+test('DOT attachments resolve to locale-aware SVG outputs', (t) => {
+  const fixture = makeDoc('A graph.\n');
+  t.after(() => fs.rmSync(fixture.root, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(fixture.docDir, 'attachments', 'diagram.zh_CN.dot'), 'digraph { zh -> cn }');
+  const items = listAttachments(fixture.docDir);
+  assert.deepEqual(items.filter((item) => item.kind === 'graphviz').map(({ source, name, locale, output }) => ({ source, name, locale, output })), [
+    { source: 'diagram.dot', name: 'diagram', locale: null, output: 'diagram.svg' },
+    { source: 'diagram.zh_CN.dot', name: 'diagram', locale: 'zh_CN', output: 'diagram.zh_CN.svg' },
+  ]);
+  assert.equal(resolveAttachment(items, 'diagram.dot', 'zh_CN').output, 'diagram.zh_CN.svg');
+  assert.equal(resolveAttachment(items, 'diagram.dot', 'ja_JP').output, 'diagram.svg');
+});
+
+test('Graphviz SVG theme postprocessing maps default black to currentColor', () => {
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg"><ellipse fill="none" stroke="black"/><text x="1">label</text><path fill="#000000" stroke="#000"/></svg>';
+  const themed = themeGraphvizSvg(svg);
+  assert.match(themed, /data-lunadoc-graphviz="true"/);
+  assert.match(themed, /style="color: inherit;"/);
+  assert.match(themed, /stroke="currentColor"/);
+  assert.match(themed, /fill="currentColor"/);
+  assert.match(themed, /<text fill="currentColor" x="1">/);
+});
+
+const DOT_AVAILABLE = spawnSync(process.env.GRAPHVIZ_DOT ?? 'dot', ['-V'], { encoding: 'utf8' }).status === 0;
+
+test('Graphviz attachments compile during build', { skip: DOT_AVAILABLE ? false : 'Graphviz is not installed; skipped DOT rendering test.' }, (t) => {
+  const fixture = makeDoc('A graph.\n');
+  t.after(() => fs.rmSync(fixture.root, { recursive: true, force: true }));
+  const outDir = path.join(fixture.root, 'out');
+  const [result] = buildAttachments(fixture.docDir, outDir);
+  assert.equal(result.ok, true);
+  const svg = fs.readFileSync(path.join(outDir, 'diagram.svg'), 'utf8');
+  assert.match(svg, /<svg/);
+  assert.match(svg, /currentColor/);
+  assert.match(svg, /data-lunadoc-graphviz="true"/);
+});
+
+test('Graphviz markdown images become accessible inline SVG', (t) => {
+  const publicDir = fs.mkdtempSync(path.join(os.tmpdir(), 'lunadoc-graphviz-inline-'));
+  t.after(() => fs.rmSync(publicDir, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(publicDir, 'attachments'), { recursive: true });
+  fs.writeFileSync(path.join(publicDir, 'attachments', 'diagram.svg'), themeGraphvizSvg('<svg xmlns="http://www.w3.org/2000/svg"><text>graph</text></svg>'));
+  const tree = {
+    type: 'root',
+    children: [{
+      type: 'element',
+      tagName: 'p',
+      properties: {},
+      children: [{ type: 'element', tagName: 'img', properties: { src: '/attachments/repo/diagram.svg', alt: 'Dependency graph' }, children: [] }],
+    }],
+  };
+  const nestedDir = path.join(publicDir, 'attachments', 'repo');
+  fs.mkdirSync(nestedDir, { recursive: true });
+  fs.copyFileSync(path.join(publicDir, 'attachments', 'diagram.svg'), path.join(nestedDir, 'diagram.svg'));
+  rehypeGraphvizInline({ publicDir })(tree);
+  const diagram = tree.children[0].children[0];
+  assert.equal(diagram.tagName, 'svg');
+  assert.equal(diagram.properties.role, 'img');
+  assert.equal(diagram.properties.ariaLabel, 'Dependency graph');
+  assert.ok(diagram.properties.className.includes('graphviz-diagram'));
+});
+
+test('lunadoc check reports Graphviz syntax errors with the source line', { skip: DOT_AVAILABLE ? false : 'Graphviz is not installed; skipped DOT syntax test.' }, (t) => {
+  const fixture = makeDoc('![Graph](../attachments/diagram.dot)\n');
+  t.after(() => fs.rmSync(fixture.root, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(fixture.docDir, 'attachments', 'diagram.dot'), 'digraph {\n  a -> ;\n}\n');
+  const { errors } = check(fixture.docDir, { repoRoot: fixture.root });
+  const error = errors.find((entry) => entry.startsWith('attachments/diagram.dot does not compile:'));
+  assert.ok(error);
+  assert.match(error, /line 2/);
+});
+
+test('Graphviz execution failures name the configured command', (t) => {
+  const fixture = makeDoc('A graph.\n');
+  t.after(() => fs.rmSync(fixture.root, { recursive: true, force: true }));
+  const result = compileGraphviz(fixture.docDir, listAttachments(fixture.docDir).find((item) => item.kind === 'graphviz'), path.join(fixture.root, 'out'), { dot: 'lunadoc-missing-dot' });
+  assert.equal(result.ok, false);
+  assert.match(result.message, /cannot run lunadoc-missing-dot/);
 });
 
 import { pageName } from '../src/index.mjs';
