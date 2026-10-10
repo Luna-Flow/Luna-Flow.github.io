@@ -6,6 +6,7 @@ import remarkAlerts from './src/plugins/remark-alerts.mjs';
 import remarkPdf from './src/plugins/remark-pdf.mjs';
 import rehypeHeadingIds from './src/plugins/rehype-heading-ids.mjs';
 import rehypeSidenotes from './src/plugins/rehype-sidenotes.mjs';
+import rehypeGraphvizInline from './src/plugins/rehype-graphviz-inline.mjs';
 
 const moonbit = JSON.parse(fs.readFileSync(new URL('./src/grammars/moonbit.tmLanguage.json', import.meta.url), 'utf8'));
 
@@ -15,7 +16,7 @@ export default defineConfig({
   build: { format: 'directory' },
   markdown: {
     remarkPlugins: [remarkMath, remarkAlerts, remarkPdf],
-    rehypePlugins: [rehypeHeadingIds, [rehypeKatex, { strict: false }], rehypeSidenotes],
+    rehypePlugins: [rehypeHeadingIds, [rehypeKatex, { strict: false }], rehypeSidenotes, rehypeGraphvizInline],
     shikiConfig: {
       themes: { light: 'github-light', dark: 'github-dark-dimmed' },
       defaultColor: false,

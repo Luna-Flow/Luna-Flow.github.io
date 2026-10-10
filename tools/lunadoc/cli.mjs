@@ -23,8 +23,8 @@ const HELP = `Usage: lunadoc <command> [repo] [options]
 Commands (repo defaults to the current directory; docs live in <repo>/doc):
   update                Regenerate locale/manual.pot and merge every locale .po
   status [--pages]      Translation coverage per locale (and per page)
-  check [--compile]     Validate layout, catalogs, links; --compile builds Typst
-  attachments --out D   Compile Typst attachments and copy files into D
+  check [--compile]     Validate layout, catalogs, links and DOT; --compile builds Typst
+  attachments --out D   Compile Typst and Graphviz attachments and copy files into D
   migrate               Convert the retired doc/<locale>/ layout
 
 Options:

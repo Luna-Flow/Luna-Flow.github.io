@@ -11,8 +11,10 @@
     ".": "./src/index.mjs"
   },
   "dependencies": {
+    "@xmldom/xmldom": "^0.8.15",
     "gettext-parser": "^9.1.1",
     "github-slugger": "^2.0.0",
+    "hast-util-from-html": "^2.0.3",
     "mdast-util-to-string": "^4.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",

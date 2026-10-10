@@ -589,14 +589,38 @@ msgid "When a document has locale variants, every language links to the same nam
 msgstr "当文档有多个语言版本时，所有语言都链接到同一名称，站点会选择与页面语言环境对应的版本，若不存在则回退到不带语言后缀的版本。"
 
 #: manual/contribute/attachments.md:38
+msgid "Diagrams"
+msgstr "图表"
+
+#: manual/contribute/attachments.md:40
+msgid "Write diagrams that benefit from automatic layout in Graphviz DOT. Save the `.dot` source in `doc/attachments/`; the site renders it to an SVG with the same name during the build. Commit the DOT source, not the generated SVG."
+msgstr "适合自动布局的图表可用 Graphviz DOT 编写。将 `.dot` 源文件保存到 `doc/attachments/`；站点构建时会将其渲染为同名 SVG。提交 DOT 源码，不提交生成的 SVG。"
+
+#: manual/contribute/attachments.md:42
+msgid "Use the page path, an underscore, and a descriptive name for the file. For a diagram used on `core/api.md`, for example, use `core_api_composition.dot`. Reference the DOT source with Markdown image syntax:"
+msgstr "文件名以使用该图表的页面路径开头，后接下划线和描述性名称。例如，`core/api.md` 中使用的图表可命名为 `core_api_composition.dot`。使用 Markdown 图片语法引用 DOT 源码："
+
+#: manual/contribute/attachments.md:48
+msgid "Use a non-empty, translated alt description for every image. `lunadoc update` extracts the alt text with the surrounding Markdown paragraph. `lunadoc check` reports an error when it is empty, including for DOT images."
+msgstr "每张图片都要提供非空且经过翻译的替代文本。`lunadoc update` 会连同所在的 Markdown 段落一起提取 alt 文本。`lunadoc check` 会在 alt 为空时报错，引用 DOT 的图片也不例外。"
+
+#: manual/contribute/attachments.md:50
+msgid "Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:"
+msgstr "为 Graphviz 图、节点和边设置 `sans-serif` 字体："
+
+#: manual/contribute/attachments.md:61
+msgid "The renderer makes the SVG background transparent and maps default black text, outlines, and arrowheads to the current theme colour. Filled nodes keep their explicit `fillcolor`; set an explicit `fontcolor` when using `style=filled` so the text remains readable in dark mode. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
+msgstr "渲染器会将 SVG 背景设为透明，并把默认黑色文字、轮廓和箭头映射为当前主题色。填充节点会保留显式的 `fillcolor`；使用 `style=filled` 时请设置显式的 `fontcolor`，以便文字在深色模式下保持可读。只有在图表本身需要翻译时，才使用 `core_api_composition.zh_CN.dot` 这样的语言后缀；站点会选择对应版本并发布匹配的 SVG。不带语言后缀的版本由所有语言共用。"
+
+#: manual/contribute/attachments.md:63
 msgid "Images"
 msgstr "图片"
 
-#: manual/contribute/attachments.md:40
+#: manual/contribute/attachments.md:65
 msgid "Embed images with Markdown image syntax and a description:"
 msgstr "使用 Markdown 图片语法嵌入图片，并附上描述："
 
-#: manual/contribute/attachments.md:46
+#: manual/contribute/attachments.md:71
 msgid "Prefer SVG for diagrams and PNG for screenshots. Give every image alternative text; it is translated with the page."
 msgstr "图表优先使用 SVG，截图优先使用 PNG。为每张图片提供替代文本；它会随页面一起翻译。"
 

@@ -284,6 +284,13 @@
   height: auto;
 }
 
+.prose svg.graphviz-diagram {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: var(--s4) auto;
+}
+
 .prose blockquote {
   margin-left: 0;
   padding-left: var(--s4);

@@ -589,14 +589,38 @@ msgid "When a document has locale variants, every language links to the same nam
 msgstr "ドキュメントにロケール別の版がある場合も、どの言語からも同じ名前にリンクします。サイトはページのロケールに合った版を選び、なければロケール接尾辞のない版にフォールバックします。"
 
 #: manual/contribute/attachments.md:38
+msgid "Diagrams"
+msgstr "図表"
+
+#: manual/contribute/attachments.md:40
+msgid "Write diagrams that benefit from automatic layout in Graphviz DOT. Save the `.dot` source in `doc/attachments/`; the site renders it to an SVG with the same name during the build. Commit the DOT source, not the generated SVG."
+msgstr "自動レイアウトが適した図は Graphviz DOT で記述します。`.dot` ソースを `doc/attachments/` に保存すると、サイトのビルド時に同じ名前の SVG へ変換されます。コミットするのは DOT ソースであり、生成された SVG ではありません。"
+
+#: manual/contribute/attachments.md:42
+msgid "Use the page path, an underscore, and a descriptive name for the file. For a diagram used on `core/api.md`, for example, use `core_api_composition.dot`. Reference the DOT source with Markdown image syntax:"
+msgstr "ファイル名は使用するページのパスで始め、アンダースコアの後に内容を表す名前を付けます。たとえば `core/api.md` で使う図なら `core_api_composition.dot` とします。Markdown の画像構文で DOT ソースを参照します。"
+
+#: manual/contribute/attachments.md:48
+msgid "Use a non-empty, translated alt description for every image. `lunadoc update` extracts the alt text with the surrounding Markdown paragraph. `lunadoc check` reports an error when it is empty, including for DOT images."
+msgstr "すべての画像に、空でない翻訳対象の代替テキストを付けます。`lunadoc update` は alt テキストを含む Markdown 段落を抽出します。`lunadoc check` は alt が空の場合にエラーを報告し、DOT を参照する画像も対象です。"
+
+#: manual/contribute/attachments.md:50
+msgid "Set the Graphviz font to `sans-serif` for the graph, nodes, and edges:"
+msgstr "Graphviz のグラフ、ノード、エッジには `sans-serif` フォントを指定します。"
+
+#: manual/contribute/attachments.md:61
+msgid "The renderer makes the SVG background transparent and maps default black text, outlines, and arrowheads to the current theme colour. Filled nodes keep their explicit `fillcolor`; set an explicit `fontcolor` when using `style=filled` so the text remains readable in dark mode. Use locale suffixes such as `core_api_composition.zh_CN.dot` only when the diagram itself needs translation; the site selects that variant and publishes the matching SVG. A variant without a locale suffix is shared by every language."
+msgstr "レンダラーは SVG の背景を透明にし、既定の黒い文字、輪郭、矢印を現在のテーマ色に合わせます。塗りつぶしノードでは明示した `fillcolor` が保持されます。`style=filled` を使う場合は、ダークモードでも文字が読みやすくなるよう明示的な `fontcolor` を指定してください。図自体を翻訳する場合に限り、`core_api_composition.zh_CN.dot` のようなロケール接尾辞を使います。サイトは該当する版を選び、対応する SVG を公開します。接尾辞のない版はすべての言語で共有されます。"
+
+#: manual/contribute/attachments.md:63
 msgid "Images"
 msgstr "画像"
 
-#: manual/contribute/attachments.md:40
+#: manual/contribute/attachments.md:65
 msgid "Embed images with Markdown image syntax and a description:"
 msgstr "Markdown の画像構文で、説明を付けて画像を埋め込みます。"
 
-#: manual/contribute/attachments.md:46
+#: manual/contribute/attachments.md:71
 msgid "Prefer SVG for diagrams and PNG for screenshots. Give every image alternative text; it is translated with the page."
 msgstr "図には SVG、スクリーンショットには PNG を使うことを推奨します。すべての画像に代替テキストを付けてください。代替テキストはページと一緒に翻訳されます。"
 
