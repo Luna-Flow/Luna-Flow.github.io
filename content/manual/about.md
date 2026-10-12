@@ -52,3 +52,9 @@ The long-term goal of Luna Flow is to become a foundation for advanced mathemati
 Luna Flow is still evolving, but its direction is clear: to turn MoonBit’s abstraction capabilities into a real mathematical ecosystem.
 
 We are building not just a collection of math packages, but a composable foundation for future scientific computing in MoonBit.
+
+## Ecosystem dependencies
+
+The generated graph below shows the public packages by layer. Solid edges point to the declared dependency version; red dashed edges mark a dependency that trails the current `main` version of the package it uses. The graph is regenerated during the scheduled site build.
+
+![Luna Flow ecosystem dependency graph](/attachments/ecosystem/ecosystem-dependencies.svg)

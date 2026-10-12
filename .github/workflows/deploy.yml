@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir -p ../workspace
           node tools/discover-repos.mjs ../workspace/repositories.json
+          gh api repos/Luna-Flow/.github/contents/project-sync.json --jq .content | base64 --decode > ../workspace/project-sync.json
           for repo in $(node -p "require('../workspace/repositories.json').repositories.join(' ')"); do
             branch=$(node -p "require('./config/repos.json').branch")
             echo "Fetching $repo@$branch"

@@ -14,9 +14,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
 import {
   buildAttachments,
+  compileGraphviz,
   frontmatterOf,
   isExternal,
   listAttachments,
@@ -63,6 +65,14 @@ function discoverRepos() {
 const sources = [{ id: SITE, docDir: path.join(root, 'content'), repo: 'Luna-Flow.github.io', docPrefix: 'content' }];
 const warnings = [];
 const graphvizManifest = [];
+const ecosystemDot = path.join(root, 'content', 'attachments', 'ecosystem-dependencies.dot');
+if (manifestPath) {
+  const generated = spawnSync(process.execPath, [path.join(root, 'tools', 'ecosystem-graph.mjs'), workspace, ecosystemDot], { encoding: 'utf8' });
+  if (generated.status !== 0) throw new Error(generated.stderr || generated.stdout || 'ecosystem graph generation failed');
+  const result = compileGraphviz(path.join(root, 'content'), { kind: 'graphviz', source: 'ecosystem-dependencies.dot', output: 'ecosystem-dependencies.svg' }, path.join(root, 'public', 'attachments', 'ecosystem'));
+  if (!result.ok) throw new Error(`ecosystem dependency graph failed:\n${result.message}`);
+  fs.rmSync(ecosystemDot, { force: true });
+}
 for (const name of discoverRepos()) {
   const docDir = path.join(workspace, name, 'doc');
   if (!fs.existsSync(path.join(docDir, 'conf.json')) || !fs.existsSync(path.join(docDir, 'manual', 'index.md'))) {
