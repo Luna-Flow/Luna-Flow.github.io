@@ -24,3 +24,8 @@ jobs:
         run: npm test
       - name: Check site documentation
         run: node tools/lunadoc/cli.mjs check . --doc content --compile
+      - name: Prepare ecosystem fixture
+        env:
+          LUNAFLOW_REPO_ROOT: tools/lunadoc/test/fixtures/ecosystem
+          LUNAFLOW_REPO_MANIFEST: tools/lunadoc/test/fixtures/ecosystem/repositories.json
+        run: node tools/prepare-site.mjs

@@ -44,7 +44,7 @@ jobs:
             branch=$(node -p "require('./config/repos.json').branch")
             echo "Fetching $repo@$branch"
             mkdir -p "../workspace/$repo"
-            gh api "repos/Luna-Flow/$repo/tarball/$branch" | tar -xz -C "../workspace/$repo" --strip-components=1 || echo "::warning::could not fetch $repo"
+            gh api "repos/Luna-Flow/$repo/tarball/$branch" | tar -xz -C "../workspace/$repo" --strip-components=1 || { echo "::error::could not fetch $repo"; exit 1; }
           done
       - run: npm ci
       - name: Check site content
