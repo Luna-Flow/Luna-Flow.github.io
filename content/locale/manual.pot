@@ -508,6 +508,18 @@ msgstr ""
 msgid "We are building not just a collection of math packages, but a composable foundation for future scientific computing in MoonBit."
 msgstr ""
 
+#: manual/about.md:56
+msgid "Ecosystem dependencies"
+msgstr ""
+
+#: manual/about.md:58
+msgid "The generated graph below shows the public packages by layer. Solid edges point to the declared dependency version; red dashed edges mark a dependency that trails the current `main` version of the package it uses. The graph is regenerated during the scheduled site build."
+msgstr ""
+
+#: manual/about.md:60
+msgid "![Luna Flow ecosystem dependency graph](/attachments/ecosystem/ecosystem-dependencies.svg)"
+msgstr ""
+
 #: manual/contribute/attachments.md:1
 msgid "Attachments"
 msgstr ""

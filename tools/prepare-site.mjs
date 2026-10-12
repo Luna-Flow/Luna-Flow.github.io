@@ -14,9 +14,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import YAML from 'yaml';
 import {
   buildAttachments,
+  compileGraphviz,
   frontmatterOf,
   isExternal,
   listAttachments,
@@ -63,6 +65,16 @@ function discoverRepos() {
 const sources = [{ id: SITE, docDir: path.join(root, 'content'), repo: 'Luna-Flow.github.io', docPrefix: 'content' }];
 const warnings = [];
 const graphvizManifest = [];
+const ecosystemDoc = path.join(out, 'ecosystem');
+const ecosystemDot = path.join(ecosystemDoc, 'attachments', 'ecosystem-dependencies.dot');
+if (manifestPath) {
+  const generated = spawnSync(process.execPath, [path.join(root, 'tools', 'ecosystem-graph.mjs'), workspace, ecosystemDot], { encoding: 'utf8' });
+  if (generated.status !== 0) throw new Error(generated.stderr || generated.stdout || 'ecosystem graph generation failed');
+  if (generated.stderr.trim()) console.warn(generated.stderr.trim());
+  const result = compileGraphviz(ecosystemDoc, { kind: 'graphviz', source: 'ecosystem-dependencies.dot', output: 'ecosystem-dependencies.svg' }, path.join(root, 'public', 'attachments', 'ecosystem'));
+  if (!result.ok) throw new Error(`ecosystem dependency graph failed:\n${result.message}`);
+  graphvizManifest.push('attachments/ecosystem/ecosystem-dependencies.svg');
+}
 for (const name of discoverRepos()) {
   const docDir = path.join(workspace, name, 'doc');
   if (!fs.existsSync(path.join(docDir, 'conf.json')) || !fs.existsSync(path.join(docDir, 'manual', 'index.md'))) {
@@ -301,5 +313,8 @@ if (others.length) site.categories.push({ id: 'other', repos: others });
 
 fs.writeFileSync(path.join(out, 'site.json'), `${JSON.stringify(site, null, 2)}\n`);
 fs.writeFileSync(path.join(out, 'graphviz-manifest.json'), `${JSON.stringify(graphvizManifest, null, 2)}\n`);
+// Inline SVG depends on generated assets, which Astro's Markdown digest does not track.
+// Re-render content after preparation so changed diagrams cannot reuse stale HTML.
+fs.rmSync(path.join(root, 'node_modules', '.astro', 'data-store.json'), { force: true });
 for (const warning of warnings) console.warn(`warning: ${warning}`);
 console.log(`Prepared ${Object.keys(site.repos).length} repositories, ${Object.keys(site.pages).length} pages.`);
