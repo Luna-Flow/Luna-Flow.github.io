@@ -31,8 +31,25 @@ jobs:
           cache: npm
       - uses: actions/configure-pages@v6
       - uses: typst-community/setup-typst@v5
+      # The Ubuntu mirrors sometimes answer 503 for minutes; retry each
+      # download and keep the .deb files in a cache that is renewed monthly.
+      - name: Key for the apt cache
+        id: apt-key
+        run: echo "key=apt-${ImageOS:-unknown}-$(dpkg --print-architecture)-fonts-noto-cjk-graphviz-$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+      - name: Cache apt packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/apt-archives
+          key: ${{ steps.apt-key.outputs.key }}
       - name: Install CJK fonts and Graphviz
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk graphviz
+        timeout-minutes: 15
+        run: |
+          archives="$HOME/.cache/apt-archives"
+          mkdir -p "$archives/partial"
+          apt_options=(-o APT::Keep-Downloaded-Packages=true -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Dir::Cache::Archives="$archives")
+          sudo apt-get "${apt_options[@]}" update || echo "::warning::apt-get update failed; installing from the existing lists"
+          sudo apt-get "${apt_options[@]}" install -y --no-install-recommends fonts-noto-cjk graphviz
+          sudo chown -R "$(id -u):$(id -g)" "$archives"
       - name: Fetch documentation sources
         env:
           GH_TOKEN: ${{ secrets.LUNAFLOW_DOCS_TOKEN != '' && secrets.LUNAFLOW_DOCS_TOKEN || github.token }}
